@@ -4,14 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>先见交易学院 · Presight Trading Institute</title>
-<meta name="description" content="量化跟单策略与免费交易社区信号。策略以自有资金实盘运行，历史成交逐笔公开，盈亏不做筛选。">
+<meta name="description" content="先见，先行。量化跟单策略与免费交易社区信号。策略以自有资金实盘运行，历史成交逐笔公开，盈亏不做筛选。">
 <meta name="theme-color" content="#EDF0F4">
 <meta name="robots" content="index,follow">
 
-<!-- 分享卡片：上线前把 URL 换成你的正式域名 -->
+<link rel="alternate" hreflang="zh-Hans" href="https://presighttrading.com/">
+<link rel="alternate" hreflang="en" href="https://presighttrading.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://presighttrading.com/">
+
 <meta property="og:type" content="website">
 <meta property="og:title" content="先见交易学院 · Presight Trading Institute">
-<meta property="og:description" content="复盘只能解释已经发生的。定价必须发生在之前。">
+<meta property="og:description" content="先见，先行。">
 <meta property="og:url" content="https://presighttrading.com/">
 <meta property="og:image" content="https://presighttrading.com/assets/og.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -23,7 +26,6 @@
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-
 <!-- ticker -->
 <div class="tick" aria-hidden="true">
   <div class="tick-in" id="ticker"></div>
@@ -48,7 +50,12 @@
       <a href="#start">如何开始</a>
       <a href="#faq">常见问题</a>
     </nav>
-    <a href="#strategy" class="btn">开始跟单 <span class="arw">→</span></a>
+    <div class="hact">
+      <div class="langsw">
+        <a href="#top" class="cur">中</a><span>/</span><a href="en/" >EN</a>
+      </div>
+      <a href="#strategy" class="btn">开始跟单 <span class="arw">&rarr;</span></a>
+    </div>
   </div>
 </header>
 
@@ -59,11 +66,11 @@
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <div class="fig">FIG. <b>00</b> — 先见 / PRESIGHT</div>
-        <h1 class="display han">复盘只能解释已经发生的。<br>定价必须<span class="fx">发生在之前</span>。</h1>
+        <div class="fig">FIG. <b>00</b> &mdash; PRESIGHT</div>
+        <h1 class="display slogan han">先见，<span class="fx">先行</span>。</h1>
         <p class="lede">策略以自有资金实盘运行，历史成交逐笔公开，盈亏不做筛选。可直接接入跟单，也可先在社区免费取用信号，自行验证后再决定。</p>
         <div class="hero-cta">
-          <a href="#strategy" class="btn big">查看实盘记录 <span class="arw">→</span></a>
+          <a href="#strategy" class="btn big">查看实盘记录 <span class="arw">&rarr;</span></a>
           <a href="#community" class="btn big ghost">进入社区（免费）</a>
         </div>
         <p class="hero-note">实盘运行 · 成交数据每 60 秒同步 · 杠杆交易存在本金损失风险</p>
@@ -81,10 +88,10 @@
     </div>
 
     <div class="strip rv">
-      <div><div class="k">Live Since</div><div class="v" id="sRun">—<small>天</small></div></div>
-      <div><div class="k">Total Return</div><div class="v" id="sRet" style="color:var(--cobalt)">—</div></div>
-      <div><div class="k">Win Rate</div><div class="v" id="sWin">—</div></div>
-      <div><div class="k">Community</div><div class="v" id="sMem">—</div></div>
+      <div><div class="k">Live Since</div><div class="v" id="sRun">&mdash;</div></div>
+      <div><div class="k">Total Return</div><div class="v" id="sRet" style="color:var(--cobalt)">&mdash;</div></div>
+      <div><div class="k">Win Rate</div><div class="v" id="sWin">&mdash;</div></div>
+      <div><div class="k">Community</div><div class="v" id="sMem">&mdash;</div></div>
     </div>
   </div>
 </div>
@@ -94,7 +101,7 @@
   <div class="rail"><span style="top:120px">STRATEGY</span></div>
   <div class="wrap">
     <div class="sec-head rv">
-      <div class="fig">FIG. <b>01</b> — 主推产品</div>
+      <div class="fig">FIG. <b>01</b> &mdash; 主推产品</div>
       <h2 class="h2 han">量化跟单策略</h2>
       <p class="lede">多品种量化策略，运行于实盘账户。绑定后开平仓自动同步至你的账户，无需判断方向或盯盘。下表为该账户的完整成交记录，亏损单同样列出。</p>
     </div>
@@ -105,7 +112,7 @@
           <h3 class="mono">PRESIGHT ALPHA-1</h3>
           <p class="sub">中低频趋势跟随，叠加波动率过滤。覆盖主要货币对、贵金属与股指，单笔风险敞口固定，不做加仓与摊平。</p>
           <div class="tags">
-            <span class="tag hero-tag">跟单亏损包赔 · <a href="#faq">赔付条款</a></span>
+            <span class="tag hero-tag">跟单亏损包赔 &middot; <a href="#faq">赔付条款</a></span>
             <span class="tag">MULTI-ASSET</span>
             <span class="tag">AUTO-COPY</span>
             <span class="tag">FIXED RISK</span>
@@ -114,11 +121,11 @@
       </div>
 
       <div class="metrics">
-        <div><div class="k">净收益</div><div class="v g" id="mRet">—</div></div>
-        <div><div class="k">胜率</div><div class="v" id="mWin">—</div></div>
-        <div><div class="k">最大回撤</div><div class="v r" id="mDD">—</div></div>
-        <div><div class="k">盈亏比</div><div class="v" id="mPF">—</div></div>
-        <div><div class="k">成交笔数</div><div class="v" id="mN">—</div></div>
+        <div><div class="k">净收益</div><div class="v g" id="mRet">&mdash;</div></div>
+        <div><div class="k">胜率</div><div class="v" id="mWin">&mdash;</div></div>
+        <div><div class="k">最大回撤</div><div class="v r" id="mDD">&mdash;</div></div>
+        <div><div class="k">盈亏比</div><div class="v" id="mPF">&mdash;</div></div>
+        <div><div class="k">成交笔数</div><div class="v" id="mN">&mdash;</div></div>
       </div>
 
       <div class="curvewrap">
@@ -127,7 +134,7 @@
 
       <div class="tbl-head">
         <h4>成交记录 · 近 12 笔</h4>
-        <div class="live"><span class="dot"></span> LIVE · <span id="upd">同步中</span></div>
+        <div class="live"><span class="dot"></span> LIVE &middot; <span id="upd">&mdash;</span></div>
       </div>
 
       <div class="tblscroll">
@@ -145,7 +152,7 @@
 
       <div class="panel-cta">
         <p>跟单在合作交易平台内完成。仅通过下方链接注册的账户具备本策略的订阅权限。</p>
-        <a href="#" id="brokerLink" class="btn big onDark" target="_blank" rel="noopener">注册并绑定跟单 <span class="arw">→</span></a>
+        <a href="#" id="brokerLink" class="btn big onDark" target="_blank" rel="noopener">注册并绑定跟单 <span class="arw">&rarr;</span></a>
       </div>
     </div>
   </div>
@@ -159,35 +166,31 @@
   <div class="wrap">
     <div class="p2">
       <div class="rv">
-        <div class="fig">FIG. <b>02</b> — 主推产品</div>
+        <div class="fig">FIG. <b>02</b> &mdash; 主推产品</div>
         <h2 class="h2 han">先见交易社区</h2>
         <div class="free"><span>￥0</span><s>永久免费</s></div>
         <p class="lede">不卖课、不收会员费、不做喊单群。社区内容全部免费开放，包括策略实盘在用的信号。</p>
         <div class="hero-cta">
-          <a href="#" id="communityLink" class="btn big">进入社区 <span class="arw">→</span></a>
+          <a href="#" id="communityLink" class="btn big">进入社区 <span class="arw">&rarr;</span></a>
         </div>
       </div>
 
       <div class="offers rv">
         <div class="offer">
           <div class="ix">01 / SIGNALS</div>
-          <h4>全品种量化信号</h4>
-          <p>覆盖外汇、贵金属、原油、股指与加密货币。每条信号包含入场区间、止损位、目标位与模型置信度，同步推送至 Telegram 与社区频道。</p>
+          <h4>全品种量化信号</h4><p>覆盖外汇、贵金属、原油、股指与加密货币。每条信号包含入场区间、止损位、目标位与模型置信度，同步推送至 Telegram 与社区频道。</p>
         </div>
         <div class="offer">
           <div class="ix">02 / RESEARCH</div>
-          <h4>市场分析</h4>
-          <p>每日盘前简报与每周宏观复盘，说明价格变动的驱动因素，而非事后归因。</p>
+          <h4>市场分析</h4><p>每日盘前简报与每周宏观复盘，说明价格变动的驱动因素，而非事后归因。</p>
         </div>
         <div class="offer">
           <div class="ix">03 / TRAINING</div>
-          <h4>交易培训</h4>
-          <p>从点差与滑点的成本构成，到仓位管理与回测中的过拟合识别。系统课程与直播答疑，全部公开。</p>
+          <h4>交易培训</h4><p>从点差与滑点的成本构成，到仓位管理与回测中的过拟合识别。系统课程与直播答疑，全部公开。</p>
         </div>
         <div class="offer">
           <div class="ix">04 / EVENTS</div>
-          <h4>交易活动</h4>
-          <p>模拟盘竞赛、实盘挑战与策略共建。提供奖金与实盘账户，无参与门槛。</p>
+          <h4>交易活动</h4><p>模拟盘竞赛、实盘挑战与策略共建。提供奖金与实盘账户，无参与门槛。</p>
         </div>
       </div>
     </div>
@@ -198,7 +201,7 @@
 <section id="start" style="padding-bottom:0">
   <div class="wrap">
     <div class="sec-head rv">
-      <div class="fig">FIG. <b>03</b> — 流程</div>
+      <div class="fig">FIG. <b>03</b> &mdash; 流程</div>
       <h2 class="h2 han">三步开始跟单</h2>
     </div>
   </div>
@@ -213,37 +216,22 @@
 <section id="faq">
   <div class="wrap">
     <div class="sec-head rv">
-      <div class="fig">FIG. <b>04</b> — 常见问题</div>
+      <div class="fig">FIG. <b>04</b> &mdash; 常见问题</div>
       <h2 class="h2 han">关于策略与跟单</h2>
     </div>
     <div class="faq rv">
-      <details open>
-        <summary>赔付如何触发与计算？</summary>
-        <p>【此处填写实际赔付条款，建议至少载明：触发条件（如自然月末账户净值低于期初的差额部分）、计算基准、赔付上限、赔付形式与到账周期，以及除外情形（人工干预、自行调整跟单比例、期间出金、平台系统故障等）。条款界定不清既缺乏说服力，也构成合规风险。】</p>
-      </details>
-      <details>
-        <summary>是否必须使用指定交易平台？</summary>
-        <p>是。跟单为平台内部的信号同步机制，仅通过本站链接注册的账户在订阅名单内，既有的其他账户无法接入。</p>
-      </details>
-      <details>
-        <summary>收入来源是什么？社区为何免费？</summary>
-        <p>跟单收入来自合作平台返佣与策略分成，与跟单规模挂钩。策略无收益时，我们同样无收入——利益方向与跟单者一致。社区为获客渠道，不单独计费。</p>
-      </details>
-      <details>
-        <summary>历史业绩是否经过筛选？</summary>
-        <p>本页成交记录直接取自策略运行账户，不做筛选，亏损单同样列出。历史表现不代表未来收益，任何策略均存在回撤期。</p>
-      </details>
-      <details>
-        <summary>最低入金要求是多少？</summary>
-        <p>【填写最低入金要求。建议一并说明：账户资金过低时，手数取整会使实际跟单比例偏离设定值。这一点写明反而增强可信度。】</p>
-      </details>
+      <details open><summary>赔付如何触发与计算？</summary><p>【此处填写实际赔付条款，建议至少载明：触发条件（如自然月末账户净值低于期初的差额部分）、计算基准、赔付上限、赔付形式与到账周期，以及除外情形（人工干预、自行调整跟单比例、期间出金、平台系统故障等）。条款界定不清既缺乏说服力，也构成合规风险。】</p></details>
+      <details><summary>是否必须使用指定交易平台？</summary><p>是。跟单为平台内部的信号同步机制，仅通过本站链接注册的账户在订阅名单内，既有的其他账户无法接入。</p></details>
+      <details><summary>收入来源是什么？社区为何免费？</summary><p>跟单收入来自合作平台返佣与策略分成，与跟单规模挂钩。策略无收益时，我们同样无收入——利益方向与跟单者一致。社区为获客渠道，不单独计费。</p></details>
+      <details><summary>历史业绩是否经过筛选？</summary><p>本页成交记录直接取自策略运行账户，不做筛选，亏损单同样列出。历史表现不代表未来收益，任何策略均存在回撤期。</p></details>
+      <details><summary>最低入金要求是多少？</summary><p>【填写最低入金要求。建议一并说明：账户资金过低时，手数取整会使实际跟单比例偏离设定值。这一点写明反而增强可信度。】</p></details>
     </div>
 
     <div class="risk rv" style="margin-top:52px">
-      <h4><span class="mono">⚠</span> 风险提示</h4>
+      <h4><span class="mono">&#9888;</span> 风险提示</h4>
       <p>差价合约、外汇及杠杆产品具有高风险，可能导致您损失全部本金，并不适合所有投资者。在交易前请确保您充分理解相关风险，并考虑自身的投资经验、财务状况与风险承受能力。</p>
       <p>本网站提供的信号、分析与培训内容仅供参考，不构成任何投资建议、要约或招揽。历史业绩不代表未来表现。您的交易决策及其结果由您本人承担。</p>
-      <p>【请在此补充：运营主体全称与注册地、持牌情况或明确的“未持牌”声明、合作交易平台名称与其监管机构、以及地区限制说明。】</p>
+      <p>【请在此补充：运营主体全称与注册地、持牌情况或明确的"未持牌"声明、合作交易平台名称与其监管机构、以及地区限制说明。】</p>
     </div>
   </div>
 </section>
@@ -262,6 +250,7 @@
           </svg>
           <span><span class="lt">PRESIGHT</span><span class="lc han" style="color:#5B6883">先见交易学院</span></span>
         </div>
+        <p class="fsl">先见，先行。</p>
         <p class="han" style="font-size:.84rem;line-height:1.8;max-width:34ch;color:#5B6883">Presight Trading Institute · 量化策略与交易教育</p>
       </div>
       <div><h5>产品</h5><a href="#strategy">跟单策略</a><a href="#community">社区信号</a><a href="#community">交易培训</a><a href="#community">交易活动</a></div>
@@ -269,7 +258,7 @@
       <div><h5>联系</h5><a href="#">Telegram</a><a href="#">微信社群</a><a href="#">邮箱</a><a href="#">商务合作</a></div>
     </div>
     <div class="fbot">
-      <span>© 2026 PRESIGHT TRADING INSTITUTE</span>
+      <span>&copy; 2026 PRESIGHT TRADING INSTITUTE</span>
       <span>交易有风险 · 入市需谨慎</span>
     </div>
   </div>

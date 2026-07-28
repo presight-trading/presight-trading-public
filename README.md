@@ -8,10 +8,11 @@
 
 ```
 presight-site/
-├── index.html                    首页
-├── 404.html                      错误页
+├── index.html                    中文首页   /
+├── en/index.html                 英文首页   /en/
+├── 404.html                      错误页（双语）
 ├── assets/
-│   ├── css/style.css             全部样式
+│   ├── css/style.css             全部样式，两版共用
 │   ├── js/config.js              ← 上线前只需要改这个文件
 │   ├── js/app.js                 渲染逻辑，一般不用动
 │   └── favicon.svg               站点图标
@@ -19,6 +20,19 @@ presight-site/
 ├── .nojekyll                     关闭 Jekyll 处理
 └── robots.txt
 ```
+
+## 双语
+
+两版是**独立的静态页面**，不是 JS 运行时切换——各有自己的 URL，搜索引擎能分别收录，`<head>` 里已经写好 `hreflang` 互指。
+
+| | |
+|---|---|
+| 中文 | `/` |
+| English | `/en/` |
+
+页头右上角有 `中 / EN` 切换。两版共用同一份 CSS 和 JS；JS 里的界面字符串（时间戳、加载/失败/空数据提示）跟着 `<html lang>` 自动切换，见 `app.js` 顶部的 `T` 对象。
+
+改文案时注意**两版都要改**——它们是两个文件，没有共享机制。这是刻意的取舍：省掉一套构建流程，代价是文案要手动同步。
 
 ---
 
@@ -40,13 +54,11 @@ git push -u origin main
 
 ### 绑定自己的域名
 
-1. 仓库根目录新建 `CNAME` 文件，内容一行，写你的域名（不带 `https://`、不带斜杠）：
+1. 在 **Settings → Pages → Custom domain** 填入 `presighttrading.com` 并保存。
 
-   ```
-   presighttrading.com
-   ```
+   > 本项目用 GitHub Actions 部署，这种方式**不需要 `CNAME` 文件**——GitHub 不会创建它，仓库里就算有也会被忽略。（分支部署方式才需要，别搞混。）
 
-2. DNS 侧添加记录：
+2. DNS 侧添加记录（Cloudflare 请先用 **DNS only / 灰云**，等 GitHub 签发证书、`Enforce HTTPS` 可勾选之后再决定是否开代理；若开代理，SSL/TLS 模式必须设为 **Full (strict)**，否则会出现无限重定向）：
 
    | 类型 | 主机 | 值 |
    |---|---|---|
@@ -105,7 +117,7 @@ const CONFIG = {
 
 ### 2. `index.html` 里的三处占位
 
-搜索 `【` 就能定位，共三处：
+中文版搜 `【`、英文版搜 `[`，各三处：
 
 - **赔付条款**（FAQ 第一条）—— 需写明触发条件、计算基准、赔付上限、到账周期、除外情形
 - **最低入金要求**（FAQ 最后一条）

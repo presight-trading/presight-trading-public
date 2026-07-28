@@ -308,3 +308,46 @@ footer a:hover{color:#fff}
   .fgrid{grid-template-columns:1fr}
   .btn.big{width:100%;justify-content:center}
 }
+
+/* ============================================================
+   SLOGAN — 「先见，先行」/ "See first. Move first."
+   短句 = 大字。首屏视觉重量交给标语和右侧图，不靠长文案。
+   ============================================================ */
+.slogan{margin-bottom:4px}
+.slogan.han{
+  font-size:clamp(2.9rem, 9vw, 6.2rem);
+  letter-spacing:.01em;
+  line-height:1.16;
+  font-weight:800;
+}
+.slogan.en{
+  font-size:clamp(2.7rem, 7.4vw, 5.4rem);
+  letter-spacing:-.045em;
+  line-height:.96;
+  font-weight:800;
+}
+.hero .lede{margin-top:30px}
+
+/* ---------- 语言切换 ---------- */
+.hact{display:flex;align-items:center;gap:20px;flex:none}
+.langsw{
+  display:flex;align-items:center;gap:7px;
+  font-family:var(--mono);font-size:.72rem;font-weight:500;letter-spacing:.06em;
+}
+.langsw a{color:var(--ink-soft);text-decoration:none;padding:3px 2px;transition:color .18s}
+.langsw a:hover{color:var(--ink)}
+.langsw a.cur{color:var(--ink);font-weight:700;border-bottom:1.5px solid var(--cobalt)}
+.langsw span{color:var(--grid)}
+
+/* ---------- 页脚标语 ---------- */
+.fsl{
+  font-family:var(--mono);font-size:.78rem;letter-spacing:.1em;
+  color:#4A66F0;margin-bottom:12px;
+}
+
+@media(max-width:760px){
+  .hact{gap:12px}
+  .hbar .btn{padding:9px 14px;font-size:.8rem}
+  .slogan.han{font-size:clamp(2.4rem,12vw,3.4rem)}
+  .slogan.en{font-size:clamp(2.2rem,11vw,3.2rem)}
+}

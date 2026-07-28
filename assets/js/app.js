@@ -1,3 +1,19 @@
+/* ---------- 界面文案：跟随 <html lang> 自动切换 ---------- */
+const IS_EN = document.documentElement.lang.toLowerCase().startsWith('en');
+const T = IS_EN ? {
+  locale:'en-GB', daysUnit:'<small>days</small>',
+  now:'just now', min:'m ago', hour:'h ago', day:'d ago',
+  updated:'updated ', demo:'demo data',
+  errT:'Fill history unavailable', errB:'The data endpoint did not respond. It will retry automatically, or you can reload the page.',
+  emptyT:'No closed trades yet', emptyB:'The strategy is running. The first closed trade will appear here immediately.',
+} : {
+  locale:'zh-CN', daysUnit:'<small>\u5929</small>',
+  now:'\u521a\u521a', min:' \u5206\u949f\u524d', hour:' \u5c0f\u65f6\u524d', day:' \u5929\u524d',
+  updated:'\u66f4\u65b0\u4e8e ', demo:'\u6f14\u793a\u6570\u636e',
+  errT:'\u6210\u4ea4\u8bb0\u5f55\u6682\u65f6\u53d6\u4e0d\u5230', errB:'\u6570\u636e\u63a5\u53e3\u6ca1\u6709\u54cd\u5e94\u3002\u7a0d\u540e\u4f1a\u81ea\u52a8\u91cd\u8bd5\uff0c\u4e5f\u53ef\u4ee5\u5237\u65b0\u9875\u9762\u3002',
+  emptyT:'\u8fd8\u6ca1\u6709\u5df2\u5e73\u4ed3\u7684\u4ea4\u6613', emptyB:'\u7b56\u7565\u6b63\u5728\u8fd0\u884c\uff0c\u7b2c\u4e00\u7b14\u6210\u4ea4\u5e73\u4ed3\u540e\u4f1a\u7acb\u523b\u51fa\u73b0\u5728\u8fd9\u91cc\u3002',
+};
+
 /* ---------- 演示数据（接上 API 后自动弃用） ---------- */
 const DEMO = (()=>{
   const spec = [
@@ -28,11 +44,11 @@ const fmt = (n,d=2) => n.toLocaleString('en-US',{minimumFractionDigits:d,maximum
 const price = (s,v) => v.toFixed(s.includes('JPY')?3 : (s==='NAS100'||s==='US30')?1 : (s.includes('XAU')?2:5));
 function timeAgo(iso){
   const m = Math.floor((Date.now()-new Date(iso))/60000);
-  if(m<1) return '刚刚';
-  if(m<60) return m+' 分钟前';
+  if(m<1) return T.now;
+  if(m<60) return m+T.min;
   const h = Math.floor(m/60);
-  if(h<24) return h+' 小时前';
-  return Math.floor(h/24)+' 天前';
+  if(h<24) return h+T.hour;
+  return Math.floor(h/24)+T.day;
 }
 
 /* ---------- 渲染成交表 ---------- */
@@ -44,12 +60,12 @@ function renderLoading(){
 function renderError(){
   $('#tradeBody').innerHTML = '';
   $('#tradeState').innerHTML =
-    '<div class="state"><b>成交记录暂时取不到</b>数据接口没有响应。稍后会自动重试，也可以刷新页面。</div>';
+    `<div class="state"><b>${T.errT}</b>${T.errB}</div>`;
 }
 function renderEmpty(){
   $('#tradeBody').innerHTML = '';
   $('#tradeState').innerHTML =
-    '<div class="state"><b>还没有已平仓的交易</b>策略正在运行，第一笔成交平仓后会立刻出现在这里。</div>';
+    `<div class="state"><b>${T.emptyT}</b>${T.emptyB}</div>`;
 }
 
 function renderTrades(trades){
@@ -68,7 +84,7 @@ function renderTrades(trades){
       <td class="pnl ${win?'g':'r'}" style="text-align:right;font-weight:700">${win?'+':'−'}${fmt(Math.abs(t.pnl))}</td>
     </tr>`;
   }).join('');
-  $('#upd').textContent = '更新于 ' + new Date().toLocaleTimeString('zh-CN',{hour:'2-digit',minute:'2-digit'});
+  $('#upd').textContent = T.updated + new Date().toLocaleTimeString(T.locale,{hour:'2-digit',minute:'2-digit'});
 }
 
 /* ---------- 由成交记录反推指标 ---------- */
@@ -181,7 +197,7 @@ function drawTicker(){
 async function loadTrades(){
   if(!CONFIG.tradesEndpoint){
     renderTrades(DEMO); renderMetrics(DEMO);
-    $('#upd').textContent = '演示数据';
+    $('#upd').textContent = T.demo;
     return;
   }
   renderLoading();
@@ -218,7 +234,7 @@ const io = new IntersectionObserver((es)=>es.forEach(e=>{
   if(!e.isIntersecting) return;
   e.target.classList.add('in');
   if(e.target.classList.contains('strip')){
-    countUp($('#sRun'),412,'<small>天</small>');
+    countUp($('#sRun'),412,T.daysUnit);
     countUp($('#sMem'),8640,'+');
   }
   io.unobserve(e.target);
