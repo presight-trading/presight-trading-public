@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Presight Trading Institute — See first. Move first.</title>
+<meta name="description" content="See first. Move first. A copy-trading quant strategy running on our own capital, with every fill published, and a free multi-asset signal community.">
+<meta name="theme-color" content="#EDF0F4">
+<meta name="robots" content="index,follow">
+
+<link rel="alternate" hreflang="zh-Hans" href="https://presighttrading.com/">
+<link rel="alternate" hreflang="en" href="https://presighttrading.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://presighttrading.com/">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Presight Trading Institute — See first. Move first.">
+<meta property="og:description" content="See first. Move first.">
+<meta property="og:url" content="https://presighttrading.com/en/">
+<meta property="og:image" content="https://presighttrading.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<!-- ticker -->
+<div class="tick" aria-hidden="true">
+  <div class="tick-in" id="ticker"></div>
+</div>
+
+<header>
+  <div class="wrap hbar">
+    <a href="#top" class="logo" aria-label="Presight Trading Institute home">
+      <svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true">
+        <rect x=".5" y=".5" width="29" height="29" stroke="#0A111E"/>
+        <path d="M4 21 L10 15 L14 18 L18 9" stroke="#1B3BD8" stroke-width="2" fill="none"/>
+        <path d="M18 9 L22 12 L26 5" stroke="#D6188A" stroke-width="2" fill="none" stroke-dasharray="3 3"/>
+      </svg>
+      <span>
+        <span class="lt">PRESIGHT</span>
+        <span class="lc ">TRADING INSTITUTE</span>
+      </span>
+    </a>
+    <nav>
+      <a href="#strategy">Strategy</a>
+      <a href="#community">Community</a>
+      <a href="#start">Get started</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="hact">
+      <div class="langsw">
+        <a href="../" >中</a><span>/</span><a href="#top" class="cur">EN</a>
+      </div>
+      <a href="#strategy" class="btn">Start copying <span class="arw">&rarr;</span></a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ===================== HERO ===================== -->
+<div class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="fig">FIG. <b>00</b> &mdash; PRESIGHT</div>
+        <h1 class="display slogan en">See first.<br><span class="fx">Move first.</span></h1>
+        <p class="lede">The strategy runs on our own capital. Every closed trade is published, losses included. Copy it directly, or take the signals free in the community and verify for yourself first.</p>
+        <div class="hero-cta">
+          <a href="#strategy" class="btn big">View the live record <span class="arw">&rarr;</span></a>
+          <a href="#community" class="btn big ghost">Join the community (free)</a>
+        </div>
+        <p class="hero-note">Live account &middot; Fills sync every 60s &middot; Leveraged trading can cost you your full deposit</p>
+      </div>
+
+      <div>
+        <div class="sigchart">
+          <svg viewBox="0 0 520 340" id="heroChart" role="img" aria-label="Strategy equity curve. Solid line is realized, dashed line is the model projection."></svg>
+          <div class="legend">
+            <span><i class="sw"></i> REALIZED</span>
+            <span><i class="sw d"></i> PROJECTED</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="strip rv">
+      <div><div class="k">Live Since</div><div class="v" id="sRun">&mdash;</div></div>
+      <div><div class="k">Total Return</div><div class="v" id="sRet" style="color:var(--cobalt)">&mdash;</div></div>
+      <div><div class="k">Win Rate</div><div class="v" id="sWin">&mdash;</div></div>
+      <div><div class="k">Community</div><div class="v" id="sMem">&mdash;</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== PRODUCT 01 ===================== -->
+<section id="strategy">
+  <div class="rail"><span style="top:120px">STRATEGY</span></div>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="fig">FIG. <b>01</b> &mdash; FLAGSHIP</div>
+      <h2 class="h2 ">Copy-trading strategy</h2>
+      <p class="lede">A multi-asset quant strategy running on a live account. Once linked, entries and exits mirror to your account automatically — no direction calls, no screen time. The table below is that account’s complete fill history. Losing trades included.</p>
+    </div>
+
+    <div class="panelbox rv">
+      <div class="panel-top">
+        <div>
+          <h3 class="mono">PRESIGHT ALPHA-1</h3>
+          <p class="sub">Low-to-mid frequency trend following with a volatility filter. Major pairs, metals and indices. Fixed risk per position, no averaging down.</p>
+          <div class="tags">
+            <span class="tag hero-tag">Losses on copied trades covered &middot; <a href="#faq">Terms</a></span>
+            <span class="tag">MULTI-ASSET</span>
+            <span class="tag">AUTO-COPY</span>
+            <span class="tag">FIXED RISK</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="metrics">
+        <div><div class="k">Net P&amp;L</div><div class="v g" id="mRet">&mdash;</div></div>
+        <div><div class="k">Win rate</div><div class="v" id="mWin">&mdash;</div></div>
+        <div><div class="k">Max drawdown</div><div class="v r" id="mDD">&mdash;</div></div>
+        <div><div class="k">Profit factor</div><div class="v" id="mPF">&mdash;</div></div>
+        <div><div class="k">Trades</div><div class="v" id="mN">&mdash;</div></div>
+      </div>
+
+      <div class="curvewrap">
+        <svg viewBox="0 0 1080 260" id="equityChart" role="img" aria-label="Cumulative strategy equity curve"></svg>
+      </div>
+
+      <div class="tbl-head">
+        <h4>Fill history &middot; last 12</h4>
+        <div class="live"><span class="dot"></span> LIVE &middot; <span id="upd">&mdash;</span></div>
+      </div>
+
+      <div class="tblscroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Closed</th><th>Symbol</th><th>Side</th><th>Lots</th>
+              <th>Entry</th><th>Exit</th><th>Pips</th><th style="text-align:right">P&amp;L (USD)</th>
+            </tr>
+          </thead>
+          <tbody id="tradeBody"></tbody>
+        </table>
+      </div>
+      <div id="tradeState"></div>
+
+      <div class="panel-cta">
+        <p>Copy trading runs inside the partner platform. Only accounts registered through the link below can subscribe to this strategy.</p>
+        <a href="#" id="brokerLink" class="btn big onDark" target="_blank" rel="noopener">Register and link account <span class="arw">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ===================== PRODUCT 02 ===================== -->
+<section id="community">
+  <div class="rail"><span style="top:120px">COMMUNITY</span></div>
+  <div class="wrap">
+    <div class="p2">
+      <div class="rv">
+        <div class="fig">FIG. <b>02</b> &mdash; FLAGSHIP</div>
+        <h2 class="h2 ">Presight Trading Community</h2>
+        <div class="free"><span>$0</span><s>free, permanently</s></div>
+        <p class="lede">No courses for sale, no membership fees, no call groups. Everything in the community is open, including the signals the live strategy runs on.</p>
+        <div class="hero-cta">
+          <a href="#" id="communityLink" class="btn big">Enter the community <span class="arw">&rarr;</span></a>
+        </div>
+      </div>
+
+      <div class="offers rv">
+        <div class="offer">
+          <div class="ix">01 / SIGNALS</div>
+          <h4>Multi-asset signals</h4><p>FX, metals, oil, indices and crypto. Every signal carries an entry range, stop, target and model confidence, pushed to Telegram and the community channel.</p>
+        </div>
+        <div class="offer">
+          <div class="ix">02 / RESEARCH</div>
+          <h4>Market analysis</h4><p>Daily pre-market briefs and a weekly macro review, explaining what drove the move rather than fitting a story to it afterwards.</p>
+        </div>
+        <div class="offer">
+          <div class="ix">03 / TRAINING</div>
+          <h4>Trading education</h4><p>From what spread and slippage actually cost you, through position sizing and spotting overfitting in a backtest. Full course and live Q&amp;A, all open.</p>
+        </div>
+        <div class="offer">
+          <div class="ix">04 / EVENTS</div>
+          <h4>Events</h4><p>Demo competitions, live-account challenges and open strategy builds. Prize money and funded accounts. No entry requirement.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== STEPS ===================== -->
+<section id="start" style="padding-bottom:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="fig">FIG. <b>03</b> &mdash; PROCESS</div>
+      <h2 class="h2 ">Three steps to start copying</h2>
+    </div>
+  </div>
+  <div class="steps rv">
+    <div class="step"><div class="n">01</div><h4>Register through the link</h4><p>Open an account with the partner platform using the link on this site and complete verification. Only accounts opened this way can subscribe to the strategy.</p></div>
+    <div class="step"><div class="n">02</div><h4>Fund and subscribe</h4><p>Find PRESIGHT ALPHA-1 on the platform’s copy page, set your copy ratio and per-trade risk cap, then confirm.</p></div>
+    <div class="step"><div class="n">03</div><h4>Automatic sync</h4><p>Every entry and exit mirrors to your account. Pause or unlink at any time from inside the platform — no need to contact us.</p></div>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="fig">FIG. <b>04</b> &mdash; FAQ</div>
+      <h2 class="h2 ">About the strategy and copy trading</h2>
+    </div>
+    <div class="faq rv">
+      <details open><summary>How is the loss coverage triggered and calculated?</summary><p>[Fill in your actual coverage terms. At minimum state: the trigger condition (e.g. the shortfall where month-end equity falls below opening equity), the calculation basis, the cap, the form and timing of payment, and the exclusions (manual intervention, self-adjusted copy ratio, withdrawals during the period, platform outages). Vague terms are both unpersuasive and a compliance exposure.]</p></details>
+      <details><summary>Do I have to use the specified platform?</summary><p>Yes. Copy trading is a signal-sync mechanism inside the platform, and only accounts registered through this site’s link appear on the subscription list. Accounts you already hold elsewhere cannot be connected.</p></details>
+      <details><summary>How do you make money? Why is the community free?</summary><p>Copy-trading revenue comes from partner rebates and a share of strategy performance, scaling with copied volume. When the strategy earns nothing, neither do we — our incentives point the same way as yours. The community is an acquisition channel and is not billed separately.</p></details>
+      <details><summary>Is the track record filtered?</summary><p>The fills on this page come straight from the strategy’s live account with no filtering, and losing trades are listed alongside the rest. Past performance does not indicate future results, and every strategy has drawdown periods.</p></details>
+      <details><summary>What is the minimum deposit?</summary><p>[Fill in the minimum deposit. Worth adding: below a certain account size, lot rounding pushes the actual copy ratio away from the one you set. Saying so plainly tends to build trust rather than cost you sign-ups.]</p></details>
+    </div>
+
+    <div class="risk rv" style="margin-top:52px">
+      <h4><span class="mono">&#9888;</span> Risk warning</h4>
+      <p>Contracts for difference, foreign exchange and other leveraged products carry a high level of risk and can result in the loss of all invested capital. They are not suitable for every investor. Before trading, make sure you understand the risks involved and consider your experience, financial position and tolerance for loss.</p>
+      <p>Signals, analysis and educational material on this site are provided for information only and do not constitute investment advice, an offer or a solicitation. Past performance does not indicate future results. Your trading decisions and their outcomes are your own.</p>
+      <p>[Add here: the operating entity’s full legal name and place of registration, its licensing status or an explicit statement that it is unlicensed, the partner platform and its regulator, and any territorial restrictions.]</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <div class="logo" style="color:#fff;margin-bottom:16px">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true">
+            <rect x=".5" y=".5" width="29" height="29" stroke="#24304A"/>
+            <path d="M4 21 L10 15 L14 18 L18 9" stroke="#4A66F0" stroke-width="2" fill="none"/>
+            <path d="M18 9 L22 12 L26 5" stroke="#D6188A" stroke-width="2" fill="none" stroke-dasharray="3 3"/>
+          </svg>
+          <span><span class="lt">PRESIGHT</span><span class="lc " style="color:#5B6883">TRADING INSTITUTE</span></span>
+        </div>
+        <p class="fsl">See first. Move first.</p>
+        <p class="" style="font-size:.84rem;line-height:1.8;max-width:34ch;color:#5B6883">Presight Trading Institute &middot; Quantitative strategy and trading education</p>
+      </div>
+      <div><h5>Product</h5><a href="#strategy">Copy trading</a><a href="#community">Community signals</a><a href="#community">Education</a><a href="#community">Events</a></div>
+      <div><h5>Resources</h5><a href="#faq">FAQ</a><a href="#faq">Coverage terms</a><a href="#">Strategy factsheet</a><a href="#">Track record (CSV)</a></div>
+      <div><h5>Contact</h5><a href="#">Telegram</a><a href="#">WeChat group</a><a href="#">Email</a><a href="#">Partnerships</a></div>
+    </div>
+    <div class="fbot">
+      <span>&copy; 2026 PRESIGHT TRADING INSTITUTE</span>
+      <span>Trading involves risk</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/config.js"></script>
+<script src="../assets/js/app.js"></script>
+</body>
+</html>
