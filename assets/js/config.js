@@ -8,8 +8,18 @@ const CONFIG = {
   // 交易平台注册链接（带你的推广参数）
   brokerSignupUrl: 'https://example-broker.com/register?ref=PRESIGHT',
 
-  // 社区入口
-  communityUrl   : 'https://t.me/your_channel',
+  // ---- 社区入口 ----
+  // 公开信号频道：任何人可看，是对外的主入口
+  channelUrl     : 'https://t.me/presight_signals',
+
+  // 交易学院社区群：邀请制。行情分析、活动、开户答疑都在这里
+  communityUrl   : 'https://t.me/+h_fn0efw-LA5ZTVl',
+
+  // VIP 实时信号频道：审批制，仅授权成员
+  vipUrl         : 'https://t.me/+G9GlHdkmIZliOGY1',
+
+  // 联系方式
+  contactEmail   : 'hello@presighttrading.com',
 
   // 自动刷新间隔（毫秒）
   refreshMs      : 60000,
