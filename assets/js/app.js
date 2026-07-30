@@ -228,7 +228,20 @@ loadTrades();
 setInterval(loadTrades, CONFIG.refreshMs);
 
 $('#brokerLink').href    = CONFIG.brokerSignupUrl;
-$('#communityLink').href = CONFIG.communityUrl;
+
+/* 链接统一由 config.js 注入：把同一 data-link 的元素全部填上，
+   页面里加几个入口都不用再改 JS。 */
+const LINKS = {
+  broker   : CONFIG.brokerSignupUrl,
+  channel  : CONFIG.channelUrl,
+  community: CONFIG.communityUrl,
+  vip      : CONFIG.vipUrl,
+  email    : 'mailto:' + CONFIG.contactEmail,
+};
+document.querySelectorAll('[data-link]').forEach(el=>{
+  const url = LINKS[el.dataset.link];
+  if(url) el.href = url;
+});
 
 const io = new IntersectionObserver((es)=>es.forEach(e=>{
   if(!e.isIntersecting) return;
