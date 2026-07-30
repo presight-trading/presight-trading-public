@@ -15,7 +15,7 @@ const CONFIG = {
   channelUrl     : 'https://t.me/presight_signals',
 
   // 交易学院社区群：公开可搜索，直接进不需要审批
-  communityUrl   : 'https://t.me/presight_academy',
+  communityUrl   : 'https://t.me/presight_institute',
 
   // VIP 实时信号频道：三者中唯一需要资格的。审批制，且需先开户绑定跟单
   vipUrl         : 'https://t.me/+G9GlHdkmIZliOGY1',
