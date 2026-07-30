@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>跟单亏损包赔 · 活动细则 — PRESIGHT 先见交易学院</title>
+<meta name="description" content="Presight 跟单亏损包赔计划的完整细则：参与条件、保护期、基准资金、赔付计算、除外情形与核验流程。">
+<meta name="robots" content="index,follow">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+  .doc{max-width:74ch;margin:0 auto}
+  .doc h3{font-family:var(--han);font-size:1.06rem;font-weight:700;color:var(--ink);
+          margin:44px 0 14px;padding-bottom:9px;border-bottom:1px solid var(--grid)}
+  .doc h3:first-of-type{margin-top:8px}
+  .doc h3 .no{font-family:var(--mono);font-size:.78rem;color:var(--cobalt);margin-right:10px}
+  .doc p,.doc li{font-family:var(--han);font-size:.88rem;line-height:1.95;color:var(--ink-mid)}
+  .doc p+p{margin-top:12px}
+  .doc ol,.doc ul{margin:12px 0 0 1.35em}
+  .doc li+li{margin-top:9px}
+  .doc b,.doc strong{color:var(--ink);font-weight:700}
+  .doc .lead{font-size:.96rem;color:var(--ink);line-height:1.9}
+  .kv{border:1px solid var(--grid);border-radius:3px;margin:18px 0;overflow:hidden}
+  .kv div{display:grid;grid-template-columns:minmax(9em,15em) 1fr;border-top:1px solid var(--grid-soft)}
+  .kv div:first-child{border-top:0}
+  .kv dt,.kv dd{font-family:var(--han);font-size:.85rem;padding:13px 16px;margin:0}
+  .kv dt{background:var(--paper-hi);color:var(--ink);font-weight:600;border-right:1px solid var(--grid-soft)}
+  .kv dd{color:var(--ink-mid);line-height:1.8}
+  .stamp{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;color:var(--ink-soft);
+         text-transform:uppercase;margin-bottom:26px}
+  .backlink{font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;color:var(--cobalt);
+            text-decoration:none;text-transform:uppercase}
+  .backlink:hover{text-decoration:underline}
+  .callout{border-left:3px solid var(--cobalt);background:var(--paper-hi);
+           padding:18px 22px;margin:20px 0;border-radius:0 3px 3px 0}
+  .callout p{font-size:.85rem;margin:0}
+  @media(max-width:600px){.kv div{grid-template-columns:1fr}
+    .kv dt{border-right:0;border-bottom:1px solid var(--grid-soft)}}
+</style>
+</head>
+<body>
+
+<header class="hbar">
+  <div class="wrap">
+    <a class="logo" href="index.html">
+      <svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true">
+        <rect x=".5" y=".5" width="29" height="29" stroke="#C9D3DE"/>
+        <path d="M4 21 L10 15 L14 18 L18 9" stroke="#1B3BD8" stroke-width="2" fill="none"/>
+        <path d="M18 9 L22 12 L26 5" stroke="#D6188A" stroke-width="2" fill="none" stroke-dasharray="3 3"/>
+      </svg>
+      <span><span class="lt">PRESIGHT</span><span class="lc han">先见交易学院</span></span>
+    </a>
+    <nav class="hact">
+      <div class="langsw"><a href="#" class="cur">中</a><span>/</span><a href="en/protection.html">EN</a></div>
+      <a class="backlink" href="index.html">&larr; 返回首页</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section style="padding-top:56px">
+  <div class="wrap">
+    <div class="doc">
+      <div class="stamp">FIG. A &mdash; 活动细则 / TERMS</div>
+      <h1 class="h2 han" style="margin-bottom:18px">跟单亏损包赔计划</h1>
+      <p class="lead">若你按本细则的条件跟单，而保护期结束时账户仍为净亏损，我们以现金返还该笔亏损。</p>
+
+      <div class="callout">
+        <p>本计划的设计逻辑是<b>风险共担</b>，不是"保证不亏"。条件之所以写得细，是因为只有把杠杆和操作方式限定住，赔付承诺才是可兑现的——否则放大杠杆的用户会拿到远超预期的索赔，最终受损的是所有参与者。请完整读完再决定参与。</p>
+      </div>
+
+      <h3><span class="no">01</span>一句话概述</h3>
+      <p>通过 Presight 链接在合作平台开户，以 <b>1:1 倍数</b>订阅 PRESIGHT ALPHA-1 跟单策略，<b>连续跟单满 7 天</b>且期间不手动干预、不出金。保护期结束时若账户净亏损，我们按实际亏损金额<b>现金返还</b>。</p>
+
+      <h3><span class="no">02</span>参与条件</h3>
+      <p>以下条件需<b>全部</b>满足。任一不满足即不在保护范围内。</p>
+      <ol>
+        <li>通过 Presight 官方链接注册的合作平台<b>新账户</b>，并完成平台身份认证（KYC）。既有账户无法接入。</li>
+        <li>在平台跟单系统内订阅 <b>PRESIGHT ALPHA-1</b>。</li>
+        <li>跟单倍数设为 <b>1:1</b>，不得放大主账户仓位。</li>
+        <li>单笔风险敞口不超过账户净值的 <b>2%</b>。</li>
+        <li>同时持仓不超过 <b>3 笔</b>（即总风险敞口不超过净值的 6%）。</li>
+        <li>保护期内<b>不手动开仓、不手动平仓、不手动修改止损止盈、不调整跟单参数</b>。</li>
+        <li>保护期内<b>不出金</b>。</li>
+      </ol>
+
+      <h3><span class="no">03</span>保护期</h3>
+      <div class="kv">
+        <div><dt>起算</dt><dd>自首笔跟单成交之日起算</dd></div>
+        <div><dt>时长</dt><dd>连续 <b>7 个自然日</b>，且其间至少包含 5 个交易日</dd></div>
+        <div><dt>顺延</dt><dd>第 7 日仍有未平仓持仓时，保护期延长至该持仓全部平仓，最多顺延 3 个交易日</dd></div>
+        <div><dt>提前结束</dt><dd>保护期内累计亏损达到基准资金的 <b>10%</b> 时，保护期即时结束并按当时净亏损结算</dd></div>
+        <div><dt>终止</dt><dd>期间暂停或解除跟单，保护即时失效，不予赔付</dd></div>
+      </div>
+      <p>「累计亏损达 10% 即结算」这一条同时保护双方：对你而言，亏损到此为止即可拿到赔付，不必继续承受；对我们而言，赔付规模是可预期的。这也是本计划能够以现金全额返还的前提。</p>
+
+      <h3><span class="no">04</span>基准资金与保护额度</h3>
+      <div class="kv">
+        <div><dt>基准资金</dt><dd>首笔跟单成交时的账户净值</dd></div>
+        <div><dt>保护额度</dt><dd>等于基准资金，<b>最高 50,000 美元</b>。超出部分产生的亏损不在保护范围</dd></div>
+        <div><dt>出金处理</dt><dd>保护期内如发生出金，基准资金按出金后的最低净值重新计算，且该次参与失去资格</dd></div>
+      </div>
+
+      <h3><span class="no">05</span>赔付计算</h3>
+      <p><b>净亏损 = 基准资金 − 保护期结束时的账户净值</b></p>
+      <ul>
+        <li>净亏损 ≤ 0（盈利或持平）：不触发赔付。</li>
+        <li>净亏损 &gt; 0：按净亏损实际金额赔付，计算基数不超过保护额度。</li>
+      </ul>
+      <p>举例：基准资金 10,000 美元，保护期结束时净值 9,150 美元，净亏损 850 美元，赔付 <b>850 美元</b>。</p>
+      <div class="kv">
+        <div><dt>赔付形式</dt><dd><b>美元现金</b>，发放至你指定的收款方式</dd></div>
+        <div><dt>到账时间</dt><dd>核验通过后 <b>10 个工作日</b>内</dd></div>
+        <div><dt>手续费</dt><dd>由 Presight 承担；因收款方式产生的第三方费用除外</dd></div>
+      </div>
+
+      <h3><span class="no">06</span>除外情形</h3>
+      <p>发生以下任一情形，该次参与失去赔付资格：</p>
+      <ol>
+        <li>手动开仓、手动平仓，或手动修改跟单产生的持仓。</li>
+        <li>跟单倍数超过 1:1，或单笔风险超过净值 2%，或同时持仓超过 3 笔。</li>
+        <li>保护期内出金。</li>
+        <li>同一身份或同一收款方式使用多个账户重复参与。</li>
+        <li>存在合作平台禁止的行为（滞后套利、对冲刷单、滥用滑点等）。</li>
+        <li>提供虚假信息，或拒绝配合核验。</li>
+        <li>亏损不可归因于 PRESIGHT ALPHA-1（例如自行交易策略未涉及的品种）。</li>
+        <li>因合作平台系统故障、报价异常或不可抗力造成的亏损。此类情形另行个案协商，不适用本计划的自动赔付。</li>
+      </ol>
+
+      <h3><span class="no">07</span>核验流程</h3>
+      <ol>
+        <li>保护期结束后 <b>5 个自然日</b>内，通过社区或邮件提交申请。</li>
+        <li>提供平台账户的<b>完整交易报表</b>（含全部成交记录与出入金记录），或授权平台向 Presight 提供只读数据。</li>
+        <li>我们核验跟单参数的历史设置、成交明细与出入金记录。</li>
+        <li>核验通过后按第 05 条赔付；未通过则书面说明原因。</li>
+      </ol>
+
+      <h3><span class="no">08</span>其他约定</h3>
+      <ol>
+        <li>本计划<b>不构成投资建议</b>，也不保证策略盈利。它只是在特定条件下对亏损的补偿安排。</li>
+        <li>Presight 保留调整或终止本计划的权利。调整或终止<b>不影响已进入保护期的参与者</b>，其权益按参与时有效的细则执行。</li>
+        <li>本计划与合作平台自身的任何活动相互独立，平台不对本计划承担责任。</li>
+        <li>本细则的中文版本为准。英文版本仅供参考。</li>
+      </ol>
+
+      <div class="risk" style="margin-top:52px">
+        <h4><span class="mono">&#9888;</span> 风险提示与利益披露</h4>
+        <p>差价合约、外汇及杠杆产品具有高风险，可能导致您损失全部本金，并不适合所有投资者。本计划的赔付以基准资金与保护额度为限，<b>并不消除交易风险</b>，超出保护范围的亏损由您自行承担。</p>
+        <p>Presight 与合作交易平台存在推荐（IB/联盟）返佣关系。您通过我们的链接开户后，我们可能从平台获得佣金。这不增加您的交易成本，但请知悉此利益关系的存在。</p>
+        <p>历史业绩不代表未来表现。您需自行判断所在司法辖区是否允许参与此类交易，并对自己的交易决策负全部责任。</p>
+        <p>【请在此补充：运营主体全称与注册地、持牌情况或明确的"未持牌"声明、合作交易平台名称与其监管机构、以及地区限制说明。】</p>
+      </div>
+
+      <p style="margin-top:44px"><a class="backlink" href="index.html">&larr; 返回首页</a>
+         <a class="backlink" href="#" data-link="community">进入社区咨询 &rarr;</a></p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fbot">
+      <span>&copy; 2026 PRESIGHT TRADING INSTITUTE</span>
+      <span>交易有风险 · 入市需谨慎</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/config.js"></script>
+<script>
+  document.querySelectorAll('[data-link]').forEach(el=>{
+    const map = {community:CONFIG.communityUrl, channel:CONFIG.channelUrl,
+                 vip:CONFIG.vipUrl, broker:CONFIG.brokerSignupUrl,
+                 email:'mailto:'+CONFIG.contactEmail};
+    const url = map[el.dataset.link];
+    if(url) el.href = url;
+  });
+</script>
+</body>
+</html>
