@@ -9,11 +9,14 @@ const CONFIG = {
   brokerSignupUrl: 'https://example-broker.com/register?ref=PRESIGHT',
 
   // ---- 社区入口 ----
-  // 公开信号频道：任何人可看，是对外的主入口
+  // 公开信号频道：Presight 的唯一对外总入口。
+  // 只有它能被 Telegram 搜索到，所以官网、海报、广告统一推这个 handle；
+  // 频道置顶再把用户导向学院社区与 VIP
   channelUrl     : 'https://t.me/presight_signals',
 
-  // 交易学院社区群：邀请制。行情分析、活动、开户答疑都在这里
-  communityUrl   : 'https://t.me/+h_fn0efw-LA5ZTVl',
+  // 交易学院社区群：审批制。行情分析、活动、开户答疑都在这里。
+  // 链接可以公开发布——进群需管理员确认，以此挡广告号
+  communityUrl   : 'https://t.me/+zehg02XunN85N2Y1',
 
   // VIP 实时信号频道：审批制，仅授权成员
   vipUrl         : 'https://t.me/+G9GlHdkmIZliOGY1',
