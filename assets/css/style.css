@@ -371,3 +371,18 @@ footer a:hover{color:#fff}
   .slogan.han{font-size:clamp(2.4rem,12vw,3.4rem)}
   .slogan.en{font-size:clamp(2.2rem,11vw,3.2rem)}
 }
+
+/* 社区二维码。桌面端用户没法点手机链接，扫码是最短路径。 */
+.qrbox{display:flex;align-items:center;gap:18px;margin-top:26px;
+       border:1px solid var(--grid);background:var(--paper-hi);
+       padding:16px 20px;border-radius:3px;max-width:max-content}
+.qrbox .code{width:104px;height:104px;flex:0 0 104px;background:#fff;
+             border:1px solid var(--grid-soft);border-radius:2px;padding:6px}
+.qrbox .code img{width:100%;height:100%;display:block}
+.qrbox .cap{font-family:var(--han);font-size:.8rem;color:var(--ink-mid);line-height:1.7}
+.qrbox .cap b{display:block;font-size:.9rem;color:var(--ink);font-weight:700;
+              margin-bottom:5px}
+.qrbox .cap .h{font-family:var(--mono);font-size:.74rem;color:var(--cobalt);
+               letter-spacing:.03em;margin-top:6px;display:block}
+@media(max-width:560px){.qrbox{gap:14px;padding:14px 16px}
+  .qrbox .code{width:88px;height:88px;flex:0 0 88px}}
