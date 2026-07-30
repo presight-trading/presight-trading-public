@@ -81,27 +81,36 @@
         <li>A <b>new account</b> with the partner platform, opened through an official Presight link and KYC-verified. Existing accounts cannot be enrolled.</li>
         <li>A subscription to <b>PRESIGHT ALPHA-1</b> inside the platform's copy-trading system.</li>
         <li>Copy ratio set to <b>1:1</b>. The master account's position sizing must not be scaled up.</li>
-        <li>Risk per trade no greater than <b>2%</b> of account equity.</li>
-        <li>No more than <b>3 positions</b> open at the same time (total exposure at most 6% of equity).</li>
         <li>During the period: <b>no manual entries, no manual exits, no manual changes to stops or targets, no changes to copy settings</b>.</li>
         <li>During the period: <b>no withdrawals</b>.</li>
       </ol>
 
-      <h3><span class="no">03</span>Protection period</h3>
+      <h3><span class="no">03</span>Risk control happens on our side</h3>
+      <p>ALPHA-1 is a quantitative strategy and may hold several positions at once &mdash; that is how the strategy is built, not a sign that risk is loose. So we <b>do not ask you to set your own per-trade risk or position-count limits</b>. Those parameters are not really under your control, and putting them in the terms would only create grounds for arguing after the fact.</p>
+      <p>Risk is managed by us at the <b>copy-account level</b>:</p>
+      <ul>
+        <li><b>Drawdown control</b>: the strategy account has drawdown thresholds; on breach it automatically reduces size or stops opening new positions, and copy accounts follow.</li>
+        <li><b>Fixed per-trade risk</b>: exposure per trade is set on the master account and mirrored to yours at a 1:1 ratio. It does not scale up with your balance.</li>
+        <li><b>Aggregate exposure monitored</b>: total risk across open positions is managed by the strategy, so it does not stack linearly with position count.</li>
+        <li><b>No averaging down</b>: the strategy does not add to losing positions and does not martingale.</li>
+      </ul>
+      <p>All you need to do is set the copy ratio to 1:1 and leave it alone.</p>
+
+      <h3><span class="no">04</span>Protection period</h3>
       <div class="kv">
         <div><dt>Starts</dt><dd>On the day of your first copied fill</dd></div>
         <div><dt>Length</dt><dd><b>7 consecutive calendar days</b>, including at least 5 trading days</dd></div>
         <div><dt>Extension</dt><dd>If positions are still open on day 7, the period extends until they are all closed, for at most 3 further trading days</dd></div>
         <div><dt>Termination</dt><dd>Pausing or unsubscribing during the period voids coverage; nothing is payable</dd></div>
       </div>
-      <h3><span class="no">04</span>Base capital</h3>
+      <h3><span class="no">05</span>Base capital</h3>
       <div class="kv">
         <div><dt>Base capital</dt><dd>Account equity at the moment of your first copied fill</dd></div>
         <div><dt>Protected amount</dt><dd><b>The full amount of base capital</b></dd></div>
         <div><dt>Withdrawals</dt><dd>A withdrawal during the period recalculates base capital to the lowest post-withdrawal equity and voids that enrolment</dd></div>
       </div>
 
-      <h3><span class="no">05</span>How the payout is calculated</h3>
+      <h3><span class="no">06</span>How the payout is calculated</h3>
       <p><b>Net loss = base capital &minus; account equity at the end of the protection period</b></p>
       <ul>
         <li>Net loss &le; 0 (flat or in profit): nothing is payable.</li>
@@ -114,11 +123,11 @@
         <div><dt>Fees</dt><dd>Borne by Presight, excluding third-party charges arising from your chosen payment method</dd></div>
       </div>
 
-      <h3><span class="no">06</span>Exclusions</h3>
+      <h3><span class="no">07</span>Exclusions</h3>
       <p>Any of the following voids eligibility for that enrolment:</p>
       <ol>
         <li>Entering or exiting positions manually, or manually altering positions created by copying.</li>
-        <li>A copy ratio above 1:1, risk per trade above 2% of equity, or more than 3 concurrent positions.</li>
+        <li>A copy ratio above 1:1 &mdash; that is, scaling up the master account's sizing.</li>
         <li>A withdrawal during the protection period.</li>
         <li>Multiple accounts enrolled under the same identity or the same payment method.</li>
         <li>Conduct prohibited by the partner platform (latency arbitrage, hedged scalping, slippage abuse and similar).</li>
@@ -127,15 +136,15 @@
         <li>Losses caused by partner-platform outages, quote errors or force majeure. These are handled case by case and fall outside the automatic payout.</li>
       </ol>
 
-      <h3><span class="no">07</span>Verification</h3>
+      <h3><span class="no">08</span>Verification</h3>
       <ol>
         <li>Submit a claim through the community or by email within <b>5 calendar days</b> of the period ending.</li>
         <li>Provide a <b>complete account statement</b> from the platform (all fills plus all deposits and withdrawals), or authorise the platform to share read-only data with Presight.</li>
         <li>We verify the historical copy settings, the fills and the deposit/withdrawal record.</li>
-        <li>If verification passes, we pay under section 05. If it does not, we set out the reason in writing.</li>
+        <li>If verification passes, we pay under section 06. If it does not, we set out the reason in writing.</li>
       </ol>
 
-      <h3><span class="no">08</span>Other terms</h3>
+      <h3><span class="no">09</span>Other terms</h3>
       <ol>
         <li>This programme is <b>not investment advice</b> and does not guarantee the strategy will be profitable. It is a compensation arrangement for losses under specific conditions.</li>
         <li>Presight may amend or end the programme at any time. Doing so <b>does not affect participants already inside a protection period</b>, whose entitlement follows the terms in force when they enrolled.</li>
