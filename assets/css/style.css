@@ -195,8 +195,28 @@ section{padding:104px 0;position:relative}
 .panel-top .sub{font-family:var(--han);color:#8592AB;margin-top:12px;max-width:50ch;font-size:.95rem;line-height:1.7}
 .tags{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}
 .tag{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;padding:6px 11px;border:1px solid var(--panel-line);color:#8592AB;border-radius:2px;text-transform:uppercase}
-.tag.hero-tag{border-color:var(--amber);color:#F0B429;background:rgba(240,180,41,.07);font-family:var(--han);letter-spacing:.04em;font-weight:600;text-transform:none;font-size:.76rem}
-.tag.hero-tag a{color:inherit;text-decoration:underline;text-underline-offset:2px;opacity:.8}
+.tag.hero-tag{border-color:var(--cobalt-hi);color:#8FA6FF;background:rgba(74,102,240,.10);font-family:var(--han);letter-spacing:.04em;font-weight:600;text-transform:none;font-size:.76rem}
+.tag.hero-tag a{color:#fff;text-decoration:underline;text-underline-offset:2px;opacity:.85}
+.tag.hero-tag a:hover{opacity:1}
+
+/* 首屏主推承诺条。
+   琥珀是留给风险提示的（见 --amber 注释），主推卖点用警示色会读作劝退；
+   这里用钴蓝左规线 + 纸白底，与条款页的 .callout 同一套语言。 */
+.pledge{display:flex;align-items:baseline;flex-wrap:wrap;gap:0 14px;
+        border-left:3px solid var(--cobalt);background:var(--paper-hi);
+        padding:13px 18px;margin:0 0 24px;border-radius:0 2px 2px 0;
+        max-width:52ch}
+.pledge b{font-family:var(--han);font-size:.95rem;font-weight:700;color:var(--ink);
+          letter-spacing:.01em;white-space:nowrap}
+.pledge .cond{font-family:var(--mono);font-size:.72rem;letter-spacing:.04em;
+              color:var(--ink-soft);white-space:nowrap}
+.pledge .cond i{font-style:normal;color:var(--grid);margin:0 6px}
+.pledge a{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;
+          color:var(--cobalt);text-decoration:none;white-space:nowrap;
+          border-bottom:1px solid rgba(27,59,216,.3);padding-bottom:1px}
+.pledge a:hover{border-bottom-color:var(--cobalt)}
+@media(max-width:560px){.pledge{padding:12px 15px;gap:6px 12px}
+  .pledge b{font-size:.9rem}}
 
 .metrics{display:grid;grid-template-columns:repeat(5,1fr);border-bottom:1px solid var(--panel-line)}
 .metrics div{padding:22px 22px;border-right:1px solid var(--panel-line)}
