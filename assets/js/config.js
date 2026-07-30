@@ -14,11 +14,10 @@ const CONFIG = {
   // 频道置顶再把用户导向学院社区与 VIP
   channelUrl     : 'https://t.me/presight_signals',
 
-  // 交易学院社区群：审批制。行情分析、活动、开户答疑都在这里。
-  // 链接可以公开发布——进群需管理员确认，以此挡广告号
-  communityUrl   : 'https://t.me/+zehg02XunN85N2Y1',
+  // 交易学院社区群：公开可搜索，直接进不需要审批
+  communityUrl   : 'https://t.me/presight_academy',
 
-  // VIP 实时信号频道：审批制，仅授权成员
+  // VIP 实时信号频道：三者中唯一需要资格的。审批制，且需先开户绑定跟单
   vipUrl         : 'https://t.me/+G9GlHdkmIZliOGY1',
 
   // 联系方式
