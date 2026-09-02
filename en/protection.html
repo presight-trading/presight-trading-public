@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Loss Coverage Programme &mdash; Full Terms | PRESIGHT</title>
-<meta name="description" content="Full terms of the Presight loss coverage programme for copied trades: eligibility, protection period, base capital, calculation, exclusions and verification.">
+<meta name="description" content="Full terms of the Presight loss coverage programme for copied trades: account reporting, the one-month protection period, base capital, calculation, exclusions and verification.">
 <meta name="robots" content="index,follow">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -66,14 +66,15 @@
     <div class="doc">
       <div class="stamp">FIG. A &mdash; PROGRAMME TERMS</div>
       <h1 class="h2" style="margin-bottom:18px">Loss coverage on copied trades</h1>
-      <p class="lead">If you copy the strategy under the conditions below and the account is still down at the end of the protection period, we refund that loss in cash.</p>
+      <p class="lead">If you copy the strategy under the conditions below for a full month and the account is still down at the end of the protection period, we refund that loss in cash.</p>
 
       <div class="callout">
         <p>The programme is built on <b>shared downside</b>, not a promise that you cannot lose. The conditions are specific because the commitment is only payable if leverage and manual intervention are constrained &mdash; otherwise participants who scale up would file claims far beyond what the programme can absorb, and everyone in it would lose out. Please read it in full before joining.</p>
       </div>
 
       <h3><span class="no">01</span>In one sentence</h3>
-      <p>Open an account with the partner platform through a Presight link, subscribe to PRESIGHT ALPHA-1 at a <b>1:1 copy ratio</b>, and copy it for <b>seven consecutive days</b> without manual intervention or withdrawals. If the account is down when the period ends, we refund the loss in <b>cash</b>.</p>
+      <p>Open an account with the partner platform through a Presight link, subscribe to PRESIGHT ALPHA-1 at a <b>1:1 copy ratio</b>, <b>report your MT5 account ID</b> to an admin by direct message in the community once copying has started, and keep copying for <b>a full month</b> without manual intervention or withdrawals. If the account is down when the period ends, we refund the loss in <b>cash</b>.</p>
+      <p>Two boundaries to note up front: coverage applies only to losses incurred <b>after you report the account</b>, and only to trades <b>the strategy itself closed</b> &mdash; losses on positions you closed by hand are not covered.</p>
 
       <h3><span class="no">02</span>Eligibility</h3>
       <p><b>All</b> of the following must hold. Any one of them failing puts you outside the coverage.</p>
@@ -81,7 +82,12 @@
         <li>A <b>new account</b> with the partner platform, opened through an official Presight link and KYC-verified. Existing accounts cannot be enrolled.</li>
         <li>A subscription to <b>PRESIGHT ALPHA-1</b> inside the platform's copy-trading system.</li>
         <li>Copy ratio set to <b>1:1</b>. The master account's position sizing must not be scaled up.</li>
-        <li>During the period: <b>no manual entries, no manual exits, no manual changes to stops or targets, no changes to copy settings</b>.</li>
+        <li>Once copying has started, <b>report your MT5 account ID (login number) to an admin by direct message</b> in the Presight community.
+            We cannot verify an account that was never reported, so an unreported account <b>is not eligible</b>; for reported accounts,
+            coverage runs from the moment of reporting &mdash; losses incurred before that fall outside it.</li>
+        <li><b>A full month of continuous copying</b>, without pausing or unsubscribing.</li>
+        <li>During the period: <b>no manual entries, no manual changes to stops or targets, no changes to copy settings</b>.
+            (Closing a position by hand does not void the whole enrolment, but the loss on that trade is not covered &mdash; see section 06.)</li>
         <li>During the period: <b>no withdrawals</b>.</li>
       </ol>
 
@@ -98,25 +104,33 @@
 
       <h3><span class="no">04</span>Protection period</h3>
       <div class="kv">
-        <div><dt>Starts</dt><dd>On the day of your first copied fill</dd></div>
-        <div><dt>Length</dt><dd><b>7 consecutive calendar days</b>, including at least 5 trading days</dd></div>
-        <div><dt>Extension</dt><dd>If positions are still open on day 7, the period extends until they are all closed, for at most 3 further trading days</dd></div>
+        <div><dt>Starts</dt><dd>When you <b>report your MT5 account ID</b> in the community; if you report before your first copied fill, it starts at that first fill instead (whichever comes later)</dd></div>
+        <div><dt>Length</dt><dd><b>One month &mdash; 30 consecutive calendar days</b></dd></div>
+        <div><dt>Before reporting</dt><dd>Losses incurred before you report the account are <b>not covered</b> and do not enter the base-capital comparison</dd></div>
+        <div><dt>Extension</dt><dd>If positions are still open on day 30, the period extends until they are all closed, for at most 3 further trading days</dd></div>
         <div><dt>Termination</dt><dd>Pausing or unsubscribing during the period voids coverage; nothing is payable</dd></div>
       </div>
       <h3><span class="no">05</span>Base capital</h3>
       <div class="kv">
-        <div><dt>Base capital</dt><dd>Account equity at the moment of your first copied fill</dd></div>
+        <div><dt>Base capital</dt><dd>Account equity at the moment the protection period starts &mdash; that is, when you report your MT5 account ID (or at your first copied fill, if you reported before it)</dd></div>
         <div><dt>Protected amount</dt><dd><b>The full amount of base capital</b></dd></div>
         <div><dt>Withdrawals</dt><dd>A withdrawal during the period recalculates base capital to the lowest post-withdrawal equity and voids that enrolment</dd></div>
       </div>
 
       <h3><span class="no">06</span>How the payout is calculated</h3>
       <p><b>Net loss = base capital &minus; account equity at the end of the protection period</b></p>
+      <p>Coverage applies only to trades <b>the strategy closed itself</b>. Positions you closed by hand are excluded either way &mdash;
+         you chose the exit, so that result is yours. Therefore:</p>
+      <p><b>Payout = the combined loss on trades closed by the strategy during the protection period, capped at the net loss above.</b></p>
       <ul>
-        <li>Net loss &le; 0 (flat or in profit): nothing is payable.</li>
-        <li>Net loss &gt; 0: the actual net loss is refunded.</li>
+        <li>Net loss &le; 0 (account flat or in profit): nothing is payable.</li>
+        <li>Trades closed by the strategy are collectively in profit: nothing is payable.</li>
+        <li>Both are losses: the smaller of the two amounts is paid.</li>
       </ul>
-      <p>Example: base capital USD 10,000; equity at the end of the period USD 9,150; net loss USD 850; payout <b>USD 850</b>.</p>
+      <p>Example 1: base capital USD 10,000; equity at the end of the period USD 9,150; every position was closed by the strategy;
+         net loss USD 850; payout <b>USD 850</b>.</p>
+      <p>Example 2: the same USD 850 loss, but USD 300 of it came from a position you closed by hand; the strategy-closed trades
+         lost USD 550; payout <b>USD 550</b>.</p>
       <div class="kv">
         <div><dt>Form of payment</dt><dd><b>USD cash</b>, to a payment method you nominate</dd></div>
         <div><dt>Timing</dt><dd>Within <b>10 business days</b> of verification</dd></div>
@@ -126,7 +140,9 @@
       <h3><span class="no">07</span>Exclusions</h3>
       <p>Any of the following voids eligibility for that enrolment:</p>
       <ol>
-        <li>Entering or exiting positions manually, or manually altering positions created by copying.</li>
+        <li><b>Failing to report your MT5 account ID</b> to an admin in the community, or reporting an ID that does not match the account you claim on.</li>
+        <li>Less than a full month of copying, or pausing or unsubscribing during the period.</li>
+        <li>Entering positions manually, or manually altering positions created by copying (stops, targets, copy settings).</li>
         <li>A copy ratio above 1:1 &mdash; that is, scaling up the master account's sizing.</li>
         <li>A withdrawal during the protection period.</li>
         <li>Multiple accounts enrolled under the same identity or the same payment method.</li>
@@ -135,12 +151,13 @@
         <li>Losses not attributable to PRESIGHT ALPHA-1 &mdash; for example trading instruments the strategy does not cover.</li>
         <li>Losses caused by partner-platform outages, quote errors or force majeure. These are handled case by case and fall outside the automatic payout.</li>
       </ol>
+      <p><b>Closing by hand is the one exception</b>: it does not void the enrolment, but the loss on any position you closed yourself is never covered, and the rest of the account is still assessed under section 06.</p>
 
       <h3><span class="no">08</span>Verification</h3>
       <ol>
         <li>Submit a claim through the community or by email within <b>5 calendar days</b> of the period ending.</li>
         <li>Provide a <b>complete account statement</b> from the platform (all fills plus all deposits and withdrawals), or authorise the platform to share read-only data with Presight.</li>
-        <li>We verify the historical copy settings, the fills and the deposit/withdrawal record.</li>
+        <li>We verify when the account was reported, the historical copy settings, the fills and the deposit/withdrawal record, and identify trade by trade which positions the strategy closed and which you closed yourself.</li>
         <li>If verification passes, we pay under section 06. If it does not, we set out the reason in writing.</li>
       </ol>
 

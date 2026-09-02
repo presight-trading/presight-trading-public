@@ -6,7 +6,7 @@ const CONFIG = {
   tradesEndpoint : '',
 
   // 交易平台注册链接（带你的推广参数）
-  brokerSignupUrl: 'https://example-broker.com/register?ref=PRESIGHT',
+  brokerSignupUrl: 'https://secure.decodefx.com/auth/register/?ref=l-246813157-FS8661P7',
 
   // ---- 社区入口 ----
   // 公开信号频道：Presight 的唯一对外总入口。

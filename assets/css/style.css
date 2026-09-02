@@ -274,6 +274,11 @@ tbody tr:hover{background:var(--panel-2)}
 .step .n{font-family:var(--mono);font-weight:700;font-size:2.2rem;color:var(--grid);letter-spacing:-.05em;line-height:1;margin-bottom:20px}
 .step h4{font-family:var(--han);font-size:1.05rem;font-weight:600;margin-bottom:11px}
 .step p{font-family:var(--han);font-size:.87rem;color:var(--ink-mid);line-height:1.75}
+/* 「如何开始」比其他流程多一步（报备 MT5 账户 ID），单独给一个四栏布局。
+   .steps.four 比下面 @media 里的 .steps 更具体，所以断点也要在这里各写一遍。 */
+.steps.four{grid-template-columns:repeat(4,1fr)}
+@media(max-width:1040px){.steps.four{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:760px){.steps.four{grid-template-columns:1fr}}
 
 /* ---------- faq ---------- */
 .faq{border-top:1px solid var(--grid)}
