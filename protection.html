@@ -80,8 +80,13 @@
       <p>以下条件需<b>全部</b>满足。任一不满足即不在保护范围内。</p>
       <ol>
         <li>通过 Presight 官方链接注册的合作平台<b>新账户</b>，并完成平台身份认证（KYC）。既有账户无法接入。</li>
-        <li>在平台跟单系统内订阅 <b>PRESIGHT ALPHA-1</b>。</li>
-        <li>跟单倍数设为 <b>1:1</b>，不得放大主账户仓位。</li>
+        <li>在平台跟单系统内订阅 <b>PRESIGHT ALPHA-1</b>，并按下面的参数配置。
+            具体路径：登录 <span class="mono">secure.decodefx.com</span> → <b>Copy Trading</b> →
+            用你的 <b>MT5 跟单账户</b>的账号密码登录 → <b>New subscription</b> →
+            Provider 填 <span class="mono">presighttrading_com - signal 1</span>
+            （PRESIGHT ALPHA-1 在平台上的名字）。</li>
+        <li>跟单参数设为 <b>Autoscale</b>、<b>Value by asset</b>、<b>Ratio = 1</b>，
+            即 1:1 同步，不得放大主账户仓位。Ratio 大于 1 就是放大，会直接失去赔付资格。</li>
         <li>开始跟单后，在 Presight 社区<b>私信管理员报备你的 MT5 账户 ID（登录号）</b>。
             没有报备的账户我们无从核验，<b>不具备赔付资格</b>；已报备的，赔付也只从报备之时起算——
             报备之前产生的亏损不在范围内。</li>
