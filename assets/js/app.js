@@ -85,15 +85,24 @@ function renderLoading(){
   $('#tradeState').innerHTML = '';
 }
 function renderError(){
+  // 取不到数据 → 不展示错误框，直接隐藏整个历史成绩区块(见 hideHistory)
   $('#tradeBody').innerHTML = '';
-  $('#tradeState').innerHTML =
-    `<div class="state"><b>${T.errT}</b>${T.errB}</div>`;
+  $('#tradeState').innerHTML = '';
+  hideHistory();
 }
 function renderEmpty(){
   $('#tradeBody').innerHTML = '';
   $('#tradeState').innerHTML =
     `<div class="state"><b>${T.emptyT}</b>${T.emptyB}</div>`;
 }
+
+/* ---------- 兜底：历史成绩区块取数/渲染失败就整体隐藏 ----------
+   用户要求(2026-09-03)：这一块出问题不能影响页面其它板块。失败时把指标卡、
+   净值曲线、成交表连同表头一起藏起来，策略说明与注册 CTA 照常显示；下一次
+   定时重试成功再显示回来。 */
+const HISTORY_PARTS = ['#strategy .metrics', '#strategy .curvewrap', '#strategy .tbl-head', '#strategy .tblscroll', '#tradeState'];
+function hideHistory(){ HISTORY_PARTS.forEach(sel=>{ const el=document.querySelector(sel); if(el) el.style.display='none'; }); }
+function showHistory(){ HISTORY_PARTS.forEach(sel=>{ const el=document.querySelector(sel); if(el) el.style.display=''; }); }
 
 /* #upd（「更新于」）显示的是数据生成时间，不是客户端本地时间——
    否则用户看到的「刚刚更新」其实可能是几小时前抓的旧数据。
@@ -264,6 +273,7 @@ async function loadTrades(){
     const list = rawTrades.map(normalize);
     const summary = Array.isArray(json) ? null : json.summary;
     const generatedAt = Array.isArray(json) ? null : json.generatedAt;
+    showHistory();
     renderTrades(list);
     renderMetrics(list, summary);
     renderUpdated(generatedAt);
@@ -282,11 +292,14 @@ function countUp(el,target,suffix='',dur=1100){
 }
 
 /* ---------- init ---------- */
-drawTicker();
-drawHero();
-loadTrades();
-setInterval(loadTrades, CONFIG.refreshMs);
+/* 每个初始化步骤各自 try/catch：任何一步抛错都不能拖垮后面的步骤
+   (2026-09-03：成交表先于首图动画启动，首图/跑马灯出错也不影响成交表)。 */
+function safe(label, fn){ try{ return fn(); }catch(e){ console.error('[presight] init step failed: '+label, e); } }
+safe('trades', ()=>{ loadTrades(); setInterval(loadTrades, CONFIG.refreshMs); });
+safe('ticker', drawTicker);
+safe('hero', drawHero);
 
+safe('links & ui', ()=>{
 $('#brokerLink').href    = CONFIG.brokerSignupUrl;
 
 /* 链接统一由 config.js 注入：把同一 data-link 的元素全部填上，
@@ -409,3 +422,4 @@ const io = new IntersectionObserver((es)=>es.forEach(e=>{
   io.unobserve(e.target);
 }),{threshold:.15});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+});
