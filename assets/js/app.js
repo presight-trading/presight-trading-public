@@ -5,6 +5,7 @@
 const LANG = (document.documentElement.lang || 'zh').toLowerCase().slice(0,2);
 const TEXTS = {
   zh:{
+    recentWins:'近期盈利成交', buy:'买', sell:'卖',
     loading:'成交记录加载中…',
     locale:'zh-CN', daysUnit:'<small>天</small>',
     now:'刚刚', min:' 分钟前', hour:' 小时前', day:' 天前',
@@ -13,6 +14,7 @@ const TEXTS = {
     emptyT:'还没有已平仓的交易', emptyB:'策略正在运行，第一笔成交平仓后会立刻出现在这里。',
   },
   en:{
+    recentWins:'Recent winning trades', buy:'BUY', sell:'SELL',
     loading:'Loading fill history…',
     locale:'en-GB', daysUnit:'<small>days</small>',
     now:'just now', min:'m ago', hour:'h ago', day:'d ago',
@@ -21,6 +23,7 @@ const TEXTS = {
     emptyT:'No closed trades yet', emptyB:'The strategy is running. The first closed trade will appear here immediately.',
   },
   ja:{
+    recentWins:'直近の利益確定', buy:'買', sell:'売',
     loading:'約定履歴を読み込み中…',
     locale:'ja-JP', daysUnit:'<small>日</small>',
     now:'たった今', min:' 分前', hour:' 時間前', day:' 日前',
@@ -29,6 +32,7 @@ const TEXTS = {
     emptyT:'決済済みの取引はまだありません', emptyB:'戦略は稼働中です。最初の決済が出たらすぐここに表示されます。',
   },
   vi:{
+    recentWins:'Lệnh có lãi gần đây', buy:'MUA', sell:'BÁN',
     loading:'Đang tải lịch sử khớp lệnh…',
     locale:'vi-VN', daysUnit:'<small>ngày</small>',
     now:'vừa xong', min:' phút trước', hour:' giờ trước', day:' ngày trước',
@@ -37,6 +41,7 @@ const TEXTS = {
     emptyT:'Chưa có lệnh nào đóng', emptyB:'Chiến lược đang chạy. Lệnh đóng đầu tiên sẽ hiện ở đây ngay lập tức.',
   },
   th:{
+    recentWins:'ออเดอร์ที่ได้กำไรล่าสุด', buy:'ซื้อ', sell:'ขาย',
     loading:'กำลังโหลดประวัติออเดอร์…',
     locale:'th-TH', daysUnit:'<small>วัน</small>',
     now:'เมื่อครู่', min:' นาทีที่แล้ว', hour:' ชั่วโมงที่แล้ว', day:' วันที่แล้ว',
@@ -252,13 +257,56 @@ function drawHero(){
 }
 
 /* ---------- 顶部行情条 ---------- */
-function drawTicker(){
-  const rows=[['EURUSD','1.08742',.12],['XAUUSD','2418.65',.48],['GBPUSD','1.28901',-.09],
-    ['USDJPY','157.284',.21],['NAS100','20238.5',.87],['BTCUSD','68,412',-1.24],
-    ['US30','41,762',-.31],['AUDUSD','0.66341',.18],['USOIL','78.42',.64]];
-  const html = rows.map(([s,p,c])=>
-    `<span><i>${s}</i>${p} <b class="${c>=0?'up':'dn'}">${c>=0?'▲':'▼'} ${Math.abs(c).toFixed(2)}%</b></span>`).join('');
-  $('#ticker').innerHTML = html+html;
+/* ---------- 顶部滚动条：近期盈利成交 ----------
+   原来这里滚的是一组**写死的假报价**（EURUSD 1.08742 …）。在一个交易站
+   上摆假价格，比空着更糟：它看起来像实时行情，实际永远不动。
+
+   改成滚真实成交，用的是策略面板同一份数据，不额外发请求。按要求优先
+   展示盈利单，所以左端加了固定标签写明「近期盈利成交」——完整记录（含
+   亏损单）就在下面的面板里，两者不冲突；不写清楚才会变成误导。
+
+   取不到数据就整条隐藏，不再退回假数据。 */
+function tickerAgo(iso){
+  const diff = (Date.now() - new Date(iso)) / 6e4;
+  if(!isFinite(diff) || diff < 0) return '';
+  if(diff < 60)   return Math.max(1, Math.round(diff)) + T.min;
+  if(diff < 1440) return Math.round(diff / 60) + T.hour;
+  return Math.round(diff / 1440) + T.day;
+}
+
+function drawTicker(trades){
+  const bar = document.querySelector('.tick');
+  if(!bar) return;
+  const wins = (trades || [])
+    .filter(t => Number(t.pips) > 0 && t.symbol && t.closedAt)
+    .sort((a, b) => new Date(b.closedAt) - new Date(a.closedAt))
+    .slice(0, 16);
+  // 少于 4 条不值当滚一条横幅，宁可不显示
+  if(wins.length < 4){ bar.hidden = true; return; }
+
+  const html = wins.map(t => {
+    const side = (t.side || '').toLowerCase() === 'sell' ? T.sell : T.buy;
+    return '<span><i class="sym">' + t.symbol + '</i>'
+         + '<i class="sd">' + side + '</i>'
+         + '<b class="up">+' + Number(t.pips).toFixed(1) + ' pips</b>'
+         + '<i class="ago">' + tickerAgo(t.closedAt) + '</i></span>';
+  }).join('');
+  $('#ticker').innerHTML = html + html;      // 两份首尾相接，滚动才无缝
+
+  if(!bar.querySelector('.tick-tag')){
+    // 轨道套一层 .tick-vp（overflow 归它），标签作为兄弟节点占住左侧，
+    // 这样第一条成交不会被标签压住
+    const track = $('#ticker');
+    const vp = document.createElement('div');
+    vp.className = 'tick-vp';
+    track.parentNode.insertBefore(vp, track);
+    vp.appendChild(track);
+    const tag = document.createElement('div');
+    tag.className = 'tick-tag';
+    tag.textContent = T.recentWins;
+    bar.insertBefore(tag, vp);
+  }
+  bar.hidden = false;
 }
 
 /* ---------- 拉数据 ---------- */
@@ -295,6 +343,7 @@ function renderPayload(json){
   const summary = Array.isArray(json) ? null : json.summary;
   const generatedAt = Array.isArray(json) ? null : json.generatedAt;
   showHistory();
+  drawTicker(list);
   renderTrades(list);
   renderMetrics(list, summary);
   renderUpdated(generatedAt);
@@ -343,7 +392,8 @@ function countUp(el,target,suffix='',dur=1100){
    (2026-09-03：成交表先于首图动画启动，首图/跑马灯出错也不影响成交表)。 */
 function safe(label, fn){ try{ return fn(); }catch(e){ console.error('[presight] init step failed: '+label, e); } }
 safe('trades', ()=>{ loadTrades(); setInterval(loadTrades, CONFIG.refreshMs); });
-safe('ticker', drawTicker);
+// 横幅先藏起来：有真实成交再显示，绝不先摆一条空的或假的
+safe('ticker', ()=>{ const b=document.querySelector('.tick'); if(b) b.hidden=true; });
 safe('hero', drawHero);
 
 safe('links & ui', ()=>{

@@ -138,8 +138,37 @@ nav a:hover::after{transform:scaleX(1)}
 :focus-visible{outline:2px solid var(--cobalt);outline-offset:3px}
 
 /* ---------- ticker ---------- */
-.tick{background:var(--panel);color:var(--panel-txt);overflow:hidden;border-bottom:1px solid var(--panel-line)}
-.tick-in{display:flex;gap:44px;padding:9px 0;white-space:nowrap;animation:slide 42s linear infinite;font-family:var(--mono);font-size:.71rem;letter-spacing:.05em}
+/* position:relative + z-index 是修「像笼子」的关键，不是装饰：
+   body::before 那层坐标纸底纹是 position:fixed;z-index:0，而 .tick 原来
+   没有定位，于是定位元素画在了它上面——每 56px 一道竖线横穿黑条，看着
+   就是一排栅栏。给它一个层级，底纹就压在下面了。 */
+.tick{position:relative;z-index:1;color:var(--panel-txt);overflow:hidden;
+      border-bottom:1px solid var(--panel-line);
+      /* 左右两端淡出，条带不再是被硬切断的一截 */
+      background:linear-gradient(90deg,#070c16,var(--panel) 12%,var(--panel) 88%,#070c16)}
+/* 边缘再叠一层遮罩，滚动的字是渐隐而不是被切断 */
+.tick::after{content:"";position:absolute;top:0;right:0;bottom:0;width:64px;
+  z-index:2;pointer-events:none}
+.tick::after{right:0;background:linear-gradient(270deg,var(--panel),transparent)}
+/* 左端的静态标签：说清这一条是「近期盈利成交」，不是实时报价，
+   也不是全部成交——完整记录（含亏损单）在下面的面板里。 */
+/* 标签是 flex 子元素而不是绝对定位：绝对定位会盖在轨道上，
+   第一条成交永远有半截藏在标签底下。 */
+.tick{display:flex;align-items:stretch}
+.tick-vp{flex:1;overflow:hidden;min-width:0}
+.tick-tag{flex:none;z-index:3;display:flex;
+  align-items:center;gap:7px;padding:0 16px 0 var(--gut);
+  background:var(--panel);border-right:1px solid var(--panel-line);
+  font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;
+  text-transform:uppercase;color:#8592AB;white-space:nowrap}
+.tick-tag::before{content:"";width:5px;height:5px;border-radius:50%;
+  background:#3ED598;flex:none}
+@media(max-width:760px){.tick-tag{display:none}}
+.tick-in{display:flex;gap:34px;padding:9px 0;white-space:nowrap;animation:slide 64s linear infinite;font-family:var(--mono);font-size:.71rem;letter-spacing:.05em}
+.tick-in span{display:inline-flex;align-items:baseline;gap:7px}
+.tick-in .sym{color:#8592AB}
+.tick-in .sd{font-size:.9em;color:#5B6883}
+.tick-in .ago{color:#4C5872;font-size:.9em}
 @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .tick:hover .tick-in{animation-play-state:paused}
 .tick i{font-style:normal;color:#5B6883;margin-right:8px}
