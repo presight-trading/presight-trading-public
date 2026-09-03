@@ -79,7 +79,7 @@
 </div>
 <div class="strip rv">
 <div><div class="k">รันมาแล้ว</div><div class="v" id="sRun">—</div></div>
-<div><div class="k">ผลตอบแทนรวม</div><div class="v" id="sRet" style="color:var(--cobalt)">—</div></div>
+<div><div class="k">พิพสุทธิ 7 วัน</div><div class="v" id="sRet" style="color:var(--cobalt)">—</div></div>
 <div><div class="k">อัตราชนะ</div><div class="v" id="sWin">—</div></div>
 <div><div class="k">คอมมูนิตี้</div><div class="v" id="sMem">—</div></div>
 <div><div class="k">ประกันขาดทุน</div><div class="v" style="color:var(--cobalt)">คืนเป็นเงินสด</div></div>
@@ -140,26 +140,28 @@
 <span class="tag">ความเสี่ยงคงที่</span></div>
 </div>
 </div>
+<!-- เปิดเผยเฉพาะพิป: ตัวเลขด้านล่างทั้งหมดเป็นหน่วยพิป ไม่มีล็อต ไม่มีกำไร/ขาดทุนเป็น USD
+     ป้าย "Profit factor" ใช้ชื่อเดิม แต่คำนวณจากพิปกำไร/พิปขาดทุนแล้ว -->
 <div class="metrics">
-<div><div class="k">กำไร/ขาดทุนสุทธิ</div><div class="v g" id="mRet">—</div></div>
+<div><div class="k">พิพสุทธิ</div><div class="v g" id="mRet">—</div></div>
 <div><div class="k">อัตราชนะ</div><div class="v" id="mWin">—</div></div>
-<div><div class="k">ดรอว์ดาวน์สูงสุด</div><div class="v r" id="mDD">—</div></div>
+<div><div class="k">ดรอว์ดาวน์สูงสุด (pips)</div><div class="v r" id="mDD">—</div></div>
 <div><div class="k">Profit factor</div><div class="v" id="mPF">—</div></div>
 <div><div class="k">จำนวนออเดอร์</div><div class="v" id="mN">—</div></div>
 </div>
 <div class="curvewrap">
-<svg aria-label="เส้นอิควิตี้สะสมของกลยุทธ์" id="equityChart" role="img" viewbox="0 0 1080 260"></svg>
+<svg aria-label="เส้นพิปสะสมของกลยุทธ์" id="equityChart" role="img" viewbox="0 0 1080 260"></svg>
 </div>
 <div class="tbl-head">
-<h4>ประวัติออเดอร์ · 12 รายการล่าสุด</h4>
+<h4>ประวัติออเดอร์ · 7 วันล่าสุด</h4>
 <div class="live"><span class="dot"></span> LIVE · <span id="upd">—</span></div>
 </div>
 <div class="tblscroll">
 <table>
 <thead>
 <tr>
-<th>ปิดเมื่อ</th><th>สินทรัพย์</th><th>ทิศทาง</th><th>ล็อต</th>
-<th>ราคาเข้า</th><th>ราคาออก</th><th>พิป</th><th style="text-align:right">กำไร/ขาดทุน (USD)</th>
+<th>ปิดเมื่อ</th><th>สินทรัพย์</th><th>ทิศทาง</th>
+<th>ราคาเข้า</th><th>ราคาออก</th><th style="text-align:right">พิป</th>
 </tr>
 </thead>
 <tbody id="tradeBody"></tbody>

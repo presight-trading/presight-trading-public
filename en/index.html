@@ -95,7 +95,7 @@
 
     <div class="strip rv">
       <div><div class="k">Live Since</div><div class="v" id="sRun">&mdash;</div></div>
-      <div><div class="k">Total Return</div><div class="v" id="sRet" style="color:var(--cobalt)">&mdash;</div></div>
+      <div><div class="k">Net pips (7d)</div><div class="v" id="sRet" style="color:var(--cobalt)">&mdash;</div></div>
       <div><div class="k">Win Rate</div><div class="v" id="sWin">&mdash;</div></div>
       <div><div class="k">Community</div><div class="v" id="sMem">&mdash;</div></div>
       <div><div class="k">Loss Cover</div><div class="v" style="color:var(--cobalt)">Cash refund</div></div>
@@ -168,20 +168,22 @@
         </div>
       </div>
 
+      <!-- Pips only: every figure below is pips-denominated — no lots, no USD P&L.
+           "Profit factor" keeps its label but is now win-pips over loss-pips. -->
       <div class="metrics">
-        <div><div class="k">Net P&amp;L</div><div class="v g" id="mRet">&mdash;</div></div>
+        <div><div class="k">Net pips</div><div class="v g" id="mRet">&mdash;</div></div>
         <div><div class="k">Win rate</div><div class="v" id="mWin">&mdash;</div></div>
-        <div><div class="k">Max drawdown</div><div class="v r" id="mDD">&mdash;</div></div>
+        <div><div class="k">Max drawdown (pips)</div><div class="v r" id="mDD">&mdash;</div></div>
         <div><div class="k">Profit factor</div><div class="v" id="mPF">&mdash;</div></div>
         <div><div class="k">Trades</div><div class="v" id="mN">&mdash;</div></div>
       </div>
 
       <div class="curvewrap">
-        <svg viewBox="0 0 1080 260" id="equityChart" role="img" aria-label="Cumulative strategy equity curve"></svg>
+        <svg viewBox="0 0 1080 260" id="equityChart" role="img" aria-label="Cumulative strategy pips curve"></svg>
       </div>
 
       <div class="tbl-head">
-        <h4>Fill history &middot; last 12</h4>
+        <h4>Fill history &middot; last 7 days</h4>
         <div class="live"><span class="dot"></span> LIVE &middot; <span id="upd">&mdash;</span></div>
       </div>
 
@@ -189,8 +191,8 @@
         <table>
           <thead>
             <tr>
-              <th>Closed</th><th>Symbol</th><th>Side</th><th>Lots</th>
-              <th>Entry</th><th>Exit</th><th>Pips</th><th style="text-align:right">P&amp;L (USD)</th>
+              <th>Closed</th><th>Symbol</th><th>Side</th>
+              <th>Entry</th><th>Exit</th><th style="text-align:right">Pips</th>
             </tr>
           </thead>
           <tbody id="tradeBody"></tbody>

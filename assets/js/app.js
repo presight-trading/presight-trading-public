@@ -43,26 +43,25 @@ const TEXTS = {
 const T = TEXTS[LANG] || TEXTS.zh;
 
 /* ---------- 演示数据（接上 API 后自动弃用） ---------- */
+/* 只公开点数：这里不再造 lots/pnl，字段形状对齐 normalize() 的输出，
+   加了 durationMin 只是保持数据形状一致，页面目前不展示它。 */
 const DEMO = (()=>{
   const spec = [
-    ['XAUUSD','buy',0.40,2412.35,2419.80,74.5],   ['EURUSD','sell',1.20,1.08942,1.08761,18.1],
-    ['GBPJPY','buy',0.60,198.412,198.905,49.3],   ['USDJPY','sell',0.80,157.204,157.388,-18.4],
-    ['XAUUSD','sell',0.35,2431.10,2422.65,84.5],  ['AUDUSD','buy',1.50,0.66218,0.66341,12.3],
-    ['NAS100','buy',0.25,20114.5,20238.0,123.5],  ['EURUSD','buy',1.00,1.08510,1.08402,-10.8],
-    ['USDCAD','sell',0.90,1.36720,1.36531,18.9],  ['XAUUSD','buy',0.50,2398.20,2409.55,113.5],
-    ['GBPUSD','sell',0.70,1.28904,1.28812,9.2],   ['US30','buy',0.20,41890.0,41762.0,-128.0],
-    ['EURJPY','buy',0.55,170.240,170.712,47.2],   ['XAUUSD','sell',0.45,2445.90,2451.30,-54.0],
-    ['USDCHF','buy',1.10,0.88410,0.88532,12.2],
+    ['XAUUSD','buy',2412.35,2419.80,74.5,42],   ['EURUSD','sell',1.08942,1.08761,18.1,17],
+    ['GBPJPY','buy',198.412,198.905,49.3,63],   ['USDJPY','sell',157.204,157.388,-18.4,28],
+    ['XAUUSD','sell',2431.10,2422.65,84.5,55],  ['AUDUSD','buy',0.66218,0.66341,12.3,19],
+    ['NAS100','buy',20114.5,20238.0,123.5,71],  ['EURUSD','buy',1.08510,1.08402,-10.8,22],
+    ['USDCAD','sell',1.36720,1.36531,18.9,33],  ['XAUUSD','buy',2398.20,2409.55,113.5,48],
+    ['GBPUSD','sell',1.28904,1.28812,9.2,15],   ['US30','buy',41890.0,41762.0,-128.0,84],
+    ['EURJPY','buy',170.240,170.712,47.2,39],   ['XAUUSD','sell',2445.90,2451.30,-54.0,26],
+    ['USDCHF','buy',0.88410,0.88532,12.2,31],
   ];
   const now = Date.now();
   return spec.map((s,i)=>{
-    const [symbol,side,lots,openPrice,closePrice,pips] = s;
-    const mult = symbol.includes('XAU')?10 : (symbol==='NAS100'||symbol==='US30')?1 : 10;
-    return {
-      closedAt: new Date(now - (i*3.4+1)*3600*1000).toISOString(),
-      symbol, side, lots, openPrice, closePrice, pips,
-      pnl: +(pips*lots*mult).toFixed(2)
-    };
+    const [symbol,side,openPrice,closePrice,pips,durationMin] = s;
+    const closedAt = new Date(now - (i*3.4+1)*3600*1000).toISOString();
+    const openedAt = new Date(new Date(closedAt).getTime() - durationMin*60000).toISOString();
+    return { closedAt, openedAt, durationMin, symbol, side, openPrice, closePrice, pips };
   });
 })();
 
@@ -82,7 +81,7 @@ function timeAgo(iso){
 /* ---------- 渲染成交表 ---------- */
 function renderLoading(){
   $('#tradeBody').innerHTML = Array.from({length:6},()=>
-    `<tr>${'<td><div class="skel"></div></td>'.repeat(8)}</tr>`).join('');
+    `<tr>${'<td><div class="skel"></div></td>'.repeat(6)}</tr>`).join('');
   $('#tradeState').innerHTML = '';
 }
 function renderError(){
@@ -96,46 +95,70 @@ function renderEmpty(){
     `<div class="state"><b>${T.emptyT}</b>${T.emptyB}</div>`;
 }
 
+/* #upd（「更新于」）显示的是数据生成时间，不是客户端本地时间——
+   否则用户看到的「刚刚更新」其实可能是几小时前抓的旧数据。
+   iso 为空（比如接口没给 generatedAt）时留空占位符。 */
+function renderUpdated(iso){
+  $('#upd').textContent = iso
+    ? T.updated + new Date(iso).toLocaleTimeString(T.locale,{hour:'2-digit',minute:'2-digit'})
+    : '—';
+}
+
 function renderTrades(trades){
   if(!trades.length) return renderEmpty();
   $('#tradeState').innerHTML = '';
   $('#tradeBody').innerHTML = trades.slice(0,CONFIG.rowLimit).map(t=>{
-    const win = t.pnl >= 0;
+    const win = t.pips > 0;
     return `<tr>
       <td style="color:#5B6883">${timeAgo(t.closedAt)}</td>
       <td class="sym">${t.symbol}</td>
       <td><span class="side ${t.side==='buy'?'b':'s'}">${t.side==='buy'?'BUY':'SELL'}</span></td>
-      <td>${t.lots.toFixed(2)}</td>
       <td>${price(t.symbol,t.openPrice)}</td>
       <td>${price(t.symbol,t.closePrice)}</td>
-      <td class="pnl ${win?'g':'r'}">${t.pips>0?'+':''}${t.pips.toFixed(1)}</td>
-      <td class="pnl ${win?'g':'r'}" style="text-align:right;font-weight:700">${win?'+':'−'}${fmt(Math.abs(t.pnl))}</td>
+      <td class="pnl ${win?'g':'r'}" style="text-align:right;font-weight:700">${t.pips>0?'+':''}${t.pips.toFixed(1)}</td>
     </tr>`;
   }).join('');
-  $('#upd').textContent = T.updated + new Date().toLocaleTimeString(T.locale,{hour:'2-digit',minute:'2-digit'});
 }
 
-/* ---------- 由成交记录反推指标 ---------- */
-function renderMetrics(trades){
+/* ---------- 由成交记录反推指标（只按点数口径：不涉及手数/美元盈亏） ---------- */
+function renderMetrics(trades, summary){
   const n = trades.length;
-  const wins = trades.filter(t=>t.pnl>0);
-  const gross= trades.reduce((a,t)=>a+t.pnl,0);
-  const gp   = wins.reduce((a,t)=>a+t.pnl,0);
-  const gl   = Math.abs(trades.filter(t=>t.pnl<0).reduce((a,t)=>a+t.pnl,0));
+  const wins   = trades.filter(t=>t.pips>0);
+  const losses = trades.filter(t=>t.pips<0);
 
-  // 从旧到新累计，算净值与最大回撤
+  // 从旧到新累计，算净值曲线（图表用；summary 只给汇总数字，不给逐笔
+  // 曲线，所以曲线始终在前端按 trades 现算）
   const chron = [...trades].reverse();
-  let eq=0, peak=0, dd=0; const curve=[0];
-  chron.forEach(t=>{ eq+=t.pnl; peak=Math.max(peak,eq); dd=Math.max(dd,peak-eq); curve.push(eq); });
+  let eq=0, peak=0, ddCalc=0; const curve=[0];
+  chron.forEach(t=>{ eq+=t.pips; peak=Math.max(peak,eq); ddCalc=Math.max(ddCalc,peak-eq); curve.push(eq); });
 
-  $('#mRet').textContent = (gross>=0?'+':'−') + fmt(Math.abs(gross),0);
-  $('#mWin').textContent = n ? (wins.length/n*100).toFixed(1)+'%' : '—';
-  $('#mDD').textContent  = '−' + fmt(dd,0);
-  $('#mPF').textContent  = gl ? (gp/gl).toFixed(2) : '—';
+  // 优先用后端算好的 summary，避免前后端算法口径不一致；
+  // 没有 summary（比如 DEMO 数据、或接口暂时没给）时前端自算。
+  let netPips, winRatePct, ddPips, pf;
+  if(summary){
+    // 后端(vip-history.json)的键名是 totalPips / winRatePct / pfPips / maxDrawdownPips；
+    // 同时兼容早期草案的 netPips / winRate / profitFactor，任一存在即用。
+    netPips    = Number(summary.totalPips ?? summary.netPips);
+    winRatePct = Number(summary.winRatePct ?? summary.winRate);
+    ddPips     = Number(summary.maxDrawdownPips);
+    const pfRaw = summary.pfPips ?? summary.profitFactor;
+    pf         = pfRaw != null ? Number(pfRaw) : null;
+  }
+
+  $('#mRet').textContent = (netPips>=0?'+':'−') + Math.abs(netPips).toFixed(1);
+  $('#mWin').textContent = winRatePct!=null ? winRatePct.toFixed(1)+'%' : '—';
+  $('#mDD').textContent  = '−' + Math.abs(ddPips).toFixed(1);
+  $('#mPF').textContent  = pf!=null ? pf.toFixed(2) : '—';
   $('#mN').textContent   = n;
 
-  $('#sRet').textContent = (gross>=0?'+':'−') + fmt(Math.abs(gross),0);
-  $('#sWin').textContent = n ? (wins.length/n*100).toFixed(1)+'%' : '—';
+  // 英雄区 #sRet 的标签是「近 7 天净点数」，按 closedAt 单独过滤 7 天
+  // 窗口——不能直接复用上面的 netPips（那是全量/summary 口径）。
+  const sevenDaysAgo = Date.now() - 7*24*3600*1000;
+  const net7 = trades
+    .filter(t=>t.closedAt && new Date(t.closedAt).getTime() >= sevenDaysAgo)
+    .reduce((a,t)=>a+t.pips,0);
+  $('#sRet').textContent = (net7>=0?'+':'−') + Math.abs(net7).toFixed(1) + ' pips';
+  $('#sWin').textContent = winRatePct!=null ? winRatePct.toFixed(1)+'%' : '—';
 
   drawEquity(curve);
 }
@@ -230,11 +253,20 @@ async function loadTrades(){
   }
   renderLoading();
   try{
-    const r = await fetch(CONFIG.tradesEndpoint,{headers:{'Accept':'application/json'}});
+    // 跨域取独立数据仓库的 raw 文件：不带自定义请求头，简单 GET 才
+    // 免预检（OPTIONS）——raw.githubusercontent.com 只按 Access-Control-
+    // Allow-Origin: * 放行简单请求，带了 Accept 之类的头会先走一次
+    // 预检，多一趟往返也多一个失败点，没必要。
+    const r = await fetch(CONFIG.tradesEndpoint);
     if(!r.ok) throw new Error(r.status);
     const json = await r.json();
-    const list = (Array.isArray(json)?json:(json.data||json.trades||[])).map(normalize);
-    renderTrades(list); renderMetrics(list);
+    const rawTrades = Array.isArray(json) ? json : (json.data || json.trades || []);
+    const list = rawTrades.map(normalize);
+    const summary = Array.isArray(json) ? null : json.summary;
+    const generatedAt = Array.isArray(json) ? null : json.generatedAt;
+    renderTrades(list);
+    renderMetrics(list, summary);
+    renderUpdated(generatedAt);
   }catch(e){ console.error('[presight] trades fetch failed:',e); renderError(); }
 }
 

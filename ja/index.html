@@ -79,7 +79,7 @@
 </div>
 <div class="strip rv">
 <div><div class="k">運用日数</div><div class="v" id="sRun">—</div></div>
-<div><div class="k">累計リターン</div><div class="v" id="sRet" style="color:var(--cobalt)">—</div></div>
+<div><div class="k">直近 7 日の純 pips</div><div class="v" id="sRet" style="color:var(--cobalt)">—</div></div>
 <div><div class="k">勝率</div><div class="v" id="sWin">—</div></div>
 <div><div class="k">コミュニティ</div><div class="v" id="sMem">—</div></div>
 <div><div class="k">損失補償</div><div class="v" style="color:var(--cobalt)">現金返金</div></div>
@@ -140,26 +140,28 @@
 <span class="tag">リスク固定</span></div>
 </div>
 </div>
+<!-- pips のみ公開：以下はすべて pips 建て。ロットも USD 損益も出しません。
+     「プロフィットファクター」はラベルそのままで、中身は pips ベースの勝ち/負け比です。 -->
 <div class="metrics">
-<div><div class="k">純損益</div><div class="v g" id="mRet">—</div></div>
+<div><div class="k">純獲得 pips</div><div class="v g" id="mRet">—</div></div>
 <div><div class="k">勝率</div><div class="v" id="mWin">—</div></div>
-<div><div class="k">最大ドローダウン</div><div class="v r" id="mDD">—</div></div>
+<div><div class="k">最大ドローダウン（pips）</div><div class="v r" id="mDD">—</div></div>
 <div><div class="k">プロフィットファクター</div><div class="v" id="mPF">—</div></div>
 <div><div class="k">トレード数</div><div class="v" id="mN">—</div></div>
 </div>
 <div class="curvewrap">
-<svg aria-label="戦略の累積資産推移" id="equityChart" role="img" viewbox="0 0 1080 260"></svg>
+<svg aria-label="戦略の累積 pips 推移" id="equityChart" role="img" viewbox="0 0 1080 260"></svg>
 </div>
 <div class="tbl-head">
-<h4>約定履歴 · 直近 12 件</h4>
+<h4>約定履歴 · 直近 7 日</h4>
 <div class="live"><span class="dot"></span> LIVE · <span id="upd">—</span></div>
 </div>
 <div class="tblscroll">
 <table>
 <thead>
 <tr>
-<th>決済日時</th><th>銘柄</th><th>売買</th><th>ロット</th>
-<th>建値</th><th>決済値</th><th>pips</th><th style="text-align:right">損益（USD）</th>
+<th>決済日時</th><th>銘柄</th><th>売買</th>
+<th>建値</th><th>決済値</th><th style="text-align:right">pips</th>
 </tr>
 </thead>
 <tbody id="tradeBody"></tbody>

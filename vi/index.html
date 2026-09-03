@@ -79,7 +79,7 @@
 </div>
 <div class="strip rv">
 <div><div class="k">Số ngày chạy</div><div class="v" id="sRun">—</div></div>
-<div><div class="k">Tổng lợi nhuận</div><div class="v" id="sRet" style="color:var(--cobalt)">—</div></div>
+<div><div class="k">Pip ròng 7 ngày</div><div class="v" id="sRet" style="color:var(--cobalt)">—</div></div>
 <div><div class="k">Tỷ lệ thắng</div><div class="v" id="sWin">—</div></div>
 <div><div class="k">Cộng đồng</div><div class="v" id="sMem">—</div></div>
 <div><div class="k">Bảo hiểm lỗ</div><div class="v" style="color:var(--cobalt)">Hoàn tiền mặt</div></div>
@@ -140,26 +140,29 @@
 <span class="tag">RỦI RO CỐ ĐỊNH</span></div>
 </div>
 </div>
+<!-- Chỉ công khai pip: các số dưới đây đều tính theo pip, không có lot,
+     không có lãi/lỗ USD. Nhãn "Hệ số lợi nhuận" giữ nguyên nhưng
+     tử số/mẫu số giờ là pip thắng / pip thua. -->
 <div class="metrics">
-<div><div class="k">Lãi/lỗ ròng</div><div class="v g" id="mRet">—</div></div>
+<div><div class="k">Pip ròng</div><div class="v g" id="mRet">—</div></div>
 <div><div class="k">Tỷ lệ thắng</div><div class="v" id="mWin">—</div></div>
-<div><div class="k">Sụt giảm tối đa</div><div class="v r" id="mDD">—</div></div>
+<div><div class="k">Sụt giảm tối đa (pip)</div><div class="v r" id="mDD">—</div></div>
 <div><div class="k">Hệ số lợi nhuận</div><div class="v" id="mPF">—</div></div>
 <div><div class="k">Số lệnh</div><div class="v" id="mN">—</div></div>
 </div>
 <div class="curvewrap">
-<svg aria-label="Đường vốn tích luỹ của chiến lược" id="equityChart" role="img" viewbox="0 0 1080 260"></svg>
+<svg aria-label="Đường pip tích luỹ của chiến lược" id="equityChart" role="img" viewbox="0 0 1080 260"></svg>
 </div>
 <div class="tbl-head">
-<h4>Lịch sử khớp lệnh · 12 lệnh gần nhất</h4>
+<h4>Lịch sử khớp lệnh · 7 ngày gần nhất</h4>
 <div class="live"><span class="dot"></span> LIVE · <span id="upd">—</span></div>
 </div>
 <div class="tblscroll">
 <table>
 <thead>
 <tr>
-<th>Đóng lúc</th><th>Mã</th><th>Chiều</th><th>Lot</th>
-<th>Giá vào</th><th>Giá ra</th><th>Pip</th><th style="text-align:right">Lãi/lỗ (USD)</th>
+<th>Đóng lúc</th><th>Mã</th><th>Chiều</th>
+<th>Giá vào</th><th>Giá ra</th><th style="text-align:right">Pip</th>
 </tr>
 </thead>
 <tbody id="tradeBody"></tbody>

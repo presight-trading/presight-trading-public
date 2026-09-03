@@ -2,8 +2,18 @@
    配置区 —— 上线前只需要改这里
    ============================================================ */
 const CONFIG = {
-  // 你的成交记录 API。留空则使用下方的演示数据。
-  tradesEndpoint : '',
+  // 成交记录 JSON 的地址。留空则使用下方的演示数据。
+  //
+  // 数据放在独立的公开仓库 presight-trading/strategy-history，后端每
+  // 5 分钟自动提交刷新一次 vip-history.json；这里直接指向它在 GitHub
+  // 上的 raw 地址（跨域，raw.githubusercontent.com 自带
+  // Access-Control-Allow-Origin: *，浏览器 fetch 不需要额外配置）。
+  // raw.githubusercontent.com 前端有 CDN，缓存约 5 分钟，所以页面看到
+  // 的数据比后端生成时间晚一点是正常的，不代表接口坏了。
+  // 走的是这个独立仓库、不是本仓库根目录，所以不存在语言子目录
+  // （en/ja/th/vi）相对路径解析错位的问题，不需要写成 /data/... 这种
+  // 站内绝对路径。
+  tradesEndpoint : 'https://raw.githubusercontent.com/presight-trading/strategy-history/main/vip-history.json',
 
   // 交易平台注册链接（带你的推广参数）
   brokerSignupUrl: 'https://secure.decodefx.com/auth/register/?ref=l-246813157-FS8661P7',
@@ -35,33 +45,49 @@ const CONFIG = {
   refreshMs      : 60000,
 
   // 表格显示条数
-  rowLimit       : 12,
+  rowLimit       : 200,
 };
 
-/* 期望的 API 返回格式（数组，按平仓时间倒序）：
-[
-  {
-    "closedAt" : "2026-07-28T09:41:00Z",   // ISO 8601
-    "symbol"   : "XAUUSD",
-    "side"     : "buy",                     // "buy" | "sell"
-    "lots"     : 0.40,
-    "openPrice": 2412.35,
-    "closePrice":2419.80,
-    "pips"     : 74.5,
-    "pnl"      : 298.00                     // USD，可为负
-  }
-]
-若你的字段名不同，改下面的 normalize() 一个函数即可。 */
+/* 期望的 API 返回格式（对象；trades 数组按平仓时间倒序）：
+{
+  "generatedAt": "2026-09-03T00:10:00Z",   // ISO 8601，数据生成时间，页面「更新于」用这个，不用客户端本地时间
+  "summary": {                              // 可选：后端预算好的汇总指标，存在时前端直接用，避免前后端算法口径不一致
+    "totalPips"      : 812.4,               // 净点数，带正负号（兼容旧名 netPips）
+    "winRatePct"     : 61.3,                // 胜率，百分比数字（0-100，兼容旧名 winRate）
+    "maxDrawdownPips": 96.0,                // 最大回撤，累计 pips 峰值回撤，正数
+    "pfPips"   : 1.82                 // 盈亏比 = 盈利点数之和 / 亏损点数绝对值之和
+  },
+  "trades": [
+    {
+      "closedAt"   : "2026-07-28T09:41:00Z",  // ISO 8601
+      "openedAt"   : "2026-07-28T08:59:00Z",  // ISO 8601，可选；缺失时若同时有 closedAt 会用来换算 durationMin
+      "symbol"     : "XAUUSD",
+      "side"       : "buy",                    // "buy" | "sell"
+      "openPrice"  : 2412.35,
+      "closePrice" : 2419.80,
+      "pips"       : 74.5,                     // 必填。只公开点数，不公开手数与美元盈亏
+      "durationMin": 42                        // 持仓分钟数，可选（缺失且有 openedAt/closedAt 时自动换算）
+    }
+  ]
+}
+只公开点数：不要把 lots / pnl（或 volume / profit）这类字段传进来——就算传了，
+normalize() 也不会读取它们。若你的字段名不同，改下面的 normalize() 一个函数即可。 */
 
 function normalize(raw){
+  const closedAt = raw.closedAt ?? raw.close_time ?? raw.time;
+  const openedAt = raw.openedAt ?? raw.open_time  ?? null;
+  let durationMin = raw.durationMin ?? raw.duration_min;
+  if(durationMin == null && openedAt && closedAt){
+    durationMin = Math.round((new Date(closedAt) - new Date(openedAt)) / 60000);
+  }
   return {
-    closedAt  : raw.closedAt  ?? raw.close_time ?? raw.time,
+    closedAt,
+    openedAt,
+    durationMin: Number(durationMin ?? 0),
     symbol    : raw.symbol    ?? raw.instrument,
     side      : (raw.side     ?? raw.type ?? '').toLowerCase(),
-    lots      : Number(raw.lots ?? raw.volume ?? 0),
     openPrice : Number(raw.openPrice  ?? raw.open_price ?? 0),
     closePrice: Number(raw.closePrice ?? raw.close_price ?? 0),
     pips      : Number(raw.pips ?? 0),
-    pnl       : Number(raw.pnl ?? raw.profit ?? 0),
   };
 }
