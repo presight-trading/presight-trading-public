@@ -383,9 +383,11 @@ if(location.hash){
     let el;
     try{ el = document.querySelector(location.hash); }catch(_){ return; }
     if(!el) return;
-    // 吸顶栏的高度现量现用：手机上它排两行，写死一个数就会盖住标题
+    // 只有真的吸顶时才需要让开它的高度。手机上顶栏是 static，会跟着
+    // 滚走，再减一次高度就会把目标顶到屏幕上方之外。
     const bar = document.querySelector('header');
-    const off = (bar ? bar.getBoundingClientRect().height : 0) + 12;
+    const pinned = bar && ['sticky','fixed'].includes(getComputedStyle(bar).position);
+    const off = (pinned ? bar.getBoundingClientRect().height : 0) + 12;
     const root = document.documentElement;
     const prev = root.style.scrollBehavior;
     root.style.scrollBehavior = 'auto';

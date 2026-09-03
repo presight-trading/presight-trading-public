@@ -504,25 +504,34 @@ nav a.hot::before{content:"";display:inline-block;width:5px;height:5px;border-ra
    看起来像是跳错了地方。 */
 section[id], main[id]{scroll-margin-top:78px}
 
-/* 手机上的顶栏排两行。
-   一行放不下了：logo 204 + 语言切换 224 + CTA 97，390px 的屏上实测
-   文档宽 618，右侧被裁掉一截。语言从两种加到五种之后就一直是这样，
-   只是没人在手机上打开过。
-   第二行放「邀请合作」和语言切换：前者是入口不能藏（其余五条是页面
-   分节，滚一滚就到），后者是五语种站点的基本功能。
-   .hact 用 display:contents 摊平，让它的两个孩子能各自排序换行。 */
+/* 手机上的顶栏分三行。
+
+   一行放不下：logo 204 + 语言切换 224 + CTA 97，390px 的屏上文档宽
+   618，右侧被裁掉一截。语言从两种加到五种之后就一直是这样。
+
+   导航六项的文字宽度实测 345（中）到 422（越）px，加间距还要再多 70，
+   而真机可用宽度只有 350——所以它必须独占一行并允许换行。这里用换行
+   而不是横向滚动：滚动会把后面几项藏起来，用户不知道还有内容，而这
+   六项本来就是整站的目录。
+
+   .hact 用 display:contents 摊平，让它的两个孩子各自排序换行。 */
 @media(max-width:760px){
-  .hbar{flex-wrap:wrap;height:auto;padding-top:11px;padding-bottom:9px;
-        column-gap:12px;row-gap:8px}
+  .hbar{flex-wrap:wrap;height:auto;padding-top:10px;padding-bottom:8px;
+        column-gap:12px;row-gap:7px}
   .hact{display:contents}
   .logo{order:1}
-  .hbar .btn{order:2;margin-left:auto;padding:9px 15px;font-size:.82rem}
+  .hbar .btn{order:2;margin-left:auto;padding:8px 14px;font-size:.8rem}
   .hbar::after{content:"";order:3;flex-basis:100%;height:0}   /* 强制换行 */
-  nav{order:4;display:flex;gap:0}
-  nav a:not(.hot){display:none}
-  nav a.hot{font-size:.84rem;padding:0}
-  .langsw{order:5;margin-left:auto;font-size:.68rem;gap:5px}
-  section[id],main[id]{scroll-margin-top:108px}
+  nav{order:4;flex-basis:100%;display:flex;flex-wrap:wrap;
+      gap:5px 16px;font-size:.82rem}
+  nav a{padding:2px 0}
+  .langsw{order:5;flex-basis:100%;justify-content:flex-end;
+          font-size:.66rem;gap:5px}
+  /* 三行的顶栏有 120~150px 高，占掉手机屏的 15~20%。吸顶就意味着这块
+     一直压在内容上，所以手机上让它跟着滚走：页面顶部能看到完整导航，
+     往下读时把整屏还给内容。页脚另有一份同样的链接可用。 */
+  header{position:static}
+  section[id],main[id]{scroll-margin-top:12px}
 }
 
 /* IB 洽谈联系方式 */
