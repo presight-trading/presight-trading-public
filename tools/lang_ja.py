@@ -916,3 +916,9 @@ INDEX.update({
     'To discuss an IB partnership, message <a href="https://t.me/presighttrading" rel="noopener" target="_blank">@presighttrading</a> on Telegram':
         'IB 提携のご相談は Telegram の <a href="https://t.me/presighttrading" rel="noopener" target="_blank">@presighttrading</a> までご連絡ください',
 })
+
+# 策略细节 / 定制策略的洽谈入口
+INDEX.update({
+    'Want the details behind the strategy, or a <b>bespoke strategy</b> for your own client base? Message <a href="https://t.me/presighttrading" rel="noopener" target="_blank">@presighttrading</a> on Telegram as well':
+        '戦略の詳細を知りたい方、あるいはご自身の顧客向けに<b>専用戦略</b>をご希望の方も、Telegram の <a href="https://t.me/presighttrading" rel="noopener" target="_blank">@presighttrading</a> までご連絡ください',
+})

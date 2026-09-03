@@ -538,3 +538,9 @@ INDEX.update({
     'To discuss an IB partnership, message <a href="https://t.me/presighttrading" rel="noopener" target="_blank">@presighttrading</a> on Telegram':
         'ต้องการคุยเรื่องความร่วมมือ IB ทักหา <a href="https://t.me/presighttrading" rel="noopener" target="_blank">@presighttrading</a> ใน Telegram',
 })
+
+# 策略细节 / 定制策略的洽谈入口
+INDEX.update({
+    'Want the details behind the strategy, or a <b>bespoke strategy</b> for your own client base? Message <a href="https://t.me/presighttrading" rel="noopener" target="_blank">@presighttrading</a> on Telegram as well':
+        'อยากรู้รายละเอียดของกลยุทธ์ หรือต้องการ<b>กลยุทธ์เฉพาะ</b>สำหรับฐานลูกค้าของคุณเอง ทักหา <a href="https://t.me/presighttrading" rel="noopener" target="_blank">@presighttrading</a> ใน Telegram ได้เช่นกัน',
+})

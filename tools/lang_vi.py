@@ -538,3 +538,9 @@ INDEX.update({
     'To discuss an IB partnership, message <a href="https://t.me/presighttrading" rel="noopener" target="_blank">@presighttrading</a> on Telegram':
         'Muốn trao đổi về hợp tác IB, hãy nhắn <a href="https://t.me/presighttrading" rel="noopener" target="_blank">@presighttrading</a> trên Telegram',
 })
+
+# 策略细节 / 定制策略的洽谈入口
+INDEX.update({
+    'Want the details behind the strategy, or a <b>bespoke strategy</b> for your own client base? Message <a href="https://t.me/presighttrading" rel="noopener" target="_blank">@presighttrading</a> on Telegram as well':
+        'Muốn biết chi tiết về chiến lược, hoặc cần một <b>chiến lược riêng</b> cho tệp khách của bạn? Cũng nhắn <a href="https://t.me/presighttrading" rel="noopener" target="_blank">@presighttrading</a> trên Telegram',
+})
