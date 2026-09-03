@@ -944,3 +944,20 @@ PROTECTION.update({
     'A subscription to <b>PRESIGHT ALPHA-1</b> inside the platform\'s copy-trading system, configured as below.\n            The path: log in at <span class="mono">secure.decodefx.com</span> → <b>Copy Trading</b> →\n            sign in with your <b>MT5 copy account</b> login and password → <b>New subscription</b> →\n            set Provider to <span class="mono">PRESIGHT ALPHA-1</span>.':
         'プラットフォームのコピートレード機能で <b>PRESIGHT ALPHA-1</b> を購読し、下記のとおり設定すること。\n            手順：<span class="mono">secure.decodefx.com</span> にログイン → <b>Copy Trading</b> →\n            <b>MT5 コピー口座</b>の ID とパスワードでサインイン → <b>New subscription</b> →\n            Provider に <span class="mono">PRESIGHT ALPHA-1</span> を入力。',
 })
+
+# 跟单流程补两步：先注册 follower 账户；订阅建好后要点 Activate
+INDEX.update({
+    'Log in at <span class="mono">secure.decodefx.com</span> → <b>Copy Trading</b>. On your first visit you must <b>register a follower account</b> before the copy platform will let you in.<br/><br/>Open <b>New subscription</b> and set Provider to <span class="mono">PRESIGHT ALPHA-1</span>. Copy settings: <b>Autoscale</b>, <b>Value by asset</b>, <b>Ratio 1</b> (a 1:1 mirror, no scaling up).<br/><br/>Then press <b>Activate</b> in the <b>Action</b> column — <b>copying does not start until you do</b>; the subscription just sits in the list. Per-trade risk is set on our side — you do not configure it.':
+        '<span class="mono">secure.decodefx.com</span> にログイン → <b>Copy Trading</b>。初回は先に<b>フォロワー口座を登録</b>しないとコピー用プラットフォームに入れません。<br/><br/><b>New subscription</b> を開き、Provider に <span class="mono">PRESIGHT ALPHA-1</span> を指定。設定は <b>Autoscale</b>、<b>Value by asset</b>、<b>Ratio 1</b>（1:1、拡大しない）。<br/><br/>そのあと <b>Action</b> 列の <b>Activate</b> を押してください——<b>押すまでコピーは始まりません</b>。購読は一覧に並んでいるだけの状態です。1 トレードあたりのリスクはこちらで設定するので、あなたが触る必要はありません。',
+    '<b>secure.decodefx.com</b> → Copy Trading → <b>register a follower account</b> → sign in → New subscription<br/>\n            Provider: <b>PRESIGHT ALPHA-1</b><br/>\n            Settings: <b>Autoscale</b> · <b>Value by asset</b> · <b>Ratio = 1</b><br/>\n            Finally press <b>Activate</b> in the <b>Action</b> column':
+        '<b>secure.decodefx.com</b> → Copy Trading → <b>フォロワー口座を登録</b> → サインイン → New subscription<br/>\n            Provider：<b>PRESIGHT ALPHA-1</b><br/>\n            設定：<b>Autoscale</b> · <b>Value by asset</b> · <b>Ratio = 1</b><br/>\n            最後に <b>Action</b> 列の <b>Activate</b> を押す',
+    '<b>You must press Activate</b> once the subscription is created, or nothing is copied. Ratio 1 is a 1:1 mirror; anything above 1 scales up your position and voids coverage outright.':
+        '購読を作ったら<b>必ず Activate を押してください</b>。押さないと一切コピーされません。Ratio 1 が 1:1 です。1 より大きくすると建玉を拡大したことになり、その時点で補償の対象外になります。',
+})
+
+PROTECTION.update({
+    'A subscription to <b>PRESIGHT ALPHA-1</b> inside the platform\'s copy-trading system, configured as below.\n            The path: log in at <span class="mono">secure.decodefx.com</span> → <b>Copy Trading</b> →\n            on your first visit, <b>register a follower account</b> — the copy platform will not let you in without one →\n            <b>New subscription</b> → set Provider to <span class="mono">PRESIGHT ALPHA-1</span>.':
+        'プラットフォームのコピートレード機能で <b>PRESIGHT ALPHA-1</b> を購読し、下記のとおり設定すること。\n            手順：<span class="mono">secure.decodefx.com</span> にログイン → <b>Copy Trading</b> →\n            初回は<b>フォロワー口座を登録</b>する（登録しないとコピー用プラットフォームに入れません）→\n            <b>New subscription</b> → Provider に <span class="mono">PRESIGHT ALPHA-1</span> を入力。',
+    'Once the subscription exists, press <b>Activate</b> in the <b>Action</b> column.\n            <b>An inactive subscription copies nothing</b>, so there are no protected trades —\n            the protection period still runs from your report, but an account that is not copying\n            cannot produce a refundable loss.':
+        '購読を作ったら、<b>Action</b> 列の <b>Activate</b> を押して有効化すること。\n            <b>有効化していない購読は一切コピーしません</b>ので、保護対象の取引も存在しません——\n            保護期間は届出から進みますが、コピーしていない口座には返金対象の損失が\n            そもそも発生しません。',
+})

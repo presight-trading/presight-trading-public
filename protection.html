@@ -82,8 +82,11 @@
         <li>通过 Presight 官方链接注册的合作平台<b>新账户</b>，并完成平台身份认证（KYC）。既有账户无法接入。</li>
         <li>在平台跟单系统内订阅 <b>PRESIGHT ALPHA-1</b>，并按下面的参数配置。
             具体路径：登录 <span class="mono">secure.decodefx.com</span> → <b>Copy Trading</b> →
-            用你的 <b>MT5 跟单账户</b>的账号密码登录 → <b>New subscription</b> →
-            Provider 填 <span class="mono">PRESIGHT ALPHA-1</span>。</li>
+            第一次进需要先<b>注册一个 follower 账户</b>，注册完才能登录跟单平台 →
+            <b>New subscription</b> → Provider 填 <span class="mono">PRESIGHT ALPHA-1</span>。</li>
+        <li>订阅建好之后，在 <b>Action</b> 一栏点 <b>Activate</b> 激活。
+            <b>没有激活的订阅不产生任何跟单</b>，也就不存在受保护的交易——
+            保护期虽然从报备起算，但账户不跟单就不会有可赔付的亏损。</li>
         <li>跟单参数设为 <b>Autoscale</b>、<b>Value by asset</b>、<b>Ratio = 1</b>，
             即 1:1 同步，不得放大主账户仓位。Ratio 大于 1 就是放大，会直接失去赔付资格。</li>
         <li>开始跟单后，在 Telegram 私信 <span class="mono">@PresightAdminBot</span>，<b>报备你的 MT5 账户 ID（登录号）</b>——它会当场回执。
