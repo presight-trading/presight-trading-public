@@ -518,3 +518,11 @@ INDEX.update({
     'Bring people to Presight and keep half the commission. The clients you introduce get the loss-coverage programme and a <b>1% floor on their first month</b>.':
         'Giới thiệu người dùng cho Presight và giữ lại một nửa hoa hồng. Khách bạn giới thiệu vừa có bảo hiểm thua lỗ, vừa có <b>mức lợi nhuận tối thiểu 1% trong tháng đầu</b>.',
 })
+
+# 门槛口径更正：5,000 美元是名下用户的入金合计，不是每人
+INDEX.update({
+    '<span class="u">3</span> clients · <span class="u">USD 5,000</span> combined':
+        '<span class="u">3</span> khách · tổng nạp <span class="u">5.000 USD</span>',
+    'At least 3 clients under you, funding <b>USD 5,000 between them</b> — the threshold for both loss coverage and the return floor.':
+        'Dưới bạn có ít nhất 3 khách, và <b>tổng tiền nạp của họ từ 5.000 USD trở lên</b> — đây là ngưỡng cho cả bảo hiểm thua lỗ lẫn mức lợi nhuận tối thiểu tháng đầu.',
+})

@@ -896,3 +896,11 @@ INDEX.update({
     'Bring people to Presight and keep half the commission. The clients you introduce get the loss-coverage programme and a <b>1% floor on their first month</b>.':
         'Presight を紹介して、手数料の半分を受け取ってください。紹介したお客様は損失補償に加えて、<b>初月リターン 1% の下支え</b>も受けられます。',
 })
+
+# 门槛口径更正：5,000 美元是名下用户的入金合计，不是每人
+INDEX.update({
+    '<span class="u">3</span> clients · <span class="u">USD 5,000</span> combined':
+        '<span class="u">3</span> 名 · 入金合計 <span class="u">5,000 米ドル</span>',
+    'At least 3 clients under you, funding <b>USD 5,000 between them</b> — the threshold for both loss coverage and the return floor.':
+        'あなたの下に 3 名以上のお客様がいて、<b>入金の合計が 5,000 米ドル以上</b>であること——損失補償と初月リターン保証はどちらもこの条件で有効になります。',
+})
