@@ -55,7 +55,7 @@
       <div class="langsw">
         <a href="#top" class="cur">中</a><span>/</span><a href="en/" >EN</a>
       </div>
-      <a href="#strategy" class="btn">开始跟单 <span class="arw">&rarr;</span></a>
+      <a href="#strategy" class="btn" data-open="start">开始跟单 <span class="arw">&rarr;</span></a>
     </div>
   </div>
 </header>
@@ -325,6 +325,57 @@
     </div>
   </div>
 </footer>
+
+<!-- ===================== 开始跟单弹窗 ===================== -->
+<div class="mask" id="startMask" role="dialog" aria-modal="true"
+     aria-labelledby="startTitle" hidden>
+  <div class="modal">
+    <button class="mclose" type="button" data-close aria-label="关闭">&times;</button>
+
+    <div class="mhead">
+      <div class="fig">FIG. <b>00</b> &mdash; 开始跟单</div>
+      <h3 id="startTitle">三步开始跟单</h3>
+      <p>十分钟内可以做完。<b>第 3 步决定你有没有包赔资格</b>，别漏。</p>
+    </div>
+
+    <ol class="msteps">
+      <li>
+        <div class="mn">01</div>
+        <div>
+          <h4>注册开户并入金</h4>
+          <p>只有走这条链接注册的<b>新账户</b>才在订阅名单里。注册后完成身份认证（KYC），再入金。</p>
+          <a class="btn" data-link="broker" target="_blank" rel="noopener">去 DecodeFX 注册 <span class="arw">&rarr;</span></a>
+        </div>
+      </li>
+      <li>
+        <div class="mn">02</div>
+        <div>
+          <h4>订阅 PRESIGHT ALPHA-1</h4>
+          <div class="path">
+            <b>secure.decodefx.com</b> &rarr; Copy Trading &rarr; 用 MT5 跟单账户的账号密码登录 &rarr; New subscription<br>
+            Provider：<b>presighttrading_com - signal 1</b><br>
+            参数：<b>Autoscale</b> · <b>Value by asset</b> · <b>Ratio = 1</b>
+          </div>
+          <p class="mwarn">Ratio 填 1 就是 1:1。大于 1 是放大仓位，直接失去包赔资格。</p>
+        </div>
+      </li>
+      <li>
+        <div class="mn">03</div>
+        <div>
+          <h4>私信机器人，报备 MT5 账户 ID</h4>
+          <p>把登录号（一串数字）发给它就行，会当场收到回执。<b>包赔的保护期从报备那一刻起算</b>，报备之前产生的亏损不在赔付范围，所以开完户请尽早报。</p>
+          <a class="btn" data-link="bot" target="_blank" rel="noopener">私信 @PresightAdminBot <span class="arw">&rarr;</span></a>
+          <p class="mwarn">只发登录号，<b>不要发密码</b>。我们任何时候都不会向你索要密码、验证码或资金。</p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="mfoot">
+      <a class="btn ghost" data-link="community" target="_blank" rel="noopener">有问题？进交易学院社区</a>
+      <a class="mlink" href="protection.html">完整活动细则 &rarr;</a>
+    </div>
+  </div>
+</div>
 
 <script src="assets/js/config.js"></script>
 <script src="assets/js/app.js"></script>

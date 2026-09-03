@@ -55,7 +55,7 @@
       <div class="langsw">
         <a href="../" >中</a><span>/</span><a href="#top" class="cur">EN</a>
       </div>
-      <a href="#strategy" class="btn">Start copying <span class="arw">&rarr;</span></a>
+      <a href="#strategy" class="btn" data-open="start">Start copying <span class="arw">&rarr;</span></a>
     </div>
   </div>
 </header>
@@ -323,6 +323,57 @@
     </div>
   </div>
 </footer>
+
+<!-- ===================== Start-copying modal ===================== -->
+<div class="mask" id="startMask" role="dialog" aria-modal="true"
+     aria-labelledby="startTitle" hidden>
+  <div class="modal">
+    <button class="mclose" type="button" data-close aria-label="Close">&times;</button>
+
+    <div class="mhead">
+      <div class="fig">FIG. <b>00</b> &mdash; GETTING STARTED</div>
+      <h3 id="startTitle">Three steps to start copying</h3>
+      <p>Ten minutes, start to finish. <b>Step 3 is what makes you eligible for coverage</b> &mdash; do not skip it.</p>
+    </div>
+
+    <ol class="msteps">
+      <li>
+        <div class="mn">01</div>
+        <div>
+          <h4>Open an account and fund it</h4>
+          <p>Only a <b>new account</b> opened through this link is on the subscription list. Complete verification (KYC), then deposit.</p>
+          <a class="btn" data-link="broker" target="_blank" rel="noopener">Register with DecodeFX <span class="arw">&rarr;</span></a>
+        </div>
+      </li>
+      <li>
+        <div class="mn">02</div>
+        <div>
+          <h4>Subscribe to PRESIGHT ALPHA-1</h4>
+          <div class="path">
+            <b>secure.decodefx.com</b> &rarr; Copy Trading &rarr; sign in with your MT5 copy account &rarr; New subscription<br>
+            Provider: <b>presighttrading_com - signal 1</b><br>
+            Settings: <b>Autoscale</b> · <b>Value by asset</b> · <b>Ratio = 1</b>
+          </div>
+          <p class="mwarn">Ratio 1 is a 1:1 mirror. Anything above 1 scales up your position and voids coverage outright.</p>
+        </div>
+      </li>
+      <li>
+        <div class="mn">03</div>
+        <div>
+          <h4>Report your MT5 account ID to the bot</h4>
+          <p>Send it your login number &mdash; just the digits &mdash; and you get an immediate receipt. <b>The protection period starts from that moment</b>; losses before it are not covered, so report as soon as the account is open.</p>
+          <a class="btn" data-link="bot" target="_blank" rel="noopener">Message @PresightAdminBot <span class="arw">&rarr;</span></a>
+          <p class="mwarn">Send the login number only &mdash; <b>never your password</b>. We will never ask you for a password, a verification code or funds.</p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="mfoot">
+      <a class="btn ghost" data-link="community" target="_blank" rel="noopener">Questions? Join the community</a>
+      <a class="mlink" href="protection.html">Full programme terms &rarr;</a>
+    </div>
+  </div>
+</div>
 
 <script src="../assets/js/config.js"></script>
 <script src="../assets/js/app.js"></script>

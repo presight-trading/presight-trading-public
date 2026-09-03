@@ -233,6 +233,7 @@ $('#brokerLink').href    = CONFIG.brokerSignupUrl;
    页面里加几个入口都不用再改 JS。 */
 const LINKS = {
   broker   : CONFIG.brokerSignupUrl,
+  bot      : CONFIG.adminBotUrl,
   channel  : CONFIG.channelUrl,
   community: CONFIG.communityUrl,
   vip      : CONFIG.vipUrl,
@@ -242,6 +243,38 @@ document.querySelectorAll('[data-link]').forEach(el=>{
   const url = LINKS[el.dataset.link];
   if(url) el.href = url;
 });
+
+/* ---------- 「开始跟单」弹窗 ----------
+   顶栏按钮原来锚到 #strategy——那里讲的是策略是什么，不是怎么开始，
+   用户点完还得自己把注册、订阅、报备三件事从页面各处拼起来。弹窗把
+   这三步连着链接摆在一屏里。
+
+   href 保留着：JS 没加载出来时点击仍然滚到策略区，不会变成死按钮。 */
+const mask = $('#startMask');
+if(mask){
+  const openStart = (e)=>{
+    if(e) e.preventDefault();
+    mask.hidden = false;
+    mask.classList.add('on');
+    document.body.style.overflow = 'hidden';   // 背景不要跟着滚
+    const first = mask.querySelector('[data-close]');
+    if(first) first.focus();
+  };
+  const closeStart = ()=>{
+    mask.classList.remove('on');
+    mask.hidden = true;
+    document.body.style.overflow = '';
+  };
+  document.querySelectorAll('[data-open="start"]')
+          .forEach(el=>el.addEventListener('click', openStart));
+  mask.addEventListener('click', e=>{
+    // 点遮罩本身或叉号都关；点面板内部不关
+    if(e.target === mask || e.target.closest('[data-close]')) closeStart();
+  });
+  document.addEventListener('keydown', e=>{
+    if(e.key === 'Escape' && !mask.hidden) closeStart();
+  });
+}
 
 const io = new IntersectionObserver((es)=>es.forEach(e=>{
   if(!e.isIntersecting) return;

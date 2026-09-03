@@ -20,6 +20,11 @@ const CONFIG = {
   // VIP 实时信号频道：三者中唯一需要资格的。审批制，且需先开户绑定跟单
   vipUrl         : 'https://t.me/+G9GlHdkmIZliOGY1',
 
+  // 报备用的管理员 bot。开户跟单之后，用户把 MT5 账户 ID 私信给它，
+  // 它当场回执并把记录落到内部台账群。包赔的保护期正是从这一刻起算的，
+  // 所以这个链接断了不只是少个入口——是用户的保护期根本开始不了。
+  adminBotUrl    : 'https://t.me/PresightAdminBot',
+
   // 联系方式
   contactEmail   : 'hello@presighttrading.com',
 

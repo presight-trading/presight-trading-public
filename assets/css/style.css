@@ -391,3 +391,51 @@ footer a:hover{color:#fff}
                letter-spacing:.03em;margin-top:6px;display:block}
 @media(max-width:560px){.qrbox{gap:14px;padding:14px 16px}
   .qrbox .code{width:88px;height:88px;flex:0 0 88px}}
+
+
+/* ============================================================
+   「开始跟单」弹窗 — 注册 / 订阅 / 报备三步连着链接摆在一屏里
+   ============================================================ */
+.mask{position:fixed;inset:0;z-index:200;padding:24px;overflow-y:auto;
+      background:rgba(10,17,30,.66);display:none}
+.mask.on{display:flex;align-items:flex-start;justify-content:center}
+.modal{position:relative;width:100%;max-width:660px;margin:auto;
+       background:var(--paper-hi);border:1px solid var(--grid);
+       box-shadow:0 26px 70px rgba(10,17,30,.3)}
+.mclose{position:absolute;top:10px;right:12px;width:34px;height:34px;
+        border:0;background:transparent;cursor:pointer;color:var(--ink-soft);
+        font-family:var(--mono);font-size:1.4rem;line-height:1}
+.mclose:hover{color:var(--ink)}
+.mhead{padding:30px 34px 22px;border-bottom:1px solid var(--grid-soft)}
+.mhead .fig{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;
+            color:var(--ink-soft);text-transform:uppercase;margin-bottom:12px}
+.mhead h3{font-family:var(--han);font-size:1.32rem;font-weight:700;color:var(--ink)}
+.mhead p{font-family:var(--han);font-size:.85rem;line-height:1.8;
+         color:var(--ink-mid);margin-top:10px}
+.msteps{list-style:none;margin:0;padding:0}
+.msteps li{display:grid;grid-template-columns:52px 1fr;gap:4px;
+           padding:24px 34px;border-bottom:1px solid var(--grid-soft)}
+.msteps .mn{font-family:var(--mono);font-size:1.05rem;font-weight:700;
+            color:var(--grid);letter-spacing:-.03em;padding-top:2px}
+.msteps h4{font-family:var(--han);font-size:1rem;font-weight:700;
+           color:var(--ink);margin-bottom:8px}
+.msteps p{font-family:var(--han);font-size:.85rem;line-height:1.8;color:var(--ink-mid)}
+.msteps p+p,.msteps .btn{margin-top:12px}
+.msteps .path{font-family:var(--mono);font-size:.76rem;line-height:1.85;
+              color:var(--ink-mid);background:var(--paper);border:1px solid var(--grid-soft);
+              padding:11px 13px;margin-top:11px;word-break:break-word}
+.msteps .path b{color:var(--cobalt);font-weight:600}
+.mwarn{border-left:3px solid var(--amber);padding-left:12px;margin-top:12px !important;
+       color:var(--ink) !important;font-size:.82rem !important}
+.mfoot{display:flex;flex-wrap:wrap;gap:14px;align-items:center;
+       justify-content:space-between;padding:22px 34px;background:var(--paper)}
+.mfoot .mlink{font-family:var(--mono);font-size:.76rem;letter-spacing:.05em;
+              color:var(--cobalt);text-decoration:none}
+.mfoot .mlink:hover{text-decoration:underline}
+@media(max-width:560px){
+  .mask{padding:0}
+  .modal{max-width:none;border:0;min-height:100%}
+  .mhead,.msteps li,.mfoot{padding-left:20px;padding-right:20px}
+  .msteps li{grid-template-columns:36px 1fr}
+  .mfoot .btn{width:100%;justify-content:center}
+}
