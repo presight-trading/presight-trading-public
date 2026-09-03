@@ -157,8 +157,8 @@ INDEX = {
         'เปิดบัญชีกับแพลตฟอร์มพันธมิตรด้วยลิงก์บนเว็บนี้ แล้วยืนยันตัวตนให้เสร็จ เฉพาะบัญชีที่เปิดด้วยวิธีนี้เท่านั้นที่สมัครกลยุทธ์ได้',
     'Fund and subscribe':
         'ฝากเงินและสมัครกลยุทธ์',
-    'Log in at <span class="mono">secure.decodefx.com</span> → <b>Copy Trading</b>, sign in with your MT5 copy account credentials, open <b>New subscription</b>, and set Provider to <span class="mono">presighttrading_com - signal 1</span>. Copy settings: <b>Autoscale</b>, <b>Value by asset</b>, <b>Ratio 1</b> (a 1:1 mirror, no scaling up). Per-trade risk is set on our side — you do not configure it.':
-        'ล็อกอิน <span class="mono">secure.decodefx.com</span> → <b>Copy Trading</b> เข้าสู่ระบบด้วยบัญชี MT5 ที่ใช้ก๊อปปี้ เปิด <b>New subscription</b> แล้วกรอก Provider เป็น <span class="mono">presighttrading_com - signal 1</span> ตั้งค่า: <b>Autoscale</b>, <b>Value by asset</b>, <b>Ratio 1</b> (คือ 1:1 ไม่ขยาย) ความเสี่ยงต่อออเดอร์เราตั้งให้ คุณไม่ต้องตั้งเอง',
+    'Log in at <span class="mono">secure.decodefx.com</span> → <b>Copy Trading</b>, sign in with your MT5 copy account credentials, open <b>New subscription</b>, and set Provider to <span class="mono">PRESIGHT ALPHA-1</span>. Copy settings: <b>Autoscale</b>, <b>Value by asset</b>, <b>Ratio 1</b> (a 1:1 mirror, no scaling up). Per-trade risk is set on our side — you do not configure it.':
+        'ล็อกอิน <span class="mono">secure.decodefx.com</span> → <b>Copy Trading</b> เข้าสู่ระบบด้วยบัญชี MT5 ที่ใช้ก๊อปปี้ เปิด <b>New subscription</b> แล้วกรอก Provider เป็น <span class="mono">PRESIGHT ALPHA-1</span> ตั้งค่า: <b>Autoscale</b>, <b>Value by asset</b>, <b>Ratio 1</b> (คือ 1:1 ไม่ขยาย) ความเสี่ยงต่อออเดอร์เราตั้งให้ คุณไม่ต้องตั้งเอง',
     'Report your MT5 account ID':
         'แจ้ง MT5 account ID',
     'Message <span class="mono">@PresightAdminBot</span> on Telegram with your MT5 account ID (login number); it replies with a receipt immediately. The protection period starts from that moment — an unreported account is not eligible, and losses before you report are not covered.':
@@ -303,8 +303,8 @@ INDEX = {
         'สมัครกับ DecodeFX <span class="arw">→</span>',
     'Subscribe to PRESIGHT ALPHA-1':
         'สมัคร PRESIGHT ALPHA-1',
-    '<b>secure.decodefx.com</b> → Copy Trading → sign in with your MT5 copy account → New subscription<br/>\n            Provider: <b>presighttrading_com - signal 1</b><br/>\n            Settings: <b>Autoscale</b> · <b>Value by asset</b> · <b>Ratio = 1</b>':
-        '<b>secure.decodefx.com</b> → Copy Trading → เข้าสู่ระบบด้วยบัญชี MT5 ที่ใช้ก๊อปปี้ → New subscription<br/>\n            Provider: <b>presighttrading_com - signal 1</b><br/>\n            ตั้งค่า: <b>Autoscale</b> · <b>Value by asset</b> · <b>Ratio = 1</b>',
+    '<b>secure.decodefx.com</b> → Copy Trading → sign in with your MT5 copy account → New subscription<br/>\n            Provider: <b>PRESIGHT ALPHA-1</b><br/>\n            Settings: <b>Autoscale</b> · <b>Value by asset</b> · <b>Ratio = 1</b>':
+        '<b>secure.decodefx.com</b> → Copy Trading → เข้าสู่ระบบด้วยบัญชี MT5 ที่ใช้ก๊อปปี้ → New subscription<br/>\n            Provider: <b>PRESIGHT ALPHA-1</b><br/>\n            ตั้งค่า: <b>Autoscale</b> · <b>Value by asset</b> · <b>Ratio = 1</b>',
     'Ratio 1 is a 1:1 mirror. Anything above 1 scales up your position and voids coverage outright.':
         'Ratio 1 คือ 1:1 ถ้ามากกว่า 1 เท่ากับขยายขนาดสถานะ และเสียความคุ้มครองทันที',
     'Report your MT5 account ID to the bot':
@@ -342,8 +342,8 @@ PROTECTION = {
         'ต้องเข้าเงื่อนไขด้านล่าง<b>ทุกข้อ</b> ขาดข้อใดข้อหนึ่งก็อยู่นอกความคุ้มครอง',
     'A <b>new account</b> with the partner platform, opened through an official Presight link and KYC-verified. Existing accounts cannot be enrolled.':
         '<b>บัญชีใหม่</b>กับแพลตฟอร์มพันธมิตร เปิดผ่านลิงก์ทางการของ Presight และยืนยันตัวตน (KYC) แล้ว บัญชีที่มีอยู่เดิมสมัครเข้าร่วมไม่ได้',
-    'A subscription to <b>PRESIGHT ALPHA-1</b> inside the platform\'s copy-trading system, configured as below.\n            The path: log in at <span class="mono">secure.decodefx.com</span> → <b>Copy Trading</b> →\n            sign in with your <b>MT5 copy account</b> login and password → <b>New subscription</b> →\n            set Provider to <span class="mono">presighttrading_com - signal 1</span>\n            (the platform\'s name for PRESIGHT ALPHA-1).':
-        'สมัคร <b>PRESIGHT ALPHA-1</b> ในระบบก๊อปปี้เทรดของแพลตฟอร์ม โดยตั้งค่าตามด้านล่าง\n            เส้นทาง: ล็อกอิน <span class="mono">secure.decodefx.com</span> → <b>Copy Trading</b> →\n            เข้าสู่ระบบด้วยเลขบัญชีและรหัสผ่านของ<b>บัญชี MT5 ที่ใช้ก๊อปปี้</b> → <b>New subscription</b> →\n            กรอก Provider เป็น <span class="mono">presighttrading_com - signal 1</span>\n            (นี่คือชื่อของ PRESIGHT ALPHA-1 บนแพลตฟอร์ม)',
+    'A subscription to <b>PRESIGHT ALPHA-1</b> inside the platform\'s copy-trading system, configured as below.\n            The path: log in at <span class="mono">secure.decodefx.com</span> → <b>Copy Trading</b> →\n            sign in with your <b>MT5 copy account</b> login and password → <b>New subscription</b> →\n            set Provider to <span class="mono">PRESIGHT ALPHA-1</span>\n            (the platform\'s name for PRESIGHT ALPHA-1).':
+        'สมัคร <b>PRESIGHT ALPHA-1</b> ในระบบก๊อปปี้เทรดของแพลตฟอร์ม โดยตั้งค่าตามด้านล่าง\n            เส้นทาง: ล็อกอิน <span class="mono">secure.decodefx.com</span> → <b>Copy Trading</b> →\n            เข้าสู่ระบบด้วยเลขบัญชีและรหัสผ่านของ<b>บัญชี MT5 ที่ใช้ก๊อปปี้</b> → <b>New subscription</b> →\n            กรอก Provider เป็น <span class="mono">PRESIGHT ALPHA-1</span>\n            ',
     "Copy settings: <b>Autoscale</b>, <b>Value by asset</b>, <b>Ratio = 1</b> — a 1:1 mirror.\n            The master account's position sizing must not be scaled up; a ratio above 1 voids eligibility outright.":
         'ตั้งค่าก๊อปปี้: <b>Autoscale</b>, <b>Value by asset</b>, <b>Ratio = 1</b> — คือมิเรอร์ 1:1\n            ห้ามขยายขนาดสถานะของบัญชีต้นทาง Ratio เกิน 1 เท่ากับเสียสิทธิ์ทันที',
     'Once copying has started, <b>report your MT5 account ID (login number)</b> by direct message to <span class="mono">@PresightAdminBot</span> on Telegram — it replies with a receipt immediately.\n            We cannot verify an account that was never reported, so an unreported account <b>is not eligible</b>; for reported accounts,\n            coverage runs from the moment of reporting — losses incurred before that fall outside it.':
@@ -558,4 +558,11 @@ INDEX.update({
         'ประวัติออเดอร์ · 7 วันล่าสุด',
     '@Cumulative strategy pips curve':
         'เส้นพิพสะสมของกลยุทธ์',
+})
+
+# 平台上的 Provider 已改名为 PRESIGHT ALPHA-1，去掉了原来那句
+# 「这是它在平台上的名字」的括注——留着就成了用自己解释自己
+PROTECTION.update({
+    'A subscription to <b>PRESIGHT ALPHA-1</b> inside the platform\'s copy-trading system, configured as below.\n            The path: log in at <span class="mono">secure.decodefx.com</span> → <b>Copy Trading</b> →\n            sign in with your <b>MT5 copy account</b> login and password → <b>New subscription</b> →\n            set Provider to <span class="mono">PRESIGHT ALPHA-1</span>.':
+        'สมัคร <b>PRESIGHT ALPHA-1</b> ในระบบก๊อปปี้เทรดของแพลตฟอร์ม โดยตั้งค่าตามด้านล่าง\n            เส้นทาง: ล็อกอิน <span class="mono">secure.decodefx.com</span> → <b>Copy Trading</b> →\n            เข้าสู่ระบบด้วยเลขบัญชีและรหัสผ่านของ<b>บัญชี MT5 ที่ใช้ก๊อปปี้</b> → <b>New subscription</b> →\n            กรอก Provider เป็น <span class="mono">PRESIGHT ALPHA-1</span>',
 })

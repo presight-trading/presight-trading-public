@@ -157,8 +157,8 @@ INDEX = {
         'Mở tài khoản tại nền tảng đối tác bằng liên kết trên trang này và hoàn tất xác minh danh tính. Chỉ tài khoản mở theo cách này mới đăng ký được chiến lược.',
     'Fund and subscribe':
         'Nạp tiền và đăng ký chiến lược',
-    'Log in at <span class="mono">secure.decodefx.com</span> → <b>Copy Trading</b>, sign in with your MT5 copy account credentials, open <b>New subscription</b>, and set Provider to <span class="mono">presighttrading_com - signal 1</span>. Copy settings: <b>Autoscale</b>, <b>Value by asset</b>, <b>Ratio 1</b> (a 1:1 mirror, no scaling up). Per-trade risk is set on our side — you do not configure it.':
-        'Đăng nhập <span class="mono">secure.decodefx.com</span> → <b>Copy Trading</b>, đăng nhập bằng tài khoản MT5 dùng để sao chép, mở <b>New subscription</b>, điền Provider là <span class="mono">presighttrading_com - signal 1</span>. Cấu hình: <b>Autoscale</b>, <b>Value by asset</b>, <b>Ratio 1</b> (tức 1:1, không phóng đại). Rủi ro mỗi lệnh do chúng tôi đặt — bạn không phải cấu hình.',
+    'Log in at <span class="mono">secure.decodefx.com</span> → <b>Copy Trading</b>, sign in with your MT5 copy account credentials, open <b>New subscription</b>, and set Provider to <span class="mono">PRESIGHT ALPHA-1</span>. Copy settings: <b>Autoscale</b>, <b>Value by asset</b>, <b>Ratio 1</b> (a 1:1 mirror, no scaling up). Per-trade risk is set on our side — you do not configure it.':
+        'Đăng nhập <span class="mono">secure.decodefx.com</span> → <b>Copy Trading</b>, đăng nhập bằng tài khoản MT5 dùng để sao chép, mở <b>New subscription</b>, điền Provider là <span class="mono">PRESIGHT ALPHA-1</span>. Cấu hình: <b>Autoscale</b>, <b>Value by asset</b>, <b>Ratio 1</b> (tức 1:1, không phóng đại). Rủi ro mỗi lệnh do chúng tôi đặt — bạn không phải cấu hình.',
     'Report your MT5 account ID':
         'Khai báo MT5 account ID',
     'Message <span class="mono">@PresightAdminBot</span> on Telegram with your MT5 account ID (login number); it replies with a receipt immediately. The protection period starts from that moment — an unreported account is not eligible, and losses before you report are not covered.':
@@ -303,8 +303,8 @@ INDEX = {
         'Đăng ký tại DecodeFX <span class="arw">→</span>',
     'Subscribe to PRESIGHT ALPHA-1':
         'Đăng ký PRESIGHT ALPHA-1',
-    '<b>secure.decodefx.com</b> → Copy Trading → sign in with your MT5 copy account → New subscription<br/>\n            Provider: <b>presighttrading_com - signal 1</b><br/>\n            Settings: <b>Autoscale</b> · <b>Value by asset</b> · <b>Ratio = 1</b>':
-        '<b>secure.decodefx.com</b> → Copy Trading → đăng nhập bằng tài khoản MT5 dùng để sao chép → New subscription<br/>\n            Provider: <b>presighttrading_com - signal 1</b><br/>\n            Cấu hình: <b>Autoscale</b> · <b>Value by asset</b> · <b>Ratio = 1</b>',
+    '<b>secure.decodefx.com</b> → Copy Trading → sign in with your MT5 copy account → New subscription<br/>\n            Provider: <b>PRESIGHT ALPHA-1</b><br/>\n            Settings: <b>Autoscale</b> · <b>Value by asset</b> · <b>Ratio = 1</b>':
+        '<b>secure.decodefx.com</b> → Copy Trading → đăng nhập bằng tài khoản MT5 dùng để sao chép → New subscription<br/>\n            Provider: <b>PRESIGHT ALPHA-1</b><br/>\n            Cấu hình: <b>Autoscale</b> · <b>Value by asset</b> · <b>Ratio = 1</b>',
     'Ratio 1 is a 1:1 mirror. Anything above 1 scales up your position and voids coverage outright.':
         'Ratio 1 chính là 1:1. Lớn hơn 1 là phóng đại vị thế và mất bảo hiểm ngay lập tức.',
     'Report your MT5 account ID to the bot':
@@ -342,8 +342,8 @@ PROTECTION = {
         'Phải thoả <b>tất cả</b> các điều dưới đây. Thiếu một điều là nằm ngoài phạm vi bảo hiểm.',
     'A <b>new account</b> with the partner platform, opened through an official Presight link and KYC-verified. Existing accounts cannot be enrolled.':
         '<b>Tài khoản mới</b> tại nền tảng đối tác, mở qua liên kết chính thức của Presight và đã xác minh danh tính (KYC). Tài khoản có sẵn không đăng ký được.',
-    'A subscription to <b>PRESIGHT ALPHA-1</b> inside the platform\'s copy-trading system, configured as below.\n            The path: log in at <span class="mono">secure.decodefx.com</span> → <b>Copy Trading</b> →\n            sign in with your <b>MT5 copy account</b> login and password → <b>New subscription</b> →\n            set Provider to <span class="mono">presighttrading_com - signal 1</span>\n            (the platform\'s name for PRESIGHT ALPHA-1).':
-        'Đăng ký <b>PRESIGHT ALPHA-1</b> trong hệ thống sao chép của nền tảng, cấu hình như dưới đây.\n            Đường đi: đăng nhập <span class="mono">secure.decodefx.com</span> → <b>Copy Trading</b> →\n            đăng nhập bằng số tài khoản và mật khẩu của <b>tài khoản MT5 dùng để sao chép</b> → <b>New subscription</b> →\n            điền Provider là <span class="mono">presighttrading_com - signal 1</span>\n            (đó là tên của PRESIGHT ALPHA-1 trên nền tảng).',
+    'A subscription to <b>PRESIGHT ALPHA-1</b> inside the platform\'s copy-trading system, configured as below.\n            The path: log in at <span class="mono">secure.decodefx.com</span> → <b>Copy Trading</b> →\n            sign in with your <b>MT5 copy account</b> login and password → <b>New subscription</b> →\n            set Provider to <span class="mono">PRESIGHT ALPHA-1</span>\n            (the platform\'s name for PRESIGHT ALPHA-1).':
+        'Đăng ký <b>PRESIGHT ALPHA-1</b> trong hệ thống sao chép của nền tảng, cấu hình như dưới đây.\n            Đường đi: đăng nhập <span class="mono">secure.decodefx.com</span> → <b>Copy Trading</b> →\n            đăng nhập bằng số tài khoản và mật khẩu của <b>tài khoản MT5 dùng để sao chép</b> → <b>New subscription</b> →\n            điền Provider là <span class="mono">PRESIGHT ALPHA-1</span>\n            .',
     "Copy settings: <b>Autoscale</b>, <b>Value by asset</b>, <b>Ratio = 1</b> — a 1:1 mirror.\n            The master account's position sizing must not be scaled up; a ratio above 1 voids eligibility outright.":
         'Cấu hình sao chép: <b>Autoscale</b>, <b>Value by asset</b>, <b>Ratio = 1</b> — tức bản sao 1:1.\n            Không được phóng đại khối lượng của tài khoản gốc; Ratio lớn hơn 1 là mất tư cách ngay lập tức.',
     'Once copying has started, <b>report your MT5 account ID (login number)</b> by direct message to <span class="mono">@PresightAdminBot</span> on Telegram — it replies with a receipt immediately.\n            We cannot verify an account that was never reported, so an unreported account <b>is not eligible</b>; for reported accounts,\n            coverage runs from the moment of reporting — losses incurred before that fall outside it.':
@@ -558,4 +558,11 @@ INDEX.update({
         'Lịch sử khớp lệnh · 7 ngày gần nhất',
     '@Cumulative strategy pips curve':
         'Đường pip tích luỹ của chiến lược',
+})
+
+# 平台上的 Provider 已改名为 PRESIGHT ALPHA-1，去掉了原来那句
+# 「这是它在平台上的名字」的括注——留着就成了用自己解释自己
+PROTECTION.update({
+    'A subscription to <b>PRESIGHT ALPHA-1</b> inside the platform\'s copy-trading system, configured as below.\n            The path: log in at <span class="mono">secure.decodefx.com</span> → <b>Copy Trading</b> →\n            sign in with your <b>MT5 copy account</b> login and password → <b>New subscription</b> →\n            set Provider to <span class="mono">PRESIGHT ALPHA-1</span>.':
+        'Đăng ký <b>PRESIGHT ALPHA-1</b> trong hệ thống sao chép của nền tảng, cấu hình như dưới đây.\n            Đường đi: đăng nhập <span class="mono">secure.decodefx.com</span> → <b>Copy Trading</b> →\n            đăng nhập bằng số tài khoản và mật khẩu của <b>tài khoản MT5 dùng để sao chép</b> → <b>New subscription</b> →\n            điền Provider là <span class="mono">PRESIGHT ALPHA-1</span>.',
 })

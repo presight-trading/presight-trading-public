@@ -1,7 +1,7 @@
 """日本語。キーは英語版の innerHTML そのまま。
 
 固有名詞は訳さない：PRESIGHT ALPHA-1 / DecodeFX / @PresightAdminBot /
-presighttrading_com - signal 1 / Autoscale / Value by asset / Ratio。
+PRESIGHT ALPHA-1 / Autoscale / Value by asset / Ratio。
 これらは画面上でそのまま入力・検索する文字列なので、訳すと操作できなくなる。
 """
 
@@ -196,12 +196,12 @@ INDEX = {
     "Fund and subscribe": "入金して購読",
     'Log in at <span class="mono">secure.decodefx.com</span> → <b>Copy Trading</b>, sign in with '
     'your MT5 copy account credentials, open <b>New subscription</b>, and set Provider to '
-    '<span class="mono">presighttrading_com - signal 1</span>. Copy settings: <b>Autoscale</b>, '
+    '<span class="mono">PRESIGHT ALPHA-1</span>. Copy settings: <b>Autoscale</b>, '
     '<b>Value by asset</b>, <b>Ratio 1</b> (a 1:1 mirror, no scaling up). Per-trade risk is set '
     'on our side — you do not configure it.':
         '<span class="mono">secure.decodefx.com</span> にログイン → <b>Copy Trading</b>、'
         'MT5 コピー口座の ID とパスワードでサインイン、<b>New subscription</b> を開き、'
-        'Provider に <span class="mono">presighttrading_com - signal 1</span> を入力。'
+        'Provider に <span class="mono">PRESIGHT ALPHA-1</span> を入力。'
         '設定は <b>Autoscale</b>、<b>Value by asset</b>、<b>Ratio 1</b>（1:1、拡大しない）。'
         '1 トレードあたりのリスクはこちらで設定するので、あなたが触る必要はありません。',
     "Report your MT5 account ID": "MT5 口座 ID を届け出る",
@@ -366,10 +366,10 @@ INDEX = {
         'DecodeFX で登録する <span class="arw">→</span>',
     "Subscribe to PRESIGHT ALPHA-1": "PRESIGHT ALPHA-1 を購読",
     "<b>secure.decodefx.com</b> → Copy Trading → sign in with your MT5 copy account → New "
-    "subscription<br/>\n            Provider: <b>presighttrading_com - signal 1</b><br/>\n"
+    "subscription<br/>\n            Provider: <b>PRESIGHT ALPHA-1</b><br/>\n"
     "            Settings: <b>Autoscale</b> · <b>Value by asset</b> · <b>Ratio = 1</b>":
         "<b>secure.decodefx.com</b> → Copy Trading → MT5 コピー口座でサインイン → New "
-        "subscription<br/>\n            Provider：<b>presighttrading_com - signal 1</b><br/>\n"
+        "subscription<br/>\n            Provider：<b>PRESIGHT ALPHA-1</b><br/>\n"
         "            設定：<b>Autoscale</b> · <b>Value by asset</b> · <b>Ratio = 1</b>",
     "Ratio 1 is a 1:1 mirror. Anything above 1 scales up your position and voids coverage "
     "outright.":
@@ -726,15 +726,15 @@ PROTECTION.update({
     '<span class="mono">secure.decodefx.com</span> → <b>Copy Trading</b> →\n'
     '            sign in with your <b>MT5 copy account</b> login and password → '
     '<b>New subscription</b> →\n            set Provider to '
-    '<span class="mono">presighttrading_com - signal 1</span>\n'
-    "            (the platform's name for PRESIGHT ALPHA-1).":
+    '<span class="mono">PRESIGHT ALPHA-1</span>\n'
+    "            .":
         'プラットフォームのコピートレード機能で <b>PRESIGHT ALPHA-1</b> を購読し、'
         '下記のとおり設定すること。\n            手順：'
         '<span class="mono">secure.decodefx.com</span> にログイン → <b>Copy Trading</b> →\n'
         '            <b>MT5 コピー口座</b>の ID とパスワードでサインイン → '
         '<b>New subscription</b> →\n            Provider に '
-        '<span class="mono">presighttrading_com - signal 1</span> を入力\n'
-        '            （これが PRESIGHT ALPHA-1 のプラットフォーム上の名称です）。',
+        '<span class="mono">PRESIGHT ALPHA-1</span> を入力\n'
+        '            。',
 
     'Copy settings: <b>Autoscale</b>, <b>Value by asset</b>, <b>Ratio = 1</b> — a 1:1 mirror.\n'
     "            The master account's position sizing must not be scaled up; a ratio above 1 "
@@ -936,4 +936,11 @@ INDEX.update({
         '約定履歴 · 直近 7 日',
     '@Cumulative strategy pips curve':
         '戦略の累積 pips 推移',
+})
+
+# 平台上的 Provider 已改名为 PRESIGHT ALPHA-1，去掉了原来那句
+# 「这是它在平台上的名字」的括注——留着就成了用自己解释自己
+PROTECTION.update({
+    'A subscription to <b>PRESIGHT ALPHA-1</b> inside the platform\'s copy-trading system, configured as below.\n            The path: log in at <span class="mono">secure.decodefx.com</span> → <b>Copy Trading</b> →\n            sign in with your <b>MT5 copy account</b> login and password → <b>New subscription</b> →\n            set Provider to <span class="mono">PRESIGHT ALPHA-1</span>.':
+        'プラットフォームのコピートレード機能で <b>PRESIGHT ALPHA-1</b> を購読し、下記のとおり設定すること。\n            手順：<span class="mono">secure.decodefx.com</span> にログイン → <b>Copy Trading</b> →\n            <b>MT5 コピー口座</b>の ID とパスワードでサインイン → <b>New subscription</b> →\n            Provider に <span class="mono">PRESIGHT ALPHA-1</span> を入力。',
 })
