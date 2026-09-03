@@ -875,3 +875,24 @@ INDEX.update({
         '<b>@presight_institute</b>、こちらも公開です。\n            <span class="h">'
         'Telegram で @presight_signals を検索してもかまいません</span>',
 })
+
+# 合作伙伴板块新增：入金门槛提高 + 首月保收益 1%
+INDEX.update({
+    '<span class="u">3</span> clients · <span class="u">USD 5,000</span> each':
+        '<span class="u">3</span> 名 · 各 <span class="u">5,000 米ドル</span>',
+    'At least 3 clients under you, each funding the account with no less than USD 5,000 — the threshold for both loss coverage and the return floor.':
+        'あなたの下に 3 名以上のお客様がいて、それぞれが 5,000 米ドル以上を入金していること——損失補償と初月リターン保証はどちらもこの条件で有効になります。',
+    'NEW · CLIENTS OF PARTNERS ONLY':
+        '新設 · パートナー名下のお客様限定',
+    'First-month return floor':
+        '初月リターン保証 1%',
+    'On top of loss coverage, your clients get one more layer: <b>if the first month of copying returns less than 1%, we pay back 1% of the copied amount in cash.</b>':
+        '損失補償に加えて、あなたのお客様にはもう一段の保証が付きます。<b>コピー開始から 1 か月のリターンが 1% に届かなかった場合、コピー金額の 1% を現金でお返しします。</b>',
+    'Copied amount = the sum of the daily copy balance over the first 30 days ÷ 30 (i.e. the daily average)':
+        'コピー金額 = 初月 30 日間の日次コピー残高の合計 ÷ 30（つまり日次平均）',
+})
+
+INDEX.update({
+    'Bring people to Presight and keep half the commission. The clients you introduce get the loss-coverage programme and a <b>1% floor on their first month</b>.':
+        'Presight を紹介して、手数料の半分を受け取ってください。紹介したお客様は損失補償に加えて、<b>初月リターン 1% の下支え</b>も受けられます。',
+})

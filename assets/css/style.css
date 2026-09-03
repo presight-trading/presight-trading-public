@@ -467,3 +467,26 @@ footer a:hover{color:#fff}
   .pshare{align-items:stretch}
   .pcopy{width:100%}
 }
+
+
+/* ---------- 首月保收益：合作伙伴板块里唯一需要被一眼看到的东西 ----------
+   跟上面三格用同一套深色，但换琥珀色描边与数字：三格是「条件说明」，
+   这一块是「多给的那层」，不拉开层级就会被当成第四个条件读过去。 */
+.phl{position:relative;margin-top:28px;border:1px solid var(--amber);
+     background:linear-gradient(135deg,rgba(201,122,5,.13),rgba(10,17,30,0) 58%),var(--panel)}
+.phl-tag{position:absolute;top:-1px;left:24px;transform:translateY(-50%);
+         font-family:var(--mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;
+         background:var(--amber);color:#12100A;padding:5px 11px;font-weight:700}
+.phl-body{display:flex;gap:34px;align-items:flex-start;padding:38px 32px 32px}
+.phl-num{font-family:var(--mono);font-size:4.1rem;font-weight:700;line-height:.9;
+         color:var(--amber);letter-spacing:-.05em;flex:none}
+.phl-txt h4{font-family:var(--han);font-size:1.16rem;font-weight:700;color:#fff;margin-bottom:12px}
+.phl-txt p{font-family:var(--han);font-size:.9rem;line-height:1.8;color:#B9C4D8}
+.phl-txt p+p{margin-top:12px}
+.phl-txt b{color:#fff;font-weight:700}
+.phl-f{font-family:var(--mono);font-size:.8rem !important;color:#8592AB !important;
+       border-left:2px solid var(--panel-line);padding-left:13px}
+@media(max-width:760px){
+  .phl-body{flex-direction:column;gap:18px;padding:34px 22px 26px}
+  .phl-num{font-size:3.2rem}
+}
