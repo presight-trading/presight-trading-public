@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Presight Trading Institute — 先を見て、先に動く。</title>
+<meta content="See first. Move first. A copy-trading quant strategy running on our own capital, with every fill published, and a free multi-asset signal community." name="description"/>
+<meta content="#EDF0F4" name="theme-color"/>
+<meta content="index,follow" name="robots"/>
+<link href="https://presighttrading.com/" hreflang="zh-Hans" rel="alternate"/>
+<link href="https://presighttrading.com/en/" hreflang="en" rel="alternate"/>
+<link href="https://presighttrading.com/" hreflang="x-default" rel="alternate"/>
+<meta content="website" property="og:type"/>
+<meta content="Presight Trading Institute — See first. Move first." property="og:title"/>
+<meta content="See first. Move first." property="og:description"/>
+<meta content="https://presighttrading.com/en/" property="og:url"/>
+<meta content="https://presighttrading.com/assets/og.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<link href="../assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="../assets/css/style.css" rel="stylesheet"/>
+</head>
+<body>
+<!-- ticker -->
+<div aria-hidden="true" class="tick">
+<div class="tick-in" id="ticker"></div>
+</div>
+<header>
+<div class="wrap hbar">
+<a aria-label="Presight Trading Institute ホーム" class="logo" href="#top">
+<svg aria-hidden="true" fill="none" height="30" viewbox="0 0 30 30" width="30">
+<rect height="29" stroke="#0A111E" width="29" x=".5" y=".5"></rect>
+<path d="M4 21 L10 15 L14 18 L18 9" fill="none" stroke="#1B3BD8" stroke-width="2"></path>
+<path d="M18 9 L22 12 L26 5" fill="none" stroke="#D6188A" stroke-dasharray="3 3" stroke-width="2"></path>
+</svg>
+<span>
+<span class="lt">PRESIGHT</span>
+<span class="lc">TRADING INSTITUTE</span>
+</span>
+</a>
+<nav><a href="#protection">損失補償</a>
+<a href="#strategy">戦略</a>
+<a href="#community">コミュニティ</a>
+<a href="#start">始め方</a>
+<a href="#faq">よくある質問</a></nav>
+<div class="hact">
+<div class="langsw"><a href="../">中</a><span>/</span><a href="../en/">EN</a><span>/</span><a href="#top" class="cur">日本語</a><span>/</span><a href="../vi/">Việt</a><span>/</span><a href="../th/">ไทย</a></div>
+<a class="btn" data-open="start" href="#strategy">コピーを始める <span class="arw">→</span></a>
+</div>
+</div>
+</header>
+<main id="top">
+<!-- ===================== HERO ===================== -->
+<div class="hero">
+<div class="wrap">
+<div class="hero-grid">
+<div>
+<div class="fig">FIG. <b>00</b> — PRESIGHT</div>
+<h1 class="display slogan en">先を見て、<br/><span class="fx">先に動く。</span></h1>
+<p class="lede">戦略は自己資金で実運用しています。約定はすべて公開し、負けトレードも一件も伏せません。コピー期間を終えて口座が負けていれば、その損失を<b>現金で返金</b>します。</p>
+<div class="pledge"><b>損失補償</b>
+<span class="cond">負けた分を返金<i>/</i>現金で着金</span>
+<a href="protection.html">規約全文 →</a></div>
+<div class="hero-cta"><a class="btn big" href="#protection">補償のしくみ <span class="arw">→</span></a>
+<a class="btn big ghost" data-link="channel" href="#" rel="noopener" target="_blank">過去のシグナルを見る</a></div>
+<p class="hero-note">実口座で運用 · 約定は 60 秒ごとに同期 · 補償は基準資金が上限で、取引リスクをなくすものではありません · レバレッジ取引では預託金の全額を失う可能性があります</p>
+</div>
+<div>
+<div class="sigchart">
+<svg aria-label="戦略の資産推移。実線が実績、破線がモデル予測です。" id="heroChart" role="img" viewbox="0 0 520 340"></svg>
+<div class="legend"><span><i class="sw"></i> 実績</span>
+<span><i class="sw d"></i> モデル予測</span></div>
+</div>
+</div>
+</div>
+<div class="strip rv">
+<div><div class="k">運用日数</div><div class="v" id="sRun">—</div></div>
+<div><div class="k">累計リターン</div><div class="v" id="sRet" style="color:var(--cobalt)">—</div></div>
+<div><div class="k">勝率</div><div class="v" id="sWin">—</div></div>
+<div><div class="k">コミュニティ</div><div class="v" id="sMem">—</div></div>
+<div><div class="k">損失補償</div><div class="v" style="color:var(--cobalt)">現金返金</div></div>
+</div>
+</div>
+</div>
+<!-- ===================== PRODUCT 01 ===================== -->
+<section id="protection">
+<div class="rail"><span style="top:120px">PROTECTION</span></div>
+<div class="wrap">
+<div class="sec-head rv">
+<div class="fig">FIG. <b>01</b> — 主要プログラム</div>
+<h2 class="h2">コピートレード損失補償</h2>
+<p class="lede">ルールどおりにコピーして負けたら、こちらが補償します。「絶対に負けない」という約束ではありません。レバレッジと手動介入を縛ったうえで、その期間の下振れを一緒に負う、という話です。条件を細かく書いているのは、そうしないと約束が支払えなくなるからです。</p>
+</div>
+<div class="steps rv">
+<div class="step">
+<div class="n">01</div><h4>1:1 でコピー、建玉を拡大しない</h4>
+<p>あなたが設定するのは 1:1 の比率だけです。1 トレードあたりのリスクと合計エクスポージャーは<b>こちらがコピー口座の側で一括管理</b>します。ALPHA-1 はクオンツ戦略で、同時に複数のポジションを持つのは正常な構造です。あなたが設定する必要はありません。</p>
+</div>
+<div class="step">
+<div class="n">02</div><h4>口座単位のドローダウン管理</h4>
+<p>戦略口座にはドローダウンの閾値があり、触れると自動でロットを落とすか新規建てを止めます。コピー口座もこれに追随します。戦略はナンピンも両建て平均化も行いません。</p>
+</div>
+<div class="step">
+<div class="n">03</div><h4>1 か月で、純損失を現金返金</h4>
+<p>MT5 口座 ID を届け出た時点から、手動介入も出金もせずに 1 か月コピーを続けます。期間終了時の有効証拠金が基準資金を下回っていれば、その差額を<b>米ドル現金</b>で、確認完了後 10 営業日以内に返金します。ご自身で手仕舞いした建玉の損失は対象外です。</p>
+</div>
+</div>
+<div class="wrap" style="padding:0">
+<div class="risk rv" style="margin-top:44px">
+<h4><span class="mono">⚠</span> 参加する前に</h4>
+<p>補償の上限は<b>基準資金の全額</b>です。コピーを始めたら、Telegram で <span class="mono">@PresightAdminBot</span> に<b>MT5 口座 ID を届け出て</b>ください。届出のない口座は対象外で、届出より前に生じた損失も補償されません。手動での新規建て、Ratio を 1 より大きくすること、期間中の出金は、いずれも資格を失います。また<b>ご自身で手仕舞いした建玉の損失は一切返金されません</b>。</p>
+<p>これは投資助言ではなく、戦略が利益を上げることを保証するものでもありません。Presight は提携プラットフォームから紹介手数料を受け取ります。<a href="protection.html" style="color:var(--amber);font-weight:600">規約全文と除外事由 →</a></p>
+</div>
+</div>
+<div class="hero-cta rv" style="margin-top:36px;justify-content:flex-start"><a class="btn big" data-link="broker" href="#" rel="noopener" target="_blank">口座開設してコピーする <span class="arw">→</span></a>
+<a class="btn big ghost" href="protection.html">規約全文を読む</a></div>
+</div>
+</section>
+<hr class="rule"/>
+<section id="strategy">
+<div class="rail"><span style="top:120px">STRATEGY</span></div>
+<div class="wrap">
+<div class="sec-head rv">
+<div class="fig">FIG. <b>02</b> — 主力</div>
+<h2 class="h2">コピートレード戦略</h2>
+<p class="lede">実口座で運用しているマルチアセットのクオンツ戦略です。紐付けが済めば、新規建てと決済が自動であなたの口座に反映されます。方向を当てる必要も、画面に張り付く必要もありません。下の表はその口座の全約定履歴です。負けトレードも含みます。</p>
+</div>
+<div class="panelbox rv">
+<div class="panel-top">
+<div>
+<h3 class="mono">PRESIGHT ALPHA-1</h3>
+<p class="sub">ボラティリティ・フィルターを備えた中低頻度のトレンドフォロー。主要通貨ペア、貴金属、株価指数。1 ポジションあたりのリスクは固定、ナンピンなし。</p>
+<div class="tags"><span class="tag hero-tag">損失補償 · <a href="protection.html">規約全文</a></span>
+<span class="tag">マルチアセット</span>
+<span class="tag">自動コピー</span>
+<span class="tag">リスク固定</span></div>
+</div>
+</div>
+<div class="metrics">
+<div><div class="k">純損益</div><div class="v g" id="mRet">—</div></div>
+<div><div class="k">勝率</div><div class="v" id="mWin">—</div></div>
+<div><div class="k">最大ドローダウン</div><div class="v r" id="mDD">—</div></div>
+<div><div class="k">プロフィットファクター</div><div class="v" id="mPF">—</div></div>
+<div><div class="k">トレード数</div><div class="v" id="mN">—</div></div>
+</div>
+<div class="curvewrap">
+<svg aria-label="戦略の累積資産推移" id="equityChart" role="img" viewbox="0 0 1080 260"></svg>
+</div>
+<div class="tbl-head">
+<h4>約定履歴 · 直近 12 件</h4>
+<div class="live"><span class="dot"></span> LIVE · <span id="upd">—</span></div>
+</div>
+<div class="tblscroll">
+<table>
+<thead>
+<tr>
+<th>決済日時</th><th>銘柄</th><th>売買</th><th>ロット</th>
+<th>建値</th><th>決済値</th><th>pips</th><th style="text-align:right">損益（USD）</th>
+</tr>
+</thead>
+<tbody id="tradeBody"></tbody>
+</table>
+</div>
+<div id="tradeState"></div>
+<div class="panel-cta">
+<p>コピートレードは提携プラットフォーム内で完結します。下のリンクから登録した口座だけがこの戦略を購読できます。</p>
+<a class="btn big onDark" href="#" id="brokerLink" rel="noopener" target="_blank">口座開設してコピーを紐付ける <span class="arw">→</span></a>
+</div>
+</div>
+</div>
+</section>
+<hr class="rule"/>
+<!-- ===================== PRODUCT 02 ===================== -->
+<section id="community">
+<div class="rail"><span style="top:120px">COMMUNITY</span></div>
+<div class="wrap">
+<div class="p2">
+<div class="rv">
+<div class="fig">FIG. <b>03</b> — 主力</div>
+<h2 class="h2">Presight トレーディング・コミュニティ</h2>
+<div class="free"><span>$0</span><s>ずっと無料</s></div>
+<p class="lede">教材販売なし、会費なし、有料サロンなし。実運用中の戦略が使っているシグナルも含め、コミュニティの中身はすべて公開です。</p>
+<div class="hero-cta"><a class="btn big" data-link="channel" href="#" rel="noopener" target="_blank">シグナルチャンネルを開く <span class="arw">→</span></a>
+<a class="btn big ghost" data-link="community" href="#" rel="noopener" target="_blank">Trading Institute — 誰でも参加可</a></div>
+<div class="qrbox">
+<div class="code"><img alt="読み取ると Presight のシグナルチャンネルが開きます" height="104" src="../assets/qr/tg-channel.svg" width="104"/></div>
+<div class="cap"><b>読み取るとシグナルチャンネルが開きます</b>
+            これが対外的な入口です。リアルタイムのシグナルを公開しており、申請は要りません。
+            議論の場は<b>@presight_institute</b>、こちらも公開です。
+            <span class="h">Telegram で @presight_signals を検索してもかまいません</span></div>
+</div>
+</div>
+<div class="offers rv">
+<div class="offer">
+<div class="ix">01 / シグナル</div>
+<h4>マルチアセットのシグナル</h4><p>FX、貴金属、原油、株価指数、暗号資産。各シグナルにはエントリー範囲、損切り、目標、モデルの確信度が付きます。Telegram とコミュニティチャンネルに配信します。</p>
+</div>
+<div class="offer">
+<div class="ix">02 / リサーチ</div>
+<h4>相場分析</h4><p>毎日の寄り付き前ブリーフと週次のマクロ振り返り。後付けの物語ではなく、何がその値動きを起こしたのかを説明します。</p>
+</div>
+<div class="offer">
+<div class="ix">03 / 教育</div>
+<h4>トレード教育</h4><p>スプレッドとスリッページが実際いくらの負担になるかから、ロット設計、バックテストの過剰最適化の見抜き方まで。講座も生 Q&amp;A も全部公開です。</p>
+</div>
+<div class="offer">
+<div class="ix">04 / イベント</div>
+<h4>イベント</h4><p>デモ大会、実口座チャレンジ、戦略の共同開発。賞金と資金提供口座あり。参加条件はありません。</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ===================== STEPS ===================== -->
+<section id="start" style="padding-bottom:0">
+<div class="wrap">
+<div class="sec-head rv">
+<div class="fig">FIG. <b>04</b> — 手順</div>
+<h2 class="h2">4 ステップでコピーを開始</h2>
+</div>
+</div>
+<div class="steps four rv">
+<div class="step"><div class="n">01</div><h4>リンクから口座開設</h4><p>当サイトのリンクから提携プラットフォームで口座を開設し、本人確認を完了してください。この経路で開いた口座だけが戦略を購読できます。</p></div>
+<div class="step"><div class="n">02</div><h4>入金して購読</h4><p><span class="mono">secure.decodefx.com</span> にログイン → <b>Copy Trading</b>、MT5 コピー口座の ID とパスワードでサインイン、<b>New subscription</b> を開き、Provider に <span class="mono">presighttrading_com - signal 1</span> を入力。設定は <b>Autoscale</b>、<b>Value by asset</b>、<b>Ratio 1</b>（1:1、拡大しない）。1 トレードあたりのリスクはこちらで設定するので、あなたが触る必要はありません。</p></div>
+<div class="step"><div class="n">03</div><h4>MT5 口座 ID を届け出る</h4><p>Telegram で <span class="mono">@PresightAdminBot</span> に MT5 口座 ID（ログイン番号）を送ってください。その場で受付の返信が届きます。保護期間はこの瞬間から始まります。届出のない口座は対象外で、届出より前の損失は補償されません。</p></div>
+<div class="step"><div class="n">04</div><h4>1 か月コピーする</h4><p>新規建てと決済はすべてあなたの口座に反映されます。1 か月続けてコピーすると保護期間が満了します。プラットフォーム内でいつでも停止・解除できますが、その時点でその回の補償は終了します。</p></div>
+</div>
+</section>
+<!-- ===================== FAQ ===================== -->
+<section id="faq">
+<div class="wrap">
+<div class="sec-head rv">
+<div class="fig">FIG. <b>05</b> — よくある質問</div>
+<h2 class="h2">戦略とコピートレードについて</h2>
+</div>
+<div class="faq rv">
+<details open=""><summary>補償はどう発生し、どう計算しますか？</summary><p><b>基準資金</b>とは、保護期間が始まった時点——つまり MT5 口座 ID を届け出た時点——の有効証拠金です。保護期間終了時の有効証拠金がこれを下回っていれば、その差額が純損失で、確認完了後 10 営業日以内に<b>米ドル現金</b>で返金します。補償の対象は戦略自身が決済したトレードだけで、<b>ご自身で手仕舞いした建玉の損失は返金されません</b>。同値または利益で終えた場合は支払いは発生しません。補償の上限は基準資金の全額です。<a href="protection.html">規約全文と除外事由 →</a></p></details>
+<details><summary>対象になる条件は？</summary><p>5 つです。当方のリンクから開設し KYC を済ませた<b>新規口座</b>であること。コピー設定が <b>Autoscale / Value by asset / Ratio 1</b>（1:1、拡大しない）であること。コピー開始後に <span class="mono">@PresightAdminBot</span> へ<b>MT5 口座 ID を届け出る</b>こと。その届出から<b>まる 1 か月</b>コピーを続けること。そして期間中は<b>手動介入も出金もしない</b>こと。<br/><br/>届出が入口です。知らされていない口座は確認のしようがなく、届出より前に生じた損失は補償の外です。手仕舞いだけは例外扱いで、参加そのものは無効になりませんが、そのトレードの損失は返金されません。<br/><br/>1 トレードあたりのリスクと合計エクスポージャーは<b>あなたが設定するものではなく</b>、こちらがコピー口座の側で管理します。ALPHA-1 はクオンツ戦略で、同時に複数のポジションを持つのは正常です。戦略口座にはドローダウンの閾値があり、触れるとロットを落とすか新規建てを止めます。ナンピンは行いません。</p></details>
+<details><summary>指定のプラットフォームでないと駄目ですか？</summary><p>はい。コピートレードはプラットフォーム内部のシグナル同期のしくみで、当サイトのリンクから登録した口座だけが購読リストに載ります。他所で既にお持ちの口座は接続できません。</p></details>
+<details><summary>収益源は？なぜコミュニティは無料なのですか？</summary><p>収益は提携先からのリベートと戦略成績の分配で、コピー規模に連動します。戦略が稼がなければ、こちらの収益もゼロです。利害の向きが同じということです。コミュニティは集客の入口であって、別途課金はしません。</p></details>
+<details><summary>実績は選別されていませんか？</summary><p>このページの約定は戦略の実口座から無選別でそのまま出しており、負けトレードも並べています。過去の成績は将来の結果を示すものではなく、どんな戦略にもドローダウン期間があります。</p></details>
+<details><summary>最低入金額はいくらですか？</summary><p>【最低入金額をここに記入】ご注意：口座残高が一定を下回ると、ロットの丸めによって実際のコピー比率が設定値からずれ、実効比率が 1:1 から外れて<b>補償の対象外</b>になることがあります。余裕を持って入金してください。現在の目安はコミュニティでお尋ねください。</p></details>
+</div>
+<div class="risk rv" style="margin-top:52px">
+<h4><span class="mono">⚠</span> リスク警告</h4>
+<p>差金決済取引、外国為替その他のレバレッジ商品は高いリスクを伴い、投下資金の全額を失う可能性があります。すべての投資家に適した商品ではありません。取引の前にリスクを理解し、ご自身の経験、財務状況、損失に耐えられる度合いをご検討ください。</p>
+<p>当サイトのシグナル、分析、教育コンテンツは情報提供のみを目的としており、投資助言、申込みの勧誘のいずれでもありません。過去の成績は将来の結果を示しません。取引の判断とその結果はご自身に帰属します。</p>
+<p>【ここに追記：運営主体の正式名称と登記地、ライセンスの有無（無登録ならその旨を明記）、提携プラットフォーム名とその監督当局、および地域制限】</p>
+</div>
+</div>
+</section>
+<!-- ===================== Introducing broker (IB) ===================== -->
+<section id="partner">
+<div class="rail"><span style="top:120px">PARTNER</span></div>
+<div class="wrap">
+<div class="sec-head rv">
+<div class="fig">FIG. <b>06</b> — パートナー</div>
+<h2 class="h2">紹介パートナー（IB）</h2>
+<p class="lede">Presight を紹介して、手数料の半分を受け取ってください。紹介したお客様も損失補償プログラムの対象になります。</p>
+</div>
+<div class="pgrid rv">
+<div class="pcell">
+<div class="k">報酬</div>
+<div class="v"><span class="u">50%</span> レベニューシェア</div>
+<p>あなたのお客様が生む手数料の半分があなたのものです。精算と明細は提携プラットフォームの管理画面にあり、資金を Presight が預かることはありません。</p>
+</div>
+<div class="pcell">
+<div class="k">補償</div>
+<div class="v">紹介したお客様も補償対象</div>
+<p>あなたのリンクから登録してコピーを始めたお客様は、当サイト掲載の規約どおり、同じ損失補償プログラムの対象になります。</p>
+</div>
+<div class="pcell">
+<div class="k">条件</div>
+<div class="v"><span class="u">3</span> 名 · 各 <span class="u">500 米ドル</span></div>
+<p>補償が有効になる条件：あなたの下に 3 名以上のお客様がいて、それぞれが 500 米ドル以上を入金していること。</p>
+</div>
+</div>
+<div class="steps rv" style="margin-top:40px">
+<div class="step"><div class="n">01</div><h4>パートナー用リンクから登録</h4><p>下のリンクは、お客様が使うものとは<b>別のリンク</b>です。間違えて登録すると管理画面に申請ボタンが出ず、口座を取り直すしかなくなります。</p></div>
+<div class="step"><div class="n">02</div><h4>管理画面から IB を申請</h4><p>DecodeFX の管理画面にログインし、「Apply to become an IB」を押してください。承認されると、あなた専用の紹介リンクが発行されます。</p></div>
+<div class="step"><div class="n">03</div><h4>自分のリンクで紹介</h4><p>以後あなたのリンクから登録した人はすべてあなたの実績になり、報酬は 50% です。明細は管理画面で確認できます。</p></div>
+</div>
+<div class="pshare rv">
+<div>
+<div class="lbl">IB 募集にはこのリンク</div>
+<code id="partnerShare">https://presighttrading.com/ja/#partner</code>
+</div>
+<button class="pcopy" data-copy="#partnerShare" type="button">コピー</button>
+</div>
+<div class="hero-cta rv" style="margin-top:32px;justify-content:flex-start"><a class="btn big" data-link="ib" href="#" rel="noopener" target="_blank">登録して IB を申請する <span class="arw">→</span></a>
+<a class="btn big ghost" href="protection.html">先に補償規約を読む</a></div>
+<div class="risk rv" style="margin-top:40px">
+<h4><span class="mono">⚠</span> 注意事項</h4>
+<p>レベニューシェアと IB 資格の算定・支払いは提携取引プラットフォーム（DecodeFX）が行い、Presight が資金を預かることはありません。紹介したお客様の補償は<a href="protection.html" style="color:var(--amber);font-weight:600">掲載中のプログラム規約</a>に従います。お客様ご本人が MT5 口座 ID を届け出て、その他の条件も満たす必要があります。</p>
+<p>販促にあたって「必ず儲かる」「元本保証」といった表現は使えません。また、お客様に代わって売買すること、お客様の資金を預かることも禁止です。違反があった提携関係は終了します。</p>
+</div>
+</div>
+</section>
+</main>
+<footer>
+<div class="wrap">
+<div class="fgrid">
+<div>
+<div class="logo" style="color:#fff;margin-bottom:16px">
+<svg aria-hidden="true" fill="none" height="30" viewbox="0 0 30 30" width="30">
+<rect height="29" stroke="#24304A" width="29" x=".5" y=".5"></rect>
+<path d="M4 21 L10 15 L14 18 L18 9" fill="none" stroke="#4A66F0" stroke-width="2"></path>
+<path d="M18 9 L22 12 L26 5" fill="none" stroke="#D6188A" stroke-dasharray="3 3" stroke-width="2"></path>
+</svg>
+<span><span class="lt">PRESIGHT</span><span class="lc" style="color:#5B6883">TRADING INSTITUTE</span></span>
+</div>
+<p class="fsl">先を見て、先に動く。</p>
+<p class="" style="font-size:.84rem;line-height:1.8;max-width:34ch;color:#5B6883">Presight Trading Institute · クオンツ戦略とトレード教育</p>
+</div>
+<div><h5>プロダクト</h5><a href="#partner">紹介パートナー</a><a href="#protection">損失補償</a><a href="#strategy">コピートレード</a><a href="#community">コミュニティ・シグナル</a><a href="#community">トレード教育</a></div>
+<div><h5>資料</h5><a href="#faq">よくある質問</a><a href="protection.html">補償プログラム規約</a><a href="#">戦略説明書</a><a href="#">実績データ（CSV）</a></div>
+<div><h5>連絡先</h5><a data-link="channel" href="#" rel="noopener" target="_blank">公開シグナルチャンネル</a><a data-link="community" href="#" rel="noopener" target="_blank">Trading Institute</a><a data-link="email" href="#">メール</a><a data-link="email" href="#">業務提携</a></div>
+</div>
+<div class="fbot"><span>© 2026 PRESIGHT TRADING INSTITUTE</span>
+<span>取引にはリスクが伴います</span></div>
+</div>
+</footer>
+<!-- ===================== Start-copying modal ===================== -->
+<div aria-labelledby="startTitle" aria-modal="true" class="mask" hidden="" id="startMask" role="dialog">
+<div class="modal">
+<button aria-label="閉じる" class="mclose" data-close="" type="button">×</button>
+<div class="mhead">
+<div class="fig">FIG. <b>00</b> — 始め方</div>
+<h3 id="startTitle">3 ステップでコピーを開始</h3>
+<p>全部で 10 分ほどです。<b>補償の対象になるかどうかはステップ 3 で決まります</b>。飛ばさないでください。</p>
+</div>
+<ol class="msteps">
+<li>
+<div class="mn">01</div>
+<div>
+<h4>口座開設して入金</h4>
+<p>購読リストに載るのは、このリンクから開いた<b>新規口座</b>だけです。本人確認（KYC）を済ませてから入金してください。</p>
+<a class="btn" data-link="broker" rel="noopener" target="_blank">DecodeFX で登録する <span class="arw">→</span></a>
+</div>
+</li>
+<li>
+<div class="mn">02</div>
+<div>
+<h4>PRESIGHT ALPHA-1 を購読</h4>
+<div class="path"><b>secure.decodefx.com</b> → Copy Trading → MT5 コピー口座でサインイン → New subscription<br/>
+            Provider：<b>presighttrading_com - signal 1</b><br/>
+            設定：<b>Autoscale</b> · <b>Value by asset</b> · <b>Ratio = 1</b></div>
+<p class="mwarn">Ratio 1 が 1:1 です。1 より大きくすると建玉を拡大したことになり、その時点で補償の対象外になります。</p>
+</div>
+</li>
+<li>
+<div class="mn">03</div>
+<div>
+<h4>MT5 口座 ID を bot に届け出る</h4>
+<p>ログイン番号（数字だけ）を送れば、その場で受付の返信が届きます。<b>保護期間はその瞬間から始まります</b>。それ以前の損失は補償されないので、口座ができたらすぐに届け出てください。</p>
+<a class="btn" data-link="bot" rel="noopener" target="_blank">@PresightAdminBot に送る <span class="arw">→</span></a>
+<p class="mwarn">送るのはログイン番号だけです。<b>パスワードは絶対に送らないでください</b>。こちらからパスワード、認証コード、資金をお願いすることは一切ありません。</p>
+</div>
+</li>
+</ol>
+<div class="mfoot"><a class="btn ghost" data-link="community" rel="noopener" target="_blank">質問があればコミュニティへ</a>
+<a class="mlink" href="protection.html">プログラム規約全文 →</a></div>
+</div>
+</div>
+<script src="../assets/js/config.js"></script>
+<script src="../assets/js/app.js"></script>
+</body>
+</html>

@@ -54,7 +54,7 @@
       <span><span class="lt">PRESIGHT</span><span class="lc han">先见交易学院</span></span>
     </a>
     <nav class="hact">
-      <div class="langsw"><a href="#" class="cur">中</a><span>/</span><a href="en/protection.html">EN</a></div>
+      <div class="langsw"><a href="#" class="cur">中</a><span>/</span><a href="en/protection.html">EN</a><span>/</span><a href="ja/protection.html">日本語</a><span>/</span><a href="vi/protection.html">Việt</a><span>/</span><a href="th/protection.html">ไทย</a></div>
       <a class="backlink" href="index.html">&larr; 返回首页</a>
     </nav>
   </div>
@@ -202,7 +202,7 @@
 <script>
   document.querySelectorAll('[data-link]').forEach(el=>{
     const map = {community:CONFIG.communityUrl, channel:CONFIG.channelUrl,
-                 vip:CONFIG.vipUrl, broker:CONFIG.brokerSignupUrl,
+                 broker:CONFIG.brokerSignupUrl,
                  email:'mailto:'+CONFIG.contactEmail};
     const url = map[el.dataset.link];
     if(url) el.href = url;

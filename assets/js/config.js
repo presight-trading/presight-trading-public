@@ -9,16 +9,15 @@ const CONFIG = {
   brokerSignupUrl: 'https://secure.decodefx.com/auth/register/?ref=l-246813157-FS8661P7',
 
   // ---- 社区入口 ----
-  // 公开信号频道：Presight 的唯一对外总入口。
-  // 只有它能被 Telegram 搜索到，所以官网、海报、广告统一推这个 handle；
-  // 频道置顶再把用户导向学院社区与 VIP
+  // 信号频道：Presight 的对外总入口，公开可搜索，无需申请。
+  //
+  // 这个 handle 原来挂在另一个频道上，后来整体搬到了原 VIP 频道——
+  // 复用旧 handle 是有意的：它已经印在长图里、编进二维码里、写进各群
+  // 置顶。换新名字意味着这些全部要跟着改，而已经转发出去的长图改不了。
   channelUrl     : 'https://t.me/presight_signals',
 
   // 交易学院社区群：公开可搜索，直接进不需要审批
   communityUrl   : 'https://t.me/presight_institute',
-
-  // VIP 实时信号频道：三者中唯一需要资格的。审批制，且需先开户绑定跟单
-  vipUrl         : 'https://t.me/+G9GlHdkmIZliOGY1',
 
   // 推广合作伙伴（IB）专用注册链接。和上面那条不是同一条：走这条注册
   // 的人在后台才看得到「申请成为 IB」，走用户那条就没有。两条别搞混。

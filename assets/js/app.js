@@ -237,7 +237,6 @@ const LINKS = {
   bot      : CONFIG.adminBotUrl,
   channel  : CONFIG.channelUrl,
   community: CONFIG.communityUrl,
-  vip      : CONFIG.vipUrl,
   email    : 'mailto:' + CONFIG.contactEmail,
 };
 document.querySelectorAll('[data-link]').forEach(el=>{
