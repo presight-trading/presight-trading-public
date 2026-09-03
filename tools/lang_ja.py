@@ -904,3 +904,9 @@ INDEX.update({
     'At least 3 clients under you, funding <b>USD 5,000 between them</b> — the threshold for both loss coverage and the return floor.':
         'あなたの下に 3 名以上のお客様がいて、<b>入金の合計が 5,000 米ドル以上</b>であること——損失補償と初月リターン保証はどちらもこの条件で有効になります。',
 })
+
+# 顶栏加了「邀请合作」快捷入口
+INDEX.update({
+    '<a href="#protection">Loss coverage</a>\n<a href="#strategy">Strategy</a>\n<a href="#community">Community</a>\n<a href="#start">Get started</a>\n<a href="#faq">FAQ</a>\n<a class="hot" href="#partner">Partners</a>':
+        '<a href="#protection">損失補償</a>\n<a href="#strategy">戦略</a>\n<a href="#community">コミュニティ</a>\n<a href="#start">始め方</a>\n<a href="#faq">よくある質問</a>\n<a class="hot" href="#partner">パートナー募集</a>',
+})

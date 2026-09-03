@@ -490,3 +490,11 @@ footer a:hover{color:#fff}
   .phl-body{flex-direction:column;gap:18px;padding:34px 22px 26px}
   .phl-num{font-size:3.2rem}
 }
+
+
+/* 顶栏里的「邀请合作」：其余导航是页面分节，这一条是入口，
+   给个琥珀色圆点区分开，否则会被当成第六个普通锚点滑过去。 */
+nav a.hot{color:var(--ink);font-weight:600}
+nav a.hot::before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;
+                  background:var(--amber);margin-right:6px;vertical-align:2px}
+@media(max-width:1040px){nav{gap:22px}}

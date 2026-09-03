@@ -526,3 +526,9 @@ INDEX.update({
     'At least 3 clients under you, funding <b>USD 5,000 between them</b> — the threshold for both loss coverage and the return floor.':
         'Dưới bạn có ít nhất 3 khách, và <b>tổng tiền nạp của họ từ 5.000 USD trở lên</b> — đây là ngưỡng cho cả bảo hiểm thua lỗ lẫn mức lợi nhuận tối thiểu tháng đầu.',
 })
+
+# 顶栏加了「邀请合作」快捷入口
+INDEX.update({
+    '<a href="#protection">Loss coverage</a>\n<a href="#strategy">Strategy</a>\n<a href="#community">Community</a>\n<a href="#start">Get started</a>\n<a href="#faq">FAQ</a>\n<a class="hot" href="#partner">Partners</a>':
+        '<a href="#protection">Bảo hiểm thua lỗ</a>\n<a href="#strategy">Chiến lược</a>\n<a href="#community">Cộng đồng</a>\n<a href="#start">Bắt đầu</a>\n<a href="#faq">Hỏi đáp</a>\n<a class="hot" href="#partner">Đối tác</a>',
+})

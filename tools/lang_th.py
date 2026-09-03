@@ -526,3 +526,9 @@ INDEX.update({
     'At least 3 clients under you, funding <b>USD 5,000 between them</b> — the threshold for both loss coverage and the return floor.':
         'มีลูกค้าใต้คุณอย่างน้อย 3 ราย และ<b>ยอดฝากรวมกันไม่ต่ำกว่า 5,000 ดอลลาร์</b> — เกณฑ์นี้ใช้ทั้งกับประกันขาดทุนและกับการรับประกันผลตอบแทนเดือนแรก',
 })
+
+# 顶栏加了「邀请合作」快捷入口
+INDEX.update({
+    '<a href="#protection">Loss coverage</a>\n<a href="#strategy">Strategy</a>\n<a href="#community">Community</a>\n<a href="#start">Get started</a>\n<a href="#faq">FAQ</a>\n<a class="hot" href="#partner">Partners</a>':
+        '<a href="#protection">ประกันขาดทุน</a>\n<a href="#strategy">กลยุทธ์</a>\n<a href="#community">คอมมูนิตี้</a>\n<a href="#start">เริ่มต้น</a>\n<a href="#faq">คำถามที่พบบ่อย</a>\n<a class="hot" href="#partner">พันธมิตร</a>',
+})
