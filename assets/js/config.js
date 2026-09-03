@@ -13,8 +13,8 @@ const CONFIG = {
   // 走的是这个独立仓库、不是本仓库根目录，所以不存在语言子目录
   // （en/ja/th/vi）相对路径解析错位的问题，不需要写成 /data/... 这种
   // 站内绝对路径。
-  tradesEndpoint : 'https://presight-trading.github.io/strategy-history/vip-history.json',
-  // 为什么走 github.io 而不是 raw.githubusercontent.com:raw 域在部分地区(尤其中国大陆)
+  tradesEndpoint : 'https://data.presighttrading.com/vip-history.json',
+  // 为什么走自有子域 data.presighttrading.com:raw/github.io 两个域在部分地区(尤其中国大陆)
   // 经常解析失败或被拦,而 github.io 与本站(GitHub Pages)解析到同一组 CDN 节点——
   // 能打开本站就能取到数据。数据仓库已开启 Pages,每次推送后自动重新发布(约 1 分钟)。
 
