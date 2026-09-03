@@ -298,6 +298,11 @@ function renderPayload(json){
   renderTrades(list);
   renderMetrics(list, summary);
   renderUpdated(generatedAt);
+  // 数据到位后主动把面板标记为已显示:不依赖滚动淡入的观察时机(面板变高之前
+  // 观察器可能已经错过;见 IntersectionObserver 处注释)。
+  const box = document.querySelector('#strategy .panelbox'); if(box) box.classList.add('in');
+  // 175 行别把面板撑成 9000px:表格区限高、内部滚动,页面其它板块仍在一屏之内可达。
+  const tbl = document.querySelector('#strategy .tblscroll'); if(tbl){ tbl.style.maxHeight='62vh'; tbl.style.overflowY='auto'; }
 }
 let historyPainted = false;
 async function loadTrades(){
@@ -462,6 +467,10 @@ const io = new IntersectionObserver((es)=>es.forEach(e=>{
     countUp($('#sMem'),8640,'+');
   }
   io.unobserve(e.target);
-}),{threshold:.15});
+}),{threshold:0});
+/* threshold 由 .15 改为 0(2026-09-03 根因):成交面板放 7 天 175 行后高达 9000px,
+   手机/桌面视口只能露出 5–10%,永远达不到 15% → .in 永不加 → 面板 opacity 0,
+   用户滚到 #strategy 看到"一大片空白";只有数据还没加载完(面板还矮)时先滚到才正常,
+   所以"刷新时好时坏"。露出任意 1px 即淡入。 */
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 });
