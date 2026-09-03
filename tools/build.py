@@ -251,12 +251,6 @@ def build_page(src: Path, out: Path, table: dict, meta: dict,
             if val and f"@{val}" in table:
                 tag[attr] = table[f"@{val}"]
 
-    # IB 分享链接指向本语种自己的页面，否则日文页发出去的链接落在英文页
-    share = soup.find(id="partnerShare")
-    if share is not None and meta.get("share"):
-        url = meta["share"] if page == "index.html" else meta["share"]
-        share.string = url
-
     html = str(soup)
     html = patch_head(html, meta["lang"], meta["dir"], page, meta)
     html = re.sub(r'<div class="langsw">.*?</div>',

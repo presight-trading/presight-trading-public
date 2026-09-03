@@ -910,3 +910,9 @@ INDEX.update({
     '<a href="#protection">Loss coverage</a>\n<a href="#strategy">Strategy</a>\n<a href="#community">Community</a>\n<a href="#start">Get started</a>\n<a href="#faq">FAQ</a>\n<a class="hot" href="#partner">Partners</a>':
         '<a href="#protection">損失補償</a>\n<a href="#strategy">戦略</a>\n<a href="#community">コミュニティ</a>\n<a href="#start">始め方</a>\n<a href="#faq">よくある質問</a>\n<a class="hot" href="#partner">パートナー募集</a>',
 })
+
+# IB 洽谈联系方式
+INDEX.update({
+    'To discuss an IB partnership, message <a href="https://t.me/presighttrading" rel="noopener" target="_blank">@presighttrading</a> on Telegram':
+        'IB 提携のご相談は Telegram の <a href="https://t.me/presighttrading" rel="noopener" target="_blank">@presighttrading</a> までご連絡ください',
+})

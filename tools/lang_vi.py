@@ -532,3 +532,9 @@ INDEX.update({
     '<a href="#protection">Loss coverage</a>\n<a href="#strategy">Strategy</a>\n<a href="#community">Community</a>\n<a href="#start">Get started</a>\n<a href="#faq">FAQ</a>\n<a class="hot" href="#partner">Partners</a>':
         '<a href="#protection">Bảo hiểm thua lỗ</a>\n<a href="#strategy">Chiến lược</a>\n<a href="#community">Cộng đồng</a>\n<a href="#start">Bắt đầu</a>\n<a href="#faq">Hỏi đáp</a>\n<a class="hot" href="#partner">Đối tác</a>',
 })
+
+# IB 洽谈联系方式
+INDEX.update({
+    'To discuss an IB partnership, message <a href="https://t.me/presighttrading" rel="noopener" target="_blank">@presighttrading</a> on Telegram':
+        'Muốn trao đổi về hợp tác IB, hãy nhắn <a href="https://t.me/presighttrading" rel="noopener" target="_blank">@presighttrading</a> trên Telegram',
+})

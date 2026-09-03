@@ -272,6 +272,48 @@ document.querySelectorAll('[data-link]').forEach(el=>{
   if(url) el.href = url;
 });
 
+/* ---------- 带 #hash 进来时把定位补一次 ----------
+   两个毛病叠在一起，表现是「点了链接不跳到板块」，手机上尤其明显。
+
+   一是浏览器在文档还没长完时就执行了片段跳转：成交表由 JS 填充、
+   图表要等字体，这些都排在 #partner 前面，填进去之后目标被往下推。
+
+   二是——量了才发现这才是主因——页面上有 html{scroll-behavior:smooth}，
+   而 scrollIntoView 的默认 behavior:'auto' 会继承它。于是每次都变成
+   一段跨越一万多像素的平滑滚动，中途被下一次调用打断，实测停在半路
+   （Y 从 10 → 1915 → 5349 就不动了，目标还在下方 4000px）。手机上
+   随便碰一下屏幕也会打断它。
+
+   所以这里临时关掉平滑滚动、直接落位。页面内点击锚点仍然是平滑的，
+   那时候文档早已长完，也没人会去打断。 */
+if(location.hash){
+  const settle = ()=>{
+    let el;
+    try{ el = document.querySelector(location.hash); }catch(_){ return; }
+    if(!el) return;
+    // 吸顶栏的高度现量现用：手机上它排两行，写死一个数就会盖住标题
+    const bar = document.querySelector('header');
+    const off = (bar ? bar.getBoundingClientRect().height : 0) + 12;
+    const root = document.documentElement;
+    const prev = root.style.scrollBehavior;
+    root.style.scrollBehavior = 'auto';
+    window.scrollTo(0, el.getBoundingClientRect().top + window.scrollY - off);
+    root.style.scrollBehavior = prev;
+  };
+  let done = false;
+  // 用户自己滚了就撒手，否则页面还在长、人往下翻却被硬拽回来
+  ['wheel','touchmove','keydown'].forEach(e=>
+    addEventListener(e, ()=>{ done = true; }, {passive:true, once:true}));
+
+  settle();
+  addEventListener('load', ()=>{ if(!done) settle(); });
+  if(window.ResizeObserver){
+    const ro = new ResizeObserver(()=>{ if(!done) settle(); });
+    ro.observe(document.body);
+    setTimeout(()=>{ ro.disconnect(); done = true; }, 5000);
+  }
+}
+
 /* ---------- 一键复制（IB 分享链接） ----------
    剪贴板 API 只在 https 和 localhost 下可用。取不到时不要静默失败——
    退回「把文字选中」，用户按 Cmd+C 仍然拿得走。 */

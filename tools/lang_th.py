@@ -532,3 +532,9 @@ INDEX.update({
     '<a href="#protection">Loss coverage</a>\n<a href="#strategy">Strategy</a>\n<a href="#community">Community</a>\n<a href="#start">Get started</a>\n<a href="#faq">FAQ</a>\n<a class="hot" href="#partner">Partners</a>':
         '<a href="#protection">ประกันขาดทุน</a>\n<a href="#strategy">กลยุทธ์</a>\n<a href="#community">คอมมูนิตี้</a>\n<a href="#start">เริ่มต้น</a>\n<a href="#faq">คำถามที่พบบ่อย</a>\n<a class="hot" href="#partner">พันธมิตร</a>',
 })
+
+# IB 洽谈联系方式
+INDEX.update({
+    'To discuss an IB partnership, message <a href="https://t.me/presighttrading" rel="noopener" target="_blank">@presighttrading</a> on Telegram':
+        'ต้องการคุยเรื่องความร่วมมือ IB ทักหา <a href="https://t.me/presighttrading" rel="noopener" target="_blank">@presighttrading</a> ใน Telegram',
+})
