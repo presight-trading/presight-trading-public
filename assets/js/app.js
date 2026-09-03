@@ -254,30 +254,64 @@ function drawTicker(){
 }
 
 /* ---------- 拉数据 ---------- */
+/* ---------- 取数：带重试 + 本地缓存 ----------
+   2026-09-03 用户反馈：首次打开空白、刷新时好时坏。原因是到数据域名的请求
+   在部分网络下**间歇性**失败(连接被重置/超时),失败一次就走了"隐藏区块"的
+   兜底。对策：
+   1) 每次取数最多试 3 次(0s/1.5s/4s 后重试)，单次 8 秒超时，别让一次抖动定生死；
+   2) 成功的数据存 localStorage；下次打开先用缓存立刻渲染，再后台取新数据——
+      回访用户永远不会看到空白；
+   3) 三次都失败且没有缓存，才隐藏区块(首次访问且网络完全不通)。 */
+const CACHE_KEY = 'presight.vipHistory.v1';
+function readCache(){ try{ const s=localStorage.getItem(CACHE_KEY); return s ? JSON.parse(s) : null; }catch(e){ return null; } }
+function writeCache(json){ try{ localStorage.setItem(CACHE_KEY, JSON.stringify(json)); }catch(e){} }
+async function fetchWithRetry(url, delays=[0,1500,4000], timeoutMs=8000){
+  let lastErr;
+  for(const d of delays){
+    if(d) await new Promise(r=>setTimeout(r,d));
+    const ctrl = new AbortController(); const timer = setTimeout(()=>ctrl.abort(), timeoutMs);
+    try{
+      // 简单 GET、不带自定义头：免预检，少一趟往返也少一个失败点。
+      // cache:'no-store' 让每次都真正去拿，不被浏览器 HTTP 缓存里的旧文件糊弄。
+      const r = await fetch(url, {signal: ctrl.signal, cache: 'no-store'});
+      if(!r.ok) throw new Error('HTTP '+r.status);
+      return await r.json();
+    }catch(e){ lastErr = e; }
+    finally{ clearTimeout(timer); }
+  }
+  throw lastErr;
+}
+function renderPayload(json){
+  const rawTrades = Array.isArray(json) ? json : (json.data || json.trades || []);
+  const list = rawTrades.map(normalize);
+  const summary = Array.isArray(json) ? null : json.summary;
+  const generatedAt = Array.isArray(json) ? null : json.generatedAt;
+  showHistory();
+  renderTrades(list);
+  renderMetrics(list, summary);
+  renderUpdated(generatedAt);
+}
+let historyPainted = false;
 async function loadTrades(){
   if(!CONFIG.tradesEndpoint){
     renderTrades(DEMO); renderMetrics(DEMO);
     $('#upd').textContent = T.demo;
     return;
   }
-  renderLoading();
+  if(!historyPainted){
+    const cached = readCache();
+    if(cached){ try{ renderPayload(cached); historyPainted = true; }catch(e){ console.error('[presight] cached render failed:', e); } }
+    else renderLoading();
+  }
   try{
-    // 跨域取独立数据仓库的 raw 文件：不带自定义请求头，简单 GET 才
-    // 免预检（OPTIONS）——raw.githubusercontent.com 只按 Access-Control-
-    // Allow-Origin: * 放行简单请求，带了 Accept 之类的头会先走一次
-    // 预检，多一趟往返也多一个失败点，没必要。
-    const r = await fetch(CONFIG.tradesEndpoint);
-    if(!r.ok) throw new Error(r.status);
-    const json = await r.json();
-    const rawTrades = Array.isArray(json) ? json : (json.data || json.trades || []);
-    const list = rawTrades.map(normalize);
-    const summary = Array.isArray(json) ? null : json.summary;
-    const generatedAt = Array.isArray(json) ? null : json.generatedAt;
-    showHistory();
-    renderTrades(list);
-    renderMetrics(list, summary);
-    renderUpdated(generatedAt);
-  }catch(e){ console.error('[presight] trades fetch failed:',e); renderError(); }
+    const json = await fetchWithRetry(CONFIG.tradesEndpoint);
+    renderPayload(json);
+    historyPainted = true;
+    writeCache(json);
+  }catch(e){
+    console.error('[presight] trades fetch failed after retries:', e);
+    if(!historyPainted) renderError();   // 有缓存画面就保留，不为一次失败清空
+  }
 }
 
 /* ---------- 计数动画 ---------- */
