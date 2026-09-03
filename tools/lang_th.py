@@ -544,3 +544,18 @@ INDEX.update({
     'Want the details behind the strategy, or a <b>bespoke strategy</b> for your own client base? Message <a href="https://t.me/presighttrading" rel="noopener" target="_blank">@presighttrading</a> on Telegram as well':
         'อยากรู้รายละเอียดของกลยุทธ์ หรือต้องการ<b>กลยุทธ์เฉพาะ</b>สำหรับฐานลูกค้าของคุณเอง ทักหา <a href="https://t.me/presighttrading" rel="noopener" target="_blank">@presighttrading</a> ใน Telegram ได้เช่นกัน',
 })
+
+# 成交区改用点数（pips）后的新片段。原本是另一处会话直接手改页面的，
+# 收进词表才不会被下一次 build.py 打回英文。
+INDEX.update({
+    'Net pips (7d)':
+        'พิพสุทธิ 7 วัน',
+    'Net pips':
+        'พิพสุทธิ',
+    'Max drawdown (pips)':
+        'ดรอว์ดาวน์สูงสุด (pips)',
+    'Fill history · last 7 days':
+        'ประวัติออเดอร์ · 7 วันล่าสุด',
+    '@Cumulative strategy pips curve':
+        'เส้นพิพสะสมของกลยุทธ์',
+})

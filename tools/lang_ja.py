@@ -922,3 +922,18 @@ INDEX.update({
     'Want the details behind the strategy, or a <b>bespoke strategy</b> for your own client base? Message <a href="https://t.me/presighttrading" rel="noopener" target="_blank">@presighttrading</a> on Telegram as well':
         '戦略の詳細を知りたい方、あるいはご自身の顧客向けに<b>専用戦略</b>をご希望の方も、Telegram の <a href="https://t.me/presighttrading" rel="noopener" target="_blank">@presighttrading</a> までご連絡ください',
 })
+
+# 成交区改用点数（pips）后的新片段。原本是另一处会话直接手改页面的，
+# 收进词表才不会被下一次 build.py 打回英文。
+INDEX.update({
+    'Net pips (7d)':
+        '直近 7 日の純 pips',
+    'Net pips':
+        '純獲得 pips',
+    'Max drawdown (pips)':
+        '最大ドローダウン（pips）',
+    'Fill history · last 7 days':
+        '約定履歴 · 直近 7 日',
+    '@Cumulative strategy pips curve':
+        '戦略の累積 pips 推移',
+})

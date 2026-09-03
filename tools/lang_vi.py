@@ -544,3 +544,18 @@ INDEX.update({
     'Want the details behind the strategy, or a <b>bespoke strategy</b> for your own client base? Message <a href="https://t.me/presighttrading" rel="noopener" target="_blank">@presighttrading</a> on Telegram as well':
         'Muốn biết chi tiết về chiến lược, hoặc cần một <b>chiến lược riêng</b> cho tệp khách của bạn? Cũng nhắn <a href="https://t.me/presighttrading" rel="noopener" target="_blank">@presighttrading</a> trên Telegram',
 })
+
+# 成交区改用点数（pips）后的新片段。原本是另一处会话直接手改页面的，
+# 收进词表才不会被下一次 build.py 打回英文。
+INDEX.update({
+    'Net pips (7d)':
+        'Pip ròng 7 ngày',
+    'Net pips':
+        'Pip ròng',
+    'Max drawdown (pips)':
+        'Sụt giảm tối đa (pip)',
+    'Fill history · last 7 days':
+        'Lịch sử khớp lệnh · 7 ngày gần nhất',
+    '@Cumulative strategy pips curve':
+        'Đường pip tích luỹ của chiến lược',
+})
