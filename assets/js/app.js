@@ -1,18 +1,46 @@
-/* ---------- 界面文案：跟随 <html lang> 自动切换 ---------- */
-const IS_EN = document.documentElement.lang.toLowerCase().startsWith('en');
-const T = IS_EN ? {
-  locale:'en-GB', daysUnit:'<small>days</small>',
-  now:'just now', min:'m ago', hour:'h ago', day:'d ago',
-  updated:'updated ', demo:'demo data', copied:'Copied',
-  errT:'Fill history unavailable', errB:'The data endpoint did not respond. It will retry automatically, or you can reload the page.',
-  emptyT:'No closed trades yet', emptyB:'The strategy is running. The first closed trade will appear here immediately.',
-} : {
-  locale:'zh-CN', daysUnit:'<small>\u5929</small>',
-  now:'\u521a\u521a', min:' \u5206\u949f\u524d', hour:' \u5c0f\u65f6\u524d', day:' \u5929\u524d',
-  updated:'\u66f4\u65b0\u4e8e ', demo:'\u6f14\u793a\u6570\u636e', copied:'\u5df2\u590d\u5236',
-  errT:'\u6210\u4ea4\u8bb0\u5f55\u6682\u65f6\u53d6\u4e0d\u5230', errB:'\u6570\u636e\u63a5\u53e3\u6ca1\u6709\u54cd\u5e94\u3002\u7a0d\u540e\u4f1a\u81ea\u52a8\u91cd\u8bd5\uff0c\u4e5f\u53ef\u4ee5\u5237\u65b0\u9875\u9762\u3002',
-  emptyT:'\u8fd8\u6ca1\u6709\u5df2\u5e73\u4ed3\u7684\u4ea4\u6613', emptyB:'\u7b56\u7565\u6b63\u5728\u8fd0\u884c\uff0c\u7b2c\u4e00\u7b14\u6210\u4ea4\u5e73\u4ed3\u540e\u4f1a\u7acb\u523b\u51fa\u73b0\u5728\u8fd9\u91cc\u3002',
+/* ---------- 界面文案：跟随 <html lang> 自动切换 ----------
+   原来只分「英文/其它」，日、越、泰三个语种因此全都落进中文分支——
+   页面通篇是泰文，指标条却写着「412 天」。加语种时最容易漏的就是这种
+   由 JS 注入、不在 HTML 里的字。 */
+const LANG = (document.documentElement.lang || 'zh').toLowerCase().slice(0,2);
+const TEXTS = {
+  zh:{
+    locale:'zh-CN', daysUnit:'<small>天</small>',
+    now:'刚刚', min:' 分钟前', hour:' 小时前', day:' 天前',
+    updated:'更新于 ', demo:'演示数据', copied:'已复制',
+    errT:'成交记录暂时取不到', errB:'数据接口没有响应。稍后会自动重试，也可以刷新页面。',
+    emptyT:'还没有已平仓的交易', emptyB:'策略正在运行，第一笔成交平仓后会立刻出现在这里。',
+  },
+  en:{
+    locale:'en-GB', daysUnit:'<small>days</small>',
+    now:'just now', min:'m ago', hour:'h ago', day:'d ago',
+    updated:'updated ', demo:'demo data', copied:'Copied',
+    errT:'Fill history unavailable', errB:'The data endpoint did not respond. It will retry automatically, or you can reload the page.',
+    emptyT:'No closed trades yet', emptyB:'The strategy is running. The first closed trade will appear here immediately.',
+  },
+  ja:{
+    locale:'ja-JP', daysUnit:'<small>日</small>',
+    now:'たった今', min:' 分前', hour:' 時間前', day:' 日前',
+    updated:'更新 ', demo:'デモデータ', copied:'コピーしました',
+    errT:'約定履歴を取得できません', errB:'データ側から応答がありません。自動で再試行します。ページの再読み込みでもかまいません。',
+    emptyT:'決済済みの取引はまだありません', emptyB:'戦略は稼働中です。最初の決済が出たらすぐここに表示されます。',
+  },
+  vi:{
+    locale:'vi-VN', daysUnit:'<small>ngày</small>',
+    now:'vừa xong', min:' phút trước', hour:' giờ trước', day:' ngày trước',
+    updated:'cập nhật ', demo:'dữ liệu mẫu', copied:'Đã sao chép',
+    errT:'Chưa lấy được lịch sử khớp lệnh', errB:'Máy chủ dữ liệu không phản hồi. Hệ thống sẽ tự thử lại, hoặc bạn có thể tải lại trang.',
+    emptyT:'Chưa có lệnh nào đóng', emptyB:'Chiến lược đang chạy. Lệnh đóng đầu tiên sẽ hiện ở đây ngay lập tức.',
+  },
+  th:{
+    locale:'th-TH', daysUnit:'<small>วัน</small>',
+    now:'เมื่อครู่', min:' นาทีที่แล้ว', hour:' ชั่วโมงที่แล้ว', day:' วันที่แล้ว',
+    updated:'อัปเดตเมื่อ ', demo:'ข้อมูลตัวอย่าง', copied:'คัดลอกแล้ว',
+    errT:'ยังดึงประวัติออเดอร์ไม่ได้', errB:'เซิร์ฟเวอร์ข้อมูลไม่ตอบสนอง ระบบจะลองใหม่อัตโนมัติ หรือคุณจะรีเฟรชหน้าก็ได้',
+    emptyT:'ยังไม่มีออเดอร์ที่ปิดแล้ว', emptyB:'กลยุทธ์กำลังทำงาน ออเดอร์แรกที่ปิดจะขึ้นตรงนี้ทันที',
+  },
 };
+const T = TEXTS[LANG] || TEXTS.zh;
 
 /* ---------- 演示数据（接上 API 后自动弃用） ---------- */
 const DEMO = (()=>{

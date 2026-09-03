@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+
+<html lang="th">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Presight Trading Institute — เห็นก่อน ลงมือก่อน</title>
+<meta content="See first. Move first. A copy-trading quant strategy running on our own capital, with every fill published, and a free multi-asset signal community." name="description"/>
+<meta content="#EDF0F4" name="theme-color"/>
+<meta content="index,follow" name="robots"/>
+<link href="https://presighttrading.com/" hreflang="zh-Hans" rel="alternate"/>
+<link href="https://presighttrading.com/en/" hreflang="en" rel="alternate"/>
+<link href="https://presighttrading.com/" hreflang="x-default" rel="alternate"/>
+<meta content="website" property="og:type"/>
+<meta content="Presight Trading Institute — See first. Move first." property="og:title"/>
+<meta content="See first. Move first." property="og:description"/>
+<meta content="https://presighttrading.com/en/" property="og:url"/>
+<meta content="https://presighttrading.com/assets/og.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<link href="../assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="../assets/css/style.css" rel="stylesheet"/>
+</head>
+<body>
+<!-- ticker -->
+<div aria-hidden="true" class="tick">
+<div class="tick-in" id="ticker"></div>
+</div>
+<header>
+<div class="wrap hbar">
+<a aria-label="หน้าแรก Presight Trading Institute" class="logo" href="#top">
+<svg aria-hidden="true" fill="none" height="30" viewbox="0 0 30 30" width="30">
+<rect height="29" stroke="#0A111E" width="29" x=".5" y=".5"></rect>
+<path d="M4 21 L10 15 L14 18 L18 9" fill="none" stroke="#1B3BD8" stroke-width="2"></path>
+<path d="M18 9 L22 12 L26 5" fill="none" stroke="#D6188A" stroke-dasharray="3 3" stroke-width="2"></path>
+</svg>
+<span>
+<span class="lt">PRESIGHT</span>
+<span class="lc">TRADING INSTITUTE</span>
+</span>
+</a>
+<nav><a href="#protection">ประกันขาดทุน</a>
+<a href="#strategy">กลยุทธ์</a>
+<a href="#community">คอมมูนิตี้</a>
+<a href="#start">เริ่มต้น</a>
+<a href="#faq">คำถามที่พบบ่อย</a></nav>
+<div class="hact">
+<div class="langsw"><a href="../">中</a><span>/</span><a href="../en/">EN</a><span>/</span><a href="../ja/">日本語</a><span>/</span><a href="../vi/">Việt</a><span>/</span><a href="#top" class="cur">ไทย</a></div>
+<a class="btn" data-open="start" href="#strategy">เริ่มก๊อปปี้เทรด <span class="arw">→</span></a>
+</div>
+</div>
+</header>
+<main id="top">
+<!-- ===================== HERO ===================== -->
+<div class="hero">
+<div class="wrap">
+<div class="hero-grid">
+<div>
+<div class="fig">FIG. <b>00</b> — PRESIGHT</div>
+<h1 class="display slogan en">เห็นก่อน<br/><span class="fx">ลงมือก่อน</span></h1>
+<p class="lede">กลยุทธ์รันด้วยเงินทุนของเราเอง เปิดเผยทุกออเดอร์ที่ปิด ไม่คัดออเดอร์ขาดทุนทิ้ง ถ้าจบรอบก๊อปปี้แล้วบัญชียังติดลบ เรา<b>คืนส่วนที่ขาดทุนเป็นเงินสด</b></p>
+<div class="pledge"><b>ประกันขาดทุน</b>
+<span class="cond">ขาดทุนเท่าไหร่ คืนเท่านั้น<i>/</i>จ่ายเป็นเงินสด</span>
+<a href="protection.html">เงื่อนไขฉบับเต็ม →</a></div>
+<div class="hero-cta"><a class="btn big" href="#protection">ประกันทำงานอย่างไร <span class="arw">→</span></a>
+<a class="btn big ghost" data-link="channel" href="#" rel="noopener" target="_blank">ดูสัญญาณย้อนหลัง</a></div>
+<p class="hero-note">บัญชีจริง · ออเดอร์ซิงก์ทุก 60 วินาที · ประกันสูงสุดเท่าเงินทุนตั้งต้น และไม่ได้ลบความเสี่ยงในการเทรด · การเทรดด้วยเลเวอเรจอาจทำให้เสียเงินฝากทั้งหมด</p>
+</div>
+<div>
+<div class="sigchart">
+<svg aria-label="เส้นอิควิตี้ของกลยุทธ์ เส้นทึบคือผลจริง เส้นประคือการคาดการณ์ของโมเดล" id="heroChart" role="img" viewbox="0 0 520 340"></svg>
+<div class="legend"><span><i class="sw"></i> ผลจริง</span>
+<span><i class="sw d"></i> โมเดลคาดการณ์</span></div>
+</div>
+</div>
+</div>
+<div class="strip rv">
+<div><div class="k">รันมาแล้ว</div><div class="v" id="sRun">—</div></div>
+<div><div class="k">ผลตอบแทนรวม</div><div class="v" id="sRet" style="color:var(--cobalt)">—</div></div>
+<div><div class="k">อัตราชนะ</div><div class="v" id="sWin">—</div></div>
+<div><div class="k">คอมมูนิตี้</div><div class="v" id="sMem">—</div></div>
+<div><div class="k">ประกันขาดทุน</div><div class="v" style="color:var(--cobalt)">คืนเป็นเงินสด</div></div>
+</div>
+</div>
+</div>
+<!-- ===================== PRODUCT 01 ===================== -->
+<section id="protection">
+<div class="rail"><span style="top:120px">PROTECTION</span></div>
+<div class="wrap">
+<div class="sec-head rv">
+<div class="fig">FIG. <b>01</b> — โครงการหลัก</div>
+<h2 class="h2">ประกันขาดทุนจากการก๊อปปี้เทรด</h2>
+<p class="lede">ก๊อปปี้ตามกติกาแล้วขาดทุน เราชดเชยให้ นี่ไม่ใช่คำสัญญาว่าคุณจะไม่ขาดทุน — เราร่วมรับความเสี่ยงขาลงในช่วงเวลานั้นกับคุณ โดยมีเงื่อนไขว่าเลเวอเรจและการแทรกแซงด้วยมือถูกจำกัดไว้ ที่เขียนเงื่อนไขละเอียดก็เพราะมีแบบนี้เท่านั้นคำสัญญาถึงจะจ่ายไหวจริง</p>
+</div>
+<div class="steps rv">
+<div class="step">
+<div class="n">01</div><h4>ก๊อปปี้ 1:1 ไม่ขยายขนาดสถานะ</h4>
+<p>สิ่งเดียวที่คุณตั้งคืออัตราส่วน 1:1 ความเสี่ยงต่อออเดอร์และความเสี่ยงรวม <b>เราจัดการให้ที่ระดับบัญชีก๊อปปี้</b> — ALPHA-1 เป็นกลยุทธ์เชิงปริมาณ การถือหลายสถานะพร้อมกันเป็นโครงสร้างปกติ ไม่ใช่สิ่งที่คุณต้องตั้งค่า</p>
+</div>
+<div class="step">
+<div class="n">02</div><h4>คุมดรอว์ดาวน์ที่ระดับบัญชี</h4>
+<p>บัญชีกลยุทธ์มีเกณฑ์ดรอว์ดาวน์ เมื่อแตะเกณฑ์จะลดขนาดสถานะหรือหยุดเปิดออเดอร์ใหม่โดยอัตโนมัติ และบัญชีก๊อปปี้จะทำตาม กลยุทธ์ไม่ถัวเฉลี่ยขาลง</p>
+</div>
+<div class="step">
+<div class="n">03</div><h4>ครบหนึ่งเดือน คืนส่วนขาดทุนสุทธิเป็นเงินสด</h4>
+<p>ก๊อปปี้ต่อเนื่องครบหนึ่งเดือนนับจากตอนที่คุณแจ้ง MT5 account ID ตลอดช่วงนั้นไม่แทรกแซงด้วยมือและไม่ถอนเงิน ถ้าอิควิตี้ตอนจบต่ำกว่าเงินทุนตั้งต้น ส่วนต่างจะคืนเป็น<b>เงินสดสกุลดอลลาร์</b>ภายใน 10 วันทำการหลังตรวจสอบเสร็จ ส่วนขาดทุนของสถานะที่คุณปิดเองไม่อยู่ในความคุ้มครอง</p>
+</div>
+</div>
+<div class="wrap" style="padding:0">
+<div class="risk rv" style="margin-top:44px">
+<h4><span class="mono">⚠</span> ก่อนเข้าร่วม</h4>
+<p>ความคุ้มครองสูงสุดเท่ากับ<b>เงินทุนตั้งต้นทั้งจำนวน</b> เมื่อเริ่มก๊อปปี้แล้ว คุณต้อง<b>แจ้ง MT5 account ID</b> ให้ <span class="mono">@PresightAdminBot</span> ทาง Telegram — บัญชีที่ไม่ได้แจ้งจะไม่เข้าเกณฑ์ และขาดทุนที่เกิดก่อนแจ้งก็ไม่ได้รับความคุ้มครอง การเปิดออเดอร์เอง การตั้ง Ratio เกิน 1 หรือการถอนเงินระหว่างรอบ ล้วนทำให้เสียสิทธิ์ และ<b>ขาดทุนของสถานะที่คุณปิดเองจะไม่ได้รับคืนไม่ว่ากรณีใด</b></p>
+<p>ข้อความนี้ไม่ใช่คำแนะนำการลงทุน และไม่รับประกันว่ากลยุทธ์จะทำกำไร Presight ได้รับค่าคอมมิชชันในฐานะผู้แนะนำจากแพลตฟอร์มพันธมิตร <a href="protection.html" style="color:var(--amber);font-weight:600">เงื่อนไขฉบับเต็มและข้อยกเว้น →</a></p>
+</div>
+</div>
+<div class="hero-cta rv" style="margin-top:36px;justify-content:flex-start"><a class="btn big" data-link="broker" href="#" rel="noopener" target="_blank">เปิดบัญชีและก๊อปปี้ <span class="arw">→</span></a>
+<a class="btn big ghost" href="protection.html">อ่านเงื่อนไขฉบับเต็ม</a></div>
+</div>
+</section>
+<hr class="rule"/>
+<section id="strategy">
+<div class="rail"><span style="top:120px">STRATEGY</span></div>
+<div class="wrap">
+<div class="sec-head rv">
+<div class="fig">FIG. <b>02</b> — สินค้าหลัก</div>
+<h2 class="h2">กลยุทธ์ก๊อปปี้เทรด</h2>
+<p class="lede">กลยุทธ์เชิงปริมาณหลายสินทรัพย์ที่รันบนบัญชีจริง เมื่อเชื่อมบัญชีแล้ว การเปิดและปิดออเดอร์จะสะท้อนมาที่บัญชีคุณโดยอัตโนมัติ — ไม่ต้องทายทิศทาง ไม่ต้องเฝ้าจอ ตารางด้านล่างคือประวัติออเดอร์ทั้งหมดของบัญชีนั้น รวมออเดอร์ขาดทุนด้วย</p>
+</div>
+<div class="panelbox rv">
+<div class="panel-top">
+<div>
+<h3 class="mono">PRESIGHT ALPHA-1</h3>
+<p class="sub">เทรนด์ฟอลโลว์ความถี่ต่ำถึงปานกลาง มีตัวกรองความผันผวน คู่เงินหลัก โลหะ และดัชนี ความเสี่ยงต่อสถานะคงที่ ไม่ถัวเฉลี่ยขาลง</p>
+<div class="tags"><span class="tag hero-tag">ประกันขาดทุน · <a href="protection.html">เงื่อนไข</a></span>
+<span class="tag">หลายสินทรัพย์</span>
+<span class="tag">ก๊อปปี้อัตโนมัติ</span>
+<span class="tag">ความเสี่ยงคงที่</span></div>
+</div>
+</div>
+<div class="metrics">
+<div><div class="k">กำไร/ขาดทุนสุทธิ</div><div class="v g" id="mRet">—</div></div>
+<div><div class="k">อัตราชนะ</div><div class="v" id="mWin">—</div></div>
+<div><div class="k">ดรอว์ดาวน์สูงสุด</div><div class="v r" id="mDD">—</div></div>
+<div><div class="k">Profit factor</div><div class="v" id="mPF">—</div></div>
+<div><div class="k">จำนวนออเดอร์</div><div class="v" id="mN">—</div></div>
+</div>
+<div class="curvewrap">
+<svg aria-label="เส้นอิควิตี้สะสมของกลยุทธ์" id="equityChart" role="img" viewbox="0 0 1080 260"></svg>
+</div>
+<div class="tbl-head">
+<h4>ประวัติออเดอร์ · 12 รายการล่าสุด</h4>
+<div class="live"><span class="dot"></span> LIVE · <span id="upd">—</span></div>
+</div>
+<div class="tblscroll">
+<table>
+<thead>
+<tr>
+<th>ปิดเมื่อ</th><th>สินทรัพย์</th><th>ทิศทาง</th><th>ล็อต</th>
+<th>ราคาเข้า</th><th>ราคาออก</th><th>พิป</th><th style="text-align:right">กำไร/ขาดทุน (USD)</th>
+</tr>
+</thead>
+<tbody id="tradeBody"></tbody>
+</table>
+</div>
+<div id="tradeState"></div>
+<div class="panel-cta">
+<p>การก๊อปปี้ทำงานอยู่ภายในแพลตฟอร์มพันธมิตร เฉพาะบัญชีที่สมัครผ่านลิงก์ด้านล่างเท่านั้นที่สมัครกลยุทธ์นี้ได้</p>
+<a class="btn big onDark" href="#" id="brokerLink" rel="noopener" target="_blank">เปิดบัญชีและเชื่อมการก๊อปปี้ <span class="arw">→</span></a>
+</div>
+</div>
+</div>
+</section>
+<hr class="rule"/>
+<!-- ===================== PRODUCT 02 ===================== -->
+<section id="community">
+<div class="rail"><span style="top:120px">COMMUNITY</span></div>
+<div class="wrap">
+<div class="p2">
+<div class="rv">
+<div class="fig">FIG. <b>03</b> — สินค้าหลัก</div>
+<h2 class="h2">คอมมูนิตี้เทรด Presight</h2>
+<div class="free"><span>$0</span><s>ฟรีตลอด</s></div>
+<p class="lede">ไม่ขายคอร์ส ไม่เก็บค่าสมาชิก ไม่มีห้องเชียร์ออเดอร์ ทุกอย่างในคอมมูนิตี้เปิดหมด รวมถึงสัญญาณที่กลยุทธ์จริงใช้อยู่</p>
+<div class="hero-cta"><a class="btn big" data-link="channel" href="#" rel="noopener" target="_blank">เปิดแชนเนลสัญญาณ <span class="arw">→</span></a>
+<a class="btn big ghost" data-link="community" href="#" rel="noopener" target="_blank">Trading Institute — ใครก็เข้าได้</a></div>
+<div class="qrbox">
+<div class="code"><img alt="สแกนเพื่อเปิดแชนเนลสัญญาณ Presight" height="104" src="../assets/qr/tg-channel.svg" width="104"/></div>
+<div class="cap"><b>สแกนเพื่อเปิดแชนเนลสัญญาณ</b>
+            นี่คือประตูหลักที่เปิดสาธารณะ — สัญญาณเรียลไทม์ ไม่ต้องยื่นขอ
+            พื้นที่พูดคุยอยู่ที่ <b>@presight_institute</b> เปิดเช่นกัน
+            <span class="h">หรือค้น @presight_signals ใน Telegram</span></div>
+</div>
+</div>
+<div class="offers rv">
+<div class="offer">
+<div class="ix">01 / สัญญาณ</div>
+<h4>สัญญาณหลายสินทรัพย์</h4><p>ฟอเร็กซ์ โลหะ น้ำมัน ดัชนี และคริปโต ทุกสัญญาณระบุช่วงราคาเข้า จุดตัดขาดทุน เป้าหมาย และระดับความมั่นใจของโมเดล ส่งเข้า Telegram และแชนเนลคอมมูนิตี้</p>
+</div>
+<div class="offer">
+<div class="ix">02 / งานวิจัย</div>
+<h4>วิเคราะห์ตลาด</h4><p>บรีฟก่อนเปิดตลาดทุกวัน และสรุปมหภาครายสัปดาห์ อธิบายว่าอะไรทำให้ราคาขยับ ไม่ใช่แต่งเรื่องใส่ทีหลัง</p>
+</div>
+<div class="offer">
+<div class="ix">03 / อบรม</div>
+<h4>ความรู้การเทรด</h4><p>ตั้งแต่สเปรดกับสลิปเพจกินเงินคุณไปเท่าไหร่จริง ๆ ไปจนถึงการคำนวณขนาดสถานะ และการดูออกว่าแบ็กเทสต์ถูกฟิตเกินจริง คอร์สเต็มและถาม-ตอบสด เปิดหมด</p>
+</div>
+<div class="offer">
+<div class="ix">04 / กิจกรรม</div>
+<h4>กิจกรรม</h4><p>แข่งบัญชีเดโม ชาเลนจ์บัญชีจริง และการสร้างกลยุทธ์ร่วมกันแบบเปิด มีเงินรางวัลและบัญชีที่ได้รับทุน ไม่มีเงื่อนไขการเข้าร่วม</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ===================== STEPS ===================== -->
+<section id="start" style="padding-bottom:0">
+<div class="wrap">
+<div class="sec-head rv">
+<div class="fig">FIG. <b>04</b> — ขั้นตอน</div>
+<h2 class="h2">สี่ขั้นตอนเริ่มก๊อปปี้เทรด</h2>
+</div>
+</div>
+<div class="steps four rv">
+<div class="step"><div class="n">01</div><h4>สมัครผ่านลิงก์</h4><p>เปิดบัญชีกับแพลตฟอร์มพันธมิตรด้วยลิงก์บนเว็บนี้ แล้วยืนยันตัวตนให้เสร็จ เฉพาะบัญชีที่เปิดด้วยวิธีนี้เท่านั้นที่สมัครกลยุทธ์ได้</p></div>
+<div class="step"><div class="n">02</div><h4>ฝากเงินและสมัครกลยุทธ์</h4><p>ล็อกอิน <span class="mono">secure.decodefx.com</span> → <b>Copy Trading</b> เข้าสู่ระบบด้วยบัญชี MT5 ที่ใช้ก๊อปปี้ เปิด <b>New subscription</b> แล้วกรอก Provider เป็น <span class="mono">presighttrading_com - signal 1</span> ตั้งค่า: <b>Autoscale</b>, <b>Value by asset</b>, <b>Ratio 1</b> (คือ 1:1 ไม่ขยาย) ความเสี่ยงต่อออเดอร์เราตั้งให้ คุณไม่ต้องตั้งเอง</p></div>
+<div class="step"><div class="n">03</div><h4>แจ้ง MT5 account ID</h4><p>ทักหา <span class="mono">@PresightAdminBot</span> ใน Telegram พร้อม MT5 account ID (เลขล็อกอิน) บอทจะตอบใบรับทันที ระยะคุ้มครองเริ่มนับจากวินาทีนั้น — บัญชีที่ไม่ได้แจ้งจะไม่เข้าเกณฑ์ และขาดทุนก่อนแจ้งไม่ได้รับความคุ้มครอง</p></div>
+<div class="step"><div class="n">04</div><h4>ก๊อปปี้ให้ครบหนึ่งเดือน</h4><p>ทุกออเดอร์เปิดและปิดจะสะท้อนมาที่บัญชีคุณ ก๊อปปี้ต่อเนื่องครบหนึ่งเดือนถือว่าจบระยะคุ้มครอง คุณหยุดชั่วคราวหรือยกเลิกการเชื่อมได้ตลอดเวลาจากในแพลตฟอร์ม แต่ทำแล้วความคุ้มครองรอบนั้นจะสิ้นสุดลง</p></div>
+</div>
+</section>
+<!-- ===================== FAQ ===================== -->
+<section id="faq">
+<div class="wrap">
+<div class="sec-head rv">
+<div class="fig">FIG. <b>05</b> — คำถามที่พบบ่อย</div>
+<h2 class="h2">เกี่ยวกับกลยุทธ์และการก๊อปปี้เทรด</h2>
+</div>
+<div class="faq rv">
+<details open=""><summary>ประกันเริ่มมีผลและคำนวณอย่างไร</summary><p><b>เงินทุนตั้งต้น</b> คืออิควิตี้ของบัญชี ณ วินาทีที่ระยะคุ้มครองเริ่มต้น — คือตอนที่คุณแจ้ง MT5 account ID ถ้าอิควิตี้ตอนจบระยะคุ้มครองต่ำกว่าเงินทุนตั้งต้น ส่วนต่างนั้นคือขาดทุนสุทธิ และจะคืนเป็น<b>เงินสดสกุลดอลลาร์</b>ภายใน 10 วันทำการหลังตรวจสอบเสร็จ ความคุ้มครองครอบคลุมเฉพาะออเดอร์ที่กลยุทธ์ปิดเอง — <b>ขาดทุนของสถานะที่คุณปิดเองจะไม่ได้รับคืน</b> ถ้าจบรอบแล้วเสมอตัวหรือมีกำไร ก็ไม่มีการจ่าย ความคุ้มครองสูงสุดเท่าเงินทุนตั้งต้นทั้งจำนวน <a href="protection.html">เงื่อนไขฉบับเต็มและข้อยกเว้น →</a></p></details>
+<details><summary>ต้องทำอะไรบ้างถึงจะเข้าเกณฑ์</summary><p>ห้าข้อ: <b>บัญชีใหม่</b>ที่เปิดผ่านลิงก์ของเราและยืนยันตัวตนแล้ว; ตั้งค่าก๊อปปี้เป็น <b>Autoscale / Value by asset / Ratio 1</b> (คือ 1:1 ไม่ขยาย); <b>แจ้ง MT5 account ID</b> ให้ <span class="mono">@PresightAdminBot</span> ทันทีที่เริ่มก๊อปปี้; <b>ก๊อปปี้ต่อเนื่องครบหนึ่งเดือน</b>นับจากที่แจ้ง; และ<b>ไม่แทรกแซงด้วยมือ ไม่ถอนเงิน</b>ตลอดช่วงนั้น<br/><br/>การแจ้งคือประตูเข้า: บัญชีที่เราไม่เคยรู้ว่ามีอยู่ เราตรวจสอบไม่ได้ และขาดทุนที่เกิดก่อนแจ้งอยู่นอกความคุ้มครอง การปิดสถานะเองเป็นข้อยกเว้นเดียว — ไม่ทำให้การเข้าร่วมทั้งรอบเป็นโมฆะ แต่ขาดทุนของออเดอร์นั้นจะไม่ได้รับคืน<br/><br/>ความเสี่ยงต่อออเดอร์และความเสี่ยงรวม<b>ไม่ใช่สิ่งที่คุณตั้ง</b> — เราจัดการที่ระดับบัญชีก๊อปปี้ ALPHA-1 เป็นกลยุทธ์เชิงปริมาณ การถือหลายสถานะพร้อมกันเป็นเรื่องปกติ บัญชีกลยุทธ์มีเกณฑ์ดรอว์ดาวน์ ที่เมื่อแตะแล้วจะลดขนาดสถานะหรือหยุดเปิดออเดอร์ใหม่ และไม่ถัวเฉลี่ยขาลงเลย</p></details>
+<details><summary>จำเป็นต้องใช้แพลตฟอร์มที่กำหนดไหม</summary><p>ใช่ การก๊อปปี้เป็นกลไกซิงก์สัญญาณภายในแพลตฟอร์ม และเฉพาะบัญชีที่สมัครผ่านลิงก์บนเว็บนี้เท่านั้นที่จะอยู่ในรายชื่อผู้สมัคร บัญชีที่คุณมีอยู่แล้วที่อื่นเชื่อมไม่ได้</p></details>
+<details><summary>พวกคุณหารายได้จากอะไร ทำไมคอมมูนิตี้ถึงฟรี</summary><p>รายได้จากการก๊อปปี้มาจากรีเบตของพันธมิตรและส่วนแบ่งผลงานกลยุทธ์ ซึ่งโตตามขนาดเงินที่ก๊อปปี้ ถ้ากลยุทธ์ไม่ทำเงิน เราก็ไม่ได้อะไร — ผลประโยชน์ของเราชี้ไปทางเดียวกับคุณ คอมมูนิตี้เป็นช่องทางหาผู้ใช้ ไม่คิดเงินแยก</p></details>
+<details><summary>ผลงานที่แสดงถูกคัดมาหรือเปล่า</summary><p>ออเดอร์บนหน้านี้ดึงตรงจากบัญชีจริงของกลยุทธ์ ไม่มีการคัดกรอง และออเดอร์ขาดทุนแสดงอยู่ปนกับที่เหลือ ผลงานในอดีตไม่ได้บอกผลในอนาคต และทุกกลยุทธ์ย่อมมีช่วงดรอว์ดาวน์</p></details>
+<details><summary>ฝากขั้นต่ำเท่าไหร่</summary><p>[กรอกยอดฝากขั้นต่ำตรงนี้] ข้อควรระวัง: เมื่อบัญชีเล็กเกินไป การปัดเศษล็อตจะทำให้อัตราก๊อปปี้จริงเพี้ยนไปจากที่คุณตั้ง อาจทำให้อัตราที่มีผลจริงไม่ใช่ 1:1 และ<b>ทำให้เสียความคุ้มครอง</b> ควรฝากเผื่อไว้ สอบถามเกณฑ์ปัจจุบันได้ในคอมมูนิตี้</p></details>
+</div>
+<div class="risk rv" style="margin-top:52px">
+<h4><span class="mono">⚠</span> คำเตือนความเสี่ยง</h4>
+<p>สัญญาซื้อขายส่วนต่าง ฟอเร็กซ์ และผลิตภัณฑ์เลเวอเรจอื่น ๆ มีความเสี่ยงสูง และอาจทำให้สูญเสียเงินลงทุนทั้งหมด ไม่เหมาะกับนักลงทุนทุกคน ก่อนเทรด โปรดแน่ใจว่าคุณเข้าใจความเสี่ยง และพิจารณาประสบการณ์ ฐานะการเงิน รวมถึงระดับที่คุณรับการขาดทุนได้</p>
+<p>สัญญาณ บทวิเคราะห์ และเนื้อหาเพื่อการศึกษาบนเว็บนี้ให้ไว้เพื่อเป็นข้อมูลเท่านั้น ไม่ถือเป็นคำแนะนำการลงทุน คำเสนอ หรือการชักชวน ผลงานในอดีตไม่ได้บอกผลในอนาคต การตัดสินใจเทรดและผลที่ตามมาเป็นของคุณเอง</p>
+<p>[เพิ่มตรงนี้: ชื่อนิติบุคคลผู้ดำเนินการฉบับเต็มและสถานที่จดทะเบียน สถานะใบอนุญาตหรือคำระบุชัดเจนว่าไม่ได้รับใบอนุญาต แพลตฟอร์มพันธมิตรและหน่วยงานกำกับดูแลของแพลตฟอร์มนั้น และข้อจำกัดตามเขตพื้นที่]</p>
+</div>
+</div>
+</section>
+<!-- ===================== Introducing broker (IB) ===================== -->
+<section id="partner">
+<div class="rail"><span style="top:120px">PARTNER</span></div>
+<div class="wrap">
+<div class="sec-head rv">
+<div class="fig">FIG. <b>06</b> — พันธมิตร</div>
+<h2 class="h2">พันธมิตรผู้แนะนำ (IB)</h2>
+<p class="lede">พาคนมารู้จัก Presight แล้วรับค่าคอมมิชชันไปครึ่งหนึ่ง ลูกค้าที่คุณแนะนำก็อยู่ในโครงการประกันขาดทุนด้วย</p>
+</div>
+<div class="pgrid rv">
+<div class="pcell">
+<div class="k">ค่าคอมมิชชัน</div>
+<div class="v">แบ่งรายได้ <span class="u">50%</span></div>
+<p>ครึ่งหนึ่งของค่าคอมมิชชันที่ลูกค้าของคุณสร้างขึ้นเป็นของคุณ การเคลียร์ยอดและรายงานอยู่ในหลังบ้านของแพลตฟอร์มพันธมิตร เราไม่แตะเงินเลย</p>
+</div>
+<div class="pcell">
+<div class="k">ความคุ้มครอง</div>
+<div class="v">ลูกค้าของคุณได้ประกันขาดทุนด้วย</div>
+<p>ลูกค้าที่สมัครผ่านลิงก์ของคุณและก๊อปปี้กลยุทธ์ อยู่ในโครงการประกันขาดทุนเดียวกัน ตามเงื่อนไขที่ประกาศไว้ที่นี่</p>
+</div>
+<div class="pcell">
+<div class="k">เกณฑ์</div>
+<div class="v">ลูกค้า <span class="u">3</span> ราย · รายละ <span class="u">500 ดอลลาร์</span></div>
+<p>เงื่อนไขที่ปลดล็อกความคุ้มครองนั้น: มีลูกค้าใต้คุณอย่างน้อย 3 ราย และแต่ละรายฝากเงินไม่ต่ำกว่า 500 ดอลลาร์</p>
+</div>
+</div>
+<div class="steps rv" style="margin-top:40px">
+<div class="step"><div class="n">01</div><h4>สมัครด้วยลิงก์สำหรับพันธมิตร</h4><p>ลิงก์ด้านล่าง<b>ไม่ใช่ลิงก์เดียวกับ</b>ที่ลูกค้าใช้ ถ้าสมัครผิดลิงก์ ปุ่มยื่นสมัครจะไม่ขึ้นมาเลย และคุณต้องเริ่มใหม่ทั้งหมด</p></div>
+<div class="step"><div class="n">02</div><h4>ยื่นสมัครในหลังบ้าน</h4><p>ล็อกอินหลังบ้านของ DecodeFX แล้วกด “Apply to become an IB” เมื่อผ่านการอนุมัติ คุณจะได้ลิงก์แนะนำเป็นของตัวเอง</p></div>
+<div class="step"><div class="n">03</div><h4>ชวนคนด้วยลิงก์ของคุณเอง</h4><p>จากนั้นทุกคนที่สมัครผ่านลิงก์ของคุณจะนับเป็นของคุณ แบ่งรายได้ 50% รายงานยอดดูได้ในหลังบ้าน</p></div>
+</div>
+<div class="pshare rv">
+<div>
+<div class="lbl">ใช้ลิงก์นี้ชวนคนมาเป็น IB</div>
+<code id="partnerShare">https://presighttrading.com/th/#partner</code>
+</div>
+<button class="pcopy" data-copy="#partnerShare" type="button">คัดลอก</button>
+</div>
+<div class="hero-cta rv" style="margin-top:32px;justify-content:flex-start"><a class="btn big" data-link="ib" href="#" rel="noopener" target="_blank">สมัครและยื่นขอเป็น IB <span class="arw">→</span></a>
+<a class="btn big ghost" href="protection.html">อ่านเงื่อนไขประกันก่อน</a></div>
+<div class="risk rv" style="margin-top:40px">
+<h4><span class="mono">⚠</span> หมายเหตุ</h4>
+<p>ส่วนแบ่งรายได้และสถานะ IB คำนวณและจ่ายโดยแพลตฟอร์มเทรดพันธมิตร (DecodeFX) Presight ไม่แตะต้องเงินเลย ความคุ้มครองของลูกค้าคุณเป็นไปตาม<a href="protection.html" style="color:var(--amber);font-weight:600">เงื่อนไขโครงการที่ประกาศไว้</a> — ลูกค้าแต่ละรายยังต้องแจ้ง MT5 account ID ของตัวเอง และทำตามเงื่อนไขอื่น ๆ ให้ครบ</p>
+<p>การโปรโมตห้ามใช้ถ้อยคำอย่าง “การันตีกำไร” หรือ “ไม่มีทางขาดทุน” และห้ามเทรดแทนลูกค้าหรือถือเงินของลูกค้า ความร่วมมือที่ละเมิดข้อนี้เราจะยุติ</p>
+</div>
+</div>
+</section>
+</main>
+<footer>
+<div class="wrap">
+<div class="fgrid">
+<div>
+<div class="logo" style="color:#fff;margin-bottom:16px">
+<svg aria-hidden="true" fill="none" height="30" viewbox="0 0 30 30" width="30">
+<rect height="29" stroke="#24304A" width="29" x=".5" y=".5"></rect>
+<path d="M4 21 L10 15 L14 18 L18 9" fill="none" stroke="#4A66F0" stroke-width="2"></path>
+<path d="M18 9 L22 12 L26 5" fill="none" stroke="#D6188A" stroke-dasharray="3 3" stroke-width="2"></path>
+</svg>
+<span><span class="lt">PRESIGHT</span><span class="lc" style="color:#5B6883">TRADING INSTITUTE</span></span>
+</div>
+<p class="fsl">เห็นก่อน ลงมือก่อน</p>
+<p class="" style="font-size:.84rem;line-height:1.8;max-width:34ch;color:#5B6883">Presight Trading Institute · กลยุทธ์เชิงปริมาณและความรู้การเทรด</p>
+</div>
+<div><h5>ผลิตภัณฑ์</h5><a href="#partner">โครงการพันธมิตร</a><a href="#protection">ประกันขาดทุน</a><a href="#strategy">ก๊อปปี้เทรด</a><a href="#community">สัญญาณคอมมูนิตี้</a><a href="#community">ความรู้การเทรด</a></div>
+<div><h5>แหล่งข้อมูล</h5><a href="#faq">คำถามที่พบบ่อย</a><a href="protection.html">เงื่อนไขประกัน</a><a href="#">เอกสารกลยุทธ์</a><a href="#">ประวัติผลงาน (CSV)</a></div>
+<div><h5>ติดต่อ</h5><a data-link="channel" href="#" rel="noopener" target="_blank">แชนเนลสัญญาณสาธารณะ</a><a data-link="community" href="#" rel="noopener" target="_blank">Trading Institute</a><a data-link="email" href="#">อีเมล</a><a data-link="email" href="#">ความร่วมมือทางธุรกิจ</a></div>
+</div>
+<div class="fbot"><span>© 2026 PRESIGHT TRADING INSTITUTE</span>
+<span>การเทรดมีความเสี่ยง</span></div>
+</div>
+</footer>
+<!-- ===================== Start-copying modal ===================== -->
+<div aria-labelledby="startTitle" aria-modal="true" class="mask" hidden="" id="startMask" role="dialog">
+<div class="modal">
+<button aria-label="ปิด" class="mclose" data-close="" type="button">×</button>
+<div class="mhead">
+<div class="fig">FIG. <b>00</b> — เริ่มต้น</div>
+<h3 id="startTitle">สามขั้นตอนเริ่มก๊อปปี้เทรด</h3>
+<p>ใช้เวลาราวสิบนาที <b>ขั้นที่ 3 คือสิ่งที่ทำให้คุณเข้าเกณฑ์ประกัน</b> — อย่าข้าม</p>
+</div>
+<ol class="msteps">
+<li>
+<div class="mn">01</div>
+<div>
+<h4>เปิดบัญชีและฝากเงิน</h4>
+<p>เฉพาะ<b>บัญชีใหม่</b>ที่เปิดผ่านลิงก์นี้เท่านั้นที่อยู่ในรายชื่อผู้สมัคร ยืนยันตัวตน (KYC) ให้เสร็จ แล้วค่อยฝากเงิน</p>
+<a class="btn" data-link="broker" rel="noopener" target="_blank">สมัครกับ DecodeFX <span class="arw">→</span></a>
+</div>
+</li>
+<li>
+<div class="mn">02</div>
+<div>
+<h4>สมัคร PRESIGHT ALPHA-1</h4>
+<div class="path"><b>secure.decodefx.com</b> → Copy Trading → เข้าสู่ระบบด้วยบัญชี MT5 ที่ใช้ก๊อปปี้ → New subscription<br/>
+            Provider: <b>presighttrading_com - signal 1</b><br/>
+            ตั้งค่า: <b>Autoscale</b> · <b>Value by asset</b> · <b>Ratio = 1</b></div>
+<p class="mwarn">Ratio 1 คือ 1:1 ถ้ามากกว่า 1 เท่ากับขยายขนาดสถานะ และเสียความคุ้มครองทันที</p>
+</div>
+</li>
+<li>
+<div class="mn">03</div>
+<div>
+<h4>แจ้ง MT5 account ID กับบอท</h4>
+<p>ส่งเลขล็อกอินให้บอท — แค่ตัวเลขล้วน — แล้วคุณจะได้ใบรับทันที <b>ระยะคุ้มครองเริ่มนับจากวินาทีนั้น</b> ขาดทุนก่อนหน้านั้นไม่ได้รับความคุ้มครอง ดังนั้นเปิดบัญชีเสร็จแล้วรีบแจ้งเลย</p>
+<a class="btn" data-link="bot" rel="noopener" target="_blank">ทัก @PresightAdminBot <span class="arw">→</span></a>
+<p class="mwarn">ส่งแค่เลขล็อกอิน — <b>ห้ามส่งรหัสผ่านเด็ดขาด</b> เราไม่เคยขอรหัสผ่าน รหัสยืนยัน หรือเงินจากคุณ</p>
+</div>
+</li>
+</ol>
+<div class="mfoot"><a class="btn ghost" data-link="community" rel="noopener" target="_blank">มีคำถาม? เข้าคอมมูนิตี้</a>
+<a class="mlink" href="protection.html">เงื่อนไขโครงการฉบับเต็ม →</a></div>
+</div>
+</div>
+<script src="../assets/js/config.js"></script>
+<script src="../assets/js/app.js"></script>
+</body>
+</html>

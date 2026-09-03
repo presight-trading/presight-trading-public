@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Presight Trading Institute — Thấy trước. Đi trước.</title>
+<meta content="See first. Move first. A copy-trading quant strategy running on our own capital, with every fill published, and a free multi-asset signal community." name="description"/>
+<meta content="#EDF0F4" name="theme-color"/>
+<meta content="index,follow" name="robots"/>
+<link href="https://presighttrading.com/" hreflang="zh-Hans" rel="alternate"/>
+<link href="https://presighttrading.com/en/" hreflang="en" rel="alternate"/>
+<link href="https://presighttrading.com/" hreflang="x-default" rel="alternate"/>
+<meta content="website" property="og:type"/>
+<meta content="Presight Trading Institute — See first. Move first." property="og:title"/>
+<meta content="See first. Move first." property="og:description"/>
+<meta content="https://presighttrading.com/en/" property="og:url"/>
+<meta content="https://presighttrading.com/assets/og.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<link href="../assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="../assets/css/style.css" rel="stylesheet"/>
+</head>
+<body>
+<!-- ticker -->
+<div aria-hidden="true" class="tick">
+<div class="tick-in" id="ticker"></div>
+</div>
+<header>
+<div class="wrap hbar">
+<a aria-label="Trang chủ Presight Trading Institute" class="logo" href="#top">
+<svg aria-hidden="true" fill="none" height="30" viewbox="0 0 30 30" width="30">
+<rect height="29" stroke="#0A111E" width="29" x=".5" y=".5"></rect>
+<path d="M4 21 L10 15 L14 18 L18 9" fill="none" stroke="#1B3BD8" stroke-width="2"></path>
+<path d="M18 9 L22 12 L26 5" fill="none" stroke="#D6188A" stroke-dasharray="3 3" stroke-width="2"></path>
+</svg>
+<span>
+<span class="lt">PRESIGHT</span>
+<span class="lc">TRADING INSTITUTE</span>
+</span>
+</a>
+<nav><a href="#protection">Bảo hiểm thua lỗ</a>
+<a href="#strategy">Chiến lược</a>
+<a href="#community">Cộng đồng</a>
+<a href="#start">Bắt đầu</a>
+<a href="#faq">Hỏi đáp</a></nav>
+<div class="hact">
+<div class="langsw"><a href="../">中</a><span>/</span><a href="../en/">EN</a><span>/</span><a href="../ja/">日本語</a><span>/</span><a href="#top" class="cur">Việt</a><span>/</span><a href="../th/">ไทย</a></div>
+<a class="btn" data-open="start" href="#strategy">Bắt đầu sao chép <span class="arw">→</span></a>
+</div>
+</div>
+</header>
+<main id="top">
+<!-- ===================== HERO ===================== -->
+<div class="hero">
+<div class="wrap">
+<div class="hero-grid">
+<div>
+<div class="fig">FIG. <b>00</b> — PRESIGHT</div>
+<h1 class="display slogan en">Thấy trước.<br/><span class="fx">Đi trước.</span></h1>
+<p class="lede">Chiến lược chạy bằng vốn của chính chúng tôi, mọi lệnh khớp đều công khai, không lọc bỏ lệnh thua. Nếu kết thúc kỳ sao chép mà tài khoản vẫn âm, chúng tôi <b>hoàn lại khoản lỗ đó bằng tiền mặt</b>.</p>
+<div class="pledge"><b>Bảo hiểm thua lỗ</b>
+<span class="cond">lỗ bao nhiêu, hoàn bấy nhiêu<i>/</i>trả bằng tiền mặt</span>
+<a href="protection.html">Điều khoản đầy đủ →</a></div>
+<div class="hero-cta"><a class="btn big" href="#protection">Cơ chế bảo hiểm <span class="arw">→</span></a>
+<a class="btn big ghost" data-link="channel" href="#" rel="noopener" target="_blank">Xem tín hiệu đã phát</a></div>
+<p class="hero-note">Tài khoản thật · lệnh khớp đồng bộ mỗi 60 giây · bảo hiểm tối đa bằng vốn gốc và không xoá bỏ rủi ro giao dịch · giao dịch đòn bẩy có thể mất toàn bộ số tiền ký quỹ</p>
+</div>
+<div>
+<div class="sigchart">
+<svg aria-label="Đường vốn của chiến lược. Nét liền là kết quả thực tế, nét đứt là dự phóng của mô hình." id="heroChart" role="img" viewbox="0 0 520 340"></svg>
+<div class="legend"><span><i class="sw"></i> ĐÃ THỰC HIỆN</span>
+<span><i class="sw d"></i> MÔ HÌNH DỰ PHÓNG</span></div>
+</div>
+</div>
+</div>
+<div class="strip rv">
+<div><div class="k">Số ngày chạy</div><div class="v" id="sRun">—</div></div>
+<div><div class="k">Tổng lợi nhuận</div><div class="v" id="sRet" style="color:var(--cobalt)">—</div></div>
+<div><div class="k">Tỷ lệ thắng</div><div class="v" id="sWin">—</div></div>
+<div><div class="k">Cộng đồng</div><div class="v" id="sMem">—</div></div>
+<div><div class="k">Bảo hiểm lỗ</div><div class="v" style="color:var(--cobalt)">Hoàn tiền mặt</div></div>
+</div>
+</div>
+</div>
+<!-- ===================== PRODUCT 01 ===================== -->
+<section id="protection">
+<div class="rail"><span style="top:120px">PROTECTION</span></div>
+<div class="wrap">
+<div class="sec-head rv">
+<div class="fig">FIG. <b>01</b> — CHƯƠNG TRÌNH CHÍNH</div>
+<h2 class="h2">Bảo hiểm thua lỗ khi sao chép</h2>
+<p class="lede">Sao chép đúng luật, lỗ chúng tôi bù. Đây không phải lời hứa bạn sẽ không lỗ — chúng tôi cùng gánh phần rủi ro giảm giá trong khoảng thời gian đó, với điều kiện đòn bẩy và can thiệp thủ công bị ràng buộc. Điều kiện viết chi tiết vì chỉ như vậy cam kết mới trả nổi.</p>
+</div>
+<div class="steps rv">
+<div class="step">
+<div class="n">01</div><h4>Sao chép 1:1, không phóng đại vị thế</h4>
+<p>Bạn chỉ cần đặt tỷ lệ 1:1. Rủi ro mỗi lệnh và tổng mức phơi nhiễm do <b>chúng tôi quản lý ở cấp tài khoản sao chép</b> — ALPHA-1 là chiến lược định lượng, giữ nhiều vị thế cùng lúc là cấu trúc bình thường, không phải thứ bạn cần cấu hình.</p>
+</div>
+<div class="step">
+<div class="n">02</div><h4>Kiểm soát sụt giảm ở cấp tài khoản</h4>
+<p>Tài khoản chiến lược có ngưỡng sụt giảm; chạm ngưỡng là tự động giảm khối lượng hoặc ngừng mở lệnh mới, tài khoản sao chép đồng bộ theo. Chiến lược không bao giờ trung bình giá xuống.</p>
+</div>
+<div class="step">
+<div class="n">03</div><h4>Đủ một tháng, hoàn lỗ ròng bằng tiền mặt</h4>
+<p>Sao chép liên tục một tháng kể từ lúc bạn khai báo MT5 account ID, trong suốt thời gian đó không can thiệp thủ công và không rút tiền. Nếu vốn chủ sở hữu cuối kỳ thấp hơn vốn gốc, phần chênh lệch được hoàn bằng <b>tiền mặt USD</b> trong vòng 10 ngày làm việc sau khi xác minh. Lỗ ở các vị thế bạn tự tay đóng không được bảo hiểm.</p>
+</div>
+</div>
+<div class="wrap" style="padding:0">
+<div class="risk rv" style="margin-top:44px">
+<h4><span class="mono">⚠</span> Trước khi tham gia</h4>
+<p>Mức bảo hiểm tối đa bằng <b>toàn bộ vốn gốc của bạn</b>. Khi đã bắt đầu sao chép, bạn phải <b>khai báo MT5 account ID</b> cho <span class="mono">@PresightAdminBot</span> trên Telegram — tài khoản chưa khai báo thì không đủ điều kiện, và khoản lỗ phát sinh trước lúc khai báo cũng không được bảo hiểm. Tự mở lệnh, để Ratio lớn hơn 1, hoặc rút tiền trong kỳ đều làm mất tư cách, và <b>lỗ ở các vị thế bạn tự tay đóng thì không bao giờ được hoàn</b>.</p>
+<p>Đây không phải lời khuyên đầu tư và không bảo đảm chiến lược sẽ có lãi. Presight nhận hoa hồng giới thiệu từ nền tảng đối tác. <a href="protection.html" style="color:var(--amber);font-weight:600">Điều khoản đầy đủ và trường hợp loại trừ →</a></p>
+</div>
+</div>
+<div class="hero-cta rv" style="margin-top:36px;justify-content:flex-start"><a class="btn big" data-link="broker" href="#" rel="noopener" target="_blank">Mở tài khoản &amp; sao chép <span class="arw">→</span></a>
+<a class="btn big ghost" href="protection.html">Đọc điều khoản đầy đủ</a></div>
+</div>
+</section>
+<hr class="rule"/>
+<section id="strategy">
+<div class="rail"><span style="top:120px">STRATEGY</span></div>
+<div class="wrap">
+<div class="sec-head rv">
+<div class="fig">FIG. <b>02</b> — SẢN PHẨM CHỦ LỰC</div>
+<h2 class="h2">Chiến lược sao chép giao dịch</h2>
+<p class="lede">Chiến lược định lượng đa tài sản chạy trên tài khoản thật. Sau khi liên kết, lệnh vào và lệnh ra tự động phản chiếu sang tài khoản của bạn — không cần đoán hướng, không cần ngồi canh màn hình. Bảng dưới đây là toàn bộ lịch sử khớp lệnh của tài khoản đó, gồm cả lệnh thua.</p>
+</div>
+<div class="panelbox rv">
+<div class="panel-top">
+<div>
+<h3 class="mono">PRESIGHT ALPHA-1</h3>
+<p class="sub">Theo xu hướng tần suất thấp đến trung bình, có bộ lọc biến động. Các cặp tiền chính, kim loại và chỉ số. Rủi ro cố định cho từng vị thế, không trung bình giá xuống.</p>
+<div class="tags"><span class="tag hero-tag">Bảo hiểm thua lỗ · <a href="protection.html">Điều khoản</a></span>
+<span class="tag">ĐA TÀI SẢN</span>
+<span class="tag">TỰ ĐỘNG SAO CHÉP</span>
+<span class="tag">RỦI RO CỐ ĐỊNH</span></div>
+</div>
+</div>
+<div class="metrics">
+<div><div class="k">Lãi/lỗ ròng</div><div class="v g" id="mRet">—</div></div>
+<div><div class="k">Tỷ lệ thắng</div><div class="v" id="mWin">—</div></div>
+<div><div class="k">Sụt giảm tối đa</div><div class="v r" id="mDD">—</div></div>
+<div><div class="k">Hệ số lợi nhuận</div><div class="v" id="mPF">—</div></div>
+<div><div class="k">Số lệnh</div><div class="v" id="mN">—</div></div>
+</div>
+<div class="curvewrap">
+<svg aria-label="Đường vốn tích luỹ của chiến lược" id="equityChart" role="img" viewbox="0 0 1080 260"></svg>
+</div>
+<div class="tbl-head">
+<h4>Lịch sử khớp lệnh · 12 lệnh gần nhất</h4>
+<div class="live"><span class="dot"></span> LIVE · <span id="upd">—</span></div>
+</div>
+<div class="tblscroll">
+<table>
+<thead>
+<tr>
+<th>Đóng lúc</th><th>Mã</th><th>Chiều</th><th>Lot</th>
+<th>Giá vào</th><th>Giá ra</th><th>Pip</th><th style="text-align:right">Lãi/lỗ (USD)</th>
+</tr>
+</thead>
+<tbody id="tradeBody"></tbody>
+</table>
+</div>
+<div id="tradeState"></div>
+<div class="panel-cta">
+<p>Việc sao chép diễn ra bên trong nền tảng đối tác. Chỉ tài khoản đăng ký qua liên kết bên dưới mới đăng ký được chiến lược này.</p>
+<a class="btn big onDark" href="#" id="brokerLink" rel="noopener" target="_blank">Mở tài khoản và liên kết sao chép <span class="arw">→</span></a>
+</div>
+</div>
+</div>
+</section>
+<hr class="rule"/>
+<!-- ===================== PRODUCT 02 ===================== -->
+<section id="community">
+<div class="rail"><span style="top:120px">COMMUNITY</span></div>
+<div class="wrap">
+<div class="p2">
+<div class="rv">
+<div class="fig">FIG. <b>03</b> — SẢN PHẨM CHỦ LỰC</div>
+<h2 class="h2">Cộng đồng giao dịch Presight</h2>
+<div class="free"><span>$0</span><s>miễn phí vĩnh viễn</s></div>
+<p class="lede">Không bán khoá học, không thu phí thành viên, không lập nhóm hô lệnh. Mọi thứ trong cộng đồng đều mở, kể cả tín hiệu mà chiến lược thật đang dùng.</p>
+<div class="hero-cta"><a class="btn big" data-link="channel" href="#" rel="noopener" target="_blank">Mở kênh tín hiệu <span class="arw">→</span></a>
+<a class="btn big ghost" data-link="community" href="#" rel="noopener" target="_blank">Trading Institute — ai cũng vào được</a></div>
+<div class="qrbox">
+<div class="code"><img alt="Quét mã để mở kênh tín hiệu Presight" height="104" src="../assets/qr/tg-channel.svg" width="104"/></div>
+<div class="cap"><b>Quét mã để mở kênh tín hiệu</b>
+            Đây là cổng vào chính, công khai — tín hiệu thời gian thực, không cần đăng ký xét duyệt.
+            Nơi thảo luận là <b>@presight_institute</b>, cũng công khai.
+            <span class="h">Hoặc tìm @presight_signals trong Telegram</span></div>
+</div>
+</div>
+<div class="offers rv">
+<div class="offer">
+<div class="ix">01 / TÍN HIỆU</div>
+<h4>Tín hiệu đa tài sản</h4><p>Ngoại hối, kim loại, dầu, chỉ số và tiền mã hoá. Mỗi tín hiệu đều kèm vùng vào lệnh, điểm dừng lỗ, mục tiêu và mức tin cậy của mô hình, đẩy sang Telegram và kênh cộng đồng.</p>
+</div>
+<div class="offer">
+<div class="ix">02 / NGHIÊN CỨU</div>
+<h4>Phân tích thị trường</h4><p>Bản tin trước phiên hằng ngày và tổng kết vĩ mô hằng tuần, giải thích điều gì đã tạo ra chuyển động thay vì gán câu chuyện vào sau khi giá đã chạy.</p>
+</div>
+<div class="offer">
+<div class="ix">03 / ĐÀO TẠO</div>
+<h4>Đào tạo giao dịch</h4><p>Từ việc spread và trượt giá thực sự lấy đi của bạn bao nhiêu, đến cách tính khối lượng và cách nhận ra một backtest bị tối ưu quá mức. Toàn bộ khoá học và Q&amp;A trực tiếp, đều mở.</p>
+</div>
+<div class="offer">
+<div class="ix">04 / SỰ KIỆN</div>
+<h4>Sự kiện</h4><p>Giải đấu tài khoản demo, thử thách tài khoản thật và các dự án xây chiến lược mở. Có tiền thưởng và tài khoản được cấp vốn. Không có điều kiện tham gia.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ===================== STEPS ===================== -->
+<section id="start" style="padding-bottom:0">
+<div class="wrap">
+<div class="sec-head rv">
+<div class="fig">FIG. <b>04</b> — QUY TRÌNH</div>
+<h2 class="h2">Bốn bước để bắt đầu sao chép</h2>
+</div>
+</div>
+<div class="steps four rv">
+<div class="step"><div class="n">01</div><h4>Đăng ký qua liên kết</h4><p>Mở tài khoản tại nền tảng đối tác bằng liên kết trên trang này và hoàn tất xác minh danh tính. Chỉ tài khoản mở theo cách này mới đăng ký được chiến lược.</p></div>
+<div class="step"><div class="n">02</div><h4>Nạp tiền và đăng ký chiến lược</h4><p>Đăng nhập <span class="mono">secure.decodefx.com</span> → <b>Copy Trading</b>, đăng nhập bằng tài khoản MT5 dùng để sao chép, mở <b>New subscription</b>, điền Provider là <span class="mono">presighttrading_com - signal 1</span>. Cấu hình: <b>Autoscale</b>, <b>Value by asset</b>, <b>Ratio 1</b> (tức 1:1, không phóng đại). Rủi ro mỗi lệnh do chúng tôi đặt — bạn không phải cấu hình.</p></div>
+<div class="step"><div class="n">03</div><h4>Khai báo MT5 account ID</h4><p>Nhắn <span class="mono">@PresightAdminBot</span> trên Telegram kèm MT5 account ID (số đăng nhập); bot trả biên nhận ngay lập tức. Thời gian bảo vệ bắt đầu từ khoảnh khắc đó — tài khoản chưa khai báo thì không đủ điều kiện, và khoản lỗ trước lúc khai báo không được bảo hiểm.</p></div>
+<div class="step"><div class="n">04</div><h4>Sao chép đủ một tháng</h4><p>Mọi lệnh vào và lệnh ra đều phản chiếu sang tài khoản của bạn; sao chép liên tục đủ một tháng là hoàn tất thời gian bảo vệ. Bạn có thể tạm dừng hoặc huỷ liên kết bất cứ lúc nào ngay trong nền tảng, nhưng làm vậy là kết thúc bảo hiểm cho lần tham gia đó.</p></div>
+</div>
+</section>
+<!-- ===================== FAQ ===================== -->
+<section id="faq">
+<div class="wrap">
+<div class="sec-head rv">
+<div class="fig">FIG. <b>05</b> — HỎI ĐÁP</div>
+<h2 class="h2">Về chiến lược và việc sao chép</h2>
+</div>
+<div class="faq rv">
+<details open=""><summary>Bảo hiểm kích hoạt và tính toán thế nào?</summary><p><b>Vốn gốc</b> là vốn chủ sở hữu của tài khoản tại thời điểm thời gian bảo vệ bắt đầu — tức lúc bạn khai báo MT5 account ID. Nếu vốn chủ sở hữu cuối kỳ thấp hơn vốn gốc, phần chênh lệch chính là lỗ ròng và được hoàn bằng <b>tiền mặt USD</b> trong vòng 10 ngày làm việc sau khi xác minh. Bảo hiểm chỉ áp dụng cho các lệnh do chính chiến lược đóng — <b>lỗ ở các vị thế bạn tự tay đóng thì không được hoàn</b>. Nếu bạn hoà vốn hoặc có lãi thì không phát sinh chi trả. Mức bảo hiểm tối đa bằng toàn bộ vốn gốc. <a href="protection.html">Điều khoản đầy đủ và trường hợp loại trừ →</a></p></details>
+<details><summary>Cần đáp ứng những gì?</summary><p>Năm điều: <b>tài khoản mới</b> mở qua liên kết của chúng tôi và đã xác minh danh tính; cấu hình sao chép <b>Autoscale / Value by asset / Ratio 1</b> (tức 1:1, không phóng đại); <b>khai báo MT5 account ID</b> cho <span class="mono">@PresightAdminBot</span> ngay khi bắt đầu sao chép; <b>sao chép liên tục đủ một tháng</b> kể từ lần khai báo đó; và <b>không can thiệp thủ công, không rút tiền</b> trong suốt khoảng thời gian ấy.<br/><br/>Khai báo là cửa vào: tài khoản chưa từng được báo thì chúng tôi không có cách nào xác minh, còn khoản lỗ phát sinh trước lúc khai báo nằm ngoài phạm vi bảo hiểm. Tự tay đóng lệnh là ngoại lệ duy nhất — nó không huỷ cả lần tham gia, nhưng khoản lỗ của lệnh đó thì không được hoàn.<br/><br/>Rủi ro mỗi lệnh và tổng mức phơi nhiễm <b>không do bạn đặt</b> — chúng tôi quản lý ở cấp tài khoản sao chép. ALPHA-1 là chiến lược định lượng và việc giữ nhiều vị thế cùng lúc là bình thường. Tài khoản chiến lược có ngưỡng sụt giảm, chạm ngưỡng là giảm khối lượng hoặc ngừng vào lệnh mới, và không bao giờ trung bình giá xuống.</p></details>
+<details><summary>Bắt buộc dùng nền tảng chỉ định à?</summary><p>Đúng vậy. Sao chép là cơ chế đồng bộ tín hiệu bên trong nền tảng, và chỉ tài khoản đăng ký qua liên kết trên trang này mới xuất hiện trong danh sách đăng ký. Tài khoản bạn đã có ở nơi khác không kết nối được.</p></details>
+<details><summary>Các bạn kiếm tiền bằng gì? Sao cộng đồng lại miễn phí?</summary><p>Doanh thu từ sao chép đến từ hoàn phí của đối tác và phần chia theo hiệu quả chiến lược, tỷ lệ thuận với quy mô sao chép. Khi chiến lược không kiếm được gì thì chúng tôi cũng vậy — lợi ích của hai bên cùng hướng. Cộng đồng là kênh thu hút người dùng, không tính phí riêng.</p></details>
+<details><summary>Thành tích có bị chọn lọc không?</summary><p>Các lệnh khớp trên trang này lấy thẳng từ tài khoản thật của chiến lược, không lọc, và lệnh thua được liệt kê cùng với phần còn lại. Hiệu quả quá khứ không phản ánh kết quả tương lai, và chiến lược nào cũng có giai đoạn sụt giảm.</p></details>
+<details><summary>Số tiền nạp tối thiểu là bao nhiêu?</summary><p>[Điền số tiền nạp tối thiểu.] Lưu ý: khi tài khoản quá nhỏ, việc làm tròn lot sẽ đẩy tỷ lệ sao chép thực tế lệch khỏi mức bạn đặt, có thể khiến tỷ lệ hiệu dụng không còn là 1:1 và <b>làm mất bảo hiểm</b>. Hãy để dư một khoảng; hỏi trong cộng đồng để biết ngưỡng hiện tại.</p></details>
+</div>
+<div class="risk rv" style="margin-top:52px">
+<h4><span class="mono">⚠</span> Cảnh báo rủi ro</h4>
+<p>Hợp đồng chênh lệch, ngoại hối và các sản phẩm đòn bẩy khác có mức rủi ro cao và có thể khiến bạn mất toàn bộ vốn đã đầu tư. Chúng không phù hợp với mọi nhà đầu tư. Trước khi giao dịch, hãy chắc chắn bạn hiểu rủi ro và cân nhắc kinh nghiệm, tình hình tài chính cũng như khả năng chịu lỗ của mình.</p>
+<p>Tín hiệu, phân tích và tài liệu đào tạo trên trang này chỉ nhằm mục đích thông tin, không cấu thành lời khuyên đầu tư, lời chào mời hay đề nghị mua bán. Hiệu quả quá khứ không phản ánh kết quả tương lai. Quyết định giao dịch và hậu quả của nó thuộc về bạn.</p>
+<p>[Bổ sung tại đây: tên pháp lý đầy đủ và nơi đăng ký của pháp nhân vận hành, tình trạng giấy phép hoặc tuyên bố rõ ràng là chưa được cấp phép, nền tảng đối tác cùng cơ quan quản lý của họ, và các hạn chế theo khu vực.]</p>
+</div>
+</div>
+</section>
+<!-- ===================== Introducing broker (IB) ===================== -->
+<section id="partner">
+<div class="rail"><span style="top:120px">PARTNER</span></div>
+<div class="wrap">
+<div class="sec-head rv">
+<div class="fig">FIG. <b>06</b> — ĐỐI TÁC</div>
+<h2 class="h2">Đối tác giới thiệu (IB)</h2>
+<p class="lede">Giới thiệu người dùng cho Presight và giữ lại một nửa hoa hồng. Khách bạn giới thiệu cũng nằm trong chương trình bảo hiểm thua lỗ.</p>
+</div>
+<div class="pgrid rv">
+<div class="pcell">
+<div class="k">Hoa hồng</div>
+<div class="v"><span class="u">50%</span> chia sẻ doanh thu</div>
+<p>Một nửa hoa hồng do khách của bạn tạo ra là của bạn. Việc quyết toán và sao kê nằm trong back office của nền tảng đối tác; chúng tôi không cầm tiền.</p>
+</div>
+<div class="pcell">
+<div class="k">Bảo hiểm</div>
+<div class="v">Khách của bạn cũng được bảo hiểm</div>
+<p>Khách đăng ký qua liên kết của bạn và sao chép chiến lược cũng thuộc chương trình bảo hiểm thua lỗ, theo đúng điều khoản công bố tại đây.</p>
+</div>
+<div class="pcell">
+<div class="k">Điều kiện</div>
+<div class="v"><span class="u">3</span> khách · mỗi người <span class="u">500 USD</span></div>
+<p>Điều kiện mở khoá bảo hiểm đó: dưới bạn có ít nhất 3 khách, mỗi người nạp không dưới 500 USD.</p>
+</div>
+</div>
+<div class="steps rv" style="margin-top:40px">
+<div class="step"><div class="n">01</div><h4>Đăng ký bằng liên kết dành cho đối tác</h4><p>Liên kết bên dưới <b>không phải liên kết</b> mà khách dùng. Đăng ký nhầm thì nút nộp đơn sẽ không bao giờ xuất hiện — bạn buộc phải làm lại từ đầu.</p></div>
+<div class="step"><div class="n">02</div><h4>Nộp đơn trong back office</h4><p>Đăng nhập back office của DecodeFX và bấm “Apply to become an IB”. Được duyệt xong bạn sẽ có liên kết giới thiệu của riêng mình.</p></div>
+<div class="step"><div class="n">03</div><h4>Mời bằng liên kết của chính bạn</h4><p>Từ đó ai đăng ký qua liên kết của bạn đều tính là của bạn, chia doanh thu 50%. Sao kê nằm trong back office.</p></div>
+</div>
+<div class="pshare rv">
+<div>
+<div class="lbl">Dùng liên kết này để mời IB</div>
+<code id="partnerShare">https://presighttrading.com/vi/#partner</code>
+</div>
+<button class="pcopy" data-copy="#partnerShare" type="button">Sao chép</button>
+</div>
+<div class="hero-cta rv" style="margin-top:32px;justify-content:flex-start"><a class="btn big" data-link="ib" href="#" rel="noopener" target="_blank">Đăng ký và nộp đơn IB <span class="arw">→</span></a>
+<a class="btn big ghost" href="protection.html">Đọc điều khoản bảo hiểm trước</a></div>
+<div class="risk rv" style="margin-top:40px">
+<h4><span class="mono">⚠</span> Lưu ý</h4>
+<p>Phần chia doanh thu và tư cách IB do nền tảng giao dịch đối tác (DecodeFX) tính toán và chi trả; Presight không bao giờ cầm tiền. Bảo hiểm cho khách của bạn tuân theo <a href="protection.html" style="color:var(--amber);font-weight:600">điều khoản chương trình đã công bố</a> — từng khách vẫn phải tự khai báo MT5 account ID của mình và đáp ứng mọi điều kiện còn lại.</p>
+<p>Khi quảng bá không được dùng những cách nói như “bảo đảm có lãi” hay “không thể lỗ”, và không được giao dịch thay khách hay giữ tiền của khách. Quan hệ hợp tác vi phạm sẽ bị chấm dứt.</p>
+</div>
+</div>
+</section>
+</main>
+<footer>
+<div class="wrap">
+<div class="fgrid">
+<div>
+<div class="logo" style="color:#fff;margin-bottom:16px">
+<svg aria-hidden="true" fill="none" height="30" viewbox="0 0 30 30" width="30">
+<rect height="29" stroke="#24304A" width="29" x=".5" y=".5"></rect>
+<path d="M4 21 L10 15 L14 18 L18 9" fill="none" stroke="#4A66F0" stroke-width="2"></path>
+<path d="M18 9 L22 12 L26 5" fill="none" stroke="#D6188A" stroke-dasharray="3 3" stroke-width="2"></path>
+</svg>
+<span><span class="lt">PRESIGHT</span><span class="lc" style="color:#5B6883">TRADING INSTITUTE</span></span>
+</div>
+<p class="fsl">Thấy trước. Đi trước.</p>
+<p class="" style="font-size:.84rem;line-height:1.8;max-width:34ch;color:#5B6883">Presight Trading Institute · Chiến lược định lượng và đào tạo giao dịch</p>
+</div>
+<div><h5>Sản phẩm</h5><a href="#partner">Đối tác giới thiệu</a><a href="#protection">Bảo hiểm thua lỗ</a><a href="#strategy">Sao chép giao dịch</a><a href="#community">Tín hiệu cộng đồng</a><a href="#community">Đào tạo</a></div>
+<div><h5>Tài liệu</h5><a href="#faq">Hỏi đáp</a><a href="protection.html">Điều khoản bảo hiểm</a><a href="#">Bản mô tả chiến lược</a><a href="#">Lịch sử giao dịch (CSV)</a></div>
+<div><h5>Liên hệ</h5><a data-link="channel" href="#" rel="noopener" target="_blank">Kênh tín hiệu công khai</a><a data-link="community" href="#" rel="noopener" target="_blank">Trading Institute</a><a data-link="email" href="#">Email</a><a data-link="email" href="#">Hợp tác kinh doanh</a></div>
+</div>
+<div class="fbot"><span>© 2026 PRESIGHT TRADING INSTITUTE</span>
+<span>Giao dịch luôn có rủi ro</span></div>
+</div>
+</footer>
+<!-- ===================== Start-copying modal ===================== -->
+<div aria-labelledby="startTitle" aria-modal="true" class="mask" hidden="" id="startMask" role="dialog">
+<div class="modal">
+<button aria-label="Đóng" class="mclose" data-close="" type="button">×</button>
+<div class="mhead">
+<div class="fig">FIG. <b>00</b> — BẮT ĐẦU</div>
+<h3 id="startTitle">Ba bước để bắt đầu sao chép</h3>
+<p>Khoảng mười phút là xong. <b>Bước 3 quyết định bạn có được bảo hiểm hay không</b> — đừng bỏ qua.</p>
+</div>
+<ol class="msteps">
+<li>
+<div class="mn">01</div>
+<div>
+<h4>Mở tài khoản và nạp tiền</h4>
+<p>Chỉ <b>tài khoản mới</b> mở qua liên kết này mới nằm trong danh sách đăng ký. Hoàn tất xác minh danh tính (KYC) rồi nạp tiền.</p>
+<a class="btn" data-link="broker" rel="noopener" target="_blank">Đăng ký tại DecodeFX <span class="arw">→</span></a>
+</div>
+</li>
+<li>
+<div class="mn">02</div>
+<div>
+<h4>Đăng ký PRESIGHT ALPHA-1</h4>
+<div class="path"><b>secure.decodefx.com</b> → Copy Trading → đăng nhập bằng tài khoản MT5 dùng để sao chép → New subscription<br/>
+            Provider: <b>presighttrading_com - signal 1</b><br/>
+            Cấu hình: <b>Autoscale</b> · <b>Value by asset</b> · <b>Ratio = 1</b></div>
+<p class="mwarn">Ratio 1 chính là 1:1. Lớn hơn 1 là phóng đại vị thế và mất bảo hiểm ngay lập tức.</p>
+</div>
+</li>
+<li>
+<div class="mn">03</div>
+<div>
+<h4>Khai báo MT5 account ID cho bot</h4>
+<p>Gửi cho bot số đăng nhập — chỉ các chữ số — và bạn nhận biên nhận ngay. <b>Thời gian bảo vệ bắt đầu từ khoảnh khắc đó</b>; khoản lỗ trước đó không được bảo hiểm, nên hãy khai báo ngay khi mở xong tài khoản.</p>
+<a class="btn" data-link="bot" rel="noopener" target="_blank">Nhắn @PresightAdminBot <span class="arw">→</span></a>
+<p class="mwarn">Chỉ gửi số đăng nhập — <b>tuyệt đối không gửi mật khẩu</b>. Chúng tôi không bao giờ hỏi bạn mật khẩu, mã xác minh hay tiền.</p>
+</div>
+</li>
+</ol>
+<div class="mfoot"><a class="btn ghost" data-link="community" rel="noopener" target="_blank">Có thắc mắc? Vào cộng đồng</a>
+<a class="mlink" href="protection.html">Điều khoản chương trình đầy đủ →</a></div>
+</div>
+</div>
+<script src="../assets/js/config.js"></script>
+<script src="../assets/js/app.js"></script>
+</body>
+</html>
