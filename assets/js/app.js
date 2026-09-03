@@ -5,6 +5,7 @@
 const LANG = (document.documentElement.lang || 'zh').toLowerCase().slice(0,2);
 const TEXTS = {
   zh:{
+    loading:'成交记录加载中…',
     locale:'zh-CN', daysUnit:'<small>天</small>',
     now:'刚刚', min:' 分钟前', hour:' 小时前', day:' 天前',
     updated:'更新于 ', demo:'演示数据', copied:'已复制',
@@ -12,6 +13,7 @@ const TEXTS = {
     emptyT:'还没有已平仓的交易', emptyB:'策略正在运行，第一笔成交平仓后会立刻出现在这里。',
   },
   en:{
+    loading:'Loading fill history…',
     locale:'en-GB', daysUnit:'<small>days</small>',
     now:'just now', min:'m ago', hour:'h ago', day:'d ago',
     updated:'updated ', demo:'demo data', copied:'Copied',
@@ -19,6 +21,7 @@ const TEXTS = {
     emptyT:'No closed trades yet', emptyB:'The strategy is running. The first closed trade will appear here immediately.',
   },
   ja:{
+    loading:'約定履歴を読み込み中…',
     locale:'ja-JP', daysUnit:'<small>日</small>',
     now:'たった今', min:' 分前', hour:' 時間前', day:' 日前',
     updated:'更新 ', demo:'デモデータ', copied:'コピーしました',
@@ -26,6 +29,7 @@ const TEXTS = {
     emptyT:'決済済みの取引はまだありません', emptyB:'戦略は稼働中です。最初の決済が出たらすぐここに表示されます。',
   },
   vi:{
+    loading:'Đang tải lịch sử khớp lệnh…',
     locale:'vi-VN', daysUnit:'<small>ngày</small>',
     now:'vừa xong', min:' phút trước', hour:' giờ trước', day:' ngày trước',
     updated:'cập nhật ', demo:'dữ liệu mẫu', copied:'Đã sao chép',
@@ -33,6 +37,7 @@ const TEXTS = {
     emptyT:'Chưa có lệnh nào đóng', emptyB:'Chiến lược đang chạy. Lệnh đóng đầu tiên sẽ hiện ở đây ngay lập tức.',
   },
   th:{
+    loading:'กำลังโหลดประวัติออเดอร์…',
     locale:'th-TH', daysUnit:'<small>วัน</small>',
     now:'เมื่อครู่', min:' นาทีที่แล้ว', hour:' ชั่วโมงที่แล้ว', day:' วันที่แล้ว',
     updated:'อัปเดตเมื่อ ', demo:'ข้อมูลตัวอย่าง', copied:'คัดลอกแล้ว',
@@ -80,9 +85,12 @@ function timeAgo(iso){
 
 /* ---------- 渲染成交表 ---------- */
 function renderLoading(){
-  $('#tradeBody').innerHTML = Array.from({length:6},()=>
-    `<tr>${'<td><div class="skel"></div></td>'.repeat(6)}</tr>`).join('');
-  $('#tradeState').innerHTML = '';
+  // 加载期间不要摆一个 260px 高的空曲线框 + 骨架表(网络差时重试可拖到 20 多秒,
+  // 用户看到的就是"一大片空白")。整体先藏起来,只在表格位置留一行提示;数据
+  // 到了 renderPayload 再 showHistory()。
+  hideHistory();
+  const st = $('#tradeState');
+  if(st){ st.style.display=''; st.innerHTML = `<div class="state">${T.loading}</div>`; }
 }
 function renderError(){
   // 取不到数据 → 不展示错误框，直接隐藏整个历史成绩区块(见 hideHistory)
@@ -265,7 +273,7 @@ function drawTicker(){
 const CACHE_KEY = 'presight.vipHistory.v1';
 function readCache(){ try{ const s=localStorage.getItem(CACHE_KEY); return s ? JSON.parse(s) : null; }catch(e){ return null; } }
 function writeCache(json){ try{ localStorage.setItem(CACHE_KEY, JSON.stringify(json)); }catch(e){} }
-async function fetchWithRetry(url, delays=[0,1500,4000], timeoutMs=8000){
+async function fetchWithRetry(url, delays=[0,1500,4000], timeoutMs=6000){
   let lastErr;
   for(const d of delays){
     if(d) await new Promise(r=>setTimeout(r,d));
