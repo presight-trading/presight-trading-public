@@ -3,13 +3,13 @@ const IS_EN = document.documentElement.lang.toLowerCase().startsWith('en');
 const T = IS_EN ? {
   locale:'en-GB', daysUnit:'<small>days</small>',
   now:'just now', min:'m ago', hour:'h ago', day:'d ago',
-  updated:'updated ', demo:'demo data',
+  updated:'updated ', demo:'demo data', copied:'Copied',
   errT:'Fill history unavailable', errB:'The data endpoint did not respond. It will retry automatically, or you can reload the page.',
   emptyT:'No closed trades yet', emptyB:'The strategy is running. The first closed trade will appear here immediately.',
 } : {
   locale:'zh-CN', daysUnit:'<small>\u5929</small>',
   now:'\u521a\u521a', min:' \u5206\u949f\u524d', hour:' \u5c0f\u65f6\u524d', day:' \u5929\u524d',
-  updated:'\u66f4\u65b0\u4e8e ', demo:'\u6f14\u793a\u6570\u636e',
+  updated:'\u66f4\u65b0\u4e8e ', demo:'\u6f14\u793a\u6570\u636e', copied:'\u5df2\u590d\u5236',
   errT:'\u6210\u4ea4\u8bb0\u5f55\u6682\u65f6\u53d6\u4e0d\u5230', errB:'\u6570\u636e\u63a5\u53e3\u6ca1\u6709\u54cd\u5e94\u3002\u7a0d\u540e\u4f1a\u81ea\u52a8\u91cd\u8bd5\uff0c\u4e5f\u53ef\u4ee5\u5237\u65b0\u9875\u9762\u3002',
   emptyT:'\u8fd8\u6ca1\u6709\u5df2\u5e73\u4ed3\u7684\u4ea4\u6613', emptyB:'\u7b56\u7565\u6b63\u5728\u8fd0\u884c\uff0c\u7b2c\u4e00\u7b14\u6210\u4ea4\u5e73\u4ed3\u540e\u4f1a\u7acb\u523b\u51fa\u73b0\u5728\u8fd9\u91cc\u3002',
 };
@@ -233,6 +233,7 @@ $('#brokerLink').href    = CONFIG.brokerSignupUrl;
    页面里加几个入口都不用再改 JS。 */
 const LINKS = {
   broker   : CONFIG.brokerSignupUrl,
+  ib       : CONFIG.ibSignupUrl,
   bot      : CONFIG.adminBotUrl,
   channel  : CONFIG.channelUrl,
   community: CONFIG.communityUrl,
@@ -242,6 +243,27 @@ const LINKS = {
 document.querySelectorAll('[data-link]').forEach(el=>{
   const url = LINKS[el.dataset.link];
   if(url) el.href = url;
+});
+
+/* ---------- 一键复制（IB 分享链接） ----------
+   剪贴板 API 只在 https 和 localhost 下可用。取不到时不要静默失败——
+   退回「把文字选中」，用户按 Cmd+C 仍然拿得走。 */
+document.querySelectorAll('[data-copy]').forEach(btn=>{
+  btn.addEventListener('click', async ()=>{
+    const el = document.querySelector(btn.dataset.copy);
+    if(!el) return;
+    const text = el.textContent.trim();
+    try{
+      await navigator.clipboard.writeText(text);
+    }catch(_){
+      const r = document.createRange(); r.selectNodeContents(el);
+      const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r);
+      return;
+    }
+    const was = btn.textContent;
+    btn.textContent = T.copied;
+    setTimeout(()=>{ btn.textContent = was; }, 1600);
+  });
 });
 
 /* ---------- 「开始跟单」弹窗 ----------

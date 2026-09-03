@@ -439,3 +439,31 @@ footer a:hover{color:#fff}
   .msteps li{grid-template-columns:36px 1fr}
   .mfoot .btn{width:100%;justify-content:center}
 }
+
+
+/* ============================================================
+   推广合作伙伴（IB）— 页面最下方，也是 #partner 分享链接的落点
+   ============================================================ */
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--panel-line);
+       border:1px solid var(--panel-line)}
+.pcell{background:var(--panel);padding:30px 28px}
+.pcell .k{font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;color:#5B6883;
+          text-transform:uppercase;margin-bottom:14px}
+.pcell .v{font-family:var(--han);font-size:1.42rem;font-weight:700;color:#fff;
+          letter-spacing:-.02em;line-height:1.3}
+.pcell .v .u{font-family:var(--mono);color:var(--cobalt-hi)}
+.pcell p{font-family:var(--han);font-size:.85rem;line-height:1.75;color:#8592AB;margin-top:14px}
+.pshare{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;
+        border:1px solid var(--grid);background:var(--paper-hi);padding:18px 22px;margin-top:34px}
+.pshare .lbl{font-family:var(--mono);font-size:.64rem;letter-spacing:.16em;
+             color:var(--ink-soft);text-transform:uppercase;margin-bottom:7px}
+.pshare code{font-family:var(--mono);font-size:.92rem;color:var(--cobalt);word-break:break-all}
+.pcopy{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;
+       border:1px solid var(--ink);background:transparent;color:var(--ink);
+       padding:10px 18px;cursor:pointer;flex:none}
+.pcopy:hover{background:var(--ink);color:var(--paper-hi)}
+@media(max-width:760px){
+  .pgrid{grid-template-columns:1fr}
+  .pshare{align-items:stretch}
+  .pcopy{width:100%}
+}
