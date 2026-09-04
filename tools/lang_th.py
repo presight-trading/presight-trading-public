@@ -597,3 +597,11 @@ INDEX.update({
     '<a class="btn" download="" href="../assets/share/presight-baopei.png">Download PNG <span class="arw">→</span></a>\n<a class="btn ghost" download="" href="../assets/share/presight-baopei.pdf">PDF</a>':
         '<a class="btn" download="" href="../assets/share/presight-baopei.png">ดาวน์โหลด PNG <span class="arw">→</span></a>\n<a class="btn ghost" download="" href="../assets/share/presight-baopei.pdf">ไฟล์ PDF</a>',
 })
+
+# 长图改为新页签打开（不再是下载文件），方便手机上截屏转发
+INDEX.update({
+    '<a class="btn" href="../assets/share/presight-baopei.png" rel="noopener" target="_blank">Open the image <span class="arw">→</span></a>\n<a class="btn ghost" href="../assets/share/presight-baopei.pdf" rel="noopener" target="_blank">PDF</a>':
+        '<a class="btn" href="../assets/share/presight-baopei.png" rel="noopener" target="_blank">เปิดภาพ <span class="arw">→</span></a>\n<a class="btn ghost" href="../assets/share/presight-baopei.pdf" rel="noopener" target="_blank">ไฟล์ PDF</a>',
+    'The whole coverage programme on a single image, with a QR code that opens the “three steps to start copying” panel directly. It opens in a new tab — long-press to save or just screenshot it, then forward it anywhere. <b>It follows the site — change the terms and the image is rebuilt.</b>':
+        'สรุปเงื่อนไขประกันทั้งหมดในภาพเดียว พร้อม QR ที่สแกนแล้วเปิด “สามขั้นตอนเริ่มก๊อปปี้เทรด” ให้ทันที ภาพเปิดในแท็บใหม่ — กดค้างเพื่อบันทึก หรือแคปหน้าจอแล้วส่งต่อได้เลย <b>เนื้อหาอิงตามเว็บไซต์ — แก้เงื่อนไขเมื่อไหร่ ภาพก็ถูกสร้างใหม่</b>',
+})

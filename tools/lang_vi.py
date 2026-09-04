@@ -597,3 +597,11 @@ INDEX.update({
     '<a class="btn" download="" href="../assets/share/presight-baopei.png">Download PNG <span class="arw">→</span></a>\n<a class="btn ghost" download="" href="../assets/share/presight-baopei.pdf">PDF</a>':
         '<a class="btn" download="" href="../assets/share/presight-baopei.png">Tải ảnh PNG <span class="arw">→</span></a>\n<a class="btn ghost" download="" href="../assets/share/presight-baopei.pdf">Bản PDF</a>',
 })
+
+# 长图改为新页签打开（不再是下载文件），方便手机上截屏转发
+INDEX.update({
+    '<a class="btn" href="../assets/share/presight-baopei.png" rel="noopener" target="_blank">Open the image <span class="arw">→</span></a>\n<a class="btn ghost" href="../assets/share/presight-baopei.pdf" rel="noopener" target="_blank">PDF</a>':
+        '<a class="btn" href="../assets/share/presight-baopei.png" rel="noopener" target="_blank">Mở ảnh <span class="arw">→</span></a>\n<a class="btn ghost" href="../assets/share/presight-baopei.pdf" rel="noopener" target="_blank">Bản PDF</a>',
+    'The whole coverage programme on a single image, with a QR code that opens the “three steps to start copying” panel directly. It opens in a new tab — long-press to save or just screenshot it, then forward it anywhere. <b>It follows the site — change the terms and the image is rebuilt.</b>':
+        'Toàn bộ chương trình bảo hiểm gói trong một tấm ảnh, kèm mã QR mở thẳng bảng “ba bước bắt đầu sao chép”. Ảnh mở ở tab mới — nhấn giữ để lưu hoặc chụp màn hình rồi chuyển tiếp đi đâu cũng được. <b>Nội dung bám theo trang web — đổi điều khoản là ảnh được dựng lại.</b>',
+})

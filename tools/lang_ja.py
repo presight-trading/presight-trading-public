@@ -975,3 +975,11 @@ INDEX.update({
     '<a class="btn" download="" href="../assets/share/presight-baopei.png">Download PNG <span class="arw">→</span></a>\n<a class="btn ghost" download="" href="../assets/share/presight-baopei.pdf">PDF</a>':
         '<a class="btn" download="" href="../assets/share/presight-baopei.png">PNG をダウンロード <span class="arw">→</span></a>\n<a class="btn ghost" download="" href="../assets/share/presight-baopei.pdf">PDF 版</a>',
 })
+
+# 长图改为新页签打开（不再是下载文件），方便手机上截屏转发
+INDEX.update({
+    '<a class="btn" href="../assets/share/presight-baopei.png" rel="noopener" target="_blank">Open the image <span class="arw">→</span></a>\n<a class="btn ghost" href="../assets/share/presight-baopei.pdf" rel="noopener" target="_blank">PDF</a>':
+        '<a class="btn" href="../assets/share/presight-baopei.png" rel="noopener" target="_blank">画像を開く <span class="arw">→</span></a>\n<a class="btn ghost" href="../assets/share/presight-baopei.pdf" rel="noopener" target="_blank">PDF 版</a>',
+    'The whole coverage programme on a single image, with a QR code that opens the “three steps to start copying” panel directly. It opens in a new tab — long-press to save or just screenshot it, then forward it anywhere. <b>It follows the site — change the terms and the image is rebuilt.</b>':
+        '補償のルールを一枚にまとめました。QR を読むと「3 ステップでコピー開始」が直接開きます。新しいタブで開くので、長押しで保存するかスクリーンショットを撮ってそのまま転送できます。<b>内容はサイトに追随します——規約を変えれば画像も作り直されます。</b>',
+})
