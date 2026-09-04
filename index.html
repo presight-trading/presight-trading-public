@@ -95,7 +95,7 @@
 
     <div class="strip rv">
       <div><div class="k">Live Since</div><div class="v" id="sRun">&mdash;</div></div>
-      <div><div class="k">近 7 天净点数</div><div class="v" id="sRet" style="color:var(--cobalt)">&mdash;</div></div>
+      <div><div class="k">近 1 个月净点数</div><div class="v" id="sRet" style="color:var(--cobalt)">&mdash;</div></div>
       <div><div class="k">Win Rate</div><div class="v" id="sWin">&mdash;</div></div>
       <div><div class="k">Community</div><div class="v" id="sMem">&mdash;</div></div>
       <div><div class="k">Loss Cover</div><div class="v" style="color:var(--cobalt)">现金返还</div></div>
@@ -183,8 +183,15 @@
         <svg viewBox="0 0 1080 260" id="equityChart" role="img" aria-label="策略累计净值曲线（累计点数）"></svg>
       </div>
 
+
+      <div class="bd-head">
+        <h4>按品种拆分 &middot; 近 1 个月</h4>
+        <div class="bd-note">净点数不是均匀来自每个品种，摊开看更清楚</div>
+      </div>
+      <div class="bysym" id="bySym"></div>
+
       <div class="tbl-head">
-        <h4>成交记录 · 近 7 天 <span class="realbadge">实盘</span></h4>
+        <h4>成交记录 · 近 1 个月 <span class="realbadge">实盘</span></h4>
         <div class="live"><span class="dot"></span> LIVE &middot; <span id="upd">&mdash;</span></div>
       </div>
       <p class="realnote">以下为 <b>PRESIGHT ALPHA-1 实盘账户</b>的真实成交记录，直接取自该账户，<b>不做筛选，亏损单同样列出</b>。不是回测，也不是模拟盘。</p>

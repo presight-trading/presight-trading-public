@@ -605,3 +605,18 @@ INDEX.update({
     'The whole coverage programme on a single image, with a QR code that opens the “three steps to start copying” panel directly. It opens in a new tab — long-press to save or just screenshot it, then forward it anywhere. <b>It follows the site — change the terms and the image is rebuilt.</b>':
         'Toàn bộ chương trình bảo hiểm gói trong một tấm ảnh, kèm mã QR mở thẳng bảng “ba bước bắt đầu sao chép”. Ảnh mở ở tab mới — nhấn giữ để lưu hoặc chụp màn hình rồi chuyển tiếp đi đâu cũng được. <b>Nội dung bám theo trang web — đổi điều khoản là ảnh được dựng lại.</b>',
 })
+
+# 历史窗口 7 天 → 1 个月；新增按品种拆分
+INDEX.update({
+    'By instrument · last month':
+        'Theo từng mã · 1 tháng gần nhất',
+    'Net pips do not come evenly from every symbol — here is the split':
+        'Pip ròng không đến đều từ mọi mã — đây là phần chia theo mã',
+    'Fill history · last month <span class="realbadge">LIVE ACCOUNT</span>':
+        'Lịch sử khớp lệnh · 1 tháng gần nhất <span class="realbadge">TÀI KHOẢN THẬT</span>',
+})
+
+INDEX.update({
+    'Net pips (30d)':
+        'Pip ròng 1 tháng',
+})

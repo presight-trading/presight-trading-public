@@ -593,3 +593,30 @@ section[id], main[id]{scroll-margin-top:78px}
 .pdl-txt b{color:var(--ink);font-weight:600}
 .pdl-btn{display:flex;gap:10px;flex:none;flex-wrap:wrap}
 @media(max-width:760px){.pdl-btn{width:100%}.pdl-btn .btn{flex:1;justify-content:center}}
+
+
+/* 按品种拆分：净点数是个汇总数，摊开才看得出它从哪来、被谁拖累。
+   放在成交表之前——先看结构，再看逐笔。 */
+.bd-head{display:flex;align-items:baseline;justify-content:space-between;gap:20px;
+  flex-wrap:wrap;padding:26px 40px 0}
+.bd-head h4{font-family:var(--han);font-size:1rem;font-weight:700;color:#fff}
+.bd-note{font-family:var(--han);font-size:.78rem;color:#8592AB}
+.bysym{padding:14px 40px 4px;display:grid;gap:1px;background:var(--panel-line);
+  border-top:1px solid var(--panel-line);border-bottom:1px solid var(--panel-line);
+  margin:14px 0 0;padding:0}
+.bsrow{background:var(--panel);display:grid;
+  grid-template-columns:104px 1fr 76px 96px;align-items:center;gap:14px;
+  padding:11px 40px}
+.bsrow .s{font-family:var(--mono);font-size:.82rem;color:#C3CCDC}
+.bsrow .n{font-family:var(--mono);font-size:.74rem;color:#5B6883;text-align:right}
+.bsrow .w{font-family:var(--mono);font-size:.74rem;color:#8592AB;text-align:right}
+.bsrow .p{font-family:var(--mono);font-size:.85rem;font-weight:700;text-align:right}
+.bsrow .p.up{color:#3ED598}.bsrow .p.dn{color:#FF6B6B}
+/* 条形长度按该品种净点数的绝对值占比——盈亏分别从中线向两侧展开 */
+.bsbar{position:relative;height:7px;background:#141d31;border-radius:1px;overflow:hidden}
+.bsbar i{position:absolute;top:0;bottom:0;display:block}
+.bsbar i.up{background:#2E9E74}.bsbar i.dn{background:#B4434B}
+@media(max-width:760px){
+  .bd-head{padding:22px 22px 0}
+  .bsrow{grid-template-columns:88px 1fr 60px 84px;gap:10px;padding:10px 22px}
+}

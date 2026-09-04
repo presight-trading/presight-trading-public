@@ -5,6 +5,7 @@
 const LANG = (document.documentElement.lang || 'zh').toLowerCase().slice(0,2);
 const TEXTS = {
   zh:{
+    tradesUnit:'笔',
     recentWins:'近期盈利成交', buy:'买', sell:'卖',
     loading:'成交记录加载中…',
     locale:'zh-CN', daysUnit:'<small>天</small>',
@@ -14,6 +15,7 @@ const TEXTS = {
     emptyT:'还没有已平仓的交易', emptyB:'策略正在运行，第一笔成交平仓后会立刻出现在这里。',
   },
   en:{
+    tradesUnit:'trades',
     recentWins:'Recent winning trades', buy:'BUY', sell:'SELL',
     loading:'Loading fill history…',
     locale:'en-GB', daysUnit:'<small>days</small>',
@@ -23,6 +25,7 @@ const TEXTS = {
     emptyT:'No closed trades yet', emptyB:'The strategy is running. The first closed trade will appear here immediately.',
   },
   ja:{
+    tradesUnit:'件',
     recentWins:'直近の利益確定', buy:'買', sell:'売',
     loading:'約定履歴を読み込み中…',
     locale:'ja-JP', daysUnit:'<small>日</small>',
@@ -32,6 +35,7 @@ const TEXTS = {
     emptyT:'決済済みの取引はまだありません', emptyB:'戦略は稼働中です。最初の決済が出たらすぐここに表示されます。',
   },
   vi:{
+    tradesUnit:'lệnh',
     recentWins:'Lệnh có lãi gần đây', buy:'MUA', sell:'BÁN',
     loading:'Đang tải lịch sử khớp lệnh…',
     locale:'vi-VN', daysUnit:'<small>ngày</small>',
@@ -41,6 +45,7 @@ const TEXTS = {
     emptyT:'Chưa có lệnh nào đóng', emptyB:'Chiến lược đang chạy. Lệnh đóng đầu tiên sẽ hiện ở đây ngay lập tức.',
   },
   th:{
+    tradesUnit:'ออเดอร์',
     recentWins:'ออเดอร์ที่ได้กำไรล่าสุด', buy:'ซื้อ', sell:'ขาย',
     loading:'กำลังโหลดประวัติออเดอร์…',
     locale:'th-TH', daysUnit:'<small>วัน</small>',
@@ -257,6 +262,44 @@ function drawHero(){
 }
 
 /* ---------- 顶部行情条 ---------- */
+/* ---------- 按品种拆分净点数 ----------
+   汇总的净点数是一个数，看不出它从哪来。摊开之后一眼能看到哪个品种在
+   贡献、哪个在拖累——对一个把"亏损单同样列出"写在首页的站点来说，这是
+   该给的信息，不是可选的装饰。
+
+   条形长度按各品种净点数的绝对值占最大值的比例，盈亏从中线分别向两侧
+   展开，所以正负两栏的量级可以直接比。 */
+function renderBySymbol(trades){
+  const box = document.getElementById('bySym');
+  if(!box) return;
+  const g = new Map();
+  for(const t of trades || []){
+    if(!t.symbol || !isFinite(Number(t.pips))) continue;
+    const e = g.get(t.symbol) || {n:0, w:0, p:0};
+    e.n++; e.p += Number(t.pips);
+    if(Number(t.pips) > 0) e.w++;
+    g.set(t.symbol, e);
+  }
+  const rows = [...g.entries()].map(([s,e])=>({s, ...e}))
+                               .sort((a,b)=> b.p - a.p);
+  if(!rows.length){ box.innerHTML = ''; return; }
+  const max = Math.max(...rows.map(r=>Math.abs(r.p))) || 1;
+
+  box.innerHTML = rows.map(r=>{
+    const up = r.p >= 0;
+    const w = Math.abs(r.p) / max * 50;          // 半幅，从中线向两侧
+    const bar = up
+      ? `<i class="up" style="left:50%;width:${w}%"></i>`
+      : `<i class="dn" style="right:50%;width:${w}%"></i>`;
+    return `<div class="bsrow">`
+         + `<span class="s">${r.s}</span>`
+         + `<span class="bsbar">${bar}</span>`
+         + `<span class="n">${r.n} ${T.tradesUnit}</span>`
+         + `<span class="p ${up?'up':'dn'}">${up?'+':''}${r.p.toFixed(1)}</span>`
+         + `</div>`;
+  }).join('');
+}
+
 /* ---------- 顶部滚动条：近期盈利成交 ----------
    原来这里滚的是一组**写死的假报价**（EURUSD 1.08742 …）。在一个交易站
    上摆假价格，比空着更糟：它看起来像实时行情，实际永远不动。
@@ -344,6 +387,7 @@ function renderPayload(json){
   const generatedAt = Array.isArray(json) ? null : json.generatedAt;
   showHistory();
   drawTicker(list);
+  renderBySymbol(list);
   renderTrades(list);
   renderMetrics(list, summary);
   renderUpdated(generatedAt);

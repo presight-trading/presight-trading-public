@@ -95,7 +95,7 @@
 
     <div class="strip rv">
       <div><div class="k">Live Since</div><div class="v" id="sRun">&mdash;</div></div>
-      <div><div class="k">Net pips (7d)</div><div class="v" id="sRet" style="color:var(--cobalt)">&mdash;</div></div>
+      <div><div class="k">Net pips (30d)</div><div class="v" id="sRet" style="color:var(--cobalt)">&mdash;</div></div>
       <div><div class="k">Win Rate</div><div class="v" id="sWin">&mdash;</div></div>
       <div><div class="k">Community</div><div class="v" id="sMem">&mdash;</div></div>
       <div><div class="k">Loss Cover</div><div class="v" style="color:var(--cobalt)">Cash refund</div></div>
@@ -182,8 +182,15 @@
         <svg viewBox="0 0 1080 260" id="equityChart" role="img" aria-label="Cumulative strategy pips curve"></svg>
       </div>
 
+
+      <div class="bd-head">
+        <h4>By instrument &middot; last month</h4>
+        <div class="bd-note">Net pips do not come evenly from every symbol &mdash; here is the split</div>
+      </div>
+      <div class="bysym" id="bySym"></div>
+
       <div class="tbl-head">
-        <h4>Fill history &middot; last 7 days <span class="realbadge">LIVE ACCOUNT</span></h4>
+        <h4>Fill history &middot; last month <span class="realbadge">LIVE ACCOUNT</span></h4>
         <div class="live"><span class="dot"></span> LIVE &middot; <span id="upd">&mdash;</span></div>
       </div>
       <p class="realnote">These are real fills from the <b>PRESIGHT ALPHA-1 live account</b>, taken straight from it, <b>unfiltered &mdash; losing trades included</b>. Not a backtest, not a demo.</p>

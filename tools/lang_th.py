@@ -605,3 +605,18 @@ INDEX.update({
     'The whole coverage programme on a single image, with a QR code that opens the “three steps to start copying” panel directly. It opens in a new tab — long-press to save or just screenshot it, then forward it anywhere. <b>It follows the site — change the terms and the image is rebuilt.</b>':
         'สรุปเงื่อนไขประกันทั้งหมดในภาพเดียว พร้อม QR ที่สแกนแล้วเปิด “สามขั้นตอนเริ่มก๊อปปี้เทรด” ให้ทันที ภาพเปิดในแท็บใหม่ — กดค้างเพื่อบันทึก หรือแคปหน้าจอแล้วส่งต่อได้เลย <b>เนื้อหาอิงตามเว็บไซต์ — แก้เงื่อนไขเมื่อไหร่ ภาพก็ถูกสร้างใหม่</b>',
 })
+
+# 历史窗口 7 天 → 1 个月；新增按品种拆分
+INDEX.update({
+    'By instrument · last month':
+        'แยกตามสินทรัพย์ · 1 เดือนล่าสุด',
+    'Net pips do not come evenly from every symbol — here is the split':
+        'พิพสุทธิไม่ได้มาจากทุกสินทรัพย์เท่า ๆ กัน นี่คือการแยกให้ดู',
+    'Fill history · last month <span class="realbadge">LIVE ACCOUNT</span>':
+        'ประวัติออเดอร์ · 1 เดือนล่าสุด <span class="realbadge">บัญชีจริง</span>',
+})
+
+INDEX.update({
+    'Net pips (30d)':
+        'พิพสุทธิ 1 เดือน',
+})

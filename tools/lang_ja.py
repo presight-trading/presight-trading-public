@@ -983,3 +983,18 @@ INDEX.update({
     'The whole coverage programme on a single image, with a QR code that opens the “three steps to start copying” panel directly. It opens in a new tab — long-press to save or just screenshot it, then forward it anywhere. <b>It follows the site — change the terms and the image is rebuilt.</b>':
         '補償のルールを一枚にまとめました。QR を読むと「3 ステップでコピー開始」が直接開きます。新しいタブで開くので、長押しで保存するかスクリーンショットを撮ってそのまま転送できます。<b>内容はサイトに追随します——規約を変えれば画像も作り直されます。</b>',
 })
+
+# 历史窗口 7 天 → 1 个月；新增按品种拆分
+INDEX.update({
+    'By instrument · last month':
+        '銘柄別 · 直近 1 か月',
+    'Net pips do not come evenly from every symbol — here is the split':
+        '純 pips はどの銘柄からも均等に出るわけではありません。内訳はこちら',
+    'Fill history · last month <span class="realbadge">LIVE ACCOUNT</span>':
+        '約定履歴 · 直近 1 か月 <span class="realbadge">実口座</span>',
+})
+
+INDEX.update({
+    'Net pips (30d)':
+        '直近 1 か月の純 pips',
+})
