@@ -568,3 +568,28 @@ section[id], main[id]{scroll-margin-top:78px}
           margin-top:14px;line-height:1.7}
 .pcontact a{font-family:var(--mono);color:var(--cobalt);text-decoration:none;font-weight:600}
 .pcontact a:hover{text-decoration:underline}
+
+
+/* 成交记录的「实盘」标注：这张表是全站最该被信任、也最容易被当成回测的
+   东西，所以标题旁挂一个徽标，下面再写一句把话说死。 */
+.realbadge{display:inline-block;vertical-align:2px;margin-left:9px;
+  font-family:var(--mono);font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;
+  color:#0A111E;background:#3ED598;padding:3px 7px;border-radius:2px;font-weight:700}
+.realnote{font-family:var(--han);font-size:.8rem;line-height:1.75;color:#8592AB;
+  padding:0 40px 16px;margin-top:-6px}
+.realnote b{color:#C3CCDC;font-weight:600}
+@media(max-width:760px){.realnote{padding:0 22px 14px}}
+
+
+/* 分享长图的下载位。放在合作伙伴板块里：这张图主要是给 IB 拿去发群的，
+   放别处他们找不到。 */
+.pdl{display:flex;gap:26px;align-items:center;justify-content:space-between;
+     flex-wrap:wrap;border:1px solid var(--grid);background:var(--paper-hi);
+     padding:22px 24px;margin-top:20px}
+.pdl-txt{flex:1;min-width:260px}
+.pdl-txt h4{font-family:var(--han);font-size:1rem;font-weight:700;color:var(--ink);
+            margin-bottom:8px}
+.pdl-txt p{font-family:var(--han);font-size:.85rem;line-height:1.75;color:var(--ink-mid)}
+.pdl-txt b{color:var(--ink);font-weight:600}
+.pdl-btn{display:flex;gap:10px;flex:none;flex-wrap:wrap}
+@media(max-width:760px){.pdl-btn{width:100%}.pdl-btn .btn{flex:1;justify-content:center}}

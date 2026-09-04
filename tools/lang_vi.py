@@ -583,3 +583,17 @@ PROTECTION.update({
     'Once the subscription exists, press <b>Activate</b> in the <b>Action</b> column.\n            <b>An inactive subscription copies nothing</b>, so there are no protected trades —\n            the protection period still runs from your report, but an account that is not copying\n            cannot produce a refundable loss.':
         'Tạo xong đăng ký, bấm <b>Activate</b> ở cột <b>Action</b> để kích hoạt.\n            <b>Đăng ký chưa kích hoạt thì không sao chép gì cả</b>, nên cũng không có giao dịch nào được bảo hiểm —\n            thời gian bảo vệ vẫn chạy từ lúc bạn khai báo, nhưng một tài khoản không sao chép\n            thì không thể phát sinh khoản lỗ được hoàn.',
 })
+
+# 成交记录标注为实盘；合作伙伴板块新增可下载的分享长图
+INDEX.update({
+    'Fill history · last 7 days <span class="realbadge">LIVE ACCOUNT</span>':
+        'Lịch sử khớp lệnh · 7 ngày gần nhất <span class="realbadge">TÀI KHOẢN THẬT</span>',
+    'These are real fills from the <b>PRESIGHT ALPHA-1 live account</b>, taken straight from it, <b>unfiltered — losing trades included</b>. Not a backtest, not a demo.':
+        'Đây là các lệnh khớp thật từ <b>tài khoản thật của PRESIGHT ALPHA-1</b>, lấy thẳng từ đó, <b>không lọc — gồm cả lệnh thua</b>. Không phải backtest, không phải demo.',
+    'Shareable one-pager':
+        'Ảnh chia sẻ tải về được',
+    'The whole coverage programme on a single image, with a QR code that opens the “three steps to start copying” panel directly. Save it and forward it anywhere. <b>It follows the site — change the terms and the image is rebuilt.</b>':
+        'Toàn bộ chương trình bảo hiểm gói trong một tấm ảnh, kèm mã QR mở thẳng bảng “ba bước bắt đầu sao chép”. Lưu lại rồi chuyển tiếp đi đâu cũng được. <b>Nội dung bám theo trang web — đổi điều khoản là ảnh được dựng lại.</b>',
+    '<a class="btn" download="" href="../assets/share/presight-baopei.png">Download PNG <span class="arw">→</span></a>\n<a class="btn ghost" download="" href="../assets/share/presight-baopei.pdf">PDF</a>':
+        '<a class="btn" download="" href="../assets/share/presight-baopei.png">Tải ảnh PNG <span class="arw">→</span></a>\n<a class="btn ghost" download="" href="../assets/share/presight-baopei.pdf">Bản PDF</a>',
+})

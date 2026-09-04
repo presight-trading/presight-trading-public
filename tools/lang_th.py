@@ -583,3 +583,17 @@ PROTECTION.update({
     'Once the subscription exists, press <b>Activate</b> in the <b>Action</b> column.\n            <b>An inactive subscription copies nothing</b>, so there are no protected trades —\n            the protection period still runs from your report, but an account that is not copying\n            cannot produce a refundable loss.':
         'สร้างรายการเสร็จแล้ว กด <b>Activate</b> ในคอลัมน์ <b>Action</b> เพื่อเปิดใช้งาน\n            <b>รายการที่ยังไม่เปิดใช้งานจะไม่ก๊อปปี้อะไรเลย</b> จึงไม่มีการเทรดที่ได้รับความคุ้มครอง —\n            ระยะคุ้มครองยังนับจากตอนที่คุณแจ้งบัญชี แต่บัญชีที่ไม่ได้ก๊อปปี้\n            ก็ไม่มีทางเกิดผลขาดทุนที่จะขอคืนได้',
 })
+
+# 成交记录标注为实盘；合作伙伴板块新增可下载的分享长图
+INDEX.update({
+    'Fill history · last 7 days <span class="realbadge">LIVE ACCOUNT</span>':
+        'ประวัติออเดอร์ · 7 วันล่าสุด <span class="realbadge">บัญชีจริง</span>',
+    'These are real fills from the <b>PRESIGHT ALPHA-1 live account</b>, taken straight from it, <b>unfiltered — losing trades included</b>. Not a backtest, not a demo.':
+        'นี่คือออเดอร์จริงจาก<b>บัญชีจริงของ PRESIGHT ALPHA-1</b> ดึงตรงจากบัญชีนั้น <b>ไม่คัดกรอง — รวมออเดอร์ที่ขาดทุนด้วย</b> ไม่ใช่แบ็กเทสต์ ไม่ใช่บัญชีเดโม',
+    'Shareable one-pager':
+        'ภาพยาวสำหรับแชร์ ดาวน์โหลดได้',
+    'The whole coverage programme on a single image, with a QR code that opens the “three steps to start copying” panel directly. Save it and forward it anywhere. <b>It follows the site — change the terms and the image is rebuilt.</b>':
+        'สรุปเงื่อนไขประกันทั้งหมดในภาพเดียว พร้อม QR ที่สแกนแล้วเปิด “สามขั้นตอนเริ่มก๊อปปี้เทรด” ให้ทันที เซฟไว้แล้วส่งต่อได้เลย <b>เนื้อหาอิงตามเว็บไซต์ — แก้เงื่อนไขเมื่อไหร่ ภาพก็ถูกสร้างใหม่</b>',
+    '<a class="btn" download="" href="../assets/share/presight-baopei.png">Download PNG <span class="arw">→</span></a>\n<a class="btn ghost" download="" href="../assets/share/presight-baopei.pdf">PDF</a>':
+        '<a class="btn" download="" href="../assets/share/presight-baopei.png">ดาวน์โหลด PNG <span class="arw">→</span></a>\n<a class="btn ghost" download="" href="../assets/share/presight-baopei.pdf">ไฟล์ PDF</a>',
+})

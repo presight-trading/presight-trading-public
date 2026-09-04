@@ -961,3 +961,17 @@ PROTECTION.update({
     'Once the subscription exists, press <b>Activate</b> in the <b>Action</b> column.\n            <b>An inactive subscription copies nothing</b>, so there are no protected trades —\n            the protection period still runs from your report, but an account that is not copying\n            cannot produce a refundable loss.':
         '購読を作ったら、<b>Action</b> 列の <b>Activate</b> を押して有効化すること。\n            <b>有効化していない購読は一切コピーしません</b>ので、保護対象の取引も存在しません——\n            保護期間は届出から進みますが、コピーしていない口座には返金対象の損失が\n            そもそも発生しません。',
 })
+
+# 成交记录标注为实盘；合作伙伴板块新增可下载的分享长图
+INDEX.update({
+    'Fill history · last 7 days <span class="realbadge">LIVE ACCOUNT</span>':
+        '約定履歴 · 直近 7 日 <span class="realbadge">実口座</span>',
+    'These are real fills from the <b>PRESIGHT ALPHA-1 live account</b>, taken straight from it, <b>unfiltered — losing trades included</b>. Not a backtest, not a demo.':
+        'これは <b>PRESIGHT ALPHA-1 の実口座</b>の実際の約定です。口座からそのまま取得し、<b>選別なし——負けトレードも含みます</b>。バックテストでもデモでもありません。',
+    'Shareable one-pager':
+        '共有用のロング画像',
+    'The whole coverage programme on a single image, with a QR code that opens the “three steps to start copying” panel directly. Save it and forward it anywhere. <b>It follows the site — change the terms and the image is rebuilt.</b>':
+        '補償のルールを一枚にまとめました。QR を読むと「3 ステップでコピー開始」が直接開きます。保存してそのまま転送できます。<b>内容はサイトに追随します——規約を変えれば画像も作り直されます。</b>',
+    '<a class="btn" download="" href="../assets/share/presight-baopei.png">Download PNG <span class="arw">→</span></a>\n<a class="btn ghost" download="" href="../assets/share/presight-baopei.pdf">PDF</a>':
+        '<a class="btn" download="" href="../assets/share/presight-baopei.png">PNG をダウンロード <span class="arw">→</span></a>\n<a class="btn ghost" download="" href="../assets/share/presight-baopei.pdf">PDF 版</a>',
+})

@@ -1,0 +1,192 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8">
+<title>跟单亏损包赔 · 分享长图</title>
+<style>
+/* 1080 宽：微信里长图按屏宽缩放，1080 在主流机型上是 2~3 倍图，
+   转几手、被压缩之后字仍然清楚。再宽只会让文件变大。 */
+:root{
+  --bg:#070c18; --panel:#0c1322; --line:#1b2740; --line2:#141d31;
+  --ink:#e9eef8; --mid:#93a1bb; --soft:#5f6d88;
+  --blue:#2f6bff; --blue-lt:#6f9bff; --amber:#c97a05; --green:#3ED598;
+  --han:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  --mono:"SF Mono",Menlo,"JetBrains Mono",monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1080px;background:var(--bg);color:var(--ink);font-family:var(--han);
+     -webkit-font-smoothing:antialiased}
+.sheet{position:relative;padding:56px 60px 46px;
+  background:
+    radial-gradient(760px 460px at 84% -6%, rgba(47,107,255,.17), transparent 62%),
+    radial-gradient(600px 420px at 2% 100%, rgba(214,24,138,.09), transparent 60%),
+    linear-gradient(180deg,#070c18 0%,#080e1c 55%,#070b16 100%);
+}
+.sheet::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.026) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.026) 1px,transparent 1px);
+  background-size:54px 54px}
+.sheet>*{position:relative}
+
+.top{display:flex;align-items:center;justify-content:space-between;padding-bottom:26px}
+.brand{display:flex;gap:16px;align-items:center}
+.brand .mk{width:46px;height:46px;border:1px solid #2b3956;display:grid;place-items:center;
+           background:rgba(47,107,255,.07)}
+.brand .lt{font-family:var(--mono);font-size:22px;font-weight:700;letter-spacing:.22em}
+.brand .sub{font-size:13px;color:var(--soft);margin-top:6px;letter-spacing:.02em}
+.badge{font-family:var(--mono);font-size:12px;letter-spacing:.16em;color:var(--blue-lt);
+       border:1px solid #26365a;padding:9px 15px}
+
+h1{font-size:62px;line-height:1.16;font-weight:800;letter-spacing:.01em;margin-top:34px}
+h1 .b{color:var(--blue-lt);display:block}
+.lead{font-size:20px;line-height:1.85;color:#c2cde2;margin-top:22px}
+.lead b{color:#fff;font-weight:700}
+
+.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);
+       border:1px solid var(--line);margin-top:34px}
+.strip div{background:var(--panel);padding:20px 22px 22px}
+.strip .k{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--soft)}
+.strip .v{font-size:27px;font-weight:700;margin:11px 0 6px}
+.strip .n{font-size:13px;color:var(--blue-lt)}
+
+h2{display:flex;align-items:baseline;gap:16px;margin:46px 0 22px;font-size:25px;font-weight:700}
+h2 .no{font-family:var(--mono);font-size:25px;font-weight:700;color:#2a3a5c}
+ul{list-style:none}
+li{position:relative;padding-left:24px;margin-top:19px}
+li::before{content:"";position:absolute;left:0;top:9px;width:8px;height:8px;background:var(--blue)}
+li .t{font-size:19px;line-height:1.5;color:#dde5f4;font-weight:600}
+li .t .em{color:var(--blue-lt)}
+li .d{font-size:15px;line-height:1.7;color:var(--mid);margin-top:6px}
+li .d b{color:#dde5f4}
+
+.hl{border:1px solid var(--amber);margin-top:26px;position:relative;
+    background:linear-gradient(135deg,rgba(201,122,5,.14),rgba(10,17,30,0) 60%),var(--panel)}
+.hl .tag{position:absolute;top:0;left:20px;transform:translateY(-50%);background:var(--amber);
+         color:#12100A;font-family:var(--mono);font-size:11px;letter-spacing:.16em;
+         padding:4px 10px;font-weight:700;text-transform:uppercase}
+.hl .in{display:flex;gap:24px;align-items:flex-start;padding:30px 26px 26px}
+.hl .num{font-family:var(--mono);font-size:52px;font-weight:700;line-height:.9;
+         color:var(--amber);flex:none}
+.hl h4{font-size:19px;font-weight:700;color:#fff;margin-bottom:9px}
+.hl p{font-size:15px;line-height:1.75;color:#B9C4D8}
+.hl .f{font-family:var(--mono);font-size:13px;color:#8592AB;border-left:2px solid var(--line);
+       padding-left:11px;margin-top:10px}
+
+.qr{display:flex;gap:34px;align-items:center;margin-top:44px;
+    border:1px solid var(--line);background:#0e1729;padding:28px 32px}
+.qr img{width:210px;height:210px;background:#fff;padding:10px;display:block;flex:none}
+.qr .h{font-family:var(--mono);font-size:12px;letter-spacing:.18em;color:var(--soft);
+       margin-bottom:14px}
+.qr .big{font-size:23px;font-weight:700;color:#fff;line-height:1.45;margin-bottom:14px}
+.qr table{border-collapse:collapse}
+.qr td{padding:6px 0;font-size:16px;vertical-align:baseline}
+.qr td.k{color:var(--soft);width:96px;font-size:14px}
+.qr td.v{font-family:var(--mono);color:#dbe4f5}
+
+.risk{border-left:4px solid var(--amber);background:rgba(201,122,5,.05);
+      padding:24px 28px;margin-top:38px;border-top:1px solid #4a3a13;
+      border-right:1px solid #4a3a13;border-bottom:1px solid #4a3a13}
+.risk h4{font-size:16px;color:var(--amber);margin-bottom:13px;font-weight:700}
+.risk p{font-size:13.5px;line-height:1.8;color:#94a2ba}
+.risk p+p{margin-top:10px}
+
+.foot{display:flex;justify-content:space-between;align-items:flex-end;margin-top:36px;
+      padding-top:22px;border-top:1px solid var(--line2)}
+.foot .l{font-family:var(--mono);font-size:12px;letter-spacing:.2em;color:#3b4964}
+.foot .r{text-align:right;font-size:13px;color:var(--soft);line-height:1.75}
+</style></head><body>
+<div class="sheet">
+
+  <div class="top">
+    <div class="brand">
+      <div class="mk">
+        <svg width="28" height="28" viewBox="0 0 30 30" fill="none">
+          <path d="M3 22 L10 15 L14 18 L18 8" stroke="#4d82ff" stroke-width="2.2" fill="none"/>
+          <path d="M18 8 L22 11 L27 4" stroke="#d6188a" stroke-width="2.2" fill="none" stroke-dasharray="3 3"/>
+        </svg>
+      </div>
+      <div>
+        <div class="lt">PRESIGHT</div>
+        <div class="sub">Presight Trading Institute · 先见交易学院</div>
+      </div>
+    </div>
+    <div class="badge">跟单亏损包赔</div>
+  </div>
+
+  <h1>按规则跟单<span class="b">亏了我们赔</span></h1>
+  <p class="lead">以 <b>1:1</b> 跟单 PRESIGHT ALPHA-1，报备 MT5 账户 ID 后连续跟单<b>满 1 个月</b>，
+     期间不手动干预、不出金。期末账户若为净亏损，我们<b>按实际亏损金额现金返还</b>。</p>
+
+  <div class="strip">
+    <div><div class="k">COPY RATIO</div><div class="v">1:1</div><div class="n">不放大仓位</div></div>
+    <div><div class="k">DURATION</div><div class="v">1 个月</div><div class="n">自报备起 30 天</div></div>
+    <div><div class="k">COVERAGE</div><div class="v">基准资金</div><div class="n">全额保护</div></div>
+    <div><div class="k">PAYOUT</div><div class="v">现金</div><div class="n">10 个工作日</div></div>
+  </div>
+
+  <h2><span class="no">01</span>四步开始</h2>
+  <ul>
+    <li><div class="t">通过官网链接注册<span class="em">新账户</span>并入金</div>
+        <div class="d">完成身份认证（KYC）。只有走官网链接注册的新账户才在订阅名单里</div></li>
+    <li><div class="t">订阅 <span class="em">PRESIGHT ALPHA-1</span></div>
+        <div class="d">secure.decodefx.com → Copy Trading → 先注册 follower 账户 → New subscription →
+        参数 <b>Autoscale / Value by asset / Ratio = 1</b> → 在 Action 栏点 <b>Activate</b>。
+        不点 Activate 跟单不生效</div></li>
+    <li><div class="t">私信 <span class="em">@PresightAdminBot</span> 报备 MT5 账户 ID</div>
+        <div class="d"><b>保护期从这一刻起算</b>，没报备的账户不具备赔付资格，报备之前的亏损也不赔</div></li>
+    <li><div class="t">放着不动，满 <span class="em">1 个月</span></div>
+        <div class="d">期间不手动开仓、不改止损止盈、不调参数、不出金、不暂停或解除跟单</div></li>
+  </ul>
+
+  <h2><span class="no">02</span>怎么赔</h2>
+  <ul>
+    <li><div class="t">净亏损 = 基准资金 − 期末净值</div>
+        <div class="d">基准资金取报备时的账户净值，保护额度为其全额</div></li>
+    <li><div class="t"><span class="em">只赔由策略自动平仓的交易</span></div>
+        <div class="d">你手动平仓的持仓无论盈亏都不计入——离场时机是你自己决定的。
+        举例：期末净亏 850 美元，若全部由策略平仓则赔 850；其中 300 来自你手动平掉的一笔，则赔 550</div></li>
+    <li><div class="t">美元现金返还，<span class="em">10 个工作日</span>内到账</div>
+        <div class="d">保护期结束后 5 个自然日内提交申请，附完整交易报表；核验通过后打款，手续费我们承担</div></li>
+  </ul>
+
+  <div class="hl">
+    <div class="tag">推广合作伙伴专享</div>
+    <div class="in">
+      <div class="num">1%</div>
+      <div>
+        <h4>名下用户首月保收益</h4>
+        <p>推广合作伙伴（IB）名下的用户，除了跟单亏损包赔，还多一层：
+           <b>跟单满第一个月时若收益不足 1%，按跟单金额的 1% 返现。</b>
+           佣金另有 <b>50% 分成</b>，门槛为名下至少 3 名用户、入金合计 ≥ 5,000 美元。</p>
+        <p class="f">跟单金额 = 首月 30 天每日跟单余额之和 ÷ 30（日均余额）</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="qr">
+    <img src="qr.svg" alt="扫码开始跟单">
+    <div>
+      <div class="h">扫码直接开始 / SCAN TO START</div>
+      <div class="big">扫一扫，三步开始跟单</div>
+      <table>
+        <tr><td class="k">官网</td><td class="v">presighttrading.com</td></tr>
+        <tr><td class="k">信号频道</td><td class="v">@presight_signals</td></tr>
+        <tr><td class="k">交易学院</td><td class="v">@presight_institute</td></tr>
+        <tr><td class="k">报备账号</td><td class="v">@PresightAdminBot</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="risk">
+    <h4>⚠ 风险提示与利益披露</h4>
+    <p>差价合约、外汇及杠杆产品具有高风险，可能导致您损失全部本金，并不适合所有投资者。
+       本计划赔付以基准资金为限，<b>并不消除交易风险</b>。历史业绩不代表未来表现。</p>
+    <p>Presight 与合作交易平台存在推荐（IB/联盟）返佣关系。您通过我们的链接开户后，我们可能从平台
+       获得佣金——这不增加您的交易成本，但请知悉此利益关系。</p>
+    <p>本图为摘要，<b>条款以官网发布的完整细则为准</b>：presighttrading.com/protection.html</p>
+  </div>
+
+  <div class="foot">
+    <div class="l">PRESIGHT TRADING INSTITUTE</div>
+    <div class="r">交易有风险 · 入市需谨慎<br>细则以官网版本为准</div>
+  </div>
+</div>
+<script>document.title = "H=" + document.documentElement.scrollHeight;</script>
+</body></html>

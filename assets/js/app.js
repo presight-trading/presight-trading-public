@@ -502,6 +502,16 @@ if(mask){
   };
   document.querySelectorAll('[data-open="start"]')
           .forEach(el=>el.addEventListener('click', openStart));
+
+  /* 深链接：#start-copy 直接弹出「三步开始跟单」。
+     海报上的二维码指向它——扫码的人手里没有页面上下文，落在首页顶部还得
+     自己找入口，一步都不该多。
+     不用 #start：那是「四步开始跟单」那一节已经占用的锚点，重名会让浏览器
+     先滚过去再弹窗，观感很乱。 */
+  if(location.hash === '#start-copy'){
+    // 等版式稳定再弹，否则弹窗背后的页面还在长，关掉之后位置是乱的
+    addEventListener('load', ()=>setTimeout(()=>openStart(), 300));
+  }
   mask.addEventListener('click', e=>{
     // 点遮罩本身或叉号都关；点面板内部不关
     if(e.target === mask || e.target.closest('[data-close]')) closeStart();
