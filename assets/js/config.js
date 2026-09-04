@@ -34,7 +34,7 @@ const CONFIG = {
 
   // 推广合作伙伴（IB）专用注册链接。和上面那条不是同一条：走这条注册
   // 的人在后台才看得到「申请成为 IB」，走用户那条就没有。两条别搞混。
-  ibSignupUrl    : 'https://secure.decodefx.com/auth/register/?ref=l-91041627-FS8661P7',
+  ibSignupUrl    : 'https://secure.decodefx.com/auth/register/?ref=l-292412201-FS8661P7',
 
   // 报备用的管理员 bot。开户跟单之后，用户把 MT5 账户 ID 私信给它，
   // 它当场回执并把记录落到内部台账群。包赔的保护期正是从这一刻起算的，
