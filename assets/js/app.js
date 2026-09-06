@@ -221,7 +221,7 @@ function renderMetrics(trades, summary, summary30d){
   $('#mWin').textContent = winRatePct!=null ? winRatePct.toFixed(1)+'%' : '—';
   $('#mDD').textContent  = '−' + Math.abs(ddPips).toFixed(1);
   $('#mPF').textContent  = pf!=null ? pf.toFixed(2) : '—';
-  $('#mN').textContent   = n;
+  $('#mN').textContent = (summary && summary.trades != null) ? summary.trades : n;   // 与净点数/胜率同为近 7 天口径(trades 数组含 30 天,别直接数)
 
   // 英雄区 #sRet 的标签是「近 7 天净点数」，按 closedAt 单独过滤 7 天
   // 窗口——不能直接复用上面的 netPips（那是全量/summary 口径）。
