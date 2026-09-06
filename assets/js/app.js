@@ -341,14 +341,16 @@ function drawHero(){
    条形长度按各品种净点数的绝对值占最大值的比例，盈亏从中线分别向两侧
    展开，所以正负两栏的量级可以直接比。 */
 function renderBySymbol(trades){
+  // 2026-09-06:按品种拆分改为美元盈亏(参考账户 $10,000、建议手数、仅已平仓、
+  // 不含浮动盈亏与隔夜利息),与页面其它指标同口径;点数只保留在成交表列里。
   const box = document.getElementById('bySym');
   if(!box) return;
   const g = new Map();
   for(const t of trades || []){
-    if(!t.symbol || !isFinite(Number(t.pips))) continue;
+    if(!t.symbol || t.pnlUsd == null || !isFinite(Number(t.pnlUsd))) continue;
     const e = g.get(t.symbol) || {n:0, w:0, p:0};
-    e.n++; e.p += Number(t.pips);
-    if(Number(t.pips) > 0) e.w++;
+    e.n++; e.p += Number(t.pnlUsd);
+    if(Number(t.pnlUsd) > 0) e.w++;
     g.set(t.symbol, e);
   }
   const rows = [...g.entries()].map(([s,e])=>({s, ...e}))
@@ -366,7 +368,7 @@ function renderBySymbol(trades){
          + `<span class="s">${r.s}</span>`
          + `<span class="bsbar">${bar}</span>`
          + `<span class="n">${r.n} ${T.tradesUnit}</span>`
-         + `<span class="p ${up?'up':'dn'}">${up?'+':''}${r.p.toFixed(1)}</span>`
+         + `<span class="p ${up?'up':'dn'}">${usd(r.p)}</span>`
          + `</div>`;
   }).join('');
 }
