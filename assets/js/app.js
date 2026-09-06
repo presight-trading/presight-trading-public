@@ -13,6 +13,7 @@ const TEXTS = {
     updated:'更新于 ', demo:'演示数据', copied:'已复制',
     errT:'成交记录暂时取不到', errB:'数据接口没有响应。稍后会自动重试，也可以刷新页面。',
     emptyT:'还没有已平仓的交易', emptyB:'策略正在运行，第一笔成交平仓后会立刻出现在这里。',
+    refNote:'参考账户 ${AMT} · 建议手数 · 不含隔夜利息',
   },
   en:{
     tradesUnit:'trades',
@@ -23,6 +24,7 @@ const TEXTS = {
     updated:'updated ', demo:'demo data', copied:'Copied',
     errT:'Fill history unavailable', errB:'The data endpoint did not respond. It will retry automatically, or you can reload the page.',
     emptyT:'No closed trades yet', emptyB:'The strategy is running. The first closed trade will appear here immediately.',
+    refNote:'Reference account $${AMT} · suggested lot size · excludes swap',
   },
   ja:{
     tradesUnit:'件',
@@ -33,6 +35,7 @@ const TEXTS = {
     updated:'更新 ', demo:'デモデータ', copied:'コピーしました',
     errT:'約定履歴を取得できません', errB:'データ側から応答がありません。自動で再試行します。ページの再読み込みでもかまいません。',
     emptyT:'決済済みの取引はまだありません', emptyB:'戦略は稼働中です。最初の決済が出たらすぐここに表示されます。',
+    refNote:'参照口座 $${AMT}・推奨ロット・スワップ(オーバーナイト金利)除く',
   },
   vi:{
     tradesUnit:'lệnh',
@@ -43,6 +46,7 @@ const TEXTS = {
     updated:'cập nhật ', demo:'dữ liệu mẫu', copied:'Đã sao chép',
     errT:'Chưa lấy được lịch sử khớp lệnh', errB:'Máy chủ dữ liệu không phản hồi. Hệ thống sẽ tự thử lại, hoặc bạn có thể tải lại trang.',
     emptyT:'Chưa có lệnh nào đóng', emptyB:'Chiến lược đang chạy. Lệnh đóng đầu tiên sẽ hiện ở đây ngay lập tức.',
+    refNote:'Tài khoản tham chiếu $${AMT} · lot đề xuất · chưa gồm phí qua đêm',
   },
   th:{
     tradesUnit:'ออเดอร์',
@@ -53,12 +57,15 @@ const TEXTS = {
     updated:'อัปเดตเมื่อ ', demo:'ข้อมูลตัวอย่าง', copied:'คัดลอกแล้ว',
     errT:'ยังดึงประวัติออเดอร์ไม่ได้', errB:'เซิร์ฟเวอร์ข้อมูลไม่ตอบสนอง ระบบจะลองใหม่อัตโนมัติ หรือคุณจะรีเฟรชหน้าก็ได้',
     emptyT:'ยังไม่มีออเดอร์ที่ปิดแล้ว', emptyB:'กลยุทธ์กำลังทำงาน ออเดอร์แรกที่ปิดจะขึ้นตรงนี้ทันที',
+    refNote:'บัญชีอ้างอิง $${AMT} · ล็อตแนะนำ · ไม่รวมดอกเบี้ยข้ามคืน',
   },
 };
 const T = TEXTS[LANG] || TEXTS.zh;
 
 /* ---------- 演示数据（接上 API 后自动弃用） ---------- */
-/* 只公开点数：这里不再造 lots/pnl，字段形状对齐 normalize() 的输出，
+/* 这里不造 suggestedLots/pnlUsd，字段形状对齐 normalize() 的输出——
+   两个新字段在 DEMO 里天然缺失，表格/指标卡会按向后兼容逻辑显示 "—"，
+   这正好顺带验证了缺字段时的兜底路径。
    加了 durationMin 只是保持数据形状一致，页面目前不展示它。 */
 const DEMO = (()=>{
   const spec = [
@@ -84,6 +91,27 @@ const DEMO = (()=>{
 const $ = s => document.querySelector(s);
 const fmt = (n,d=2) => n.toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});
 const price = (s,v) => v.toFixed(s.includes('JPY')?3 : (s==='NAS100'||s==='US30')?1 : (s.includes('XAU')?2:5));
+/* 建议手数 / 建议仓位盈亏(USD)：都是可选字段，缺失（null/undefined，包括
+   后端字段还没上线、或旧缓存数据）一律显示 "—"，不当成 0——0 是一个真实的
+   盈亏结果，不该跟"没有数据"混在一起。 */
+function fmtLots(v){ return v==null ? '—' : Number(v).toFixed(2); }
+function fmtUsd(v){
+  if(v==null || !isFinite(Number(v))) return '—';
+  const n = Number(v);
+  return (n>=0?'+':'−') + Math.abs(n).toFixed(2);
+}
+/* 按窗口求和 pnlUsd：只累加窗口内 pnlUsd 非空的成交；窗口内一笔贡献都没有
+   （字段还没上线，或这批全是旧缓存数据）时返回 null，页面显示 "—"——
+   不能返回 0，0 是一个真实的盈亏结果，跟"没有数据"含义完全不同。 */
+function sumPnlUsd(trades, sinceMs){
+  let sum = 0, has = false;
+  for(const t of trades){
+    if(t.pnlUsd == null || !t.closedAt) continue;
+    if(new Date(t.closedAt).getTime() < sinceMs) continue;
+    sum += Number(t.pnlUsd); has = true;
+  }
+  return has ? sum : null;
+}
 function timeAgo(iso){
   const m = Math.floor((Date.now()-new Date(iso))/60000);
   if(m<1) return T.now;
@@ -118,7 +146,7 @@ function renderEmpty(){
    用户要求(2026-09-03)：这一块出问题不能影响页面其它板块。失败时把指标卡、
    净值曲线、成交表连同表头一起藏起来，策略说明与注册 CTA 照常显示；下一次
    定时重试成功再显示回来。 */
-const HISTORY_PARTS = ['#strategy .metrics', '#strategy .curvewrap', '#strategy .tbl-head', '#strategy .tblscroll', '#tradeState'];
+const HISTORY_PARTS = ['#strategy .metrics', '#strategy .metrics-note', '#strategy .curvewrap', '#strategy .tbl-head', '#strategy .tblscroll', '#tradeState'];
 function hideHistory(){ HISTORY_PARTS.forEach(sel=>{ const el=document.querySelector(sel); if(el) el.style.display='none'; }); }
 function showHistory(){ HISTORY_PARTS.forEach(sel=>{ const el=document.querySelector(sel); if(el) el.style.display=''; }); }
 
@@ -131,11 +159,17 @@ function renderUpdated(iso){
     : '—';
 }
 
+/* trades 现在覆盖近 30 天（后端 windowDays:30，见 config.js 顶部注释），
+   但表格本身仍只展示近 7 天——rowLimit(200) 是"最多多少行"，不是"多少天"，
+   两者叠加：先按 closedAt 过滤 7 天窗口，再截前 rowLimit 行。 */
 function renderTrades(trades){
-  if(!trades.length) return renderEmpty();
+  const sevenDaysAgo = Date.now() - 7*24*3600*1000;
+  const recent = trades.filter(t => t.closedAt && new Date(t.closedAt).getTime() >= sevenDaysAgo);
+  if(!recent.length) return renderEmpty();
   $('#tradeState').innerHTML = '';
-  $('#tradeBody').innerHTML = trades.slice(0,CONFIG.rowLimit).map(t=>{
+  $('#tradeBody').innerHTML = recent.slice(0,CONFIG.rowLimit).map(t=>{
     const win = t.pips > 0;
+    const pnlCls = t.pnlUsd==null ? '' : (Number(t.pnlUsd)>=0?'g':'r');
     return `<tr>
       <td style="color:#5B6883">${timeAgo(t.closedAt)}</td>
       <td class="sym">${t.symbol}</td>
@@ -143,21 +177,32 @@ function renderTrades(trades){
       <td>${price(t.symbol,t.openPrice)}</td>
       <td>${price(t.symbol,t.closePrice)}</td>
       <td class="pnl ${win?'g':'r'}" style="text-align:right;font-weight:700">${t.pips>0?'+':''}${t.pips.toFixed(1)}</td>
+      <td style="text-align:right">${fmtLots(t.suggestedLots)}</td>
+      <td class="pnl ${pnlCls}" style="text-align:right;font-weight:700">${fmtUsd(t.pnlUsd)}</td>
     </tr>`;
   }).join('');
 }
 
-/* ---------- 由成交记录反推指标（只按点数口径：不涉及手数/美元盈亏） ---------- */
-function renderMetrics(trades, summary){
+/* ---------- 由成交记录反推指标 ----------
+   净点数/胜率/回撤/盈亏比仍是点数口径；建议手数对应的美元盈亏(7/30 天)
+   是叠加的新指标，两套口径并存，互不覆盖。 */
+function renderMetrics(trades, summary, summary30d){
   const n = trades.length;
   const wins   = trades.filter(t=>t.pips>0);
   const losses = trades.filter(t=>t.pips<0);
 
-  // 从旧到新累计，算净值曲线（图表用；summary 只给汇总数字，不给逐笔
-  // 曲线，所以曲线始终在前端按 trades 现算）
+  // 净值曲线：能拿到 pnlUsd 就按美元累计（更贴近真实建议仓位盈亏），
+  // 一笔都没有（字段还没上线，或 DEMO 数据）就退回按点数累计——
+  // 两种口径不能在同一条曲线里混用，否则量级对不上。
+  const hasPnlUsd = trades.some(t=>t.pnlUsd!=null);
+  // 从旧到新累计（图表用；summary 只给汇总数字，不给逐笔曲线，所以曲线
+  // 始终在前端按 trades 现算）
   const chron = [...trades].reverse();
   let eq=0, peak=0, ddCalc=0; const curve=[0];
-  chron.forEach(t=>{ eq+=t.pips; peak=Math.max(peak,eq); ddCalc=Math.max(ddCalc,peak-eq); curve.push(eq); });
+  chron.forEach(t=>{
+    const v = hasPnlUsd ? Number(t.pnlUsd ?? 0) : Number(t.pips);
+    eq+=v; peak=Math.max(peak,eq); ddCalc=Math.max(ddCalc,peak-eq); curve.push(eq);
+  });
 
   // 优先用后端算好的 summary，避免前后端算法口径不一致；
   // 没有 summary（比如 DEMO 数据、或接口暂时没给）时前端自算。
@@ -186,6 +231,25 @@ function renderMetrics(trades, summary){
     .reduce((a,t)=>a+t.pips,0);
   $('#sRet').textContent = (net7>=0?'+':'−') + Math.abs(net7).toFixed(1) + ' pips';
   $('#sWin').textContent = winRatePct!=null ? winRatePct.toFixed(1)+'%' : '—';
+
+  // 近 7 天 / 近 30 天建议仓位盈亏(USD)：优先用后端算好的 summary.pnlUsd /
+  // summary30d.pnlUsd(避免前后端口径不一致)，都没有时前端按 trades 里的
+  // pnlUsd 自己求和；一笔可用数据都没有就是 null，显示 "—"，不是 0。
+  const thirtyDaysAgo = Date.now() - 30*24*3600*1000;
+  const pnl7  = (summary && summary.pnlUsd != null) ? Number(summary.pnlUsd) : sumPnlUsd(trades, sevenDaysAgo);
+  const pnl30 = (summary30d && summary30d.pnlUsd != null) ? Number(summary30d.pnlUsd) : sumPnlUsd(trades, thirtyDaysAgo);
+  const mPnl7El = $('#mPnl7'), mPnl30El = $('#mPnl30');
+  if(mPnl7El){ mPnl7El.textContent = fmtUsd(pnl7); mPnl7El.className = 'v' + (pnl7==null ? '' : (pnl7>=0?' g':' r')); }
+  if(mPnl30El){ mPnl30El.textContent = fmtUsd(pnl30); mPnl30El.className = 'v' + (pnl30==null ? '' : (pnl30>=0?' g':' r')); }
+
+  // 小字口径说明：参考账户余额取 summary.referenceBalanceUsd，接口没给
+  // （或还没上线这个字段）时按 10,000 兜底——跟 config.js normalize() 的
+  // suggestedLots/pnlUsd 假设的是同一个参考账户。
+  const noteEl = $('#mRefNote');
+  if(noteEl && T.refNote){
+    const refBalance = (summary && summary.referenceBalanceUsd != null) ? Number(summary.referenceBalanceUsd) : 10000;
+    noteEl.textContent = T.refNote.replace('${AMT}', refBalance.toLocaleString('en-US'));
+  }
 
   drawEquity(curve);
 }
@@ -384,12 +448,13 @@ function renderPayload(json){
   const rawTrades = Array.isArray(json) ? json : (json.data || json.trades || []);
   const list = rawTrades.map(normalize);
   const summary = Array.isArray(json) ? null : json.summary;
+  const summary30d = Array.isArray(json) ? null : json.summary30d;
   const generatedAt = Array.isArray(json) ? null : json.generatedAt;
   showHistory();
   drawTicker(list);
   renderBySymbol(list);
   renderTrades(list);
-  renderMetrics(list, summary);
+  renderMetrics(list, summary, summary30d);
   renderUpdated(generatedAt);
   // 数据到位后主动把面板标记为已显示:不依赖滚动淡入的观察时机(面板变高之前
   // 观察器可能已经错过;见 IntersectionObserver 处注释)。

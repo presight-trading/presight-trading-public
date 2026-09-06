@@ -168,15 +168,19 @@
         </div>
       </div>
 
-      <!-- Pips only: every figure below is pips-denominated — no lots, no USD P&L.
-           "Profit factor" keeps its label but is now win-pips over loss-pips. -->
+      <!-- First five figures are pips-denominated ("Profit factor" keeps its label
+           but is now win-pips over loss-pips). The last two are USD P&L on the
+           suggested lot size — see the reference-account note below. -->
       <div class="metrics">
         <div><div class="k">Net pips</div><div class="v g" id="mRet">&mdash;</div></div>
         <div><div class="k">Win rate</div><div class="v" id="mWin">&mdash;</div></div>
         <div><div class="k">Max drawdown (pips)</div><div class="v r" id="mDD">&mdash;</div></div>
         <div><div class="k">Profit factor</div><div class="v" id="mPF">&mdash;</div></div>
         <div><div class="k">Trades</div><div class="v" id="mN">&mdash;</div></div>
+        <div><div class="k">7-day P&amp;L (USD)</div><div class="v" id="mPnl7">&mdash;</div></div>
+        <div><div class="k">30-day P&amp;L (USD)</div><div class="v" id="mPnl30">&mdash;</div></div>
       </div>
+      <div class="metrics-note" id="mRefNote"></div>
 
       <div class="curvewrap">
         <svg viewBox="0 0 1080 260" id="equityChart" role="img" aria-label="Cumulative strategy pips curve"></svg>
@@ -201,6 +205,7 @@
             <tr>
               <th>Closed</th><th>Symbol</th><th>Side</th>
               <th>Entry</th><th>Exit</th><th style="text-align:right">Pips</th>
+              <th style="text-align:right">Sugg. lots</th><th style="text-align:right">P&amp;L (USD)</th>
             </tr>
           </thead>
           <tbody id="tradeBody"></tbody>
@@ -466,7 +471,7 @@
   </div>
 </div>
 
-<script src="../assets/js/config.js?v=202609030823"></script>
-<script src="../assets/js/app.js?v=202609030823"></script>
+<script src="../assets/js/config.js?v=202609061050"></script>
+<script src="../assets/js/app.js?v=202609061050"></script>
 </body>
 </html>

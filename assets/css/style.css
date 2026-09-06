@@ -247,13 +247,16 @@ section{padding:104px 0;position:relative}
 @media(max-width:560px){.pledge{padding:12px 15px;gap:6px 12px}
   .pledge b{font-size:.9rem}}
 
-.metrics{display:grid;grid-template-columns:repeat(5,1fr);border-bottom:1px solid var(--panel-line)}
+.metrics{display:grid;grid-template-columns:repeat(7,1fr);border-bottom:1px solid var(--panel-line)}
 .metrics div{padding:22px 22px;border-right:1px solid var(--panel-line)}
 .metrics div:last-child{border-right:none}
 .metrics .k{font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;color:#5B6883;text-transform:uppercase;margin-bottom:8px}
 .metrics .v{font-family:var(--mono);font-size:1.42rem;font-weight:700;color:#fff;letter-spacing:-.03em}
 .metrics .v.g{color:#3ED598}
 .metrics .v.r{color:#FF6B6B}
+/* 建议手数口径的小字说明：字体明显小于指标数字，不抢视觉重点。 */
+.metrics-note{padding:12px 40px 16px;border-bottom:1px solid var(--panel-line);
+              font-family:var(--mono);font-size:.66rem;color:#5B6883;letter-spacing:.02em}
 
 .curvewrap{padding:30px 40px 8px}
 .curvewrap svg{display:block;width:100%;height:auto}
@@ -340,9 +343,12 @@ footer a:hover{color:#fff}
 @media(max-width:1040px){
   .hero-grid{grid-template-columns:1fr;gap:44px}
   .p2{grid-template-columns:1fr;gap:36px}
-  .metrics{grid-template-columns:repeat(3,1fr)}
-  .metrics div:nth-child(3){border-right:none}
-  .metrics div:nth-child(n+4){border-top:1px solid var(--panel-line)}
+  /* 7 格在这个宽度摆不下：改 4 列(7 = 4+3 两行)。第 4/8 格丢右边框(行尾)，
+     第 5 格起加顶边框(第二行起)；:last-child 那条通用规则已经处理了第 7
+     格(第二行行尾)的右边框，这里不用重复。 */
+  .metrics{grid-template-columns:repeat(4,1fr)}
+  .metrics div:nth-child(4n){border-right:none}
+  .metrics div:nth-child(n+5){border-top:1px solid var(--panel-line)}
   .fgrid{grid-template-columns:1fr 1fr;gap:34px}
 }
 @media(max-width:760px){
@@ -353,10 +359,12 @@ footer a:hover{color:#fff}
   .strip{grid-template-columns:1fr 1fr;margin-top:44px}
   .strip div:nth-child(2){border-right:none}
   .strip div:nth-child(n+3){border-top:1px solid var(--grid)}
+  /* 移动端两列：7 格变 4 行(2+2+2+1)。同样只需第 2n 格丢右边框、第 3 格起加
+     顶边框；最后一格(单数第 7 格，自己独占一行)靠 :last-child 通用规则清右边框。 */
   .metrics{grid-template-columns:1fr 1fr}
   .metrics div:nth-child(2n){border-right:none}
   .metrics div:nth-child(n+3){border-top:1px solid var(--panel-line)}
-  .panel-top,.curvewrap,.tbl-head,.tblscroll,.panel-cta{padding-left:22px;padding-right:22px}
+  .panel-top,.curvewrap,.tbl-head,.tblscroll,.panel-cta,.metrics-note{padding-left:22px;padding-right:22px}
   .offers{grid-template-columns:1fr}
   .steps{grid-template-columns:1fr}
   .fgrid{grid-template-columns:1fr}

@@ -54,27 +54,35 @@ const CONFIG = {
 /* 期望的 API 返回格式（对象；trades 数组按平仓时间倒序）：
 {
   "generatedAt": "2026-09-03T00:10:00Z",   // ISO 8601，数据生成时间，页面「更新于」用这个，不用客户端本地时间
-  "summary": {                              // 可选：后端预算好的汇总指标，存在时前端直接用，避免前后端算法口径不一致
-    "totalPips"      : 812.4,               // 净点数，带正负号（兼容旧名 netPips）
-    "winRatePct"     : 61.3,                // 胜率，百分比数字（0-100，兼容旧名 winRate）
-    "maxDrawdownPips": 96.0,                // 最大回撤，累计 pips 峰值回撤，正数
-    "pfPips"   : 1.82                 // 盈亏比 = 盈利点数之和 / 亏损点数绝对值之和
+  "windowDays" : 30,                        // 可选：trades 覆盖的天数（现为近 30 天；表格仍只展示近 7 天，见 app.js）
+  "summary": {                              // 可选：后端预算好的汇总指标（近 7 天口径），存在时前端直接用，避免前后端算法口径不一致
+    "totalPips"          : 812.4,           // 净点数，带正负号（兼容旧名 netPips）
+    "winRatePct"         : 61.3,            // 胜率，百分比数字（0-100，兼容旧名 winRate）
+    "maxDrawdownPips"    : 96.0,            // 最大回撤，累计 pips 峰值回撤，正数
+    "pfPips"             : 1.82,            // 盈亏比 = 盈利点数之和 / 亏损点数绝对值之和
+    "pnlUsd"             : 214.30,          // 可选：按建议手数折算的美元盈亏（近 7 天），不含隔夜利息，缺省前端按 trades 现算
+    "referenceBalanceUsd": 10000            // 可选：suggestedLots/pnlUsd 假设的参考账户余额，缺省 10000
+  },
+  "summary30d": {                           // 可选：同 summary 结构，口径为近 30 天，只多一个 pnlUsd 会被用到
+    "pnlUsd": 640.10
   },
   "trades": [
     {
-      "closedAt"   : "2026-07-28T09:41:00Z",  // ISO 8601
-      "openedAt"   : "2026-07-28T08:59:00Z",  // ISO 8601，可选；缺失时若同时有 closedAt 会用来换算 durationMin
-      "symbol"     : "XAUUSD",
-      "side"       : "buy",                    // "buy" | "sell"
-      "openPrice"  : 2412.35,
-      "closePrice" : 2419.80,
-      "pips"       : 74.5,                     // 必填。只公开点数，不公开手数与美元盈亏
-      "durationMin": 42                        // 持仓分钟数，可选（缺失且有 openedAt/closedAt 时自动换算）
+      "closedAt"     : "2026-07-28T09:41:00Z",  // ISO 8601
+      "openedAt"     : "2026-07-28T08:59:00Z",  // ISO 8601，可选；缺失时若同时有 closedAt 会用来换算 durationMin
+      "symbol"       : "XAUUSD",
+      "side"         : "buy",                    // "buy" | "sell"
+      "openPrice"    : 2412.35,
+      "closePrice"   : 2419.80,
+      "pips"         : 74.5,                     // 必填
+      "suggestedLots": 0.12,                     // 可选：按参考账户折算的建议手数，缺失显示 "—"
+      "pnlUsd"       : 148.2,                     // 可选：按 suggestedLots、不含隔夜利息折算的美元盈亏，缺失显示 "—"
+      "durationMin"  : 42                        // 持仓分钟数，可选（缺失且有 openedAt/closedAt 时自动换算）
     }
   ]
 }
-只公开点数：不要把 lots / pnl（或 volume / profit）这类字段传进来——就算传了，
-normalize() 也不会读取它们。若你的字段名不同，改下面的 normalize() 一个函数即可。 */
+suggestedLots / pnlUsd 都是可选字段：后端没给（或还没上线）时 normalize() 落 null，
+页面对应列显示 "—"，不报错。若你的字段名不同，改下面的 normalize() 一个函数即可。 */
 
 function normalize(raw){
   const closedAt = raw.closedAt ?? raw.close_time ?? raw.time;
@@ -92,5 +100,9 @@ function normalize(raw){
     openPrice : Number(raw.openPrice  ?? raw.open_price ?? 0),
     closePrice: Number(raw.closePrice ?? raw.close_price ?? 0),
     pips      : Number(raw.pips ?? 0),
+    // 参考账户（$10,000，见 summary.referenceBalanceUsd）建议手数与对应美元盈亏，
+    // 后端字段还没上线或这一笔算不出来时都是 null，前端一律显示 "—"，不报错。
+    suggestedLots: raw.suggestedLots ?? null,
+    pnlUsd       : raw.pnlUsd ?? null,
   };
 }
