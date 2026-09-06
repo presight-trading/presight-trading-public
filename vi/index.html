@@ -79,7 +79,7 @@
 </div>
 <div class="strip rv">
 <div><div class="k">Số ngày chạy</div><div class="v" id="sRun">—</div></div>
-<div><div class="k">Lãi/lỗ 30 ngày · Tài khoản tham chiếu $10,000</div><div class="v" id="sRet" style="color:var(--cobalt)">—</div></div>
+<div><div class="k">Lợi nhuận 30 ngày</div><div class="v" id="sRet" style="color:var(--cobalt)">—</div></div>
 <div><div class="k">Tỷ lệ thắng · 30 ngày</div><div class="v" id="sWin">—</div></div>
 <div><div class="k">Cộng đồng</div><div class="v" id="sMem">—</div></div>
 <div><div class="k">Bảo hiểm lỗ</div><div class="v" style="color:var(--cobalt)">Hoàn tiền mặt</div></div>
@@ -140,12 +140,12 @@
 <span class="tag">RỦI RO CỐ ĐỊNH</span></div>
 </div>
 </div>
-<!-- Toàn bộ tính theo lãi/lỗ USD trên tài khoản tham chiếu $10,000, lấy 30
-           ngày làm góc nhìn chính. Không còn hiển thị pip ròng ở đây — vẫn
-           còn trong cột "Pip" của bảng lịch sử khớp lệnh bên dưới. -->
+<!-- Hiển thị tương đối: vị thế (lot / $10k) + lợi nhuận (%). Không hiển thị số tiền USD
+           ở bất kỳ đâu. Lấy 30 ngày làm góc nhìn chính. Không còn hiển thị pip ròng ở đây —
+           vẫn còn trong cột "Pip" của bảng lịch sử khớp lệnh bên dưới. -->
 <div class="metrics">
-<div><div class="k">Lãi/lỗ 7 ngày</div><div class="v" id="mPnl7">—</div></div>
-<div><div class="k">Lãi/lỗ 30 ngày</div><div class="v" id="mPnl30">—</div></div>
+<div><div class="k">Lợi nhuận 7 ngày</div><div class="v" id="mPnl7">—</div></div>
+<div><div class="k">Lợi nhuận 30 ngày</div><div class="v" id="mPnl30">—</div></div>
 <div><div class="k">Tỷ lệ thắng (30 ngày)</div><div class="v" id="mWin">—</div></div>
 <div><div class="k">Sụt giảm tối đa (30 ngày)</div><div class="v r" id="mDD">—</div></div>
 <div><div class="k">Hệ số lợi nhuận (30 ngày)</div><div class="v" id="mPF">—</div></div>
@@ -153,16 +153,16 @@
 </div>
 <div class="metrics-note" id="mRefNote"></div>
 <div class="curvewrap">
-<svg aria-label="Lãi/lỗ tích lũy 30 ngày (USD)" id="equityChart" role="img" viewbox="0 0 1080 260"></svg>
+<svg aria-label="Lợi nhuận tích lũy 30 ngày (%)" id="equityChart" role="img" viewbox="0 0 1080 260"></svg>
 </div>
 <div class="bd-head">
-<h4>Theo từng mã · 30 ngày gần nhất · Lãi/lỗ (USD)</h4>
+<h4>Theo từng mã · 30 ngày gần nhất · lợi nhuận</h4>
 <div class="bd-note">Pip ròng không đến đều từ mọi mã — đây là phần chia theo mã</div>
 </div>
 <div class="bysym" id="bySym"></div>
 <div class="tbl-head">
 <h4>Lịch sử khớp lệnh · 30 ngày gần nhất <span class="realbadge">TÀI KHOẢN THẬT</span></h4>
-<div class="live"><span class="dot"></span> LIVE · <span id="upd">—</span></div>
+<div class="live"><span class="dot"></span> GIÁ KHỚP THỰC · <span id="upd">—</span></div>
 </div>
 <p class="realnote">Đây là các lệnh khớp thật từ <b>tài khoản thật của PRESIGHT ALPHA-1</b>, lấy thẳng từ đó, <b>không lọc — gồm cả lệnh thua</b>. Không phải backtest, không phải demo.</p>
 <div class="tblscroll">
@@ -171,7 +171,7 @@
 <tr>
 <th>Đóng lúc</th><th>Mã</th><th>Chiều</th>
 <th>Giá vào</th><th>Giá ra</th><th style="text-align:right">Pip</th>
-<th style="text-align:right">Lot đề xuất</th><th style="text-align:right">Lãi/lỗ (USD)</th>
+<th style="text-align:right">Vị thế (lot/$10k)</th><th style="text-align:right">Lợi nhuận</th>
 </tr>
 </thead>
 <tbody id="tradeBody"></tbody>
@@ -400,7 +400,7 @@
 <a class="mlink" href="protection.html">Điều khoản chương trình đầy đủ →</a></div>
 </div>
 </div>
-<script src="../assets/js/config.js?v=202609061133"></script>
-<script src="../assets/js/app.js?v=202609061133"></script>
+<script src="../assets/js/config.js?v=202609061152"></script>
+<script src="../assets/js/app.js?v=202609061152"></script>
 </body>
 </html>

@@ -79,7 +79,7 @@
 </div>
 <div class="strip rv">
 <div><div class="k">รันมาแล้ว</div><div class="v" id="sRun">—</div></div>
-<div><div class="k">กำไร/ขาดทุน 30 วัน · บัญชีอ้างอิง $10,000</div><div class="v" id="sRet" style="color:var(--cobalt)">—</div></div>
+<div><div class="k">ผลตอบแทน 30 วัน</div><div class="v" id="sRet" style="color:var(--cobalt)">—</div></div>
 <div><div class="k">อัตราชนะ · 30 วัน</div><div class="v" id="sWin">—</div></div>
 <div><div class="k">คอมมูนิตี้</div><div class="v" id="sMem">—</div></div>
 <div><div class="k">ประกันขาดทุน</div><div class="v" style="color:var(--cobalt)">คืนเป็นเงินสด</div></div>
@@ -140,12 +140,12 @@
 <span class="tag">ความเสี่ยงคงที่</span></div>
 </div>
 </div>
-<!-- ใช้บัญชีอ้างอิง $10,000 คิดเป็นกำไร/ขาดทุนสกุลดอลลาร์ทั้งหมด มอง 30
-           วันเป็นหลัก ไม่แสดงพิพสุทธิที่นี่แล้ว — ยังคงเหลืออยู่ในคอลัมน์
+<!-- แสดงแบบสัมพัทธ์:ตำแหน่ง (ล็อต/หมื่นดอลลาร์) + ผลตอบแทน (%) ไม่แสดงจำนวนเงินดอลลาร์ที่ใดเลย
+           มอง 30 วันเป็นหลัก ไม่แสดงพิพสุทธิที่นี่แล้ว — ยังคงเหลืออยู่ในคอลัมน์
            "พิป" ของตารางประวัติออเดอร์ด้านล่างเท่านั้น -->
 <div class="metrics">
-<div><div class="k">กำไร 7 วัน</div><div class="v" id="mPnl7">—</div></div>
-<div><div class="k">กำไร 30 วัน</div><div class="v" id="mPnl30">—</div></div>
+<div><div class="k">ผลตอบแทน 7 วัน</div><div class="v" id="mPnl7">—</div></div>
+<div><div class="k">ผลตอบแทน 30 วัน</div><div class="v" id="mPnl30">—</div></div>
 <div><div class="k">อัตราชนะ (30 วัน)</div><div class="v" id="mWin">—</div></div>
 <div><div class="k">ดรอว์ดาวน์สูงสุด (30 วัน)</div><div class="v r" id="mDD">—</div></div>
 <div><div class="k">Profit factor (30 วัน)</div><div class="v" id="mPF">—</div></div>
@@ -153,16 +153,16 @@
 </div>
 <div class="metrics-note" id="mRefNote"></div>
 <div class="curvewrap">
-<svg aria-label="กำไร/ขาดทุนสะสม 30 วัน (USD)" id="equityChart" role="img" viewbox="0 0 1080 260"></svg>
+<svg aria-label="ผลตอบแทนสะสม 30 วัน (%)" id="equityChart" role="img" viewbox="0 0 1080 260"></svg>
 </div>
 <div class="bd-head">
-<h4>แยกตามสินทรัพย์ · 30 วันล่าสุด · กำไร/ขาดทุน (USD)</h4>
+<h4>แยกตามสินทรัพย์ · 30 วันล่าสุด · ผลตอบแทน</h4>
 <div class="bd-note">พิพสุทธิไม่ได้มาจากทุกสินทรัพย์เท่า ๆ กัน นี่คือการแยกให้ดู</div>
 </div>
 <div class="bysym" id="bySym"></div>
 <div class="tbl-head">
 <h4>ประวัติออเดอร์ · 30 วันล่าสุด <span class="realbadge">บัญชีจริง</span></h4>
-<div class="live"><span class="dot"></span> LIVE · <span id="upd">—</span></div>
+<div class="live"><span class="dot"></span> ราคาจริง · <span id="upd">—</span></div>
 </div>
 <p class="realnote">นี่คือออเดอร์จริงจาก<b>บัญชีจริงของ PRESIGHT ALPHA-1</b> ดึงตรงจากบัญชีนั้น <b>ไม่คัดกรอง — รวมออเดอร์ที่ขาดทุนด้วย</b> ไม่ใช่แบ็กเทสต์ ไม่ใช่บัญชีเดโม</p>
 <div class="tblscroll">
@@ -171,7 +171,7 @@
 <tr>
 <th>ปิดเมื่อ</th><th>สินทรัพย์</th><th>ทิศทาง</th>
 <th>ราคาเข้า</th><th>ราคาออก</th><th style="text-align:right">พิป</th>
-<th style="text-align:right">ล็อตแนะนำ</th><th style="text-align:right">กำไรขาดทุน (USD)</th>
+<th style="text-align:right">ตำแหน่ง (ล็อต/หมื่นดอลลาร์)</th><th style="text-align:right">ผลตอบแทน</th>
 </tr>
 </thead>
 <tbody id="tradeBody"></tbody>
@@ -400,7 +400,7 @@
 <a class="mlink" href="protection.html">เงื่อนไขโครงการฉบับเต็ม →</a></div>
 </div>
 </div>
-<script src="../assets/js/config.js?v=202609061133"></script>
-<script src="../assets/js/app.js?v=202609061133"></script>
+<script src="../assets/js/config.js?v=202609061152"></script>
+<script src="../assets/js/app.js?v=202609061152"></script>
 </body>
 </html>

@@ -13,7 +13,7 @@ const TEXTS = {
     updated:'更新于 ', demo:'演示数据', copied:'已复制',
     errT:'成交记录暂时取不到', errB:'数据接口没有响应。稍后会自动重试，也可以刷新页面。',
     emptyT:'还没有已平仓的交易', emptyB:'策略正在运行，第一笔成交平仓后会立刻出现在这里。',
-    refNote:'参考账户 $${AMT} · 按建议手数 · 仅已平仓 · 不含浮动盈亏与隔夜利息',
+    refNote:'收益率按实盘成交价格与每万美元仓位权重计算，并非策略账户的真实盈亏；仅已平仓，不含浮动盈亏与隔夜利息；实际结果随账户规模、点差与滑点不同。',
   },
   en:{
     tradesUnit:'trades',
@@ -24,7 +24,7 @@ const TEXTS = {
     updated:'updated ', demo:'demo data', copied:'Copied',
     errT:'Fill history unavailable', errB:'The data endpoint did not respond. It will retry automatically, or you can reload the page.',
     emptyT:'No closed trades yet', emptyB:'The strategy is running. The first closed trade will appear here immediately.',
-    refNote:'$${AMT} reference account · suggested lots · closed trades only · excludes floating P&L and swap',
+    refNote:"Returns are computed from live fill prices and a position weight per $10,000; they are not the strategy account's actual P&L. Closed trades only; excludes floating P&L and swap. Actual results vary with account size, spread and slippage.",
   },
   ja:{
     tradesUnit:'件',
@@ -35,7 +35,7 @@ const TEXTS = {
     updated:'更新 ', demo:'デモデータ', copied:'コピーしました',
     errT:'約定履歴を取得できません', errB:'データ側から応答がありません。自動で再試行します。ページの再読み込みでもかまいません。',
     emptyT:'決済済みの取引はまだありません', emptyB:'戦略は稼働中です。最初の決済が出たらすぐここに表示されます。',
-    refNote:'参照口座 $${AMT}・推奨ロット・決済済み取引のみ・含み損益とスワップ(オーバーナイト金利)を除く',
+    refNote:'収益率は実際の約定価格と1万ドルあたりのポジション比率をもとに算出したものであり、戦略口座の実際の損益ではありません。決済済み取引のみを対象とし、含み損益とスワップ(オーバーナイト金利)は含みません。実際の結果は口座規模・スプレッド・スリッページによって異なります。',
   },
   vi:{
     tradesUnit:'lệnh',
@@ -46,7 +46,7 @@ const TEXTS = {
     updated:'cập nhật ', demo:'dữ liệu mẫu', copied:'Đã sao chép',
     errT:'Chưa lấy được lịch sử khớp lệnh', errB:'Máy chủ dữ liệu không phản hồi. Hệ thống sẽ tự thử lại, hoặc bạn có thể tải lại trang.',
     emptyT:'Chưa có lệnh nào đóng', emptyB:'Chiến lược đang chạy. Lệnh đóng đầu tiên sẽ hiện ở đây ngay lập tức.',
-    refNote:'Tài khoản tham chiếu $${AMT} · theo lot đề xuất · chỉ tính lệnh đã đóng · không gồm lãi/lỗ chưa thực hiện và phí qua đêm',
+    refNote:'Lợi nhuận (%) được tính từ giá khớp lệnh thực tế và tỷ trọng vị thế trên mỗi 10.000 đô la; đây không phải lãi/lỗ thực tế của tài khoản chiến lược. Chỉ tính các lệnh đã đóng; không bao gồm lãi/lỗ chưa thực hiện và phí qua đêm. Kết quả thực tế sẽ khác nhau tùy theo quy mô tài khoản, spread và trượt giá.',
   },
   th:{
     tradesUnit:'ออเดอร์',
@@ -57,7 +57,7 @@ const TEXTS = {
     updated:'อัปเดตเมื่อ ', demo:'ข้อมูลตัวอย่าง', copied:'คัดลอกแล้ว',
     errT:'ยังดึงประวัติออเดอร์ไม่ได้', errB:'เซิร์ฟเวอร์ข้อมูลไม่ตอบสนอง ระบบจะลองใหม่อัตโนมัติ หรือคุณจะรีเฟรชหน้าก็ได้',
     emptyT:'ยังไม่มีออเดอร์ที่ปิดแล้ว', emptyB:'กลยุทธ์กำลังทำงาน ออเดอร์แรกที่ปิดจะขึ้นตรงนี้ทันที',
-    refNote:'บัญชีอ้างอิง $${AMT} · ตามล็อตที่แนะนำ · เฉพาะออเดอร์ที่ปิดแล้ว · ไม่รวมกำไร/ขาดทุนที่ยังไม่เกิดขึ้นจริงและดอกเบี้ยข้ามคืน',
+    refNote:'อัตราผลตอบแทนคำนวณจากราคาที่ execute จริงและน้ำหนักตำแหน่งต่อทุก 10,000 ดอลลาร์ ไม่ใช่กำไร/ขาดทุนจริงของบัญชีกลยุทธ์ นับเฉพาะออเดอร์ที่ปิดแล้ว ไม่รวมกำไร/ขาดทุนที่ยังไม่เกิดขึ้นจริงและดอกเบี้ยข้ามคืน ผลลัพธ์จริงจะแตกต่างกันไปตามขนาดบัญชี สเปรด และสลิปเพจ',
   },
 };
 const T = TEXTS[LANG] || TEXTS.zh;
@@ -95,13 +95,22 @@ const price = (s,v) => v.toFixed(s.includes('JPY')?3 : (s==='NAS100'||s==='US30'
    后端字段还没上线、或旧缓存数据）一律显示 "—"，不当成 0——0 是一个真实的
    盈亏结果，不该跟"没有数据"混在一起。 */
 function fmtLots(v){ return v==null ? '—' : Number(v).toFixed(2); }
-/* 统一的美元格式化：所有 USD 数值(指标卡/英雄区/成交表)都走这一个函数，
-   避免同一页面里出现两种小数位/千分位规则。null/非有限数一律显示 "—"，
-   不当成 0——0 是一个真实的盈亏结果。 */
-function usd(v){
+/* ---------- 相对口径：仓位(手/万美元) + 收益率(%) ----------
+   2026-09：页面不再展示任何美元金额，只展示"每万美元仓位权重"对应的收益率——
+   pnlUsd 本身仍是后端字段(每万美元参考仓位的盈亏)，但页面上只用来换算成
+   pct，从不直接格式化成 $ 数值。referenceBalanceUsd 缺省按 10,000 兜底。 */
+let REF_BALANCE_USD = 10000;
+function refBalanceOf(summary, summary30d){
+  return (summary30d && summary30d.referenceBalanceUsd != null) ? Number(summary30d.referenceBalanceUsd)
+       : (summary && summary.referenceBalanceUsd != null) ? Number(summary.referenceBalanceUsd) : 10000;
+}
+/* 统一的收益率格式化：所有 pnlUsd 换算出的百分比(指标卡/英雄区/成交表/
+   按品种拆分)都走这一个函数，避免同一页面里出现两种小数位规则。null/
+   非有限数一律显示 "—"，不当成 0——0 是一个真实的盈亏结果。 */
+function pct(v){
   if(v==null || !isFinite(Number(v))) return '—';
-  const n = Number(v);
-  return (n>=0?'+':'−') + '$' + Math.abs(n).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+  const n = Number(v) / REF_BALANCE_USD * 100;
+  return (n>=0?'+':'−') + Math.abs(n).toFixed(2) + '%';
 }
 /* 按窗口求和 pnlUsd：只累加窗口内 pnlUsd 非空的成交；窗口内一笔贡献都没有
    （字段还没上线，或这批全是旧缓存数据）时返回 null，页面显示 "—"——
@@ -191,36 +200,37 @@ function renderTrades(trades){
       <td>${price(t.symbol,t.closePrice)}</td>
       <td class="pnl ${win?'g':'r'}" style="text-align:right;font-weight:700">${t.pips>0?'+':''}${t.pips.toFixed(1)}</td>
       <td style="text-align:right">${fmtLots(t.suggestedLots)}</td>
-      <td class="pnl ${pnlCls}" style="text-align:right;font-weight:700">${usd(t.pnlUsd)}</td>
+      <td class="pnl ${pnlCls}" style="text-align:right;font-weight:700">${pct(t.pnlUsd)}</td>
     </tr>`;
   }).join('');
 }
 
 /* ---------- 由成交记录反推指标 ----------
-   2026-09（Task 36）：页面统一为参考账户 $10,000 的美元盈亏口径，不再展示
-   净点数——回撤/盈亏比/净值曲线全部按 pnlUsd 前端算(只用 30 天窗口内、
-   pnlUsd 非空的笔；一笔可用数据都没有就是 null，显示 "—"，不退回点数)。
-   点数只保留在成交表的"点数"列。 */
+   2026-09（Task 37）：页面改为相对口径——仓位(手/万美元) + 收益率(%)，不再
+   展示任何美元金额，也不展示净点数——回撤/盈亏比/净值曲线全部按 pnlUsd
+   换算成收益率后前端算(只用 30 天窗口内、pnlUsd 非空的笔；一笔可用数据都
+   没有就是 null，显示 "—"，不退回点数)。点数只保留在成交表的"点数"列。 */
 function renderMetrics(trades, summary, summary30d){
   const thirtyDaysAgo = Date.now() - 30*24*3600*1000;
   const sevenDaysAgo  = Date.now() - 7*24*3600*1000;
   const trades30 = trades.filter(t => t.closedAt && new Date(t.closedAt).getTime() >= thirtyDaysAgo);
 
-  // 净值曲线 + 最大回撤 + 盈亏比：全部按 30 天 trades 的 pnlUsd 从旧到新
-  // 累计，pnlUsd 为 null 的笔跳过（不当 0，也不退回点数）。30 天里一笔
-  // 可用数据都没有（字段还没上线，或 DEMO 数据）时 dd/pf 都是 null。
+  // 净值曲线 + 最大回撤 + 盈亏比：全部按 30 天 trades 的收益率(pnlUsd 换算
+  // 成 % of referenceBalanceUsd)从旧到新累计，pnlUsd 为 null 的笔跳过
+  // （不当 0，也不退回点数）。30 天里一笔可用数据都没有（字段还没上线，
+  // 或 DEMO 数据）时 dd/pf 都是 null。盈亏比是比值，换算成 % 不影响结果。
   const chron = [...trades30].reverse();
   let eq=0, peak=0, ddCalc=0, hasAnyPnl=false, winSum=0, lossSum=0;
   const curve=[0];
   chron.forEach(t=>{
     if(t.pnlUsd==null) return;
     hasAnyPnl = true;
-    const v = Number(t.pnlUsd);
+    const v = Number(t.pnlUsd) / REF_BALANCE_USD * 100;
     eq+=v; peak=Math.max(peak,eq); ddCalc=Math.max(ddCalc,peak-eq); curve.push(eq);
     if(v>0) winSum+=v; else if(v<0) lossSum+=Math.abs(v);
   });
-  const ddUsd = hasAnyPnl ? ddCalc : null;
-  const pfUsd = hasAnyPnl ? (lossSum>0 ? (winSum/lossSum) : null) : null;
+  const ddPct = hasAnyPnl ? ddCalc : null;
+  const pf = hasAnyPnl ? (lossSum>0 ? (winSum/lossSum) : null) : null;
 
   // 胜率(30 天)：优先用后端算好的 summary30d.winRatePct，避免前后端算法
   // 口径不一致；没有时前端按 pnlUsd>0 的笔数占比自己算。英雄区 #sWin 与
@@ -230,33 +240,29 @@ function renderMetrics(trades, summary, summary30d){
     : winRateFromPnl(trades30);
 
   $('#mWin').textContent = winRate30!=null ? winRate30.toFixed(1)+'%' : '—';
-  $('#mDD').textContent  = ddUsd!=null ? '−$'+ddUsd.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2}) : '—';
-  $('#mPF').textContent  = pfUsd!=null ? pfUsd.toFixed(2) : '—';
+  $('#mDD').textContent  = ddPct!=null ? '−'+ddPct.toFixed(2)+'%' : '—';
+  $('#mPF').textContent  = pf!=null ? pf.toFixed(2) : '—';
   $('#mN').textContent   = (summary30d && summary30d.trades != null) ? summary30d.trades : trades30.length;
 
-  // 近 7 天 / 近 30 天建议仓位盈亏(USD)：优先用后端算好的 summary.pnlUsd /
-  // summary30d.pnlUsd(避免前后端口径不一致)，都没有时前端按 trades 里的
-  // pnlUsd 自己求和；一笔可用数据都没有就是 null，显示 "—"，不是 0。
+  // 近 7 天 / 近 30 天收益率：优先用后端算好的 summary.pnlUsd / summary30d.pnlUsd
+  // (避免前后端口径不一致)，都没有时前端按 trades 里的 pnlUsd 自己求和；
+  // 一笔可用数据都没有就是 null，显示 "—"，不是 0。求和用原始 USD，换算成
+  // % 放到 pct() 里统一做。
   const pnl7  = (summary && summary.pnlUsd != null) ? Number(summary.pnlUsd) : sumPnlUsd(trades, sevenDaysAgo);
   const pnl30 = (summary30d && summary30d.pnlUsd != null) ? Number(summary30d.pnlUsd) : sumPnlUsd(trades, thirtyDaysAgo);
   const mPnl7El = $('#mPnl7'), mPnl30El = $('#mPnl30');
-  if(mPnl7El){ mPnl7El.textContent = usd(pnl7); mPnl7El.className = 'v' + (pnl7==null ? '' : (pnl7>=0?' g':' r')); }
-  if(mPnl30El){ mPnl30El.textContent = usd(pnl30); mPnl30El.className = 'v' + (pnl30==null ? '' : (pnl30>=0?' g':' r')); }
+  if(mPnl7El){ mPnl7El.textContent = pct(pnl7); mPnl7El.className = 'v' + (pnl7==null ? '' : (pnl7>=0?' g':' r')); }
+  if(mPnl30El){ mPnl30El.textContent = pct(pnl30); mPnl30El.className = 'v' + (pnl30==null ? '' : (pnl30>=0?' g':' r')); }
 
-  // 英雄区 #sRet / #sWin：近 30 天盈亏(USD) + 胜率(30 天)，跟指标卡的
+  // 英雄区 #sRet / #sWin：近 30 天收益率 + 胜率(30 天)，跟指标卡的
   // #mPnl30 / #mWin 同一套数值，只是摆在首屏。
-  $('#sRet').textContent = usd(pnl30);
+  $('#sRet').textContent = pct(pnl30);
   $('#sWin').textContent = winRate30!=null ? winRate30.toFixed(1)+'%' : '—';
 
-  // 小字口径说明：参考账户余额取 summary30d/summary 的 referenceBalanceUsd，
-  // 接口没给（或还没上线这个字段）时按 10,000 兜底——跟 config.js
-  // normalize() 的 suggestedLots/pnlUsd 假设的是同一个参考账户。
+  // 小字口径说明：固定文案(见 T.refNote)，不再插入具体金额——页面任何
+  // 地方都不再出现美元金额，只说明"每万美元仓位权重"这个换算规则本身。
   const noteEl = $('#mRefNote');
-  if(noteEl && T.refNote){
-    const refBalance = (summary30d && summary30d.referenceBalanceUsd != null) ? Number(summary30d.referenceBalanceUsd)
-                      : (summary && summary.referenceBalanceUsd != null) ? Number(summary.referenceBalanceUsd) : 10000;
-    noteEl.textContent = T.refNote.replace('${AMT}', refBalance.toLocaleString('en-US'));
-  }
+  if(noteEl && T.refNote) noteEl.textContent = T.refNote;
 
   drawEquity(curve);
 }
@@ -341,8 +347,9 @@ function drawHero(){
    条形长度按各品种净点数的绝对值占最大值的比例，盈亏从中线分别向两侧
    展开，所以正负两栏的量级可以直接比。 */
 function renderBySymbol(trades){
-  // 2026-09-06:按品种拆分改为美元盈亏(参考账户 $10,000、建议手数、仅已平仓、
-  // 不含浮动盈亏与隔夜利息),与页面其它指标同口径;点数只保留在成交表列里。
+  // 2026-09:按品种拆分改为收益率(pnlUsd 换算成 % of referenceBalanceUsd、
+  // 仅已平仓、不含浮动盈亏与隔夜利息),与页面其它指标同口径;点数只保留
+  // 在成交表列里,页面任何地方不再出现美元金额。
   const box = document.getElementById('bySym');
   if(!box) return;
   const g = new Map();
@@ -368,7 +375,7 @@ function renderBySymbol(trades){
          + `<span class="s">${r.s}</span>`
          + `<span class="bsbar">${bar}</span>`
          + `<span class="n">${r.n} ${T.tradesUnit}</span>`
-         + `<span class="p ${up?'up':'dn'}">${usd(r.p)}</span>`
+         + `<span class="p ${up?'up':'dn'}">${pct(r.p)}</span>`
          + `</div>`;
   }).join('');
 }
@@ -459,6 +466,9 @@ function renderPayload(json){
   const summary = Array.isArray(json) ? null : json.summary;
   const summary30d = Array.isArray(json) ? null : json.summary30d;
   const generatedAt = Array.isArray(json) ? null : json.generatedAt;
+  // 先定好参考账户余额，再渲染依赖 pct() 的各个板块，避免按品种拆分/成交表
+  // 用旧的 REF_BALANCE_USD 换算，跟同一批数据的指标卡口径对不上。
+  REF_BALANCE_USD = refBalanceOf(summary, summary30d);
   showHistory();
   drawTicker(list);
   renderBySymbol(list);
