@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>先见交易学院 · Presight Trading Institute</title>
+<meta name="description" content="先见，先行。量化跟单策略与免费交易社区信号。策略以自有资金实盘运行，历史成交逐笔公开，盈亏不做筛选。">
+<meta name="theme-color" content="#EDF0F4">
+<meta name="robots" content="index,follow">
+
+<link rel="alternate" hreflang="zh-Hans" href="https://presighttrading.com/">
+<link rel="alternate" hreflang="en" href="https://presighttrading.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://presighttrading.com/">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="先见交易学院 · Presight Trading Institute">
+<meta property="og:description" content="先见，先行。">
+<meta property="og:url" content="https://presighttrading.com/">
+<meta property="og:image" content="https://presighttrading.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<!-- ticker -->
+<div class="tick" aria-hidden="true">
+  <div class="tick-in" id="ticker"></div>
+</div>
+
+<header>
+  <div class="wrap hbar">
+    <a href="#top" class="logo" aria-label="先见交易学院 首页">
+      <svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true">
+        <rect x=".5" y=".5" width="29" height="29" stroke="#0A111E"/>
+        <path d="M4 21 L10 15 L14 18 L18 9" stroke="#1B3BD8" stroke-width="2" fill="none"/>
+        <path d="M18 9 L22 12 L26 5" stroke="#D6188A" stroke-width="2" fill="none" stroke-dasharray="3 3"/>
+      </svg>
+      <span>
+        <span class="lt">PRESIGHT</span>
+        <span class="lc han">先见交易学院</span>
+      </span>
+    </a>
+    <nav>
+      <a href="#protection">亏损包赔</a>
+      <a href="#strategy">跟单策略</a>
+      <a href="#community">社区信号</a>
+      <a href="#start">如何开始</a>
+      <a href="#faq">常见问题</a>
+      <a href="#partner" class="hot">邀请合作</a>
+    </nav>
+    <div class="hact">
+      <div class="langsw"><a href="#top" class="cur">中</a><span>/</span><a href="en/">EN</a><span>/</span><a href="ja/">日本語</a><span>/</span><a href="vi/">Việt</a><span>/</span><a href="th/">ไทย</a></div>
+      <a href="#strategy" class="btn" data-open="start">开始跟单 <span class="arw">&rarr;</span></a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ===================== HERO ===================== -->
+<div class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="fig">FIG. <b>00</b> &mdash; PRESIGHT</div>
+        <h1 class="display slogan han">先见，<span class="fx">先行</span>。</h1>
+        <p class="lede">策略以自有资金实盘运行，历史成交逐笔公开，盈亏不做筛选。跟单期间若出现净亏损，我们以<b>现金返还</b>该笔亏损。</p>
+        <div class="pledge">
+          <b>跟单亏损包赔</b>
+          <span class="cond">亏多少赔多少<i>/</i>现金到账</span>
+          <a href="protection.html">活动细则 &rarr;</a>
+        </div>
+        <div class="hero-cta">
+          <a href="#protection" class="btn big">了解包赔计划 <span class="arw">&rarr;</span></a>
+          <a href="#" data-link="channel" class="btn big ghost"
+             target="_blank" rel="noopener">查看历史交易信号</a>
+        </div>
+        <p class="hero-note">实盘运行 &middot; 成交数据每 60 秒同步 &middot; 包赔以基准资金为限，不消除交易风险 &middot; 杠杆交易存在本金损失风险</p>
+      </div>
+
+      <div>
+        <div class="sigchart">
+          <svg viewBox="0 0 520 340" id="heroChart" role="img" aria-label="策略净值曲线，实线为已实现区间，虚线为模型前瞻区间"></svg>
+          <div class="legend">
+            <span><i class="sw"></i> 已实现 REALIZED</span>
+            <span><i class="sw d"></i> 模型前瞻 PROJECTED</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="strip rv">
+      <div><div class="k">Live Since</div><div class="v" id="sRun">&mdash;</div></div>
+      <div><div class="k">近 30 天收益率</div><div class="v" id="sRet" style="color:var(--cobalt)">&mdash;</div></div>
+      <div><div class="k">胜率 &middot; 近 30 天</div><div class="v" id="sWin">&mdash;</div></div>
+      <div><div class="k">Community</div><div class="v" id="sMem">&mdash;</div></div>
+      <div><div class="k">Loss Cover</div><div class="v" style="color:var(--cobalt)">现金返还</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== PROTECTION ===================== -->
+<section id="protection">
+  <div class="rail"><span style="top:120px">PROTECTION</span></div>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="fig">FIG. <b>01</b> &mdash; 重点推荐</div>
+      <h2 class="h2 han">跟单亏损包赔</h2>
+      <p class="lede">按规则跟单，亏了我们赔。这不是"保证不亏"——是把杠杆和操作方式限定住之后，我们与你共担这段时间的下行风险。条件写得细，是因为只有这样赔付承诺才兑现得起。</p>
+    </div>
+
+    <div class="steps rv">
+      <div class="step">
+        <div class="n">01</div><h4>1:1 跟单，不放大仓位</h4>
+        <p>你只需把跟单倍数设为 1:1。单笔风险与总敞口<b>由我们在跟单账户层面统一管理</b>——ALPHA-1 是量化策略，同时持有多笔仓位属于正常结构，不需要你去设参数。</p>
+      </div>
+      <div class="step">
+        <div class="n">02</div><h4>账户级回撤风控</h4>
+        <p>策略账户设有回撤阈值，触及后自动降低仓位规模或暂停开新仓，跟单账户同步生效。策略不加仓、不摊平。</p>
+      </div>
+      <div class="step">
+        <div class="n">03</div><h4>满 1 个月，净亏损现金返还</h4>
+        <p>在社区报备 MT5 账户 ID 后连续跟单满 1 个月，期间不手动干预、不出金。期末净值低于基准资金，差额以<b>美元现金</b>返还，核验通过后 10 个工作日内到账。由你手动平仓的那部分亏损不在赔付范围。</p>
+      </div>
+    </div>
+
+    <div class="wrap" style="padding:0">
+      <div class="risk rv" style="margin-top:44px">
+        <h4><span class="mono">&#9888;</span> 参与前请确认</h4>
+        <p>包赔额度以<b>基准资金全额为限</b>。开始跟单后须私信 <b>@PresightAdminBot</b> <b>报备你的 MT5 账户 ID</b>——未报备的不具备资格，报备之前产生的亏损也不赔。手动开仓、把 Ratio 调到 1 以上放大仓位、期间出金均会导致失去资格；<b>手动平仓造成的亏损不予赔付</b>。</p>
+        <p>本计划不构成投资建议，也不保证策略盈利。Presight 与合作交易平台存在推荐返佣关系。<a href="protection.html" style="color:var(--amber);font-weight:600">完整细则与除外情形 &rarr;</a></p>
+      </div>
+    </div>
+
+    <div class="hero-cta rv" style="margin-top:36px;justify-content:flex-start">
+      <a href="#" data-link="broker" class="btn big" target="_blank" rel="noopener">注册并绑定跟单 <span class="arw">&rarr;</span></a>
+      <a href="protection.html" class="btn big ghost">阅读活动细则</a>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ===================== PRODUCT 01 ===================== -->
+<section id="strategy">
+  <div class="rail"><span style="top:120px">STRATEGY</span></div>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="fig">FIG. <b>02</b> &mdash; 主推产品</div>
+      <h2 class="h2 han">量化跟单策略</h2>
+      <p class="lede">多品种量化策略，运行于实盘账户。绑定后开平仓自动同步至你的账户，无需判断方向或盯盘。下表为该账户的完整成交记录，亏损单同样列出。</p>
+    </div>
+
+    <div class="panelbox rv">
+      <div class="panel-top">
+        <div>
+          <h3 class="mono">PRESIGHT ALPHA-1</h3>
+          <p class="sub">中低频趋势跟随，叠加波动率过滤。覆盖主要货币对、贵金属与股指，单笔风险敞口固定，不做加仓与摊平。</p>
+          <div class="tags">
+            <span class="tag hero-tag">跟单亏损包赔 &middot; <a href="protection.html">活动细则</a></span>
+            <span class="tag">MULTI-ASSET</span>
+            <span class="tag">AUTO-COPY</span>
+            <span class="tag">FIXED RISK</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 相对口径：仓位(手/万美元) + 收益率(%)，30 天为主视角；不出现美元
+           金额，净点数也不再展示，只留在下方成交表的「点数」列。 -->
+      <div class="metrics">
+        <div><div class="k">近 7 天收益率</div><div class="v" id="mPnl7">&mdash;</div></div>
+        <div><div class="k">近 30 天收益率</div><div class="v" id="mPnl30">&mdash;</div></div>
+        <div><div class="k">胜率(30 天)</div><div class="v" id="mWin">&mdash;</div></div>
+        <div><div class="k">最大回撤(30 天)</div><div class="v r" id="mDD">&mdash;</div></div>
+        <div><div class="k">盈亏比(30 天)</div><div class="v" id="mPF">&mdash;</div></div>
+        <div><div class="k">成交笔数(30 天)</div><div class="v" id="mN">&mdash;</div></div>
+      </div>
+      <div class="metrics-note" id="mRefNote"></div>
+
+      <div class="curvewrap">
+        <svg viewBox="0 0 1080 260" id="equityChart" role="img" aria-label="30 天累计收益率（%）"></svg>
+      </div>
+
+
+      <div class="bd-head">
+        <h4>按品种拆分 &middot; 近 30 天 &middot; 收益率</h4>
+        <div class="bd-note">净点数不是均匀来自每个品种，摊开看更清楚</div>
+      </div>
+      <div class="bysym" id="bySym"></div>
+
+      <div class="tbl-head">
+        <h4>成交记录 · 近 30 天 <span class="realbadge">实盘</span></h4>
+        <div class="live"><span class="dot"></span> 实盘成交价 &middot; <span id="upd">&mdash;</span></div>
+      </div>
+      <p class="realnote">以下为 <b>PRESIGHT ALPHA-1 实盘账户</b>的真实成交记录，直接取自该账户，<b>不做筛选，亏损单同样列出</b>。不是回测，也不是模拟盘。</p>
+
+      <div class="tblscroll">
+        <table>
+          <thead>
+            <tr>
+              <th>平仓时间</th><th>品种</th><th>方向</th>
+              <th>开仓价</th><th>平仓价</th><th style="text-align:right">点数</th>
+              <th style="text-align:right">仓位(手/万美元)</th><th style="text-align:right">收益率</th>
+            </tr>
+          </thead>
+          <tbody id="tradeBody"></tbody>
+        </table>
+      </div>
+      <div id="tradeState"></div>
+
+      <div class="panel-cta">
+        <p>跟单在合作交易平台内完成。仅通过下方链接注册的账户具备本策略的订阅权限。</p>
+        <a href="#" id="brokerLink" class="btn big onDark" target="_blank" rel="noopener">注册并绑定跟单 <span class="arw">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ===================== PRODUCT 02 ===================== -->
+<section id="community">
+  <div class="rail"><span style="top:120px">COMMUNITY</span></div>
+  <div class="wrap">
+    <div class="p2">
+      <div class="rv">
+        <div class="fig">FIG. <b>03</b> &mdash; 主推产品</div>
+        <h2 class="h2 han">先见交易社区</h2>
+        <div class="free"><span>￥0</span><s>永久免费</s></div>
+        <p class="lede">不卖课、不收会员费、不做喊单群。社区内容全部免费开放，包括策略实盘在用的信号。<br><br><b>从信号频道进入</b>——它是对外总入口，实时信号公开可见，无需申请。社区讨论在 <b>@presight_institute</b>，同样公开。两个入口都不设门槛。</p>
+        <div class="hero-cta">
+          <a href="#" data-link="channel" class="btn big" target="_blank" rel="noopener">进入信号频道 <span class="arw">&rarr;</span></a>
+          <a href="#" data-link="community" class="btn big ghost" target="_blank" rel="noopener">交易学院社区（公开）</a>
+        </div>
+        <p class="hero-note">频道与学院社区均<b>公开开放</b>，无需申请 &middot; 实时信号不再分等级，所有人看到的是同一份</p>
+        <div class="qrbox">
+          <div class="code"><img src="assets/qr/tg-channel.svg" alt="扫码进入 Presight 信号频道" width="104" height="104"></div>
+          <div class="cap"><b>扫码进入信号频道</b>
+            这是 Presight 的对外总入口，无需申请即可查看信号与快讯。
+            社区讨论在 <b>@presight_institute</b>，同样公开直接进。
+            <span class="h">或在 Telegram 搜索 @presight_signals</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="offers rv">
+        <div class="offer">
+          <div class="ix">01 / SIGNALS</div>
+          <h4>全品种量化信号</h4><p>覆盖外汇、贵金属、原油、股指与加密货币。每条信号包含入场区间、止损位、目标位与模型置信度，同步推送至 Telegram 与社区频道。</p>
+        </div>
+        <div class="offer">
+          <div class="ix">02 / RESEARCH</div>
+          <h4>市场分析</h4><p>每日盘前简报与每周宏观复盘，说明价格变动的驱动因素，而非事后归因。</p>
+        </div>
+        <div class="offer">
+          <div class="ix">03 / TRAINING</div>
+          <h4>交易培训</h4><p>从点差与滑点的成本构成，到仓位管理与回测中的过拟合识别。系统课程与直播答疑，全部公开。</p>
+        </div>
+        <div class="offer">
+          <div class="ix">04 / EVENTS</div>
+          <h4>交易活动</h4><p>模拟盘竞赛、实盘挑战与策略共建。提供奖金与实盘账户，无参与门槛。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== STEPS ===================== -->
+<section id="start" style="padding-bottom:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="fig">FIG. <b>04</b> &mdash; 流程</div>
+      <h2 class="h2 han">四步开始跟单</h2>
+    </div>
+  </div>
+  <div class="steps four rv">
+    <div class="step"><div class="n">01</div><h4>通过链接注册开户</h4><p>通过本站链接在合作交易平台完成开户与身份认证。仅此渠道注册的账户具备本策略订阅权限。</p></div>
+    <div class="step"><div class="n">02</div><h4>入金并订阅策略</h4><p>登录 <span class="mono">secure.decodefx.com</span> → <b>Copy Trading</b>。第一次进要先<b>注册一个 follower 账户</b>，注册完才能登录跟单平台。<br><br>进 <b>New subscription</b>，Provider 填 <span class="mono">PRESIGHT ALPHA-1</span>；参数选 <b>Autoscale</b>、<b>Value by asset</b>，<b>Ratio 填 1</b>（即 1:1，不放大）。<br><br>建好之后还要在 <b>Action</b> 那一栏点 <b>Activate</b>——<b>不点这一下跟单不生效</b>，订阅只是躺在列表里。单笔风险由我们在跟单账户层面设定，你不需要配置。</p></div>
+    <div class="step"><div class="n">03</div><h4>报备 MT5 账户 ID</h4><p>在 Telegram 私信 <span class="mono">@PresightAdminBot</span>，把 MT5 账户 ID（登录号）发给它，会当场收到回执。包赔的保护期从这一刻起算——没报备的账户不具备赔付资格，报备之前的亏损也不赔。</p></div>
+    <div class="step"><div class="n">04</div><h4>跟满一个月</h4><p>策略的每笔开平仓将同步至你的账户，连续跟单满 1 个月即完成保护期。暂停或解除跟单可在平台内自助操作，但会使本次参与失去赔付资格。</p></div>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="fig">FIG. <b>05</b> &mdash; 常见问题</div>
+      <h2 class="h2 han">关于策略与跟单</h2>
+    </div>
+    <div class="faq rv">
+      <details open><summary>赔付如何触发与计算？</summary><p>以<b>基准资金</b>（报备 MT5 账户 ID、保护期起算时刻的账户净值）为基准，保护期结束时若账户净值低于基准资金，差额即为净亏损，按实际金额以<b>美元现金</b>返还，核验通过后 10 个工作日内到账。赔付只覆盖由策略自动平仓的交易——<b>你手动平仓造成的亏损不赔</b>。盈利或持平则不触发赔付。保护额度为基准资金全额。<a href="protection.html">完整细则与除外情形 &rarr;</a></p></details>
+      <details><summary>包赔需要满足哪些条件？</summary><p>五条：通过本站链接注册的新账户并完成 KYC；跟单参数设为 <b>Autoscale / Value by asset / Ratio = 1</b>（即 1:1，不放大主账户仓位）；开始跟单后<b>私信 @PresightAdminBot 报备你的 MT5 账户 ID</b>；自报备起<b>连续跟单满 1 个月</b>；期间<b>不手动干预、不出金</b>。<br><br>报备是资格前提：没报备我们无从核验，报备之前产生的亏损也不在赔付范围。手动平仓是唯一的例外条款——它不会让整次参与作废，但那笔交易的亏损不赔。<br><br>单笔风险与总敞口<b>不由你设置</b>，而是由我们在跟单账户层面统一管理——ALPHA-1 是量化策略，同时持有多笔仓位属于正常结构。策略账户设有回撤阈值，触及后自动降低仓位或暂停开新仓，且不加仓、不摊平。</p></details>
+      <details><summary>是否必须使用指定交易平台？</summary><p>是。跟单为平台内部的信号同步机制，仅通过本站链接注册的账户在订阅名单内，既有的其他账户无法接入。</p></details>
+      <details><summary>收入来源是什么？社区为何免费？</summary><p>跟单收入来自合作平台返佣与策略分成，与跟单规模挂钩。策略无收益时，我们同样无收入——利益方向与跟单者一致。社区为获客渠道，不单独计费。</p></details>
+      <details><summary>历史业绩是否经过筛选？</summary><p>本页成交记录直接取自策略运行账户，不做筛选，亏损单同样列出。历史表现不代表未来收益，任何策略均存在回撤期。</p></details>
+      <details><summary>最低入金要求是多少？</summary><p>【填写最低入金要求。】需注意：账户资金过低时，平台手数取整会使实际跟单比例偏离你设定的值，可能导致实际跟单比例偏离 1:1 而<b>影响包赔资格</b>。建议入金金额留出余量，具体门槛可在社区咨询。</p></details>
+    </div>
+
+    <div class="risk rv" style="margin-top:52px">
+      <h4><span class="mono">&#9888;</span> 风险提示</h4>
+      <p>差价合约、外汇及杠杆产品具有高风险，可能导致您损失全部本金，并不适合所有投资者。在交易前请确保您充分理解相关风险，并考虑自身的投资经验、财务状况与风险承受能力。</p>
+      <p>本网站提供的信号、分析与培训内容仅供参考，不构成任何投资建议、要约或招揽。历史业绩不代表未来表现。您的交易决策及其结果由您本人承担。</p>
+      <p>【请在此补充：运营主体全称与注册地、持牌情况或明确的"未持牌"声明、合作交易平台名称与其监管机构、以及地区限制说明。】</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 推广合作伙伴（IB） ===================== -->
+<section id="partner">
+  <div class="rail"><span style="top:120px">PARTNER</span></div>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="fig">FIG. <b>06</b> &mdash; 推广合作</div>
+      <h2 class="h2 han">推广合作伙伴</h2>
+      <p class="lede">把 Presight 介绍出去，佣金分你一半。名下的跟单用户除了同样适用跟单亏损包赔，还多一层<b>首月保收益 1%</b>。</p>
+    </div>
+
+    <div class="pgrid rv">
+      <div class="pcell">
+        <div class="k">Commission</div>
+        <div class="v"><span class="u">50%</span> 佣金分成</div>
+        <p>你邀请的用户产生的佣金，一半归你。结算与明细都在合作平台后台，我们不经手资金。</p>
+      </div>
+      <div class="pcell">
+        <div class="k">Coverage</div>
+        <div class="v">名下用户同享包赔</div>
+        <p>通过你的链接注册并跟单的用户，同样适用跟单亏损包赔，条件与官网细则一致。</p>
+      </div>
+      <div class="pcell">
+        <div class="k">Threshold</div>
+        <div class="v"><span class="u">3</span> 名用户 &middot; 总入金 <span class="u">5,000</span> 美元</div>
+        <p>名下至少 3 名用户，且他们的<b>入金合计</b>不低于 5,000 美元——包赔与首月保收益都以此为门槛。</p>
+      </div>
+    </div>
+
+
+    <div class="phl rv">
+      <span class="phl-tag">新增 &middot; 仅限合作伙伴名下用户</span>
+      <div class="phl-body">
+        <div class="phl-num">1%</div>
+        <div class="phl-txt">
+          <h4>首月保收益</h4>
+          <p>你名下的用户除了跟单亏损包赔，还多一层保障：<b>跟单满第一个月时若收益不足 1%，我们按跟单金额的 1% 返现。</b></p>
+          <p class="phl-f">跟单金额 = 首月 30 天每日跟单余额之和 &divide; 30（即日均余额）</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="steps rv" style="margin-top:40px">
+      <div class="step"><div class="n">01</div><h4>用推广专用链接注册</h4><p>下方按钮里那条链接和用户注册用的<b>不是同一条</b>。走错了后台就没有申请入口，只能重新注册。</p></div>
+      <div class="step"><div class="n">02</div><h4>后台申请成为 IB</h4><p>注册后登录 DecodeFX 后台，点「申请成为 IB」。通过之后你会拿到属于自己的邀请链接。</p></div>
+      <div class="step"><div class="n">03</div><h4>用自己的链接邀请</h4><p>此后从你的链接注册的用户都算在你名下，佣金按 50% 分成，明细可在后台自查。</p></div>
+    </div>
+
+    <div class="pshare rv">
+      <div>
+        <div class="lbl">邀请 IB 用这个链接</div>
+        <code id="partnerShare">https://secure.decodefx.com/auth/register/?ref=l-292412201-FS8661P7</code>
+      </div>
+      <button class="pcopy" type="button" data-copy="#partnerShare">复制</button>
+    </div>
+    <p class="pcontact rv">IB 合作洽谈请联系 Telegram <a href="https://t.me/presighttrading" target="_blank" rel="noopener">@presighttrading</a></p>
+    <p class="pcontact rv">想了解策略细节，或者为你的私域客户<b>定制专属策略</b>，同样私聊 Telegram 管理员 <a href="https://t.me/presighttrading" target="_blank" rel="noopener">@presighttrading</a></p>
+
+    <div class="pdl rv">
+      <div class="pdl-txt">
+        <h4>可下载的分享长图</h4>
+        <p>包赔规则一张图讲完，含二维码——扫码直接弹出「三步开始跟单」。点开在新页签里打开，手机上长按存图或直接截屏，就能转发微信群和朋友圈。<b>内容跟着官网走，改了条款这张图会重出</b>。</p>
+      </div>
+      <div class="pdl-btn">
+        <a class="btn" href="assets/share/presight-baopei.png" target="_blank" rel="noopener">打开长图 <span class="arw">&rarr;</span></a>
+        <a class="btn ghost" href="assets/share/presight-baopei.pdf" target="_blank" rel="noopener">PDF 版</a>
+      </div>
+    </div>
+
+    <div class="hero-cta rv" style="margin-top:32px;justify-content:flex-start">
+      <a href="#" data-link="ib" class="btn big" target="_blank" rel="noopener">注册并申请成为 IB <span class="arw">&rarr;</span></a>
+      <a href="protection.html" class="btn big ghost">先看包赔细则</a>
+    </div>
+
+    <div class="risk rv" style="margin-top:40px">
+      <h4><span class="mono">&#9888;</span> 说明</h4>
+      <p>佣金分成与 IB 资格由合作交易平台（DecodeFX）核算与发放，Presight 不经手资金。名下用户的包赔仍以官网发布的<a href="protection.html" style="color:var(--amber);font-weight:600">完整活动细则</a>为准——每位用户仍需自行报备 MT5 账户 ID，并满足细则中的其余条件。</p>
+      <p>推广时不得使用「保证盈利」「稳赚不赔」一类的表述，也不得代客操盘或代客持有资金。违反的合作关系我们会终止。</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <div class="logo" style="color:#fff;margin-bottom:16px">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true">
+            <rect x=".5" y=".5" width="29" height="29" stroke="#24304A"/>
+            <path d="M4 21 L10 15 L14 18 L18 9" stroke="#4A66F0" stroke-width="2" fill="none"/>
+            <path d="M18 9 L22 12 L26 5" stroke="#D6188A" stroke-width="2" fill="none" stroke-dasharray="3 3"/>
+          </svg>
+          <span><span class="lt">PRESIGHT</span><span class="lc han" style="color:#5B6883">先见交易学院</span></span>
+        </div>
+        <p class="fsl">先见，先行。</p>
+        <p class="han" style="font-size:.84rem;line-height:1.8;max-width:34ch;color:#5B6883">Presight Trading Institute · 量化策略与交易教育</p>
+      </div>
+      <div><h5>产品</h5><a href="#protection">亏损包赔</a><a href="#partner">推广合作</a><a href="#strategy">跟单策略</a><a href="#community">社区信号</a><a href="#community">交易培训</a></div>
+      <div><h5>资源</h5><a href="#faq">常见问题</a><a href="protection.html">包赔活动细则</a><a href="#">策略说明书</a><a href="#">历史业绩下载</a></div>
+      <div><h5>联系</h5><a href="#" data-link="channel" target="_blank" rel="noopener">公开信号频道</a><a href="#" data-link="community" target="_blank" rel="noopener">交易学院社区</a><a href="#" data-link="email">邮箱</a><a href="#" data-link="email">商务合作</a></div>
+    </div>
+    <div class="fbot">
+      <span>&copy; 2026 PRESIGHT TRADING INSTITUTE</span>
+      <span>交易有风险 · 入市需谨慎</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===================== 开始跟单弹窗 ===================== -->
+<div class="mask" id="startMask" role="dialog" aria-modal="true"
+     aria-labelledby="startTitle" hidden>
+  <div class="modal">
+    <button class="mclose" type="button" data-close aria-label="关闭">&times;</button>
+
+    <div class="mhead">
+      <div class="fig">FIG. <b>00</b> &mdash; 开始跟单</div>
+      <h3 id="startTitle">三步开始跟单</h3>
+      <p>十分钟内可以做完。<b>第 3 步决定你有没有包赔资格</b>，别漏。</p>
+    </div>
+
+    <ol class="msteps">
+      <li>
+        <div class="mn">01</div>
+        <div>
+          <h4>注册开户并入金</h4>
+          <p>只有走这条链接注册的<b>新账户</b>才在订阅名单里。注册后完成身份认证（KYC），再入金。</p>
+          <a class="btn" data-link="broker" target="_blank" rel="noopener">去 DecodeFX 注册 <span class="arw">&rarr;</span></a>
+        </div>
+      </li>
+      <li>
+        <div class="mn">02</div>
+        <div>
+          <h4>订阅 PRESIGHT ALPHA-1</h4>
+          <div class="path">
+            <b>secure.decodefx.com</b> &rarr; Copy Trading &rarr; <b>先注册 follower 账户</b> &rarr; 登录跟单平台 &rarr; New subscription<br>
+            Provider：<b>PRESIGHT ALPHA-1</b><br>
+            参数：<b>Autoscale</b> · <b>Value by asset</b> · <b>Ratio = 1</b><br>
+            最后在 <b>Action</b> 栏点 <b>Activate</b>
+          </div>
+          <p class="mwarn">建好订阅后<b>一定要点 Activate</b>，否则跟单不会生效。Ratio 填 1 就是 1:1，大于 1 是放大仓位，直接失去包赔资格。</p>
+        </div>
+      </li>
+      <li>
+        <div class="mn">03</div>
+        <div>
+          <h4>私信机器人，报备 MT5 账户 ID</h4>
+          <p>把登录号（一串数字）发给它就行，会当场收到回执。<b>包赔的保护期从报备那一刻起算</b>，报备之前产生的亏损不在赔付范围，所以开完户请尽早报。</p>
+          <a class="btn" data-link="bot" target="_blank" rel="noopener">私信 @PresightAdminBot <span class="arw">&rarr;</span></a>
+          <p class="mwarn">只发登录号，<b>不要发密码</b>。我们任何时候都不会向你索要密码、验证码或资金。</p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="mfoot">
+      <a class="btn ghost" data-link="community" target="_blank" rel="noopener">有问题？进交易学院社区</a>
+      <a class="mlink" href="protection.html">完整活动细则 &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<script src="assets/js/config.js?v=202609061155"></script>
+<script src="assets/js/app.js?v=202609061155"></script>
+<script>
+addEventListener("load",()=>{setTimeout(()=>{
+  const as=[...document.querySelectorAll("nav a")];
+  const vis=as.filter(a=>getComputedStyle(a).display!=="none");
+  const hs=vis.map(a=>Math.round(a.getBoundingClientRect().height));
+  const base=Math.min(...hs);
+  const wrapped=hs.filter(h=>h>base+4).length;
+  document.title=`vw=${innerWidth} docW=${document.documentElement.scrollWidth} `
+    +`可见=${vis.length}/${as.length} 行高=[${[...new Set(hs)].join(",")}] 折行项=${wrapped}`;
+},3500);});
+</script></body>
+</html>

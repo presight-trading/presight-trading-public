@@ -116,7 +116,10 @@ header{
 .logo .lt{font-weight:800;letter-spacing:-.02em;font-size:1.02rem;line-height:1}
 .logo .lc{font-family:var(--han);font-size:.66rem;color:var(--ink-soft);letter-spacing:.16em;margin-top:3px}
 nav{display:flex;gap:30px;font-family:var(--han);font-size:.88rem;font-weight:500}
-nav a{color:var(--ink-mid);text-decoration:none;position:relative;padding:4px 0;transition:color .18s}
+/* nowrap 是关键：不加的话空间一紧，flex 会把每一项压到内容宽度以下，
+   「Loss coverage」被折成两行、日文项甚至折成四行。 */
+nav a{color:var(--ink-mid);text-decoration:none;position:relative;padding:4px 0;
+      white-space:nowrap;transition:color .18s}
 nav a:hover{color:var(--ink)}
 nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1.5px;background:var(--cobalt);transform:scaleX(0);transform-origin:left;transition:transform .22s}
 nav a:hover::after{transform:scaleX(1)}
@@ -542,6 +545,16 @@ nav a.hot::before{content:"";display:inline-block;width:5px;height:5px;border-ra
    看起来像是跳错了地方。 */
 section[id], main[id]{scroll-margin-top:78px}
 
+/* 单行顶栏实测需要 1175(中)~1371(越)px——语言不同差近 200px。
+   中等宽度先收紧而不是直接换成两行：省下的空间足够 1280/1366 的笔记本
+   保持单行。收的是三处冗余：导航间距、logo 的副标题、语言切换的字号。 */
+@media(max-width:1400px){
+  nav{gap:18px}
+  .logo .lc{display:none}          /* 副标题，窄屏下是纯装饰 */
+  .langsw{font-size:.66rem;gap:5px}
+  .hbar{gap:18px}
+}
+
 /* 手机上的顶栏分三行。
 
    一行放不下：logo 204 + 语言切换 224 + CTA 97，390px 的屏上文档宽
@@ -553,7 +566,7 @@ section[id], main[id]{scroll-margin-top:78px}
    六项本来就是整站的目录。
 
    .hact 用 display:contents 摊平，让它的两个孩子各自排序换行。 */
-@media(max-width:760px){
+@media(max-width:1180px){
   .hbar{flex-wrap:wrap;height:auto;padding-top:10px;padding-bottom:8px;
         column-gap:12px;row-gap:7px}
   .hact{display:contents}
@@ -629,3 +642,4 @@ section[id], main[id]{scroll-margin-top:78px}
   .bd-head{padding:22px 22px 0}
   .bsrow{grid-template-columns:88px 1fr 60px 84px;gap:10px;padding:10px 22px}
 }
+
