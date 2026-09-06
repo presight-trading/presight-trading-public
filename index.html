@@ -95,8 +95,8 @@
 
     <div class="strip rv">
       <div><div class="k">Live Since</div><div class="v" id="sRun">&mdash;</div></div>
-      <div><div class="k">近 1 个月净点数</div><div class="v" id="sRet" style="color:var(--cobalt)">&mdash;</div></div>
-      <div><div class="k">Win Rate</div><div class="v" id="sWin">&mdash;</div></div>
+      <div><div class="k">近 30 天盈亏 &middot; $10,000 参考账户</div><div class="v" id="sRet" style="color:var(--cobalt)">&mdash;</div></div>
+      <div><div class="k">胜率 &middot; 近 30 天</div><div class="v" id="sWin">&mdash;</div></div>
       <div><div class="k">Community</div><div class="v" id="sMem">&mdash;</div></div>
       <div><div class="k">Loss Cover</div><div class="v" style="color:var(--cobalt)">现金返还</div></div>
     </div>
@@ -169,21 +169,20 @@
         </div>
       </div>
 
-      <!-- 前五项是点数口径（「盈亏比」标签沿用旧名，但分子分母都已改成点数）；
-           后两项是按建议手数折算的美元盈亏，参考账户见下方小字说明。 -->
+      <!-- 全部按参考账户 $10,000 的美元盈亏口径，30 天为主视角；净点数不
+           再展示，只留在下方成交表的「点数」列。 -->
       <div class="metrics">
-        <div><div class="k">净点数</div><div class="v g" id="mRet">&mdash;</div></div>
-        <div><div class="k">胜率</div><div class="v" id="mWin">&mdash;</div></div>
-        <div><div class="k">最大回撤（点）</div><div class="v r" id="mDD">&mdash;</div></div>
-        <div><div class="k">盈亏比</div><div class="v" id="mPF">&mdash;</div></div>
-        <div><div class="k">成交笔数</div><div class="v" id="mN">&mdash;</div></div>
-        <div><div class="k">近 7 天盈亏 (USD)</div><div class="v" id="mPnl7">&mdash;</div></div>
-        <div><div class="k">近 30 天盈亏 (USD)</div><div class="v" id="mPnl30">&mdash;</div></div>
+        <div><div class="k">近 7 天盈亏</div><div class="v" id="mPnl7">&mdash;</div></div>
+        <div><div class="k">近 30 天盈亏</div><div class="v" id="mPnl30">&mdash;</div></div>
+        <div><div class="k">胜率(30 天)</div><div class="v" id="mWin">&mdash;</div></div>
+        <div><div class="k">最大回撤(30 天)</div><div class="v r" id="mDD">&mdash;</div></div>
+        <div><div class="k">盈亏比(30 天)</div><div class="v" id="mPF">&mdash;</div></div>
+        <div><div class="k">成交笔数(30 天)</div><div class="v" id="mN">&mdash;</div></div>
       </div>
       <div class="metrics-note" id="mRefNote"></div>
 
       <div class="curvewrap">
-        <svg viewBox="0 0 1080 260" id="equityChart" role="img" aria-label="策略累计净值曲线（累计点数）"></svg>
+        <svg viewBox="0 0 1080 260" id="equityChart" role="img" aria-label="30 天累计盈亏（USD）"></svg>
       </div>
 
 
@@ -194,7 +193,7 @@
       <div class="bysym" id="bySym"></div>
 
       <div class="tbl-head">
-        <h4>成交记录 · 近 1 个月 <span class="realbadge">实盘</span></h4>
+        <h4>成交记录 · 近 30 天 <span class="realbadge">实盘</span></h4>
         <div class="live"><span class="dot"></span> LIVE &middot; <span id="upd">&mdash;</span></div>
       </div>
       <p class="realnote">以下为 <b>PRESIGHT ALPHA-1 实盘账户</b>的真实成交记录，直接取自该账户，<b>不做筛选，亏损单同样列出</b>。不是回测，也不是模拟盘。</p>
@@ -472,7 +471,7 @@
   </div>
 </div>
 
-<script src="assets/js/config.js?v=202609061056"></script>
-<script src="assets/js/app.js?v=202609061056"></script>
+<script src="assets/js/config.js?v=202609061130"></script>
+<script src="assets/js/app.js?v=202609061130"></script>
 </body>
 </html>

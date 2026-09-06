@@ -13,7 +13,7 @@ const TEXTS = {
     updated:'更新于 ', demo:'演示数据', copied:'已复制',
     errT:'成交记录暂时取不到', errB:'数据接口没有响应。稍后会自动重试，也可以刷新页面。',
     emptyT:'还没有已平仓的交易', emptyB:'策略正在运行，第一笔成交平仓后会立刻出现在这里。',
-    refNote:'参考账户 ${AMT} · 建议手数 · 不含隔夜利息',
+    refNote:'参考账户 $${AMT} · 按建议手数 · 仅已平仓 · 不含浮动盈亏与隔夜利息',
   },
   en:{
     tradesUnit:'trades',
@@ -24,7 +24,7 @@ const TEXTS = {
     updated:'updated ', demo:'demo data', copied:'Copied',
     errT:'Fill history unavailable', errB:'The data endpoint did not respond. It will retry automatically, or you can reload the page.',
     emptyT:'No closed trades yet', emptyB:'The strategy is running. The first closed trade will appear here immediately.',
-    refNote:'Reference account $${AMT} · suggested lot size · excludes swap',
+    refNote:'$${AMT} reference account · suggested lots · closed trades only · excludes floating P&L and swap',
   },
   ja:{
     tradesUnit:'件',
@@ -35,7 +35,7 @@ const TEXTS = {
     updated:'更新 ', demo:'デモデータ', copied:'コピーしました',
     errT:'約定履歴を取得できません', errB:'データ側から応答がありません。自動で再試行します。ページの再読み込みでもかまいません。',
     emptyT:'決済済みの取引はまだありません', emptyB:'戦略は稼働中です。最初の決済が出たらすぐここに表示されます。',
-    refNote:'参照口座 $${AMT}・推奨ロット・スワップ(オーバーナイト金利)除く',
+    refNote:'参照口座 $${AMT}・推奨ロット・決済済み取引のみ・含み損益とスワップ(オーバーナイト金利)を除く',
   },
   vi:{
     tradesUnit:'lệnh',
@@ -46,7 +46,7 @@ const TEXTS = {
     updated:'cập nhật ', demo:'dữ liệu mẫu', copied:'Đã sao chép',
     errT:'Chưa lấy được lịch sử khớp lệnh', errB:'Máy chủ dữ liệu không phản hồi. Hệ thống sẽ tự thử lại, hoặc bạn có thể tải lại trang.',
     emptyT:'Chưa có lệnh nào đóng', emptyB:'Chiến lược đang chạy. Lệnh đóng đầu tiên sẽ hiện ở đây ngay lập tức.',
-    refNote:'Tài khoản tham chiếu $${AMT} · lot đề xuất · chưa gồm phí qua đêm',
+    refNote:'Tài khoản tham chiếu $${AMT} · theo lot đề xuất · chỉ tính lệnh đã đóng · không gồm lãi/lỗ chưa thực hiện và phí qua đêm',
   },
   th:{
     tradesUnit:'ออเดอร์',
@@ -57,7 +57,7 @@ const TEXTS = {
     updated:'อัปเดตเมื่อ ', demo:'ข้อมูลตัวอย่าง', copied:'คัดลอกแล้ว',
     errT:'ยังดึงประวัติออเดอร์ไม่ได้', errB:'เซิร์ฟเวอร์ข้อมูลไม่ตอบสนอง ระบบจะลองใหม่อัตโนมัติ หรือคุณจะรีเฟรชหน้าก็ได้',
     emptyT:'ยังไม่มีออเดอร์ที่ปิดแล้ว', emptyB:'กลยุทธ์กำลังทำงาน ออเดอร์แรกที่ปิดจะขึ้นตรงนี้ทันที',
-    refNote:'บัญชีอ้างอิง $${AMT} · ล็อตแนะนำ · ไม่รวมดอกเบี้ยข้ามคืน',
+    refNote:'บัญชีอ้างอิง $${AMT} · ตามล็อตที่แนะนำ · เฉพาะออเดอร์ที่ปิดแล้ว · ไม่รวมกำไร/ขาดทุนที่ยังไม่เกิดขึ้นจริงและดอกเบี้ยข้ามคืน',
   },
 };
 const T = TEXTS[LANG] || TEXTS.zh;
@@ -95,10 +95,13 @@ const price = (s,v) => v.toFixed(s.includes('JPY')?3 : (s==='NAS100'||s==='US30'
    后端字段还没上线、或旧缓存数据）一律显示 "—"，不当成 0——0 是一个真实的
    盈亏结果，不该跟"没有数据"混在一起。 */
 function fmtLots(v){ return v==null ? '—' : Number(v).toFixed(2); }
-function fmtUsd(v){
+/* 统一的美元格式化：所有 USD 数值(指标卡/英雄区/成交表)都走这一个函数，
+   避免同一页面里出现两种小数位/千分位规则。null/非有限数一律显示 "—"，
+   不当成 0——0 是一个真实的盈亏结果。 */
+function usd(v){
   if(v==null || !isFinite(Number(v))) return '—';
   const n = Number(v);
-  return (n>=0?'+':'−') + Math.abs(n).toFixed(2);
+  return (n>=0?'+':'−') + '$' + Math.abs(n).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
 }
 /* 按窗口求和 pnlUsd：只累加窗口内 pnlUsd 非空的成交；窗口内一笔贡献都没有
    （字段还没上线，或这批全是旧缓存数据）时返回 null，页面显示 "—"——
@@ -111,6 +114,16 @@ function sumPnlUsd(trades, sinceMs){
     sum += Number(t.pnlUsd); has = true;
   }
   return has ? sum : null;
+}
+/* 胜率(30 天)前端兜底：summary30d 没给 winRatePct 时，按 pnlUsd>0 的笔数
+   占比自己算——只算 pnlUsd 非空的笔，一笔可用数据都没有就是 null。 */
+function winRateFromPnl(trades){
+  let wins = 0, total = 0;
+  for(const t of trades){
+    if(t.pnlUsd == null) continue;
+    total++; if(Number(t.pnlUsd) > 0) wins++;
+  }
+  return total ? (wins/total*100) : null;
 }
 function timeAgo(iso){
   const m = Math.floor((Date.now()-new Date(iso))/60000);
@@ -159,12 +172,12 @@ function renderUpdated(iso){
     : '—';
 }
 
-/* trades 现在覆盖近 30 天（后端 windowDays:30，见 config.js 顶部注释），
-   但表格本身仍只展示近 7 天——rowLimit(200) 是"最多多少行"，不是"多少天"，
-   两者叠加：先按 closedAt 过滤 7 天窗口，再截前 rowLimit 行。 */
+/* trades 覆盖近 30 天（后端 windowDays:30，见 config.js 顶部注释），表格
+   现在展示同一个 30 天窗口——rowLimit(600) 是"最多多少行"，不是"多少天"，
+   两者叠加：先按 closedAt 过滤 30 天窗口，再截前 rowLimit 行。 */
 function renderTrades(trades){
-  const sevenDaysAgo = Date.now() - 7*24*3600*1000;
-  const recent = trades.filter(t => t.closedAt && new Date(t.closedAt).getTime() >= sevenDaysAgo);
+  const thirtyDaysAgo = Date.now() - 30*24*3600*1000;
+  const recent = trades.filter(t => t.closedAt && new Date(t.closedAt).getTime() >= thirtyDaysAgo);
   if(!recent.length) return renderEmpty();
   $('#tradeState').innerHTML = '';
   $('#tradeBody').innerHTML = recent.slice(0,CONFIG.rowLimit).map(t=>{
@@ -178,76 +191,70 @@ function renderTrades(trades){
       <td>${price(t.symbol,t.closePrice)}</td>
       <td class="pnl ${win?'g':'r'}" style="text-align:right;font-weight:700">${t.pips>0?'+':''}${t.pips.toFixed(1)}</td>
       <td style="text-align:right">${fmtLots(t.suggestedLots)}</td>
-      <td class="pnl ${pnlCls}" style="text-align:right;font-weight:700">${fmtUsd(t.pnlUsd)}</td>
+      <td class="pnl ${pnlCls}" style="text-align:right;font-weight:700">${usd(t.pnlUsd)}</td>
     </tr>`;
   }).join('');
 }
 
 /* ---------- 由成交记录反推指标 ----------
-   净点数/胜率/回撤/盈亏比仍是点数口径；建议手数对应的美元盈亏(7/30 天)
-   是叠加的新指标，两套口径并存，互不覆盖。 */
+   2026-09（Task 36）：页面统一为参考账户 $10,000 的美元盈亏口径，不再展示
+   净点数——回撤/盈亏比/净值曲线全部按 pnlUsd 前端算(只用 30 天窗口内、
+   pnlUsd 非空的笔；一笔可用数据都没有就是 null，显示 "—"，不退回点数)。
+   点数只保留在成交表的"点数"列。 */
 function renderMetrics(trades, summary, summary30d){
-  const n = trades.length;
-  const wins   = trades.filter(t=>t.pips>0);
-  const losses = trades.filter(t=>t.pips<0);
+  const thirtyDaysAgo = Date.now() - 30*24*3600*1000;
+  const sevenDaysAgo  = Date.now() - 7*24*3600*1000;
+  const trades30 = trades.filter(t => t.closedAt && new Date(t.closedAt).getTime() >= thirtyDaysAgo);
 
-  // 净值曲线：能拿到 pnlUsd 就按美元累计（更贴近真实建议仓位盈亏），
-  // 一笔都没有（字段还没上线，或 DEMO 数据）就退回按点数累计——
-  // 两种口径不能在同一条曲线里混用，否则量级对不上。
-  const hasPnlUsd = trades.some(t=>t.pnlUsd!=null);
-  // 从旧到新累计（图表用；summary 只给汇总数字，不给逐笔曲线，所以曲线
-  // 始终在前端按 trades 现算）
-  const chron = [...trades].reverse();
-  let eq=0, peak=0, ddCalc=0; const curve=[0];
+  // 净值曲线 + 最大回撤 + 盈亏比：全部按 30 天 trades 的 pnlUsd 从旧到新
+  // 累计，pnlUsd 为 null 的笔跳过（不当 0，也不退回点数）。30 天里一笔
+  // 可用数据都没有（字段还没上线，或 DEMO 数据）时 dd/pf 都是 null。
+  const chron = [...trades30].reverse();
+  let eq=0, peak=0, ddCalc=0, hasAnyPnl=false, winSum=0, lossSum=0;
+  const curve=[0];
   chron.forEach(t=>{
-    const v = hasPnlUsd ? Number(t.pnlUsd ?? 0) : Number(t.pips);
+    if(t.pnlUsd==null) return;
+    hasAnyPnl = true;
+    const v = Number(t.pnlUsd);
     eq+=v; peak=Math.max(peak,eq); ddCalc=Math.max(ddCalc,peak-eq); curve.push(eq);
+    if(v>0) winSum+=v; else if(v<0) lossSum+=Math.abs(v);
   });
+  const ddUsd = hasAnyPnl ? ddCalc : null;
+  const pfUsd = hasAnyPnl ? (lossSum>0 ? (winSum/lossSum) : null) : null;
 
-  // 优先用后端算好的 summary，避免前后端算法口径不一致；
-  // 没有 summary（比如 DEMO 数据、或接口暂时没给）时前端自算。
-  let netPips, winRatePct, ddPips, pf;
-  if(summary){
-    // 后端(vip-history.json)的键名是 totalPips / winRatePct / pfPips / maxDrawdownPips；
-    // 同时兼容早期草案的 netPips / winRate / profitFactor，任一存在即用。
-    netPips    = Number(summary.totalPips ?? summary.netPips);
-    winRatePct = Number(summary.winRatePct ?? summary.winRate);
-    ddPips     = Number(summary.maxDrawdownPips);
-    const pfRaw = summary.pfPips ?? summary.profitFactor;
-    pf         = pfRaw != null ? Number(pfRaw) : null;
-  }
+  // 胜率(30 天)：优先用后端算好的 summary30d.winRatePct，避免前后端算法
+  // 口径不一致；没有时前端按 pnlUsd>0 的笔数占比自己算。英雄区 #sWin 与
+  // 指标卡 #mWin 是同一个值，同一套口径。
+  const winRate30 = (summary30d && summary30d.winRatePct != null)
+    ? Number(summary30d.winRatePct)
+    : winRateFromPnl(trades30);
 
-  $('#mRet').textContent = (netPips>=0?'+':'−') + Math.abs(netPips).toFixed(1);
-  $('#mWin').textContent = winRatePct!=null ? winRatePct.toFixed(1)+'%' : '—';
-  $('#mDD').textContent  = '−' + Math.abs(ddPips).toFixed(1);
-  $('#mPF').textContent  = pf!=null ? pf.toFixed(2) : '—';
-  $('#mN').textContent = (summary && summary.trades != null) ? summary.trades : n;   // 与净点数/胜率同为近 7 天口径(trades 数组含 30 天,别直接数)
-
-  // 英雄区 #sRet 的标签是「近 7 天净点数」，按 closedAt 单独过滤 7 天
-  // 窗口——不能直接复用上面的 netPips（那是全量/summary 口径）。
-  const sevenDaysAgo = Date.now() - 7*24*3600*1000;
-  const net7 = trades
-    .filter(t=>t.closedAt && new Date(t.closedAt).getTime() >= sevenDaysAgo)
-    .reduce((a,t)=>a+t.pips,0);
-  $('#sRet').textContent = (net7>=0?'+':'−') + Math.abs(net7).toFixed(1) + ' pips';
-  $('#sWin').textContent = winRatePct!=null ? winRatePct.toFixed(1)+'%' : '—';
+  $('#mWin').textContent = winRate30!=null ? winRate30.toFixed(1)+'%' : '—';
+  $('#mDD').textContent  = ddUsd!=null ? '−$'+ddUsd.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2}) : '—';
+  $('#mPF').textContent  = pfUsd!=null ? pfUsd.toFixed(2) : '—';
+  $('#mN').textContent   = (summary30d && summary30d.trades != null) ? summary30d.trades : trades30.length;
 
   // 近 7 天 / 近 30 天建议仓位盈亏(USD)：优先用后端算好的 summary.pnlUsd /
   // summary30d.pnlUsd(避免前后端口径不一致)，都没有时前端按 trades 里的
   // pnlUsd 自己求和；一笔可用数据都没有就是 null，显示 "—"，不是 0。
-  const thirtyDaysAgo = Date.now() - 30*24*3600*1000;
   const pnl7  = (summary && summary.pnlUsd != null) ? Number(summary.pnlUsd) : sumPnlUsd(trades, sevenDaysAgo);
   const pnl30 = (summary30d && summary30d.pnlUsd != null) ? Number(summary30d.pnlUsd) : sumPnlUsd(trades, thirtyDaysAgo);
   const mPnl7El = $('#mPnl7'), mPnl30El = $('#mPnl30');
-  if(mPnl7El){ mPnl7El.textContent = fmtUsd(pnl7); mPnl7El.className = 'v' + (pnl7==null ? '' : (pnl7>=0?' g':' r')); }
-  if(mPnl30El){ mPnl30El.textContent = fmtUsd(pnl30); mPnl30El.className = 'v' + (pnl30==null ? '' : (pnl30>=0?' g':' r')); }
+  if(mPnl7El){ mPnl7El.textContent = usd(pnl7); mPnl7El.className = 'v' + (pnl7==null ? '' : (pnl7>=0?' g':' r')); }
+  if(mPnl30El){ mPnl30El.textContent = usd(pnl30); mPnl30El.className = 'v' + (pnl30==null ? '' : (pnl30>=0?' g':' r')); }
 
-  // 小字口径说明：参考账户余额取 summary.referenceBalanceUsd，接口没给
-  // （或还没上线这个字段）时按 10,000 兜底——跟 config.js normalize() 的
-  // suggestedLots/pnlUsd 假设的是同一个参考账户。
+  // 英雄区 #sRet / #sWin：近 30 天盈亏(USD) + 胜率(30 天)，跟指标卡的
+  // #mPnl30 / #mWin 同一套数值，只是摆在首屏。
+  $('#sRet').textContent = usd(pnl30);
+  $('#sWin').textContent = winRate30!=null ? winRate30.toFixed(1)+'%' : '—';
+
+  // 小字口径说明：参考账户余额取 summary30d/summary 的 referenceBalanceUsd，
+  // 接口没给（或还没上线这个字段）时按 10,000 兜底——跟 config.js
+  // normalize() 的 suggestedLots/pnlUsd 假设的是同一个参考账户。
   const noteEl = $('#mRefNote');
   if(noteEl && T.refNote){
-    const refBalance = (summary && summary.referenceBalanceUsd != null) ? Number(summary.referenceBalanceUsd) : 10000;
+    const refBalance = (summary30d && summary30d.referenceBalanceUsd != null) ? Number(summary30d.referenceBalanceUsd)
+                      : (summary && summary.referenceBalanceUsd != null) ? Number(summary.referenceBalanceUsd) : 10000;
     noteEl.textContent = T.refNote.replace('${AMT}', refBalance.toLocaleString('en-US'));
   }
 

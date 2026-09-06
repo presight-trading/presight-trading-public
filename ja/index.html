@@ -79,8 +79,8 @@
 </div>
 <div class="strip rv">
 <div><div class="k">運用日数</div><div class="v" id="sRun">—</div></div>
-<div><div class="k">直近 1 か月の純 pips</div><div class="v" id="sRet" style="color:var(--cobalt)">—</div></div>
-<div><div class="k">勝率</div><div class="v" id="sWin">—</div></div>
+<div><div class="k">直近30日の損益 · 参考口座 $10,000</div><div class="v" id="sRet" style="color:var(--cobalt)">—</div></div>
+<div><div class="k">勝率 · 直近30日</div><div class="v" id="sWin">—</div></div>
 <div><div class="k">コミュニティ</div><div class="v" id="sMem">—</div></div>
 <div><div class="k">損失補償</div><div class="v" style="color:var(--cobalt)">現金返金</div></div>
 </div>
@@ -140,20 +140,19 @@
 <span class="tag">リスク固定</span></div>
 </div>
 </div>
-<!-- Pips only: every figure below is pips-denominated — no lots, no USD P&L.
-           "Profit factor" keeps its label but is now win-pips over loss-pips. -->
+<!-- 参考口座 $10,000 の米ドル損益ベースに統一。直近30日が基準。純 pips は
+           ここでは表示せず、下の約定履歴テーブルの「pips」列にのみ残る。 -->
 <div class="metrics">
-<div><div class="k">純獲得 pips</div><div class="v g" id="mRet">—</div></div>
-<div><div class="k">勝率</div><div class="v" id="mWin">—</div></div>
-<div><div class="k">最大ドローダウン（pips）</div><div class="v r" id="mDD">—</div></div>
-<div><div class="k">プロフィットファクター</div><div class="v" id="mPF">—</div></div>
-<div><div class="k">トレード数</div><div class="v" id="mN">—</div></div>
-<div><div class="k">7日間損益 (USD)</div><div class="v" id="mPnl7">—</div></div>
-<div><div class="k">30日間損益 (USD)</div><div class="v" id="mPnl30">—</div></div>
+<div><div class="k">7日間損益</div><div class="v" id="mPnl7">—</div></div>
+<div><div class="k">30日間損益</div><div class="v" id="mPnl30">—</div></div>
+<div><div class="k">勝率(30日)</div><div class="v" id="mWin">—</div></div>
+<div><div class="k">最大ドローダウン(30日)</div><div class="v r" id="mDD">—</div></div>
+<div><div class="k">プロフィットファクター(30日)</div><div class="v" id="mPF">—</div></div>
+<div><div class="k">トレード数(30日)</div><div class="v" id="mN">—</div></div>
 </div>
 <div class="metrics-note" id="mRefNote"></div>
 <div class="curvewrap">
-<svg aria-label="戦略の累積 pips 推移" id="equityChart" role="img" viewbox="0 0 1080 260"></svg>
+<svg aria-label="直近30日の累積損益(USD)" id="equityChart" role="img" viewbox="0 0 1080 260"></svg>
 </div>
 <div class="bd-head">
 <h4>銘柄別 · 直近 1 か月</h4>
@@ -161,7 +160,7 @@
 </div>
 <div class="bysym" id="bySym"></div>
 <div class="tbl-head">
-<h4>約定履歴 · 直近 1 か月 <span class="realbadge">実口座</span></h4>
+<h4>約定履歴 · 直近30日 <span class="realbadge">実口座</span></h4>
 <div class="live"><span class="dot"></span> LIVE · <span id="upd">—</span></div>
 </div>
 <p class="realnote">これは <b>PRESIGHT ALPHA-1 の実口座</b>の実際の約定です。口座からそのまま取得し、<b>選別なし——負けトレードも含みます</b>。バックテストでもデモでもありません。</p>
@@ -400,7 +399,7 @@
 <a class="mlink" href="protection.html">プログラム規約全文 →</a></div>
 </div>
 </div>
-<script src="../assets/js/config.js?v=202609061056"></script>
-<script src="../assets/js/app.js?v=202609061056"></script>
+<script src="../assets/js/config.js?v=202609061130"></script>
+<script src="../assets/js/app.js?v=202609061130"></script>
 </body>
 </html>

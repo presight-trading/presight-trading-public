@@ -47,24 +47,27 @@ const CONFIG = {
   // 自动刷新间隔（毫秒）
   refreshMs      : 60000,
 
-  // 表格显示条数
-  rowLimit       : 200,
+  // 表格显示条数（现为 30 天窗口，行数上限相应从 200 调到 600，见 app.js renderTrades）
+  rowLimit       : 600,
 };
 
 /* 期望的 API 返回格式（对象；trades 数组按平仓时间倒序）：
 {
   "generatedAt": "2026-09-03T00:10:00Z",   // ISO 8601，数据生成时间，页面「更新于」用这个，不用客户端本地时间
-  "windowDays" : 30,                        // 可选：trades 覆盖的天数（现为近 30 天；表格仍只展示近 7 天，见 app.js）
+  "windowDays" : 30,                        // 可选：trades 覆盖的天数（现为近 30 天；表格同样展示近 30 天，见 app.js）
   "summary": {                              // 可选：后端预算好的汇总指标（近 7 天口径），存在时前端直接用，避免前后端算法口径不一致
-    "totalPips"          : 812.4,           // 净点数，带正负号（兼容旧名 netPips）
-    "winRatePct"         : 61.3,            // 胜率，百分比数字（0-100，兼容旧名 winRate）
-    "maxDrawdownPips"    : 96.0,            // 最大回撤，累计 pips 峰值回撤，正数
-    "pfPips"             : 1.82,            // 盈亏比 = 盈利点数之和 / 亏损点数绝对值之和
+    "totalPips"          : 812.4,           // 净点数，带正负号（兼容旧名 netPips）——页面已不展示，只留在接口契约里
+    "winRatePct"         : 61.3,            // 胜率，百分比数字（0-100，兼容旧名 winRate）——页面胜率格已改用 summary30d.winRatePct，这个字段目前不用
+    "maxDrawdownPips"    : 96.0,            // 最大回撤，累计 pips 峰值回撤，正数——页面已不展示（回撤格改按 pnlUsd 前端算，USD 口径）
+    "pfPips"             : 1.82,            // 盈亏比 = 盈利点数之和 / 亏损点数绝对值之和——页面已不展示（盈亏比格改按 pnlUsd 前端算，USD 口径）
     "pnlUsd"             : 214.30,          // 可选：按建议手数折算的美元盈亏（近 7 天），不含隔夜利息，缺省前端按 trades 现算
     "referenceBalanceUsd": 10000            // 可选：suggestedLots/pnlUsd 假设的参考账户余额，缺省 10000
   },
-  "summary30d": {                           // 可选：同 summary 结构，口径为近 30 天，只多一个 pnlUsd 会被用到
-    "pnlUsd": 640.10
+  "summary30d": {                           // 可选：同 summary 结构，口径为近 30 天；pnlUsd/winRatePct/trades/referenceBalanceUsd 会被用到，
+                                             // 缺省时前端分别按 30 天 trades 现算（winRatePct 按 pnlUsd>0 笔数占比，trades 按过滤后的笔数）
+    "pnlUsd"    : 640.10,
+    "winRatePct": 58.7,
+    "trades"    : 46
   },
   "trades": [
     {

@@ -95,8 +95,8 @@
 
     <div class="strip rv">
       <div><div class="k">Live Since</div><div class="v" id="sRun">&mdash;</div></div>
-      <div><div class="k">Net pips (30d)</div><div class="v" id="sRet" style="color:var(--cobalt)">&mdash;</div></div>
-      <div><div class="k">Win Rate</div><div class="v" id="sWin">&mdash;</div></div>
+      <div><div class="k">30-day P&amp;L &middot; $10,000 ref. account</div><div class="v" id="sRet" style="color:var(--cobalt)">&mdash;</div></div>
+      <div><div class="k">Win rate &middot; 30 days</div><div class="v" id="sWin">&mdash;</div></div>
       <div><div class="k">Community</div><div class="v" id="sMem">&mdash;</div></div>
       <div><div class="k">Loss Cover</div><div class="v" style="color:var(--cobalt)">Cash refund</div></div>
     </div>
@@ -168,22 +168,21 @@
         </div>
       </div>
 
-      <!-- First five figures are pips-denominated ("Profit factor" keeps its label
-           but is now win-pips over loss-pips). The last two are USD P&L on the
-           suggested lot size — see the reference-account note below. -->
+      <!-- All figures are USD P&L on a $10,000 reference account, 30 days as the
+           primary lens. Net pips are no longer shown here — they still live in
+           the "Pips" column of the fill history table below. -->
       <div class="metrics">
-        <div><div class="k">Net pips</div><div class="v g" id="mRet">&mdash;</div></div>
-        <div><div class="k">Win rate</div><div class="v" id="mWin">&mdash;</div></div>
-        <div><div class="k">Max drawdown (pips)</div><div class="v r" id="mDD">&mdash;</div></div>
-        <div><div class="k">Profit factor</div><div class="v" id="mPF">&mdash;</div></div>
-        <div><div class="k">Trades</div><div class="v" id="mN">&mdash;</div></div>
-        <div><div class="k">7-day P&amp;L (USD)</div><div class="v" id="mPnl7">&mdash;</div></div>
-        <div><div class="k">30-day P&amp;L (USD)</div><div class="v" id="mPnl30">&mdash;</div></div>
+        <div><div class="k">7-day P&amp;L</div><div class="v" id="mPnl7">&mdash;</div></div>
+        <div><div class="k">30-day P&amp;L</div><div class="v" id="mPnl30">&mdash;</div></div>
+        <div><div class="k">Win rate (30d)</div><div class="v" id="mWin">&mdash;</div></div>
+        <div><div class="k">Max drawdown (30d)</div><div class="v r" id="mDD">&mdash;</div></div>
+        <div><div class="k">Profit factor (30d)</div><div class="v" id="mPF">&mdash;</div></div>
+        <div><div class="k">Trades (30d)</div><div class="v" id="mN">&mdash;</div></div>
       </div>
       <div class="metrics-note" id="mRefNote"></div>
 
       <div class="curvewrap">
-        <svg viewBox="0 0 1080 260" id="equityChart" role="img" aria-label="Cumulative strategy pips curve"></svg>
+        <svg viewBox="0 0 1080 260" id="equityChart" role="img" aria-label="30-day cumulative P&amp;L (USD)"></svg>
       </div>
 
 
@@ -194,7 +193,7 @@
       <div class="bysym" id="bySym"></div>
 
       <div class="tbl-head">
-        <h4>Fill history &middot; last month <span class="realbadge">LIVE ACCOUNT</span></h4>
+        <h4>Fill history &middot; last 30 days <span class="realbadge">LIVE ACCOUNT</span></h4>
         <div class="live"><span class="dot"></span> LIVE &middot; <span id="upd">&mdash;</span></div>
       </div>
       <p class="realnote">These are real fills from the <b>PRESIGHT ALPHA-1 live account</b>, taken straight from it, <b>unfiltered &mdash; losing trades included</b>. Not a backtest, not a demo.</p>
@@ -471,7 +470,7 @@
   </div>
 </div>
 
-<script src="../assets/js/config.js?v=202609061056"></script>
-<script src="../assets/js/app.js?v=202609061056"></script>
+<script src="../assets/js/config.js?v=202609061130"></script>
+<script src="../assets/js/app.js?v=202609061130"></script>
 </body>
 </html>

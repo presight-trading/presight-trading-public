@@ -247,7 +247,7 @@ section{padding:104px 0;position:relative}
 @media(max-width:560px){.pledge{padding:12px 15px;gap:6px 12px}
   .pledge b{font-size:.9rem}}
 
-.metrics{display:grid;grid-template-columns:repeat(7,1fr);border-bottom:1px solid var(--panel-line)}
+.metrics{display:grid;grid-template-columns:repeat(6,1fr);border-bottom:1px solid var(--panel-line)}
 .metrics div{padding:22px 22px;border-right:1px solid var(--panel-line)}
 .metrics div:last-child{border-right:none}
 .metrics .k{font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;color:#5B6883;text-transform:uppercase;margin-bottom:8px}
@@ -343,8 +343,8 @@ footer a:hover{color:#fff}
 @media(max-width:1040px){
   .hero-grid{grid-template-columns:1fr;gap:44px}
   .p2{grid-template-columns:1fr;gap:36px}
-  /* 7 格在这个宽度摆不下：改 4 列(7 = 4+3 两行)。第 4/8 格丢右边框(行尾)，
-     第 5 格起加顶边框(第二行起)；:last-child 那条通用规则已经处理了第 7
+  /* 6 格在这个宽度摆不下：改 4 列(6 = 4+2 两行)。第 4 格丢右边框(行尾)，
+     第 5 格起加顶边框(第二行起)；:last-child 那条通用规则已经处理了第 6
      格(第二行行尾)的右边框，这里不用重复。 */
   .metrics{grid-template-columns:repeat(4,1fr)}
   .metrics div:nth-child(4n){border-right:none}
@@ -359,8 +359,9 @@ footer a:hover{color:#fff}
   .strip{grid-template-columns:1fr 1fr;margin-top:44px}
   .strip div:nth-child(2){border-right:none}
   .strip div:nth-child(n+3){border-top:1px solid var(--grid)}
-  /* 移动端两列：7 格变 4 行(2+2+2+1)。同样只需第 2n 格丢右边框、第 3 格起加
-     顶边框；最后一格(单数第 7 格，自己独占一行)靠 :last-child 通用规则清右边框。 */
+  /* 移动端两列：6 格变 3 行(2+2+2)，第 6 格不落单。只需第 2n 格丢右边框、
+     第 3 格起加顶边框；最后一格靠 :last-child 通用规则清右边框(本就是
+     2n 里的一个，规则重叠也无妨)。 */
   .metrics{grid-template-columns:1fr 1fr}
   .metrics div:nth-child(2n){border-right:none}
   .metrics div:nth-child(n+3){border-top:1px solid var(--panel-line)}
