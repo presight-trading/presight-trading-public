@@ -110,7 +110,10 @@ function refBalanceOf(summary, summary30d){
 function pct(v){
   if(v==null || !isFinite(Number(v))) return '—';
   const n = Number(v) / REF_BALANCE_USD * 100;
-  return (n>=0?'+':'−') + Math.abs(n).toFixed(2) + '%';
+  // 单笔 0.01 手的收益率常在 0.001% 量级,两位小数会显示成 "+0.00%" 像坏了;
+  // 小于 0.1% 时给 3 位、小于 0.01% 时给 4 位,汇总数字(≥0.1%)仍是 2 位。
+  const a = Math.abs(n); const d = a >= 0.1 ? 2 : (a >= 0.01 ? 3 : 4);
+  return (n>=0?'+':'−') + a.toFixed(d) + '%';
 }
 /* 按窗口求和 pnlUsd：只累加窗口内 pnlUsd 非空的成交；窗口内一笔贡献都没有
    （字段还没上线，或这批全是旧缓存数据）时返回 null，页面显示 "—"——
