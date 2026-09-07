@@ -655,3 +655,9 @@ PROTECTION.update({
     'If the same user is found moving funds between multiple copy accounts to copy and claim repeatedly, every copy account under that user loses protection eligibility.':
         'หากพบว่าผู้ใช้รายเดียวกันโยกเงินไปมาระหว่างบัญชีก๊อปปี้หลายบัญชีเพื่อก๊อปปี้และขอรับเงินชดเชยซ้ำ ๆ บัญชีก๊อปปี้ทั้งหมดของผู้ใช้รายนั้นจะหมดสิทธิ์ได้รับความคุ้มครอง',
 })
+
+# 分享长图按语种分开，各自指向自己那一份
+INDEX.update({
+    '<a class="btn" href="../assets/share/presight-baopei-en.png" rel="noopener" target="_blank">Open the image <span class="arw">→</span></a>\n<a class="btn ghost" href="../assets/share/presight-baopei-en.pdf" rel="noopener" target="_blank">PDF</a>':
+        '<a class="btn" href="../assets/share/presight-baopei-th.png" rel="noopener" target="_blank">เปิดภาพ <span class="arw">→</span></a>\n<a class="btn ghost" href="../assets/share/presight-baopei-th.pdf" rel="noopener" target="_blank">ไฟล์ PDF</a>',
+})

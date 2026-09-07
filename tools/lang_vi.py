@@ -655,3 +655,9 @@ PROTECTION.update({
     'If the same user is found moving funds between multiple copy accounts to copy and claim repeatedly, every copy account under that user loses protection eligibility.':
         'Nếu phát hiện cùng một người dùng chuyển vốn qua lại giữa nhiều tài khoản sao chép để sao chép và yêu cầu bồi thường nhiều lần, toàn bộ tài khoản sao chép của người đó sẽ mất quyền được bảo hiểm.',
 })
+
+# 分享长图按语种分开，各自指向自己那一份
+INDEX.update({
+    '<a class="btn" href="../assets/share/presight-baopei-en.png" rel="noopener" target="_blank">Open the image <span class="arw">→</span></a>\n<a class="btn ghost" href="../assets/share/presight-baopei-en.pdf" rel="noopener" target="_blank">PDF</a>':
+        '<a class="btn" href="../assets/share/presight-baopei-vi.png" rel="noopener" target="_blank">Mở ảnh <span class="arw">→</span></a>\n<a class="btn ghost" href="../assets/share/presight-baopei-vi.pdf" rel="noopener" target="_blank">Bản PDF</a>',
+})

@@ -1033,3 +1033,9 @@ PROTECTION.update({
     'If the same user is found moving funds between multiple copy accounts to copy and claim repeatedly, every copy account under that user loses protection eligibility.':
         '同一の利用者が複数のコピー口座の間で資金を移し、繰り返しコピーと請求を行っていることが判明した場合、その利用者名義のすべてのコピー口座が補償の対象外となります。',
 })
+
+# 分享长图按语种分开，各自指向自己那一份
+INDEX.update({
+    '<a class="btn" href="../assets/share/presight-baopei-en.png" rel="noopener" target="_blank">Open the image <span class="arw">→</span></a>\n<a class="btn ghost" href="../assets/share/presight-baopei-en.pdf" rel="noopener" target="_blank">PDF</a>':
+        '<a class="btn" href="../assets/share/presight-baopei-ja.png" rel="noopener" target="_blank">画像を開く <span class="arw">→</span></a>\n<a class="btn ghost" href="../assets/share/presight-baopei-ja.pdf" rel="noopener" target="_blank">PDF 版</a>',
+})
