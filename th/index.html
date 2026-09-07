@@ -78,10 +78,9 @@
 </div>
 </div>
 <div class="strip rv">
-<div><div class="k">รันมาแล้ว</div><div class="v" id="sRun">—</div></div>
 <div><div class="k">ผลตอบแทน 30 วัน</div><div class="v" id="sRet" style="color:var(--cobalt)">—</div></div>
+<div><div class="k">ต่อปีโดยประมาณ <span class="est">ประมาณ</span></div><div class="v" id="sAnn">—</div></div>
 <div><div class="k">อัตราชนะ · 30 วัน</div><div class="v" id="sWin">—</div></div>
-<div><div class="k">คอมมูนิตี้</div><div class="v" id="sMem">—</div></div>
 <div><div class="k">ประกันขาดทุน</div><div class="v" style="color:var(--cobalt)">คืนเป็นเงินสด</div></div>
 </div>
 </div>
@@ -140,12 +139,13 @@
 <span class="tag">ความเสี่ยงคงที่</span></div>
 </div>
 </div>
-<!-- แสดงแบบสัมพัทธ์:ตำแหน่ง (ล็อต/หมื่นดอลลาร์) + ผลตอบแทน (%) ไม่แสดงจำนวนเงินดอลลาร์ที่ใดเลย
-           มอง 30 วันเป็นหลัก ไม่แสดงพิพสุทธิที่นี่แล้ว — ยังคงเหลืออยู่ในคอลัมน์
-           "พิป" ของตารางประวัติออเดอร์ด้านล่างเท่านั้น -->
+<!-- Relative terms: position (lots / $10k) + return (%), 30 days as the
+           primary lens. No USD amounts shown anywhere. Net pips are no longer
+           shown here — they still live in the "Pips" column of the fill
+           history table below. -->
 <div class="metrics">
-<div><div class="k">ผลตอบแทน 7 วัน</div><div class="v" id="mPnl7">—</div></div>
 <div><div class="k">ผลตอบแทน 30 วัน</div><div class="v" id="mPnl30">—</div></div>
+<div><div class="k">ต่อปีโดยประมาณ <span class="est">ประมาณ</span></div><div class="v" id="mAnn">—</div></div>
 <div><div class="k">อัตราชนะ (30 วัน)</div><div class="v" id="mWin">—</div></div>
 <div><div class="k">ดรอว์ดาวน์สูงสุด (30 วัน)</div><div class="v r" id="mDD">—</div></div>
 <div><div class="k">Profit factor (30 วัน)</div><div class="v" id="mPF">—</div></div>
@@ -153,7 +153,7 @@
 </div>
 <div class="metrics-note" id="mRefNote"></div>
 <div class="curvewrap">
-<svg aria-label="ผลตอบแทนสะสม 30 วัน (%)" id="equityChart" role="img" viewbox="0 0 1080 260"></svg>
+<svg aria-label="30-day cumulative return (%)" id="equityChart" role="img" viewbox="0 0 1080 260"></svg>
 </div>
 <div class="bd-head">
 <h4>แยกตามสินทรัพย์ · 30 วันล่าสุด · ผลตอบแทน</h4>
@@ -162,7 +162,7 @@
 <div class="bysym" id="bySym"></div>
 <div class="tbl-head">
 <h4>ประวัติออเดอร์ · 30 วันล่าสุด <span class="realbadge">บัญชีจริง</span></h4>
-<div class="live"><span class="dot"></span> ราคาจริง · <span id="upd">—</span></div>
+<div class="live"><span class="dot"></span> ราคาเรียลไทม์ · <span id="upd">—</span></div>
 </div>
 <p class="realnote">นี่คือออเดอร์จริงจาก<b>บัญชีจริงของ PRESIGHT ALPHA-1</b> ดึงตรงจากบัญชีนั้น <b>ไม่คัดกรอง — รวมออเดอร์ที่ขาดทุนด้วย</b> ไม่ใช่แบ็กเทสต์ ไม่ใช่บัญชีเดโม</p>
 <div class="tblscroll">
@@ -171,7 +171,7 @@
 <tr>
 <th>ปิดเมื่อ</th><th>สินทรัพย์</th><th>ทิศทาง</th>
 <th>ราคาเข้า</th><th>ราคาออก</th><th style="text-align:right">พิป</th>
-<th style="text-align:right">ตำแหน่ง (ล็อต/หมื่นดอลลาร์)</th><th style="text-align:right">ผลตอบแทน</th>
+<th style="text-align:right">ขนาดสถานะ (ล็อต / 10,000 ดอลลาร์)</th><th style="text-align:right">ผลตอบแทน</th>
 </tr>
 </thead>
 <tbody id="tradeBody"></tbody>

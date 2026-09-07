@@ -643,3 +643,24 @@ section[id], main[id]{scroll-margin-top:78px}
   .bsrow{grid-template-columns:88px 1fr 60px 84px;gap:10px;padding:10px 22px}
 }
 
+
+/* 「推算」角标：年化是外推出来的，不是已实现业绩，标签上就要看得出来 */
+.est{display:inline-block;vertical-align:1px;margin-left:5px;font-family:var(--mono);
+  font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);
+  border:1px solid rgba(201,122,5,.5);border-radius:2px;padding:1px 4px;font-weight:600}
+.strip .est{color:#E0A44A;border-color:rgba(224,164,74,.45)}
+
+/* 净值曲线的悬停浮层 */
+.curvewrap{position:relative}
+.eqtip{position:absolute;z-index:4;pointer-events:none;opacity:0;transition:opacity .12s;
+  background:#0A111E;border:1px solid var(--panel-line);padding:6px 9px;
+  white-space:nowrap;box-shadow:0 6px 20px rgba(0,0,0,.45)}
+.eqtip.on{opacity:1}
+.eqtip b{display:block;font-family:var(--mono);font-size:.86rem;font-weight:700;line-height:1.2}
+.eqtip b.up{color:#3ED598}.eqtip b.dn{color:#FF6B6B}
+.eqtip i{display:block;font-family:var(--mono);font-size:.68rem;font-style:normal;
+  color:#8592AB;margin-top:2px}
+#equityChart{cursor:crosshair}
+
+/* 年化的那句说明加重一点：它是页面上唯一一个外推出来的数字 */
+.metrics-note b{color:#C3CCDC;font-weight:600}

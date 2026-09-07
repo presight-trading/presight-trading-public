@@ -13,6 +13,7 @@ const TEXTS = {
     updated:'更新于 ', demo:'演示数据', copied:'已复制',
     errT:'成交记录暂时取不到', errB:'数据接口没有响应。稍后会自动重试，也可以刷新页面。',
     emptyT:'还没有已平仓的交易', emptyB:'策略正在运行，第一笔成交平仓后会立刻出现在这里。',
+    annNote:'预估年化＝近 30 天收益率按月复利外推 (1+r)^12−1，是一种推算而非业绩承诺：一个月的结果会被放大十二次，短期的运气与回撤同样会被放大。不代表未来收益。',
     refNote:'收益率按实盘成交价格与每万美元仓位权重计算，并非策略账户的真实盈亏；仅已平仓，不含浮动盈亏与隔夜利息；实际结果随账户规模、点差与滑点不同。',
   },
   en:{
@@ -24,6 +25,7 @@ const TEXTS = {
     updated:'updated ', demo:'demo data', copied:'Copied',
     errT:'Fill history unavailable', errB:'The data endpoint did not respond. It will retry automatically, or you can reload the page.',
     emptyT:'No closed trades yet', emptyB:'The strategy is running. The first closed trade will appear here immediately.',
+    annNote:"The annualised figure extrapolates the last 30 days by monthly compounding, (1+r)^12−1. It is an estimate, not a promise: one month of results gets multiplied twelve times, and so does one month of luck or drawdown. It does not indicate future returns.",
     refNote:"Returns are computed from live fill prices and a position weight per $10,000; they are not the strategy account's actual P&L. Closed trades only; excludes floating P&L and swap. Actual results vary with account size, spread and slippage.",
   },
   ja:{
@@ -35,6 +37,7 @@ const TEXTS = {
     updated:'更新 ', demo:'デモデータ', copied:'コピーしました',
     errT:'約定履歴を取得できません', errB:'データ側から応答がありません。自動で再試行します。ページの再読み込みでもかまいません。',
     emptyT:'決済済みの取引はまだありません', emptyB:'戦略は稼働中です。最初の決済が出たらすぐここに表示されます。',
+    annNote:'推定年率は直近 30 日の収益率を月次で複利換算した (1+r)^12−1 の外挿値です。予測でも約束でもありません——1 か月分の結果が 12 回掛け合わされるため、短期の幸運もドローダウンも同じだけ拡大されます。将来の収益を示すものではありません。',
     refNote:'収益率は実際の約定価格と1万ドルあたりのポジション比率をもとに算出したものであり、戦略口座の実際の損益ではありません。決済済み取引のみを対象とし、含み損益とスワップ(オーバーナイト金利)は含みません。実際の結果は口座規模・スプレッド・スリッページによって異なります。',
   },
   vi:{
@@ -46,6 +49,7 @@ const TEXTS = {
     updated:'cập nhật ', demo:'dữ liệu mẫu', copied:'Đã sao chép',
     errT:'Chưa lấy được lịch sử khớp lệnh', errB:'Máy chủ dữ liệu không phản hồi. Hệ thống sẽ tự thử lại, hoặc bạn có thể tải lại trang.',
     emptyT:'Chưa có lệnh nào đóng', emptyB:'Chiến lược đang chạy. Lệnh đóng đầu tiên sẽ hiện ở đây ngay lập tức.',
+    annNote:'Lợi nhuận năm ước tính là phép ngoại suy lợi nhuận 30 ngày gần nhất theo lãi kép hằng tháng, (1+r)^12−1. Đây là ước tính, không phải cam kết: kết quả của một tháng được nhân lên mười hai lần, và may mắn hay sụt giảm trong tháng đó cũng vậy. Không phản ánh lợi nhuận trong tương lai.',
     refNote:'Lợi nhuận (%) được tính từ giá khớp lệnh thực tế và tỷ trọng vị thế trên mỗi 10.000 đô la; đây không phải lãi/lỗ thực tế của tài khoản chiến lược. Chỉ tính các lệnh đã đóng; không bao gồm lãi/lỗ chưa thực hiện và phí qua đêm. Kết quả thực tế sẽ khác nhau tùy theo quy mô tài khoản, spread và trượt giá.',
   },
   th:{
@@ -57,6 +61,7 @@ const TEXTS = {
     updated:'อัปเดตเมื่อ ', demo:'ข้อมูลตัวอย่าง', copied:'คัดลอกแล้ว',
     errT:'ยังดึงประวัติออเดอร์ไม่ได้', errB:'เซิร์ฟเวอร์ข้อมูลไม่ตอบสนอง ระบบจะลองใหม่อัตโนมัติ หรือคุณจะรีเฟรชหน้าก็ได้',
     emptyT:'ยังไม่มีออเดอร์ที่ปิดแล้ว', emptyB:'กลยุทธ์กำลังทำงาน ออเดอร์แรกที่ปิดจะขึ้นตรงนี้ทันที',
+    annNote:'ผลตอบแทนต่อปีโดยประมาณคือการคาดการณ์จากผลตอบแทน 30 วันล่าสุด ทบต้นรายเดือน (1+r)^12−1 เป็นเพียงการประมาณ ไม่ใช่คำสัญญา: ผลของหนึ่งเดือนถูกคูณสิบสองครั้ง โชคดีหรือการขาดทุนในเดือนนั้นก็ถูกขยายเท่ากัน ไม่ได้บ่งชี้ผลตอบแทนในอนาคต',
     refNote:'อัตราผลตอบแทนคำนวณจากราคาที่ execute จริงและน้ำหนักตำแหน่งต่อทุก 10,000 ดอลลาร์ ไม่ใช่กำไร/ขาดทุนจริงของบัญชีกลยุทธ์ นับเฉพาะออเดอร์ที่ปิดแล้ว ไม่รวมกำไร/ขาดทุนที่ยังไม่เกิดขึ้นจริงและดอกเบี้ยข้ามคืน ผลลัพธ์จริงจะแตกต่างกันไปตามขนาดบัญชี สเปรด และสลิปเพจ',
   },
 };
@@ -215,7 +220,6 @@ function renderTrades(trades){
    没有就是 null，显示 "—"，不退回点数)。点数只保留在成交表的"点数"列。 */
 function renderMetrics(trades, summary, summary30d){
   const thirtyDaysAgo = Date.now() - 30*24*3600*1000;
-  const sevenDaysAgo  = Date.now() - 7*24*3600*1000;
   const trades30 = trades.filter(t => t.closedAt && new Date(t.closedAt).getTime() >= thirtyDaysAgo);
 
   // 净值曲线 + 最大回撤 + 盈亏比：全部按 30 天 trades 的收益率(pnlUsd 换算
@@ -225,11 +229,15 @@ function renderMetrics(trades, summary, summary30d){
   const chron = [...trades30].reverse();
   let eq=0, peak=0, ddCalc=0, hasAnyPnl=false, winSum=0, lossSum=0;
   const curve=[0];
+  // 与 curve 一一对应的时间戳：曲线按「第几笔成交」推进，不是按天，
+  // 所以悬停要显示日期就必须把每个点的时间一起留下。首点是窗口起点。
+  const curveAt=[trades30.length ? new Date(chron[0].closedAt).getTime() : Date.now()];
   chron.forEach(t=>{
     if(t.pnlUsd==null) return;
     hasAnyPnl = true;
     const v = Number(t.pnlUsd) / REF_BALANCE_USD * 100;
     eq+=v; peak=Math.max(peak,eq); ddCalc=Math.max(ddCalc,peak-eq); curve.push(eq);
+    curveAt.push(new Date(t.closedAt).getTime());
     if(v>0) winSum+=v; else if(v<0) lossSum+=Math.abs(v);
   });
   const ddPct = hasAnyPnl ? ddCalc : null;
@@ -251,11 +259,19 @@ function renderMetrics(trades, summary, summary30d){
   // (避免前后端口径不一致)，都没有时前端按 trades 里的 pnlUsd 自己求和；
   // 一笔可用数据都没有就是 null，显示 "—"，不是 0。求和用原始 USD，换算成
   // % 放到 pct() 里统一做。
-  const pnl7  = (summary && summary.pnlUsd != null) ? Number(summary.pnlUsd) : sumPnlUsd(trades, sevenDaysAgo);
   const pnl30 = (summary30d && summary30d.pnlUsd != null) ? Number(summary30d.pnlUsd) : sumPnlUsd(trades, thirtyDaysAgo);
-  const mPnl7El = $('#mPnl7'), mPnl30El = $('#mPnl30');
-  if(mPnl7El){ mPnl7El.textContent = pct(pnl7); mPnl7El.className = 'v' + (pnl7==null ? '' : (pnl7>=0?' g':' r')); }
+  const mPnl30El = $('#mPnl30');
   if(mPnl30El){ mPnl30El.textContent = pct(pnl30); mPnl30El.className = 'v' + (pnl30==null ? '' : (pnl30>=0?' g':' r')); }
+
+  // 预估年化：由 30 天收益率按月复利推算，指标卡与首屏用同一个值
+  const r30 = (pnl30 == null) ? null : Number(pnl30) / REF_BALANCE_USD * 100;
+  const ann = annualise(r30);
+  const annTxt = ann==null ? '—' : (ann>=0?'+':'−') + Math.abs(ann).toFixed(1) + '%';
+  const annCls = ann==null ? '' : (ann>=0?' g':' r');
+  ['#mAnn','#sAnn'].forEach(sel=>{
+    const el = document.querySelector(sel);
+    if(el){ el.textContent = annTxt; el.className = 'v' + annCls; }
+  });
 
   // 英雄区 #sRet / #sWin：近 30 天收益率 + 胜率(30 天)，跟指标卡的
   // #mPnl30 / #mWin 同一套数值，只是摆在首屏。
@@ -265,33 +281,122 @@ function renderMetrics(trades, summary, summary30d){
   // 小字口径说明：固定文案(见 T.refNote)，不再插入具体金额——页面任何
   // 地方都不再出现美元金额，只说明"每万美元仓位权重"这个换算规则本身。
   const noteEl = $('#mRefNote');
-  if(noteEl && T.refNote) noteEl.textContent = T.refNote;
+  // 年化那条单独一句、排在前面：它是页面上唯一一个外推出来的数字，
+  // 混在口径说明里读者会当成同一类脚注滑过去。
+  if(noteEl){
+    noteEl.innerHTML = (T.annNote ? '<b>' + T.annNote + '</b> ' : '')
+                     + (T.refNote || '');
+  }
 
-  drawEquity(curve);
+  drawEquity(curve, curveAt);
+}
+
+/* 由 30 天收益率按月复利推算年化：(1+r)^12 − 1。
+   这是**推算**不是业绩承诺——用一个月的结果外推一年，一个月的运气会被
+   放大十二次。所以页面上始终带「推算」角标，并在小字里写清算法和它
+   不代表未来。r ≤ −100% 时无意义，直接返回 null。 */
+function annualise(r30Pct){
+  if(r30Pct == null || !isFinite(r30Pct)) return null;
+  const r = r30Pct / 100;
+  if(r <= -1) return null;
+  return (Math.pow(1 + r, 12) - 1) * 100;
 }
 
 /* ---------- 净值曲线 ---------- */
-function drawEquity(curve){
-  const W=1080,H=260,P=14;
+function drawEquity(curve, curveAt){
+  const W=1080, H=260, L=52, R=16, T_=18, B=30;   // 左侧留给 Y 轴刻度，底部留给日期
   const max=Math.max(...curve), min=Math.min(...curve,0), span=(max-min)||1;
-  const x=i=>P+i*(W-P*2)/(curve.length-1||1);
-  const y=v=>H-P-((v-min)/span)*(H-P*2);
+  const x=i=>L+i*(W-L-R)/(curve.length-1||1);
+  const y=v=>H-B-((v-min)/span)*(H-B-T_);
   const line=curve.map((v,i)=>`${i?'L':'M'}${x(i).toFixed(1)} ${y(v).toFixed(1)}`).join(' ');
-  const area=`${line} L${x(curve.length-1).toFixed(1)} ${H-P} L${x(0).toFixed(1)} ${H-P} Z`;
-  const grid=[0,.25,.5,.75,1].map(f=>{
-    const yy=P+f*(H-P*2);
-    return `<line x1="${P}" y1="${yy}" x2="${W-P}" y2="${yy}" stroke="#24304A" stroke-width="1" ${f===1?'':'stroke-dasharray="2 6"'}/>`;
+  const area=`${line} L${x(curve.length-1).toFixed(1)} ${H-B} L${x(0).toFixed(1)} ${H-B} Z`;
+
+  /* Y 轴只放三档刻度：最低、中间、最高。刻度越多越像报表，这里要的是
+     一眼看出量级，具体数字交给悬停。 */
+  const ticks=[min, min+span/2, max];
+  const grid=ticks.map(v=>{
+    const yy=y(v);
+    const dash = Math.abs(v)<1e-9 ? '' : 'stroke-dasharray="2 6"';
+    return `<line x1="${L}" y1="${yy.toFixed(1)}" x2="${W-R}" y2="${yy.toFixed(1)}" `
+         + `stroke="#24304A" stroke-width="1" ${dash}/>`
+         + `<text x="${L-9}" y="${(yy+3.5).toFixed(1)}" text-anchor="end" `
+         + `font-family="var(--mono)" font-size="11" fill="#7C89A4">`
+         + `${v>=0?'+':'−'}${Math.abs(v).toFixed(1)}%</text>`;
   }).join('');
+
+  /* X 轴只标首、中、末三个日期——30 天逐日标注会把图变成一堵字墙，
+     而读者在这里想知道的只是「这段是哪一段时间」。 */
+  const fmt = ts => new Date(ts).toLocaleDateString(T.locale,{month:'2-digit',day:'2-digit'});
+  const at = curveAt && curveAt.length===curve.length ? curveAt : null;
+  const xlab = !at ? '' : [0, Math.floor((curve.length-1)/2), curve.length-1].map((i,k)=>{
+    const anchor = k===0 ? 'start' : (k===2 ? 'end' : 'middle');
+    return `<text x="${x(i).toFixed(1)}" y="${H-9}" text-anchor="${anchor}" `
+         + `font-family="var(--mono)" font-size="11" fill="#7C89A4">${fmt(at[i])}</text>`;
+  }).join('');
+
   $('#equityChart').innerHTML = `
     <defs><linearGradient id="eg" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#4A66F0" stop-opacity=".30"/>
       <stop offset="100%" stop-color="#4A66F0" stop-opacity="0"/>
     </linearGradient></defs>
-    ${grid}
+    ${grid}${xlab}
     <path d="${area}" fill="url(#eg)"/>
     <path d="${line}" fill="none" stroke="#4A66F0" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
     <circle cx="${x(curve.length-1).toFixed(1)}" cy="${y(curve[curve.length-1]).toFixed(1)}" r="4" fill="#4A66F0"/>
+    <g id="eqHover" style="display:none">
+      <line y1="${T_}" y2="${H-B}" stroke="#8592AB" stroke-width="1" stroke-dasharray="3 4"/>
+      <circle r="4.5" fill="#fff" stroke="#4A66F0" stroke-width="2"/>
+    </g>
   `;
+  attachEquityHover(curve, curveAt, {W,H,L,R,T_,B,x,y});
+}
+
+/* 悬停：竖线 + 圆点 + 一个跟手的小浮层，显示该点的累计收益率和日期。
+   SVG 是等比缩放的，所以命中检测在像素坐标里做——用 viewBox 宽度去除
+   实际宽度得到比例，再反推索引。 */
+function attachEquityHover(curve, curveAt, geo){
+  const svg = $('#equityChart');
+  const wrap = svg && svg.closest('.curvewrap');
+  if(!svg || !wrap) return;
+  let tip = wrap.querySelector('.eqtip');
+  if(!tip){ tip = document.createElement('div'); tip.className='eqtip'; wrap.appendChild(tip); }
+  const g = svg.querySelector('#eqHover');
+  const at = curveAt && curveAt.length===curve.length ? curveAt : null;
+
+  const hide = ()=>{ if(g) g.style.display='none'; tip.classList.remove('on'); };
+  const move = ev=>{
+    const r = svg.getBoundingClientRect();
+    if(!r.width) return;
+    const scale = geo.W / r.width;
+    const px = (ev.clientX - r.left) * scale;              // 换到 viewBox 坐标
+    const usable = geo.W - geo.L - geo.R;
+    let i = Math.round((px - geo.L) / usable * (curve.length-1));
+    i = Math.max(0, Math.min(curve.length-1, i));
+    const cx = geo.x(i), cy = geo.y(curve[i]);
+    if(g){
+      g.style.display='';
+      g.querySelector('line').setAttribute('x1', cx.toFixed(1));
+      g.querySelector('line').setAttribute('x2', cx.toFixed(1));
+      g.querySelector('circle').setAttribute('cx', cx.toFixed(1));
+      g.querySelector('circle').setAttribute('cy', cy.toFixed(1));
+    }
+    const v = curve[i];
+    const d = at ? new Date(at[i]).toLocaleDateString(T.locale,
+                    {month:'2-digit', day:'2-digit'}) : '';
+    tip.innerHTML = `<b class="${v>=0?'up':'dn'}">${v>=0?'+':'−'}${Math.abs(v).toFixed(2)}%</b>`
+                  + (d ? `<i>${d}</i>` : '');
+    tip.classList.add('on');
+    // 贴着光标放，靠右时翻到左边，免得被容器裁掉
+    const leftPx = cx / scale;
+    const flip = leftPx > r.width - 96;
+    tip.style.left = (flip ? leftPx - 12 : leftPx + 12) + 'px';
+    tip.style.transform = flip ? 'translateX(-100%)' : '';
+    tip.style.top = (cy / scale - 10) + 'px';
+  };
+  svg.onmousemove = move;
+  svg.onmouseleave = hide;
+  svg.ontouchmove = e=>{ if(e.touches[0]) move(e.touches[0]); };
+  svg.ontouchend = hide;
 }
 
 /* ---------- 主签名图：实线 → 虚线前瞻 ---------- */

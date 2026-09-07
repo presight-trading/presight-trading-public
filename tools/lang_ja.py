@@ -998,3 +998,38 @@ INDEX.update({
     'Net pips (30d)':
         '直近 1 か月の純 pips',
 })
+
+# 首屏/指标卡改版：去掉近 7 天与 Live Since/Community，加预估年化
+INDEX.update({
+    '<span class="dot"></span> LIVE PRICES · <span id="upd">—</span>':
+        '<span class="dot"></span> リアルタイム · <span id="upd">—</span>',
+    '30-day return':
+        '直近 30 日の収益率',
+    'Annualised <span class="est">est.</span>':
+        '年率換算 <span class="est">推定</span>',
+    'By instrument · last 30 days · return':
+        '銘柄別 · 直近 30 日 · 収益率',
+    'Fill history · last 30 days <span class="realbadge">LIVE ACCOUNT</span>':
+        '約定履歴 · 直近 30 日 <span class="realbadge">実口座</span>',
+    'Max drawdown (30d)':
+        '最大ドローダウン(30 日)',
+    'Position (lots / $10k)':
+        'ロット数(1 万ドルあたり)',
+    'Profit factor (30d)':
+        'プロフィットファクター(30 日)',
+    'Return':
+        '収益率',
+    'Trades (30d)':
+        'トレード数(30 日)',
+    'Win rate · 30 days':
+        '勝率 · 直近 30 日',
+    'Win rate (30d)':
+        '勝率(30 日)',
+})
+
+PROTECTION.update({
+    'Once an account has claimed a loss payout, it must stop copying; that account is no longer eligible for any subsequent payout programme.':
+        '一度でも損失補償を受け取った口座は、そこでコピーを停止していただきます。その口座は以後いかなる補償プログラムの対象にもなりません。',
+    'If the same user is found moving funds between multiple copy accounts to copy and claim repeatedly, every copy account under that user loses protection eligibility.':
+        '同一の利用者が複数のコピー口座の間で資金を移し、繰り返しコピーと請求を行っていることが判明した場合、その利用者名義のすべてのコピー口座が補償の対象外となります。',
+})

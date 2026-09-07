@@ -620,3 +620,38 @@ INDEX.update({
     'Net pips (30d)':
         'Pip ròng 1 tháng',
 })
+
+# 首屏/指标卡改版：去掉近 7 天与 Live Since/Community，加预估年化
+INDEX.update({
+    '<span class="dot"></span> LIVE PRICES · <span id="upd">—</span>':
+        '<span class="dot"></span> GIÁ TRỰC TIẾP · <span id="upd">—</span>',
+    '30-day return':
+        'Lợi nhuận 30 ngày',
+    'Annualised <span class="est">est.</span>':
+        'Quy đổi năm <span class="est">ước tính</span>',
+    'By instrument · last 30 days · return':
+        'Theo từng mã · 30 ngày gần nhất · lợi nhuận',
+    'Fill history · last 30 days <span class="realbadge">LIVE ACCOUNT</span>':
+        'Lịch sử khớp lệnh · 30 ngày gần nhất <span class="realbadge">TÀI KHOẢN THẬT</span>',
+    'Max drawdown (30d)':
+        'Sụt giảm tối đa (30 ngày)',
+    'Position (lots / $10k)':
+        'Khối lượng (lot / 10.000 $)',
+    'Profit factor (30d)':
+        'Hệ số lợi nhuận (30 ngày)',
+    'Return':
+        'Lợi nhuận',
+    'Trades (30d)':
+        'Số lệnh (30 ngày)',
+    'Win rate · 30 days':
+        'Tỷ lệ thắng · 30 ngày',
+    'Win rate (30d)':
+        'Tỷ lệ thắng (30 ngày)',
+})
+
+PROTECTION.update({
+    'Once an account has claimed a loss payout, it must stop copying; that account is no longer eligible for any subsequent payout programme.':
+        'Một tài khoản đã nhận bồi thường thua lỗ thì phải ngừng sao chép; tài khoản đó không còn đủ điều kiện cho bất kỳ chương trình bồi thường nào sau đó.',
+    'If the same user is found moving funds between multiple copy accounts to copy and claim repeatedly, every copy account under that user loses protection eligibility.':
+        'Nếu phát hiện cùng một người dùng chuyển vốn qua lại giữa nhiều tài khoản sao chép để sao chép và yêu cầu bồi thường nhiều lần, toàn bộ tài khoản sao chép của người đó sẽ mất quyền được bảo hiểm.',
+})

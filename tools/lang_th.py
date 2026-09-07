@@ -620,3 +620,38 @@ INDEX.update({
     'Net pips (30d)':
         'พิพสุทธิ 1 เดือน',
 })
+
+# 首屏/指标卡改版：去掉近 7 天与 Live Since/Community，加预估年化
+INDEX.update({
+    '<span class="dot"></span> LIVE PRICES · <span id="upd">—</span>':
+        '<span class="dot"></span> ราคาเรียลไทม์ · <span id="upd">—</span>',
+    '30-day return':
+        'ผลตอบแทน 30 วัน',
+    'Annualised <span class="est">est.</span>':
+        'ต่อปีโดยประมาณ <span class="est">ประมาณ</span>',
+    'By instrument · last 30 days · return':
+        'แยกตามสินทรัพย์ · 30 วันล่าสุด · ผลตอบแทน',
+    'Fill history · last 30 days <span class="realbadge">LIVE ACCOUNT</span>':
+        'ประวัติออเดอร์ · 30 วันล่าสุด <span class="realbadge">บัญชีจริง</span>',
+    'Max drawdown (30d)':
+        'ดรอว์ดาวน์สูงสุด (30 วัน)',
+    'Position (lots / $10k)':
+        'ขนาดสถานะ (ล็อต / 10,000 ดอลลาร์)',
+    'Profit factor (30d)':
+        'Profit factor (30 วัน)',
+    'Return':
+        'ผลตอบแทน',
+    'Trades (30d)':
+        'จำนวนออเดอร์ (30 วัน)',
+    'Win rate · 30 days':
+        'อัตราชนะ · 30 วัน',
+    'Win rate (30d)':
+        'อัตราชนะ (30 วัน)',
+})
+
+PROTECTION.update({
+    'Once an account has claimed a loss payout, it must stop copying; that account is no longer eligible for any subsequent payout programme.':
+        'บัญชีที่เคยรับเงินชดเชยขาดทุนไปแล้วต้องหยุดก๊อปปี้ และบัญชีนั้นจะไม่มีสิทธิ์ในโครงการชดเชยใด ๆ ต่อไปอีก',
+    'If the same user is found moving funds between multiple copy accounts to copy and claim repeatedly, every copy account under that user loses protection eligibility.':
+        'หากพบว่าผู้ใช้รายเดียวกันโยกเงินไปมาระหว่างบัญชีก๊อปปี้หลายบัญชีเพื่อก๊อปปี้และขอรับเงินชดเชยซ้ำ ๆ บัญชีก๊อปปี้ทั้งหมดของผู้ใช้รายนั้นจะหมดสิทธิ์ได้รับความคุ้มครอง',
+})
