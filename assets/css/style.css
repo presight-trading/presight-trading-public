@@ -343,6 +343,12 @@ footer a:hover{color:#fff}
 .rv.in{opacity:1;transform:none}
 
 /* ---------- responsive ---------- */
+/* 首屏在 1239 以下就单栏：两栏时左栏只有 472–543px，三个按钮并排
+   得把字缩到 11px 才塞得下。1240 起 wrap 到达 max-width，左栏稳定在
+   573px，三个才排得开。其余板块仍按 1040 断点。 */
+@media(max-width:1239px){
+  .hero-grid{grid-template-columns:1fr;gap:44px}
+}
 @media(max-width:1040px){
   .hero-grid{grid-template-columns:1fr;gap:44px}
   .p2{grid-template-columns:1fr;gap:36px}
@@ -354,18 +360,25 @@ footer a:hover{color:#fff}
   .metrics div:nth-child(n+5){border-top:1px solid var(--panel-line)}
   .fgrid{grid-template-columns:1fr 1fr;gap:34px}
 }
-/* 首屏三个按钮：主按钮独占一行，两个次要的并排在第二行。
-   英文/日/越/泰的标签更长，三个挤一行需要 669px 而首屏那一栏只有 573px
-   ——硬塞进去每个按钮只剩 180px，字快贴边了。分两行不是退让，是这三个
-   按钮本来就分两层：一个主行动，两个备选。
-   只作用于 .hero 内：包赔区、社区区、合作区也用 .hero-cta，但它们只有
-   两个按钮，并排本来就好看。 */
-/* 首屏三个按钮各占一行、等宽。
-   列宽用 max-content：整列按最长的那个标签撑开，三个按钮再一起 stretch
-   到这个宽度。既对称，又不会像 1fr 那样撑满整栏变成又扁又长的一条。 */
-.hero .hero-cta{display:grid;grid-template-columns:max-content;
-                justify-content:start;gap:12px;max-width:100%}
-.hero .hero-cta > .btn{width:auto;justify-self:stretch}
+/* 首屏三个按钮：横屏一排三个等宽，手机（≤760）落成三行。
+   用 1fr 三等分而不是各自贴合内容，是为了三个宽度一致——标签长短不一，
+   一排里参差不齐比等宽难看。 */
+.hero .hero-cta{display:grid;grid-template-columns:repeat(3,1fr);
+                align-items:stretch;gap:12px}
+.hero .hero-cta > .btn{width:auto;justify-self:stretch;
+                       padding-left:12px;padding-right:12px;text-align:center}
+
+/* ≥1181px 首屏才分两栏，左栏只剩 573px；三个按钮平分是 183px 一个，
+   日文最长的「シグナルチャンネルに参加」按原字号要 216px——所以这一档
+   收字号、收内边距、禁止换行，让一排三个仍然是单行文字。
+   1239px 以下首屏本就单栏（见上方断点），整栏宽度够，不用收。
+   minmax(0,1fr)：nowrap 的按钮最小宽度是整行文字，普通 1fr 会被它撑破
+   导致三列不等宽——日文那版就是这么裂开的。 */
+@media(min-width:1240px){
+  .hero .hero-cta{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+  .hero .hero-cta > .btn{font-size:.82rem;letter-spacing:.01em;
+                         padding-left:8px;padding-right:8px;white-space:nowrap}
+}
 
 @media(max-width:760px){
   :root{--gut:20px}
