@@ -360,12 +360,12 @@ footer a:hover{color:#fff}
    按钮本来就分两层：一个主行动，两个备选。
    只作用于 .hero 内：包赔区、社区区、合作区也用 .hero-cta，但它们只有
    两个按钮，并排本来就好看。 */
-.hero .hero-cta{display:grid;grid-template-columns:1fr 1fr;
-                align-items:stretch;gap:12px;max-width:520px}
-/* 主按钮横跨两列，宽度正好等于下面两个之和——三个按钮左右边界对齐，
-   看着是一块，而不是三块各自为政。 */
+/* 首屏三个按钮各占一行、等宽。
+   列宽用 max-content：整列按最长的那个标签撑开，三个按钮再一起 stretch
+   到这个宽度。既对称，又不会像 1fr 那样撑满整栏变成又扁又长的一条。 */
+.hero .hero-cta{display:grid;grid-template-columns:max-content;
+                justify-content:start;gap:12px;max-width:100%}
 .hero .hero-cta > .btn{width:auto;justify-self:stretch}
-.hero .hero-cta > .btn:first-child{grid-column:1 / -1}
 
 @media(max-width:760px){
   :root{--gut:20px}
@@ -389,7 +389,7 @@ footer a:hover{color:#fff}
   /* 首屏三个按钮各占一行 = 195px，吃掉手机屏 26%。主按钮留整行，
      两个次要的平分第二行，降到两行。两个按钮的组（包赔区、合作区）
      不受影响：第二行只有一个 ghost，撑满仍是整行。 */
-  .hero .hero-cta{grid-template-columns:1fr 1fr;gap:10px}
+  .hero .hero-cta{grid-template-columns:1fr;gap:10px}
   /* 手机上让按钮撑满各自的格子：auto 宽的话两个小按钮缩在左边，
      和上面撑满整行的主按钮对不齐，看着像没排版 */
   .hero .hero-cta > .btn{width:auto;justify-self:stretch}
