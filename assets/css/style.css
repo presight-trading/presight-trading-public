@@ -354,6 +354,16 @@ footer a:hover{color:#fff}
   .metrics div:nth-child(n+5){border-top:1px solid var(--panel-line)}
   .fgrid{grid-template-columns:1fr 1fr;gap:34px}
 }
+/* 首屏三个按钮：主按钮独占一行，两个次要的并排在第二行。
+   英文/日/越/泰的标签更长，三个挤一行需要 669px 而首屏那一栏只有 573px
+   ——硬塞进去每个按钮只剩 180px，字快贴边了。分两行不是退让，是这三个
+   按钮本来就分两层：一个主行动，两个备选。
+   只作用于 .hero 内：包赔区、社区区、合作区也用 .hero-cta，但它们只有
+   两个按钮，并排本来就好看。 */
+.hero .hero-cta{display:grid;grid-template-columns:auto auto;
+                justify-content:start;align-items:start;gap:12px}
+.hero .hero-cta > .btn:first-child{grid-column:1 / -1;justify-self:start}
+
 @media(max-width:760px){
   :root{--gut:20px}
   nav{display:none}
@@ -373,6 +383,17 @@ footer a:hover{color:#fff}
   .steps{grid-template-columns:1fr}
   .fgrid{grid-template-columns:1fr}
   .btn.big{width:100%;justify-content:center}
+  /* 首屏三个按钮各占一行 = 195px，吃掉手机屏 26%。主按钮留整行，
+     两个次要的平分第二行，降到两行。两个按钮的组（包赔区、合作区）
+     不受影响：第二行只有一个 ghost，撑满仍是整行。 */
+  .hero .hero-cta{grid-template-columns:1fr 1fr;gap:10px}
+  /* 手机上让按钮撑满各自的格子：auto 宽的话两个小按钮缩在左边，
+     和上面撑满整行的主按钮对不齐，看着像没排版 */
+  .hero .hero-cta > .btn{width:auto;justify-self:stretch}
+  .hero .hero-cta > .btn.ghost{padding-left:10px;padding-right:10px;
+                               font-size:.88rem;text-align:center;line-height:1.3}
+  /* 其余板块（包赔/社区/合作）仍是两个按钮各占一行 */
+  .hero-cta:not(.hero .hero-cta) .btn.big{width:100%}
 }
 
 /* ============================================================
@@ -677,3 +698,4 @@ section[id], main[id], [id="fills"]{scroll-margin-top:78px}
 .panelbox .botlink:hover,.risk .botlink:hover{border-bottom-color:#8FB0FF}
 /* mono 里的保持等宽 */
 .mono .botlink,.botlink{font-family:inherit}
+
