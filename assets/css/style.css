@@ -543,7 +543,7 @@ nav a.hot::before{content:"";display:inline-block;width:5px;height:5px;border-ra
 
 /* 锚点落点避开吸顶栏。没有这一条，跳过去之后小标题正好被顶栏盖住，
    看起来像是跳错了地方。 */
-section[id], main[id]{scroll-margin-top:78px}
+section[id], main[id], [id="fills"]{scroll-margin-top:78px}
 
 /* 单行顶栏实测需要 1175(中)~1371(越)px——语言不同差近 200px。
    中等宽度先收紧而不是直接换成两行：省下的空间足够 1280/1366 的笔记本
@@ -582,7 +582,7 @@ section[id], main[id]{scroll-margin-top:78px}
      一直压在内容上，所以手机上让它跟着滚走：页面顶部能看到完整导航，
      往下读时把整屏还给内容。页脚另有一份同样的链接可用。 */
   header{position:static}
-  section[id],main[id]{scroll-margin-top:12px}
+  section[id],main[id],[id="fills"]{scroll-margin-top:12px}
 }
 
 /* IB 洽谈联系方式 */

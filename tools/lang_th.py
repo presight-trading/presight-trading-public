@@ -661,3 +661,9 @@ INDEX.update({
     '<a class="btn" href="../assets/share/presight-baopei-en.png" rel="noopener" target="_blank">Open the image <span class="arw">→</span></a>\n<a class="btn ghost" href="../assets/share/presight-baopei-en.pdf" rel="noopener" target="_blank">PDF</a>':
         '<a class="btn" href="../assets/share/presight-baopei-th.png" rel="noopener" target="_blank">เปิดภาพ <span class="arw">→</span></a>\n<a class="btn ghost" href="../assets/share/presight-baopei-th.pdf" rel="noopener" target="_blank">ไฟล์ PDF</a>',
 })
+
+# 首屏三个按钮：细则页直达 / 实盘成交记录锚点 / 加入信号群
+INDEX.update({
+    '<a class="btn big" href="protection.html">How coverage works <span class="arw">→</span></a>\n<a class="btn big ghost" href="#fills">Live fill history</a>\n<a class="btn big ghost" data-link="channel" href="#" rel="noopener" target="_blank">Join the signal channel</a>':
+        '<a class="btn big" href="protection.html">ประกันทำงานอย่างไร <span class="arw">→</span></a>\n<a class="btn big ghost" href="#fills">ประวัติออเดอร์บัญชีจริง</a>\n<a class="btn big ghost" data-link="channel" href="#" rel="noopener" target="_blank">เข้าแชนเนลสัญญาณ</a>',
+})
