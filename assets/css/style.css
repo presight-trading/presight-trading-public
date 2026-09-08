@@ -360,9 +360,12 @@ footer a:hover{color:#fff}
    按钮本来就分两层：一个主行动，两个备选。
    只作用于 .hero 内：包赔区、社区区、合作区也用 .hero-cta，但它们只有
    两个按钮，并排本来就好看。 */
-.hero .hero-cta{display:grid;grid-template-columns:auto auto;
-                justify-content:start;align-items:start;gap:12px}
-.hero .hero-cta > .btn:first-child{grid-column:1 / -1;justify-self:start}
+.hero .hero-cta{display:grid;grid-template-columns:1fr 1fr;
+                align-items:stretch;gap:12px;max-width:520px}
+/* 主按钮横跨两列，宽度正好等于下面两个之和——三个按钮左右边界对齐，
+   看着是一块，而不是三块各自为政。 */
+.hero .hero-cta > .btn{width:auto;justify-self:stretch}
+.hero .hero-cta > .btn:first-child{grid-column:1 / -1}
 
 @media(max-width:760px){
   :root{--gut:20px}
