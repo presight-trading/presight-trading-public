@@ -667,3 +667,72 @@ INDEX.update({
     '<a class="btn big" href="protection.html">How coverage works <span class="arw">→</span></a>\n<a class="btn big ghost" href="#fills">Live fill history</a>\n<a class="btn big ghost" data-link="channel" href="#" rel="noopener" target="_blank">Join the signal channel</a>':
         '<a class="btn big" href="protection.html">ประกันทำงานอย่างไร <span class="arw">→</span></a>\n<a class="btn big ghost" href="#fills">ประวัติออเดอร์บัญชีจริง</a>\n<a class="btn big ghost" data-link="channel" href="#" rel="noopener" target="_blank">เข้าแชนเนลสัญญาณ</a>',
 })
+
+# 出金规则改版：首月不得出金，满月后利润随时可取；赔付按整段跟单期间的
+# 净盈亏（出入金全部计入）结算。新增的片段在此补齐。
+
+INDEX.update({
+    'A full month of copying from the moment you report your MT5 account ID in the community, with no manual intervention and no withdrawals in that first month; <b>after that, profits can be taken out at any time</b>. If the whole copying period ends down — every deposit and withdrawal counted — the shortfall is refunded in <b>USD cash</b> within 10 business days of verification. Losses on positions you closed by hand are not covered.':
+        'ก๊อปปี้ต่อเนื่องครบหนึ่งเดือนนับจากตอนที่คุณแจ้ง MT5 account ID ในคอมมูนิตี้ ในเดือนแรกนั้นไม่แทรกแซงด้วยมือและไม่ถอนเงิน <b>หลังพ้นเดือนแรกแล้ว จะถอนกำไรเมื่อไหร่ก็ได้</b> ถ้าตลอดรอบการก๊อปปี้จบลงด้วยการขาดทุน — โดยนับรวมทุกการฝากและถอน — ส่วนต่างจะคืนเป็น<b>เงินสดสกุลดอลลาร์</b>ภายใน 10 วันทำการหลังตรวจสอบเสร็จ ส่วนขาดทุนของสถานะที่คุณปิดเองไม่อยู่ในความคุ้มครอง',
+    'Coverage is limited to <b>the full amount of your base capital</b>. Once copying starts you must <b>report your MT5 account ID</b> to <span class="mono">@PresightAdminBot</span> on Telegram — an unreported account is not eligible, and losses incurred before you report are not covered. Opening trades manually, raising the Ratio above 1, or <b>withdrawing during the first month</b> all void eligibility (withdrawals after that do not), and <b>losses on positions you close by hand are never refunded</b>.':
+        'ความคุ้มครองสูงสุดเท่ากับ<b>เงินทุนตั้งต้นทั้งจำนวน</b> เมื่อเริ่มก๊อปปี้แล้ว คุณต้อง<b>แจ้ง MT5 account ID</b> ให้ <span class="mono">@PresightAdminBot</span> ทาง Telegram — บัญชีที่ไม่ได้แจ้งจะไม่เข้าเกณฑ์ และขาดทุนที่เกิดก่อนแจ้งก็ไม่ได้รับความคุ้มครอง การเปิดออเดอร์เอง การตั้ง Ratio เกิน 1 หรือ<b>การถอนเงินภายในเดือนแรก</b> ล้วนทำให้เสียสิทธิ์ (ถอนหลังจากนั้นไม่มีผล) และ<b>ขาดทุนของสถานะที่คุณปิดเองจะไม่ได้รับคืนไม่ว่ากรณีใด</b>',
+    'Five things: a <b>new account</b> opened through our link and KYC-verified; copy settings of <b>Autoscale / Value by asset / Ratio 1</b> (a 1:1 mirror, no scaling up); <b>report your MT5 account ID</b> to <span class="mono">@PresightAdminBot</span> once copying starts; <b>a full month of continuous copying</b> from that report; and <b>no manual intervention and no withdrawals</b> during that first month — after it, profits can be taken out at any time without affecting eligibility.<br/><br/>The payout is settled on the net result of the <b>whole copying period</b> (from your report until you unsubscribe), with every deposit and withdrawal counted, not month by month: if you withdraw after a good month and lose later, what still matters is how much went in and how much came back out over that period.<br/><br/>Reporting is the gate: we cannot verify an account we were never told about, and losses incurred before you report are outside the coverage. Closing a position by hand is the one carve-out — it does not void the enrolment, but the loss on that trade is not refunded.<br/><br/>Per-trade risk and aggregate exposure are <b>not yours to set</b> — we manage them at the copy-account level. ALPHA-1 is a quantitative strategy and holding several positions at once is normal. The strategy account has drawdown thresholds that cut size or halt new entries on breach, and it never averages down.':
+        'ห้าข้อ: <b>บัญชีใหม่</b>ที่เปิดผ่านลิงก์ของเราและยืนยันตัวตนแล้ว; ตั้งค่าก๊อปปี้เป็น <b>Autoscale / Value by asset / Ratio 1</b> (คือ 1:1 ไม่ขยาย); <b>แจ้ง MT5 account ID</b> ให้ <span class="mono">@PresightAdminBot</span> ทันทีที่เริ่มก๊อปปี้; <b>ก๊อปปี้ต่อเนื่องครบหนึ่งเดือน</b>นับจากที่แจ้ง; และ<b>ไม่แทรกแซงด้วยมือ ไม่ถอนเงิน</b>ในเดือนแรกนั้น — หลังพ้นเดือนแรก ถอนกำไรเมื่อไหร่ก็ได้โดยไม่กระทบสิทธิ์<br><br>การจ่ายชดเชยคิดจากผลสุทธิของ<b>ตลอดรอบการก๊อปปี้</b> (ตั้งแต่ที่แจ้งจนถึงตอนคุณยกเลิกการก๊อปปี้) โดยนับรวมทุกการฝากและถอน ไม่ได้แยกเป็นรายเดือน: ถ้าคุณถอนเงินหลังเดือนที่กำไรแล้วมาขาดทุนทีหลัง สิ่งที่ดูก็ยังเป็นว่าตลอดรอบนั้นคุณใส่เข้าไปรวมเท่าไหร่และได้กลับมารวมเท่าไหร่<br><br>การแจ้งคือประตูเข้า: บัญชีที่เราไม่เคยรู้ว่ามีอยู่ย่อมตรวจสอบไม่ได้ และขาดทุนที่เกิดก่อนแจ้งอยู่นอกความคุ้มครอง การปิดสถานะเองเป็นข้อยกเว้นเดียว — ไม่ทำให้การเข้าร่วมเป็นโมฆะ แต่ขาดทุนของออเดอร์นั้นไม่ได้คืน<br><br>ความเสี่ยงต่อออเดอร์และความเสี่ยงรวม<b>ไม่ได้ให้คุณตั้งเอง</b> — เราจัดการที่ระดับบัญชีก๊อปปี้ ALPHA-1 เป็นกลยุทธ์เชิงปริมาณ การถือหลายสถานะพร้อมกันเป็นเรื่องปกติ บัญชีกลยุทธ์มีเกณฑ์ควบคุมการขาดทุนสะสม เมื่อแตะเกณฑ์จะลดขนาดหรือหยุดเปิดออเดอร์ใหม่ และไม่ถัวเฉลี่ยขาดทุน',
+})
+
+PROTECTION.update({
+    'If you copy the strategy under the conditions below for a full month and the whole copying period still ends down, we refund that loss in cash.':
+        'ถ้าคุณก๊อปปี้ตามเงื่อนไขด้านล่างครบหนึ่งเดือน แล้วตลอดรอบการก๊อปปี้ยังจบลงด้วยการขาดทุน เราคืนส่วนขาดทุนนั้นให้เป็นเงินสด',
+    'Open an account with the partner platform through a Presight link, subscribe to PRESIGHT ALPHA-1 at a <b>1:1 copy ratio</b>, <b>report your MT5 account ID</b> to <span class="mono">@PresightAdminBot</span> on Telegram once copying has started, and keep copying for <b>a full month</b> with no manual intervention and no withdrawals in that first month. <b>After the first month you can withdraw whenever you like, profits included, without affecting eligibility.</b> If the whole copying period ends down, we refund the loss in <b>cash</b>.':
+        'เปิดบัญชีกับแพลตฟอร์มพันธมิตรผ่านลิงก์ของ Presight สมัครก๊อปปี้ PRESIGHT ALPHA-1 ที่ <b>อัตราก๊อปปี้ 1:1</b> เมื่อเริ่มก๊อปปี้แล้ว<b>แจ้ง MT5 account ID</b> ให้ <span class="mono">@PresightAdminBot</span> ทาง Telegram แล้วก๊อปปี้ต่อเนื่อง<b>ครบหนึ่งเดือน</b> โดยในเดือนแรกนั้นไม่แทรกแซงด้วยมือและไม่ถอนเงิน <b>หลังพ้นเดือนแรก จะถอนเมื่อไหร่ก็ได้ รวมถึงถอนกำไรทั้งหมด โดยไม่กระทบสิทธิ์</b> ถ้าตลอดรอบการก๊อปปี้จบลงด้วยการขาดทุน เราคืนส่วนขาดทุนนั้นให้เป็น<b>เงินสด</b>',
+    'Three boundaries to note up front: coverage applies only to losses incurred <b>after you report the account</b>; only to trades <b>the strategy itself closed</b> — losses on positions you closed by hand are not covered; and it settles on the net result of the <b>whole copying period</b> (from your report until you unsubscribe), with every deposit and withdrawal counted — not month by month.':
+        'มีสามขอบเขตที่ต้องรู้ก่อน: ความคุ้มครองครอบคลุมเฉพาะขาดทุนที่เกิด<b>หลังจากคุณแจ้งบัญชี</b>; เฉพาะออเดอร์ที่<b>กลยุทธ์ปิดเอง</b> — ขาดทุนของสถานะที่คุณปิดเองไม่ได้รับความคุ้มครอง; และคิดจากผลสุทธิของ<b>ตลอดรอบการก๊อปปี้</b> (ตั้งแต่ที่แจ้งจนถึงตอนคุณยกเลิก) โดยนับรวมทุกการฝากและถอน — ไม่ได้แยกเป็นรายเดือน',
+    '<b>No withdrawals in the first month</b> (the 30 calendar days from your report). After that you can withdraw at any time, including taking out all the profit, with no effect on eligibility — every deposit and withdrawal simply counts towards the net result, see section 06.':
+        '<b>ห้ามถอนเงินในเดือนแรก</b> (30 วันตามปฏิทินนับจากที่แจ้ง) หลังจากนั้นถอนได้ทุกเมื่อ รวมถึงถอนกำไรออกทั้งหมด โดยไม่กระทบสิทธิ์ — ทุกการฝากและถอนเพียงถูกนำไปนับในผลสุทธิเท่านั้น ดูข้อ 06',
+    'From your report <b>until you unsubscribe</b>, and <b>at least one month (30 consecutive calendar days)</b>. Unsubscribing before the first month is up means nothing is payable':
+        'นับจากที่คุณแจ้ง <b>ไปจนถึงตอนคุณยกเลิกการก๊อปปี้</b> และ<b>อย่างน้อยหนึ่งเดือน (30 วันตามปฏิทินต่อเนื่อง)</b> ถ้ายกเลิกก่อนครบเดือนแรกจะไม่ได้รับการชดเชย',
+    'Settlement point':
+        'จุดชำระบัญชี',
+    'When you <b>unsubscribe</b> (or file a claim, whichever comes first). The payout is calculated across <b>the whole period</b> from start to settlement, not month by month':
+        'ตอนที่คุณ<b>ยกเลิกการก๊อปปี้</b> (หรือตอนยื่นเรื่องขอชดเชย แล้วแต่ว่าอย่างใดถึงก่อน) การชดเชยคำนวณจาก<b>ตลอดรอบ</b>ตั้งแต่เริ่มจนถึงจุดชำระบัญชี ไม่ได้แยกเป็นรายเดือน',
+    'Early termination':
+        'การยุติก่อนกำหนด',
+    'Pausing or unsubscribing before the first month is up voids coverage; nothing is payable':
+        'การหยุดชั่วคราวหรือยกเลิกก่อนครบเดือนแรกทำให้ความคุ้มครองสิ้นผล และไม่มีการจ่ายใด ๆ',
+    '<b>The full amount put in</b> — base capital plus deposits made during the period. A later deposit only counts towards the protected amount once it has been in the account for <b>30 calendar days</b>: otherwise copying a small balance for a month and then wiring in a large sum to claim on would be a one-way option, and the commitment has to stay payable for everyone in it':
+        '<b>เท่ากับยอดรวมที่ใส่เข้าไป</b> คือเงินทุนตั้งต้นบวกกับเงินฝากระหว่างรอบ เงินฝากที่เพิ่มภายหลังจะถูกนับเข้าวงเงินคุ้มครองก็ต่อเมื่ออยู่ในบัญชีครบ <b>30 วันตามปฏิทิน</b> แล้ว — มิฉะนั้นการก๊อปปี้ด้วยยอดน้อย ๆ หนึ่งเดือนแล้วค่อยโอนเงินก้อนใหญ่เข้ามาเพื่อขอชดเชย จะกลายเป็นสิทธิ์เลือกข้างเดียว และคำมั่นนี้ต้องจ่ายไหวสำหรับทุกคนที่เข้าร่วม',
+    'Withdrawal in month 1':
+        'การถอนเงินในเดือนแรก',
+    'A withdrawal within the first 30 days <b>voids that enrolment</b>. That month is the qualifying period; taking money out mid-way makes base capital meaningless':
+        'การถอนเงินภายใน 30 วันแรกทำให้การเข้าร่วมครั้งนั้น<b>เป็นโมฆะ</b> เดือนนั้นคือช่วงพิสูจน์คุณสมบัติ การดึงเงินออกกลางคันทำให้เงินทุนตั้งต้นหมดความหมาย',
+    'After month 1':
+        'หลังพ้นเดือนแรก',
+    '<b>No effect on eligibility</b> — profits can be taken out at any time. Every deposit and withdrawal feeds into the net result under section 06: withdrawing neither reduces your payout nor lets you bank profits and then claim on a later loss':
+        '<b>ไม่กระทบสิทธิ์</b> — ถอนกำไรออกได้ทุกเมื่อ ทุกการฝากและถอนจะถูกนำไปคิดในผลสุทธิตามข้อ 06: การถอนเงินไม่ได้ทำให้เงินชดเชยของคุณลดลง และก็ไม่ได้เปิดช่องให้ล็อกกำไรไว้แล้วมาขอชดเชยกับขาดทุนที่เกิดทีหลัง',
+    'What matters is the <b>net result of the whole copying period</b>: how much went in, and how much came back out.\n         Every withdrawal and deposit in between is counted, so there is no month-by-month split and no\n         "claim on whichever month happened to lose".':
+        'สิ่งที่ดูคือ<b>ผลสุทธิของตลอดรอบการก๊อปปี้</b>: ใส่เข้าไปรวมเท่าไหร่ และได้กลับมารวมเท่าไหร่ ทุกการถอนและฝากระหว่างทางถูกนับหมด จึงไม่มีการแยกรายเดือน และไม่มีการ "เลือกเดือนที่ขาดทุนมาขอชดเชย"',
+    'Total in':
+        'รวมที่ใส่เข้าไป',
+    'Base capital + deposits made during the period':
+        'เงินทุนตั้งต้น + เงินฝากระหว่างรอบ',
+    'Total out':
+        'รวมที่ได้กลับมา',
+    'Account equity at settlement + withdrawals made during the period':
+        'อิควิตี้ ณ จุดชำระบัญชี + เงินถอนระหว่างรอบ',
+    '<b>Net result = total out − total in.</b> When that figure is negative, its absolute value is the <b>net loss</b>.':
+        '<b>ผลสุทธิ = รวมที่ได้กลับมา − รวมที่ใส่เข้าไป</b> เมื่อค่านี้ติดลบ ค่าสัมบูรณ์ของมันคือ<b>ขาดทุนสุทธิ</b>',
+    '<b>Payout = the combined loss on trades closed by the strategy during the period, capped at the net loss above and at the protected amount.</b>':
+        '<b>เงินชดเชย = ผลรวมขาดทุนของออเดอร์ที่กลยุทธ์ปิดเองระหว่างรอบ โดยไม่เกินขาดทุนสุทธิข้างต้น และไม่เกินวงเงินคุ้มครอง</b>',
+    'Net loss ≤ 0 (the period ended flat or in profit): nothing is payable.':
+        'ขาดทุนสุทธิ ≤ 0 (ตลอดรอบเสมอตัวหรือมีกำไร): ไม่มีการจ่าย',
+    'Example 1: base capital USD 10,000, no deposits or withdrawals, equity at settlement USD 9,150, every position closed\n         by the strategy. Out 9,150 − in 10,000 = −850; net loss USD 850; payout <b>USD 850</b>.':
+        'ตัวอย่างที่ 1: เงินทุนตั้งต้น 10,000 ดอลลาร์ ไม่มีฝากไม่มีถอน อิควิตี้ ณ จุดชำระบัญชี 9,150 ดอลลาร์ ทุกสถานะปิดโดยกลยุทธ์ ได้กลับมา 9,150 − ใส่เข้าไป 10,000 = −850 ขาดทุนสุทธิ 850 ดอลลาร์ ชดเชย <b>850 ดอลลาร์</b>',
+    'Example 3 (<b>the question we get most: I withdrew after a good month, then lost later</b>): base capital USD 10,000.\n         Month 1 gains 5%, then USD 500 is withdrawn. Month 2 takes a USD 1,000 deposit, gains 5%, then USD 1,550 is withdrawn.\n         Month 3 loses 5% and you unsubscribe at USD 9,500.<br/>\n         Total in = 10,000 + 1,000 = <b>11,000</b>; total out = 9,500 + (500 + 1,550) = <b>11,550</b>;\n         net result <b>+USD 550</b> — the period is up overall, so <b>nothing is payable</b>.':
+        'ตัวอย่างที่ 3 (<b>คำถามที่เจอบ่อยที่สุด: ถอนหลังเดือนที่กำไร แล้วมาขาดทุนทีหลัง</b>): เงินทุนตั้งต้น 10,000 ดอลลาร์ เดือนที่ 1 กำไร 5% แล้วถอน 500 ดอลลาร์ เดือนที่ 2 ฝากเพิ่ม 1,000 ดอลลาร์ กำไร 5% แล้วถอน 1,550 ดอลลาร์ เดือนที่ 3 ขาดทุน 5% และคุณยกเลิกการก๊อปปี้ที่ 9,500 ดอลลาร์<br>รวมที่ใส่เข้าไป = 10,000 + 1,000 = <b>11,000</b>; รวมที่ได้กลับมา = 9,500 + (500 + 1,550) = <b>11,550</b>; ผลสุทธิ <b>+550 ดอลลาร์</b> — ตลอดรอบยังกำไร จึง<b>ไม่มีการจ่ายชดเชย</b>',
+    'Example 4: as above, but month 3 loses 15% and you unsubscribe at USD 8,500.<br/>\n         Total in <b>11,000</b>, total out = 8,500 + 2,050 = <b>10,550</b>, net result <b>−USD 450</b>.\n         If the strategy closed all of those trades, the payout is <b>USD 450</b>.':
+        'ตัวอย่างที่ 4: เหมือนข้างบน แต่เดือนที่ 3 ขาดทุน 15% และคุณยกเลิกการก๊อปปี้ที่ 8,500 ดอลลาร์<br>รวมที่ใส่เข้าไป <b>11,000</b> รวมที่ได้กลับมา = 8,500 + 2,050 = <b>10,550</b> ผลสุทธิ <b>−450 ดอลลาร์</b> ถ้าออเดอร์เหล่านั้นปิดโดยกลยุทธ์ทั้งหมด เงินชดเชยคือ <b>450 ดอลลาร์</b>',
+    'In short: <b>withdrawing neither reduces your payout nor creates one out of thin air.</b>\n         What is refunded is money you are actually down, not a swing over some slice of time.':
+        'พูดสั้น ๆ คือ <b>การถอนเงินไม่ได้ทำให้เงินชดเชยลดลง และก็ไม่ได้ทำให้เกิดเงินชดเชยขึ้นมาลอย ๆ</b> สิ่งที่คืนให้คือเงินที่คุณหายไปจริง ไม่ใช่ความผันผวนของช่วงเวลาใดช่วงหนึ่ง',
+    'A withdrawal <b>within the first month</b> (withdrawals after that do not affect eligibility).':
+        'การถอนเงิน<b>ภายในเดือนแรก</b> (ถอนหลังจากนั้นไม่กระทบสิทธิ์)',
+})

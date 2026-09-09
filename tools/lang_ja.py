@@ -1045,3 +1045,72 @@ INDEX.update({
     '<a class="btn big" href="protection.html">How coverage works <span class="arw">→</span></a>\n<a class="btn big ghost" href="#fills">Live fill history</a>\n<a class="btn big ghost" data-link="channel" href="#" rel="noopener" target="_blank">Join the signal channel</a>':
         '<a class="btn big" href="protection.html">補償のしくみ <span class="arw">→</span></a>\n<a class="btn big ghost" href="#fills">実口座の約定履歴</a>\n<a class="btn big ghost" data-link="channel" href="#" rel="noopener" target="_blank">シグナルチャンネルに参加</a>',
 })
+
+# 出金规则改版：首月不得出金，满月后利润随时可取；赔付按整段跟单期间的
+# 净盈亏（出入金全部计入）结算。新增的片段在此补齐。
+
+INDEX.update({
+    'A full month of copying from the moment you report your MT5 account ID in the community, with no manual intervention and no withdrawals in that first month; <b>after that, profits can be taken out at any time</b>. If the whole copying period ends down — every deposit and withdrawal counted — the shortfall is refunded in <b>USD cash</b> within 10 business days of verification. Losses on positions you closed by hand are not covered.':
+        'コミュニティで MT5 口座 ID を届け出た時点から<b>まる 1 か月</b>コピーを継続し、その最初の 1 か月は手動介入も出金もしません。<b>1 か月を過ぎたあとは、利益をいつ引き出しても構いません。</b>コピー期間全体（入金・出金はすべて算入）が負けで終わった場合、その差額を<b>米ドル現金</b>で、確認完了から 10 営業日以内にお返しします。ご自身で手仕舞いした分の損失は補償の対象外です。',
+    'Coverage is limited to <b>the full amount of your base capital</b>. Once copying starts you must <b>report your MT5 account ID</b> to <span class="mono">@PresightAdminBot</span> on Telegram — an unreported account is not eligible, and losses incurred before you report are not covered. Opening trades manually, raising the Ratio above 1, or <b>withdrawing during the first month</b> all void eligibility (withdrawals after that do not), and <b>losses on positions you close by hand are never refunded</b>.':
+        '補償の上限は<b>基準資金の全額</b>です。コピーを始めたら、Telegram で <span class="mono">@PresightAdminBot</span> に<b>MT5 口座 ID を届け出て</b>ください——届出のない口座は対象外で、届出より前に生じた損失も補償されません。手動での新規建て、Ratio を 1 より大きくする、<b>最初の 1 か月内の出金</b>はいずれも資格を失います（1 か月を過ぎてからの出金は影響しません）。また<b>ご自身で手仕舞いした分の損失は、いかなる場合も補償されません</b>。',
+    'Five things: a <b>new account</b> opened through our link and KYC-verified; copy settings of <b>Autoscale / Value by asset / Ratio 1</b> (a 1:1 mirror, no scaling up); <b>report your MT5 account ID</b> to <span class="mono">@PresightAdminBot</span> once copying starts; <b>a full month of continuous copying</b> from that report; and <b>no manual intervention and no withdrawals</b> during that first month — after it, profits can be taken out at any time without affecting eligibility.<br/><br/>The payout is settled on the net result of the <b>whole copying period</b> (from your report until you unsubscribe), with every deposit and withdrawal counted, not month by month: if you withdraw after a good month and lose later, what still matters is how much went in and how much came back out over that period.<br/><br/>Reporting is the gate: we cannot verify an account we were never told about, and losses incurred before you report are outside the coverage. Closing a position by hand is the one carve-out — it does not void the enrolment, but the loss on that trade is not refunded.<br/><br/>Per-trade risk and aggregate exposure are <b>not yours to set</b> — we manage them at the copy-account level. ALPHA-1 is a quantitative strategy and holding several positions at once is normal. The strategy account has drawdown thresholds that cut size or halt new entries on breach, and it never averages down.':
+        '5 つです。当方のリンクから開設し KYC を済ませた<b>新規口座</b>であること。コピー設定が <b>Autoscale / Value by asset / Ratio 1</b>（1:1、拡大しない）であること。コピー開始後に <span class="mono">@PresightAdminBot</span> へ<b>MT5 口座 ID を届け出る</b>こと。その届出から<b>まる 1 か月</b>コピーを続けること。そして<b>最初の 1 か月は手動介入も出金もしない</b>こと——1 か月を過ぎたあとは、利益をいつ引き出しても資格には影響しません。<br><br>補償は<b>コピー期間全体</b>（届出から解除まで）の純損益で精算します。入金・出金はすべて算入し、月ごとには区切りません。勝った月に出金してあとで負けた場合でも、見るのはその期間に合計いくら入れて合計いくら戻ったかです。<br><br>届出が入口です。知らされていない口座は確認のしようがなく、届出より前に生じた損失は補償の外です。手仕舞いだけは例外扱いで、参加そのものは無効になりませんが、その取引の損失は返金されません。<br><br>一回あたりのリスクと合計エクスポージャーは<b>お客様が設定するものではありません</b>——コピー口座の側で当方が管理します。ALPHA-1 はクオンツ戦略で、複数のポジションを同時に持つのは通常の姿です。戦略口座にはドローダウンの閾値があり、抵触するとサイズを落とすか新規建てを止めます。ナンピンもしません。',
+})
+
+PROTECTION.update({
+    'If you copy the strategy under the conditions below for a full month and the whole copying period still ends down, we refund that loss in cash.':
+        '本規約の条件でまる 1 か月コピーを続け、コピー期間全体が最終的に負けで終わった場合、その損失を現金でお返しします。',
+    'Open an account with the partner platform through a Presight link, subscribe to PRESIGHT ALPHA-1 at a <b>1:1 copy ratio</b>, <b>report your MT5 account ID</b> to <span class="mono">@PresightAdminBot</span> on Telegram once copying has started, and keep copying for <b>a full month</b> with no manual intervention and no withdrawals in that first month. <b>After the first month you can withdraw whenever you like, profits included, without affecting eligibility.</b> If the whole copying period ends down, we refund the loss in <b>cash</b>.':
+        'Presight のリンクから提携ブローカーに口座を開設し、<b>1:1 のコピー比率</b>で PRESIGHT ALPHA-1 を購読、コピーが始まったら Telegram の <span class="mono">@PresightAdminBot</span> に<b>MT5 口座 ID を届け出て</b>、<b>まる 1 か月</b>コピーを続けます。その最初の 1 か月は手動介入も出金もしません。<b>1 か月を過ぎたあとは、利益を含めていつ引き出しても資格に影響しません。</b>コピー期間全体が負けで終わった場合、その損失を<b>現金</b>でお返しします。',
+    'Three boundaries to note up front: coverage applies only to losses incurred <b>after you report the account</b>; only to trades <b>the strategy itself closed</b> — losses on positions you closed by hand are not covered; and it settles on the net result of the <b>whole copying period</b> (from your report until you unsubscribe), with every deposit and withdrawal counted — not month by month.':
+        '先に三つの境界を押さえてください。補償の対象は<b>届出より後</b>に生じた損失だけであること。<b>戦略が自動で決済した</b>取引だけであること——ご自身で手仕舞いした分の損失は対象外です。そして<b>コピー期間全体</b>（届出から解除まで）の純損益で精算し、入金・出金はすべて算入すること——月ごとには区切りません。',
+    '<b>No withdrawals in the first month</b> (the 30 calendar days from your report). After that you can withdraw at any time, including taking out all the profit, with no effect on eligibility — every deposit and withdrawal simply counts towards the net result, see section 06.':
+        '<b>最初の 1 か月（届出から 30 暦日）は出金しないこと。</b>それを過ぎれば、利益を全額引き出す場合も含めていつでも出金でき、資格には影響しません——入出金はすべて純損益の計算に算入されるだけです（第 06 条）。',
+    'From your report <b>until you unsubscribe</b>, and <b>at least one month (30 consecutive calendar days)</b>. Unsubscribing before the first month is up means nothing is payable':
+        '届出から起算し、<b>コピーを解除するまで</b>。最短で<b>1 か月（連続 30 暦日）</b>。1 か月に満たないうちに解除した場合は支払われません',
+    'Settlement point':
+        '精算時点',
+    'When you <b>unsubscribe</b> (or file a claim, whichever comes first). The payout is calculated across <b>the whole period</b> from start to settlement, not month by month':
+        '<b>コピーを解除した</b>時点（または補償を申請した時点。いずれか早い方）。補償は起算から精算までの<b>期間全体</b>で計算し、月ごとには区切りません',
+    'Early termination':
+        '早期終了',
+    'Pausing or unsubscribing before the first month is up voids coverage; nothing is payable':
+        '1 か月に満たないうちに一時停止・解除した場合、補償は失効し、支払いはありません',
+    '<b>The full amount put in</b> — base capital plus deposits made during the period. A later deposit only counts towards the protected amount once it has been in the account for <b>30 calendar days</b>: otherwise copying a small balance for a month and then wiring in a large sum to claim on would be a one-way option, and the commitment has to stay payable for everyone in it':
+        '<b>投入合計の全額</b>、すなわち基準資金に期間中の入金を加えた額。追加入金は着金から<b>30 暦日</b>を過ぎてはじめて補償対象額に算入されます——そうしないと、少額で 1 か月コピーしてから大口を送金して請求する、という一方的なオプションになってしまい、この約束を全員に対して支払い可能な状態に保てません',
+    'Withdrawal in month 1':
+        '最初の 1 か月内の出金',
+    'A withdrawal within the first 30 days <b>voids that enrolment</b>. That month is the qualifying period; taking money out mid-way makes base capital meaningless':
+        '最初の 30 日以内の出金は、その回の参加が<b>無効</b>になります。この 1 か月は資格期間であり、途中で資金を引き出すと基準資金が意味を失います',
+    'After month 1':
+        '1 か月経過後の入出金',
+    '<b>No effect on eligibility</b> — profits can be taken out at any time. Every deposit and withdrawal feeds into the net result under section 06: withdrawing neither reduces your payout nor lets you bank profits and then claim on a later loss':
+        '<b>資格には影響しません</b>——利益はいつでも引き出せます。入出金はすべて第 06 条の純損益に算入されます。出金によって補償が減ることはなく、利益を確定させてから後の損失で請求する、ということもできません',
+    'What matters is the <b>net result of the whole copying period</b>: how much went in, and how much came back out.\n         Every withdrawal and deposit in between is counted, so there is no month-by-month split and no\n         "claim on whichever month happened to lose".':
+        '見るのは<b>コピー期間全体の純損益</b>です。合計いくら入れて、合計いくら戻ったか。途中の出金・入金はすべて算入するので、月ごとの区切りはなく、「負けた月だけを取り出して請求する」ということもありません。',
+    'Total in':
+        '投入合計',
+    'Base capital + deposits made during the period':
+        '基準資金 ＋ 期間中の入金の合計',
+    'Total out':
+        '回収合計',
+    'Account equity at settlement + withdrawals made during the period':
+        '精算時の口座純資産 ＋ 期間中の出金の合計',
+    '<b>Net result = total out − total in.</b> When that figure is negative, its absolute value is the <b>net loss</b>.':
+        '<b>純損益 ＝ 回収合計 − 投入合計。</b>この値がマイナスのとき、その絶対値が<b>純損失</b>です。',
+    '<b>Payout = the combined loss on trades closed by the strategy during the period, capped at the net loss above and at the protected amount.</b>':
+        '<b>補償額 ＝ 期間中に戦略が自動決済した取引の損失合計。ただし上記の純損失を超えず、補償対象額も超えません。</b>',
+    'Net loss ≤ 0 (the period ended flat or in profit): nothing is payable.':
+        '純損失 ≤ 0（期間全体が横ばいまたはプラス）：支払いは発生しません。',
+    'Example 1: base capital USD 10,000, no deposits or withdrawals, equity at settlement USD 9,150, every position closed\n         by the strategy. Out 9,150 − in 10,000 = −850; net loss USD 850; payout <b>USD 850</b>.':
+        '例 1：基準資金 10,000 米ドル、期間中の入出金なし、精算時の純資産 9,150 米ドル、すべてのポジションを戦略が決済。回収 9,150 − 投入 10,000 ＝ −850、純損失 850 米ドル、補償は<b>850 米ドル</b>。',
+    'Example 3 (<b>the question we get most: I withdrew after a good month, then lost later</b>): base capital USD 10,000.\n         Month 1 gains 5%, then USD 500 is withdrawn. Month 2 takes a USD 1,000 deposit, gains 5%, then USD 1,550 is withdrawn.\n         Month 3 loses 5% and you unsubscribe at USD 9,500.<br/>\n         Total in = 10,000 + 1,000 = <b>11,000</b>; total out = 9,500 + (500 + 1,550) = <b>11,550</b>;\n         net result <b>+USD 550</b> — the period is up overall, so <b>nothing is payable</b>.':
+        '例 3（<b>いちばん多い質問：勝った月に出金し、そのあと負けた場合</b>）：基準資金 10,000 米ドル。1 か月目に 5% 増えたところで 500 米ドルを出金。2 か月目に 1,000 米ドルを入金し、5% 増えたところで 1,550 米ドルを出金。3 か月目に 5% 減り、9,500 米ドルでコピーを解除。<br>投入合計 ＝ 10,000 ＋ 1,000 ＝ <b>11,000</b>、回収合計 ＝ 9,500 ＋（500 ＋ 1,550）＝ <b>11,550</b>、純損益 <b>＋550 米ドル</b>——期間全体では勝っているので、<b>支払いは発生しません</b>。',
+    'Example 4: as above, but month 3 loses 15% and you unsubscribe at USD 8,500.<br/>\n         Total in <b>11,000</b>, total out = 8,500 + 2,050 = <b>10,550</b>, net result <b>−USD 450</b>.\n         If the strategy closed all of those trades, the payout is <b>USD 450</b>.':
+        '例 4：同じ流れで、3 か月目が 15% のマイナスとなり、8,500 米ドルでコピーを解除した場合。<br>投入合計 <b>11,000</b>、回収合計 ＝ 8,500 ＋ 2,050 ＝ <b>10,550</b>、純損益 <b>−450 米ドル</b>。これらの取引をすべて戦略が決済していれば、補償は<b>450 米ドル</b>。',
+    'In short: <b>withdrawing neither reduces your payout nor creates one out of thin air.</b>\n         What is refunded is money you are actually down, not a swing over some slice of time.':
+        'つまり<b>出金は補償を減らしもしませんし、ないところに生みもしません。</b>お返しするのは実際に減った分であって、ある期間の値動きではありません。',
+    'A withdrawal <b>within the first month</b> (withdrawals after that do not affect eligibility).':
+        '<b>最初の 1 か月内</b>の出金（それ以降の出金は資格に影響しません）。',
+})

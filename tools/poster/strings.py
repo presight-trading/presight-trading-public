@@ -30,9 +30,10 @@ L["zh"] = dict(
     badge="跟单亏损包赔",
     h1a="按规则跟单", h1b="亏了我们赔",
     lead="以 <b>1:1</b> 跟单 PRESIGHT ALPHA-1，报备 MT5 账户 ID 后连续跟单<b>满 1 个月</b>，"
-         "期间不手动干预、不出金。期末账户若为净亏损，我们<b>按实际亏损金额现金返还</b>。",
+         "首月内不手动干预、不出金——<b>满一个月后利润随时可取</b>。"
+         "整段跟单期间若为净亏损，我们<b>按实际亏损金额现金返还</b>。",
     s1="不放大仓位", s2v="1 个月", s2="自报备起 30 天",
-    s3v="基准资金", s3="全额保护", s4v="现金", s4="10 个工作日",
+    s3v="投入合计", s3="全额保护", s4v="现金", s4="10 个工作日",
     sec1="四步开始", sec2="怎么赔",
     a1t='通过官网链接注册<span class="em">新账户</span>并入金',
     a1d="完成身份认证（KYC）。只有走官网链接注册的新账户才在订阅名单里",
@@ -43,9 +44,9 @@ L["zh"] = dict(
     a3t='私信 <span class="em">@PresightAdminBot</span> 报备 MT5 账户 ID',
     a3d="<b>保护期从这一刻起算</b>，没报备的账户不具备赔付资格，报备之前的亏损也不赔",
     a4t='放着不动，满 <span class="em">1 个月</span>',
-    a4d="期间不手动开仓、不改止损止盈、不调参数、不出金、不暂停或解除跟单",
-    b1t="净亏损 = 基准资金 − 期末净值",
-    b1d="基准资金取报备时的账户净值，保护额度为其全额",
+    a4d="首月不手动开仓、不改止损止盈、不调参数、不出金、不暂停或解除跟单；满 1 个月后利润随时可取，不影响资格",
+    b1t="净亏损 = 投入合计 − 取回合计",
+    b1d="投入合计 = 基准资金＋期间入金；取回合计 = 期末净值＋期间出金。出入金全部计入，按整段跟单期间结算，不分单月",
     b2t='<span class="em">只赔由策略自动平仓的交易</span>',
     b2d="你手动平仓的持仓无论盈亏都不计入——离场时机是你自己决定的。"
         "举例：期末净亏 850 美元，若全部由策略平仓则赔 850；其中 300 来自你手动平掉的一笔，则赔 550",
@@ -73,10 +74,11 @@ L["en"] = dict(
     badge="LOSS COVERAGE",
     h1a="Copy within the rules.", h1b="We cover the loss.",
     lead="Copy PRESIGHT ALPHA-1 at <b>1:1</b>, report your MT5 account ID, then keep copying "
-         "<b>for a full month</b> with no manual intervention and no withdrawals. If the account "
-         "ends down, we <b>refund that loss in cash</b>.",
+         "<b>for a full month</b> with no manual intervention and no withdrawals in that first "
+         "month &mdash; <b>after it, profits can be taken out at any time</b>. If the whole "
+         "copying period ends down, we <b>refund that loss in cash</b>.",
     s1="no scaling up", s2v="1 month", s2="30 days from your report",
-    s3v="Base capital", s3="covered in full", s4v="Cash", s4="10 business days",
+    s3v="Total put in", s3="covered in full", s4v="Cash", s4="10 business days",
     sec1="Four steps to start", sec2="How the payout works",
     a1t='Open a <span class="em">new account</span> through our link and fund it',
     a1d="Complete KYC. Only accounts opened through the site link are on the subscription list",
@@ -88,10 +90,12 @@ L["en"] = dict(
     a3d="<b>The protection period starts at that moment.</b> An unreported account is not "
         "eligible, and losses before you report are not covered",
     a4t='Leave it alone for <span class="em">one month</span>',
-    a4d="No manual entries, no changes to stops or targets or copy settings, no withdrawals, "
-        "no pausing or unsubscribing",
-    b1t="Net loss = base capital − equity at the end",
-    b1d="Base capital is your equity at the moment you report; coverage is its full amount",
+    a4d="In month 1: no manual entries, no changes to stops or targets or copy settings, "
+        "no withdrawals, no pausing or unsubscribing. After that, profits can be withdrawn "
+        "at any time",
+    b1t="Net loss = total put in − total taken out",
+    b1d="In = base capital + deposits; out = equity at settlement + withdrawals. Every deposit "
+        "and withdrawal counts; settled over the whole copying period, not month by month",
     b2t='<span class="em">Only trades the strategy closed itself are covered</span>',
     b2d="Positions you closed by hand are excluded either way — you chose the exit. Example: "
         "USD 850 net loss, all closed by the strategy → USD 850 paid; if USD 300 of it came from "
@@ -127,10 +131,11 @@ L["ja"] = dict(
     badge="損失補償",
     h1a="ルールどおりに、", h1b="負けたら補償します",
     lead="PRESIGHT ALPHA-1 を <b>1:1</b> でコピーし、MT5 口座 ID を届け出たうえで"
-         "<b>1 か月</b>、手動介入も出金もせずに続けます。期間終了時に口座が負けていれば、"
-         "その損失を<b>現金で返金</b>します。",
+         "<b>1 か月</b>、最初の 1 か月は手動介入も出金もせずに続けます"
+         "——<b>1 か月を過ぎれば利益はいつでも引き出せます</b>。"
+         "コピー期間全体が負けで終われば、その損失を<b>現金で返金</b>します。",
     s1="拡大しない", s2v="1 か月", s2="届出から 30 日",
-    s3v="基準資金", s3="全額を保護", s4v="現金", s4="10 営業日",
+    s3v="投入合計", s3="全額を保護", s4v="現金", s4="10 営業日",
     sec1="4 ステップで開始", sec2="補償のしくみ",
     a1t='公式リンクから<span class="em">新規口座</span>を開き入金',
     a1d="本人確認（KYC）を完了。公式リンクから開いた新規口座だけが購読リストに載ります",
@@ -142,9 +147,10 @@ L["ja"] = dict(
     a3d="<b>保護期間はこの瞬間から始まります。</b>届出のない口座は対象外で、"
         "届出より前の損失も補償されません",
     a4t='<span class="em">1 か月</span>、そのままにしておく',
-    a4d="手動での新規建て、損切り・利確やコピー設定の変更、出金、停止・解除はいずれも不可",
-    b1t="純損失 = 基準資金 − 期間終了時の有効証拠金",
-    b1d="基準資金は届出時点の有効証拠金。保護額はその全額です",
+    a4d="最初の 1 か月は手動での新規建て、損切り・利確やコピー設定の変更、出金、停止・解除はいずれも不可。それ以降は利益をいつ引き出しても資格に影響しません",
+    b1t="純損失 = 投入合計 − 回収合計",
+    b1d="投入合計 = 基準資金＋期間中の入金、回収合計 = 精算時の純資産＋期間中の出金。"
+        "入出金はすべて算入し、コピー期間全体で精算します（月ごとに区切りません）",
     b2t='<span class="em">補償は戦略自身が決済した取引だけ</span>',
     b2d="ご自身で手仕舞いした建玉は損益にかかわらず対象外です——降りる時機を選んだのはあなたです。"
         "例：期末の純損失 850 ドルが全て戦略の決済なら 850 ドル返金、"
@@ -178,10 +184,11 @@ L["vi"] = dict(
     badge="BẢO HIỂM THUA LỖ",
     h1a="Sao chép đúng luật,", h1b="lỗ chúng tôi bù.",
     lead="Sao chép PRESIGHT ALPHA-1 ở tỷ lệ <b>1:1</b>, khai báo MT5 account ID rồi duy trì "
-         "<b>đủ một tháng</b>, không can thiệp thủ công và không rút tiền. Nếu cuối kỳ tài khoản "
-         "âm, chúng tôi <b>hoàn khoản lỗ đó bằng tiền mặt</b>.",
+         "<b>đủ một tháng</b>, trong tháng đầu không can thiệp thủ công và không rút tiền "
+         "&mdash; <b>sau tháng đầu, rút lợi nhuận lúc nào cũng được</b>. Nếu cả kỳ sao chép "
+         "kết thúc trong trạng thái lỗ, chúng tôi <b>hoàn khoản lỗ đó bằng tiền mặt</b>.",
     s1="không phóng đại", s2v="1 tháng", s2="30 ngày kể từ khi khai báo",
-    s3v="Vốn gốc", s3="bảo vệ toàn phần", s4v="Tiền mặt", s4="10 ngày làm việc",
+    s3v="Tổng bỏ vào", s3="bảo vệ toàn phần", s4v="Tiền mặt", s4="10 ngày làm việc",
     sec1="Bốn bước để bắt đầu", sec2="Bồi thường thế nào",
     a1t='Mở <span class="em">tài khoản mới</span> qua liên kết của chúng tôi và nạp tiền',
     a1d="Hoàn tất KYC. Chỉ tài khoản mở qua liên kết trên trang mới nằm trong danh sách đăng ký",
@@ -193,10 +200,11 @@ L["vi"] = dict(
     a3d="<b>Thời gian bảo vệ bắt đầu từ khoảnh khắc đó.</b> Tài khoản chưa khai báo thì không đủ "
         "điều kiện, và khoản lỗ trước lúc khai báo cũng không được bảo hiểm",
     a4t='Để yên <span class="em">đủ một tháng</span>',
-    a4d="Không tự mở lệnh, không sửa dừng lỗ/chốt lời hay cấu hình sao chép, không rút tiền, "
-        "không tạm dừng hay huỷ đăng ký",
-    b1t="Lỗ ròng = vốn gốc − vốn chủ sở hữu cuối kỳ",
-    b1d="Vốn gốc là vốn chủ sở hữu tại thời điểm bạn khai báo; bảo hiểm bằng toàn bộ số đó",
+    a4d="Tháng đầu: không tự mở lệnh, không sửa dừng lỗ/chốt lời hay cấu hình sao chép, "
+        "không rút tiền, không tạm dừng hay huỷ đăng ký. Sau đó rút lợi nhuận lúc nào cũng được",
+    b1t="Lỗ ròng = tổng bỏ vào − tổng lấy ra",
+    b1d="Bỏ vào = vốn gốc + tiền nạp; lấy ra = vốn chủ sở hữu lúc quyết toán + tiền rút. "
+        "Mọi khoản nạp/rút đều tính, quyết toán trên cả kỳ sao chép chứ không theo từng tháng",
     b2t='<span class="em">Chỉ bồi thường các lệnh do chính chiến lược đóng</span>',
     b2d="Vị thế bạn tự tay đóng đều bị loại ra, lãi hay lỗ cũng vậy — bạn chọn thời điểm thoát. "
         "Ví dụ: lỗ ròng 850 USD, nếu đều do chiến lược đóng thì trả 850; nếu 300 USD trong đó là "
@@ -231,10 +239,11 @@ L["th"] = dict(
     badge="ประกันขาดทุน",
     h1a="ก๊อปปี้ตามกติกา", h1b="ขาดทุนเราชดเชย",
     lead="ก๊อปปี้ PRESIGHT ALPHA-1 ที่อัตรา <b>1:1</b> แจ้ง MT5 account ID แล้วก๊อปปี้ต่อเนื่อง"
-         "<b>ครบหนึ่งเดือน</b> โดยไม่แทรกแซงด้วยมือและไม่ถอนเงิน ถ้าจบรอบแล้วบัญชีติดลบ "
-         "เรา<b>คืนส่วนที่ขาดทุนเป็นเงินสด</b>",
+         "<b>ครบหนึ่งเดือน</b> ในเดือนแรกไม่แทรกแซงด้วยมือและไม่ถอนเงิน "
+         "&mdash; <b>หลังพ้นเดือนแรก ถอนกำไรเมื่อไหร่ก็ได้</b> "
+         "ถ้าตลอดรอบการก๊อปปี้จบลงด้วยการขาดทุน เรา<b>คืนส่วนที่ขาดทุนเป็นเงินสด</b>",
     s1="ไม่ขยายสถานะ", s2v="1 เดือน", s2="30 วันนับจากที่แจ้ง",
-    s3v="เงินทุนตั้งต้น", s3="คุ้มครองเต็มจำนวน", s4v="เงินสด", s4="10 วันทำการ",
+    s3v="รวมที่ใส่เข้าไป", s3="คุ้มครองเต็มจำนวน", s4v="เงินสด", s4="10 วันทำการ",
     sec1="สี่ขั้นตอนเริ่มต้น", sec2="ชดเชยอย่างไร",
     a1t='เปิด<span class="em">บัญชีใหม่</span>ผ่านลิงก์ของเราและฝากเงิน',
     a1d="ยืนยันตัวตน (KYC) ให้เสร็จ เฉพาะบัญชีใหม่ที่เปิดผ่านลิงก์บนเว็บเท่านั้นที่อยู่ในรายชื่อผู้สมัคร",
@@ -246,10 +255,11 @@ L["th"] = dict(
     a3d="<b>ระยะคุ้มครองเริ่มนับจากวินาทีนั้น</b> บัญชีที่ไม่ได้แจ้งจะไม่เข้าเกณฑ์ "
         "และขาดทุนก่อนแจ้งก็ไม่ได้รับความคุ้มครอง",
     a4t='ปล่อยไว้ให้ครบ <span class="em">หนึ่งเดือน</span>',
-    a4d="ห้ามเปิดออเดอร์เอง ห้ามแก้จุดตัดขาดทุน/เป้าหมายหรือการตั้งค่าก๊อปปี้ ห้ามถอนเงิน "
-        "ห้ามหยุดชั่วคราวหรือยกเลิก",
-    b1t="ขาดทุนสุทธิ = เงินทุนตั้งต้น − อิควิตี้ตอนจบรอบ",
-    b1d="เงินทุนตั้งต้นคืออิควิตี้ ณ ตอนที่คุณแจ้งบัญชี คุ้มครองเต็มจำนวนนั้น",
+    a4d="เดือนแรก: ห้ามเปิดออเดอร์เอง ห้ามแก้จุดตัดขาดทุน/เป้าหมายหรือการตั้งค่าก๊อปปี้ "
+        "ห้ามถอนเงิน ห้ามหยุดชั่วคราวหรือยกเลิก หลังจากนั้นถอนกำไรได้ทุกเมื่อ",
+    b1t="ขาดทุนสุทธิ = รวมที่ใส่เข้าไป − รวมที่ได้กลับมา",
+    b1d="ใส่เข้าไป = เงินทุนตั้งต้น + เงินฝาก; ได้กลับมา = อิควิตี้ ณ จุดชำระบัญชี + เงินถอน "
+        "ทุกการฝากถอนถูกนับ และคิดจากตลอดรอบการก๊อปปี้ ไม่ได้แยกรายเดือน",
     b2t='<span class="em">ชดเชยเฉพาะออเดอร์ที่กลยุทธ์ปิดเอง</span>',
     b2d="สถานะที่คุณปิดเองไม่นับ ไม่ว่าจะกำไรหรือขาดทุน — คุณเป็นคนเลือกจังหวะออก "
         "ตัวอย่าง: ขาดทุนสุทธิ 850 ดอลลาร์ ถ้ากลยุทธ์ปิดทั้งหมดก็จ่าย 850 "

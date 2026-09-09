@@ -66,15 +66,15 @@
     <div class="doc">
       <div class="stamp">FIG. A &mdash; PROGRAMME TERMS</div>
       <h1 class="h2" style="margin-bottom:18px">Loss coverage on copied trades</h1>
-      <p class="lead">If you copy the strategy under the conditions below for a full month and the account is still down at the end of the protection period, we refund that loss in cash.</p>
+      <p class="lead">If you copy the strategy under the conditions below for a full month and the whole copying period still ends down, we refund that loss in cash.</p>
 
       <div class="callout">
         <p>The programme is built on <b>shared downside</b>, not a promise that you cannot lose. The conditions are specific because the commitment is only payable if leverage and manual intervention are constrained &mdash; otherwise participants who scale up would file claims far beyond what the programme can absorb, and everyone in it would lose out. Please read it in full before joining.</p>
       </div>
 
       <h3><span class="no">01</span>In one sentence</h3>
-      <p>Open an account with the partner platform through a Presight link, subscribe to PRESIGHT ALPHA-1 at a <b>1:1 copy ratio</b>, <b>report your MT5 account ID</b> to <span class="mono">@PresightAdminBot</span> on Telegram once copying has started, and keep copying for <b>a full month</b> without manual intervention or withdrawals. If the account is down when the period ends, we refund the loss in <b>cash</b>.</p>
-      <p>Two boundaries to note up front: coverage applies only to losses incurred <b>after you report the account</b>, and only to trades <b>the strategy itself closed</b> &mdash; losses on positions you closed by hand are not covered.</p>
+      <p>Open an account with the partner platform through a Presight link, subscribe to PRESIGHT ALPHA-1 at a <b>1:1 copy ratio</b>, <b>report your MT5 account ID</b> to <span class="mono">@PresightAdminBot</span> on Telegram once copying has started, and keep copying for <b>a full month</b> with no manual intervention and no withdrawals in that first month. <b>After the first month you can withdraw whenever you like, profits included, without affecting eligibility.</b> If the whole copying period ends down, we refund the loss in <b>cash</b>.</p>
+      <p>Three boundaries to note up front: coverage applies only to losses incurred <b>after you report the account</b>; only to trades <b>the strategy itself closed</b> &mdash; losses on positions you closed by hand are not covered; and it settles on the net result of the <b>whole copying period</b> (from your report until you unsubscribe), with every deposit and withdrawal counted &mdash; not month by month.</p>
 
       <h3><span class="no">02</span>Eligibility</h3>
       <p><b>All</b> of the following must hold. Any one of them failing puts you outside the coverage.</p>
@@ -96,7 +96,7 @@
         <li><b>A full month of continuous copying</b>, without pausing or unsubscribing.</li>
         <li>During the period: <b>no manual entries, no manual changes to stops or targets, no changes to copy settings</b>.
             (Closing a position by hand does not void the whole enrolment, but the loss on that trade is not covered &mdash; see section 06.)</li>
-        <li>During the period: <b>no withdrawals</b>.</li>
+        <li><b>No withdrawals in the first month</b> (the 30 calendar days from your report). After that you can withdraw at any time, including taking out all the profit, with no effect on eligibility &mdash; every deposit and withdrawal simply counts towards the net result, see section 06.</li>
       </ol>
 
       <h3><span class="no">03</span>Risk control happens on our side</h3>
@@ -113,32 +113,51 @@
       <h3><span class="no">04</span>Protection period</h3>
       <div class="kv">
         <div><dt>Starts</dt><dd>When you <b>report your MT5 account ID</b> in the community; if you report before your first copied fill, it starts at that first fill instead (whichever comes later)</dd></div>
-        <div><dt>Length</dt><dd><b>One month &mdash; 30 consecutive calendar days</b></dd></div>
+        <div><dt>Length</dt><dd>From your report <b>until you unsubscribe</b>, and <b>at least one month (30 consecutive calendar days)</b>. Unsubscribing before the first month is up means nothing is payable</dd></div>
+        <div><dt>Settlement point</dt><dd>When you <b>unsubscribe</b> (or file a claim, whichever comes first). The payout is calculated across <b>the whole period</b> from start to settlement, not month by month</dd></div>
         <div><dt>Before reporting</dt><dd>Losses incurred before you report the account are <b>not covered</b> and do not enter the base-capital comparison</dd></div>
         <div><dt>Extension</dt><dd>If positions are still open on day 30, the period extends until they are all closed, for at most 3 further trading days</dd></div>
-        <div><dt>Termination</dt><dd>Pausing or unsubscribing during the period voids coverage; nothing is payable</dd></div>
+        <div><dt>Early termination</dt><dd>Pausing or unsubscribing before the first month is up voids coverage; nothing is payable</dd></div>
       </div>
       <h3><span class="no">05</span>Base capital</h3>
       <div class="kv">
         <div><dt>Base capital</dt><dd>Account equity at the moment the protection period starts &mdash; that is, when you report your MT5 account ID (or at your first copied fill, if you reported before it)</dd></div>
-        <div><dt>Protected amount</dt><dd><b>The full amount of base capital</b></dd></div>
-        <div><dt>Withdrawals</dt><dd>A withdrawal during the period recalculates base capital to the lowest post-withdrawal equity and voids that enrolment</dd></div>
+        <div><dt>Protected amount</dt><dd><b>The full amount put in</b> &mdash; base capital plus deposits made during the period. A later deposit only counts towards the protected amount once it has been in the account for <b>30 calendar days</b>: otherwise copying a small balance for a month and then wiring in a large sum to claim on would be a one-way option, and the commitment has to stay payable for everyone in it</dd></div>
+        <div><dt>Withdrawal in month 1</dt><dd>A withdrawal within the first 30 days <b>voids that enrolment</b>. That month is the qualifying period; taking money out mid-way makes base capital meaningless</dd></div>
+        <div><dt>After month 1</dt><dd><b>No effect on eligibility</b> &mdash; profits can be taken out at any time. Every deposit and withdrawal feeds into the net result under section 06: withdrawing neither reduces your payout nor lets you bank profits and then claim on a later loss</dd></div>
       </div>
 
       <h3><span class="no">06</span>How the payout is calculated</h3>
-      <p><b>Net loss = base capital &minus; account equity at the end of the protection period</b></p>
+      <p>What matters is the <b>net result of the whole copying period</b>: how much went in, and how much came back out.
+         Every withdrawal and deposit in between is counted, so there is no month-by-month split and no
+         "claim on whichever month happened to lose".</p>
+      <div class="kv">
+        <div><dt>Total in</dt><dd>Base capital &plus; deposits made during the period</dd></div>
+        <div><dt>Total out</dt><dd>Account equity at settlement &plus; withdrawals made during the period</dd></div>
+      </div>
+      <p><b>Net result = total out &minus; total in.</b> When that figure is negative, its absolute value is the <b>net loss</b>.</p>
       <p>Coverage applies only to trades <b>the strategy closed itself</b>. Positions you closed by hand are excluded either way &mdash;
          you chose the exit, so that result is yours. Therefore:</p>
-      <p><b>Payout = the combined loss on trades closed by the strategy during the protection period, capped at the net loss above.</b></p>
+      <p><b>Payout = the combined loss on trades closed by the strategy during the period, capped at the net loss above and at the protected amount.</b></p>
       <ul>
-        <li>Net loss &le; 0 (account flat or in profit): nothing is payable.</li>
+        <li>Net loss &le; 0 (the period ended flat or in profit): nothing is payable.</li>
         <li>Trades closed by the strategy are collectively in profit: nothing is payable.</li>
         <li>Both are losses: the smaller of the two amounts is paid.</li>
       </ul>
-      <p>Example 1: base capital USD 10,000; equity at the end of the period USD 9,150; every position was closed by the strategy;
-         net loss USD 850; payout <b>USD 850</b>.</p>
+      <p>Example 1: base capital USD 10,000, no deposits or withdrawals, equity at settlement USD 9,150, every position closed
+         by the strategy. Out 9,150 &minus; in 10,000 = &minus;850; net loss USD 850; payout <b>USD 850</b>.</p>
       <p>Example 2: the same USD 850 loss, but USD 300 of it came from a position you closed by hand; the strategy-closed trades
          lost USD 550; payout <b>USD 550</b>.</p>
+      <p>Example 3 (<b>the question we get most: I withdrew after a good month, then lost later</b>): base capital USD 10,000.
+         Month 1 gains 5%, then USD 500 is withdrawn. Month 2 takes a USD 1,000 deposit, gains 5%, then USD 1,550 is withdrawn.
+         Month 3 loses 5% and you unsubscribe at USD 9,500.<br>
+         Total in = 10,000 &plus; 1,000 = <b>11,000</b>; total out = 9,500 &plus; (500 &plus; 1,550) = <b>11,550</b>;
+         net result <b>&plus;USD 550</b> &mdash; the period is up overall, so <b>nothing is payable</b>.</p>
+      <p>Example 4: as above, but month 3 loses 15% and you unsubscribe at USD 8,500.<br>
+         Total in <b>11,000</b>, total out = 8,500 &plus; 2,050 = <b>10,550</b>, net result <b>&minus;USD 450</b>.
+         If the strategy closed all of those trades, the payout is <b>USD 450</b>.</p>
+      <p>In short: <b>withdrawing neither reduces your payout nor creates one out of thin air.</b>
+         What is refunded is money you are actually down, not a swing over some slice of time.</p>
       <div class="kv">
         <div><dt>Form of payment</dt><dd><b>USD cash</b>, to a payment method you nominate</dd></div>
         <div><dt>Timing</dt><dd>Within <b>10 business days</b> of verification</dd></div>
@@ -152,7 +171,7 @@
         <li>Less than a full month of copying, or pausing or unsubscribing during the period.</li>
         <li>Entering positions manually, or manually altering positions created by copying (stops, targets, copy settings).</li>
         <li>A <b>Ratio above 1</b> &mdash; that is, scaling up the master account's sizing.</li>
-        <li>A withdrawal during the protection period.</li>
+        <li>A withdrawal <b>within the first month</b> (withdrawals after that do not affect eligibility).</li>
         <li>Conduct prohibited by the partner platform (latency arbitrage, hedged scalping, slippage abuse and similar).</li>
         <li>Providing false information, or declining to cooperate with verification.</li>
         <li>Losses not attributable to PRESIGHT ALPHA-1 &mdash; for example trading instruments the strategy does not cover.</li>
