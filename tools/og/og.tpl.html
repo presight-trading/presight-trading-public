@@ -1,0 +1,88 @@
+<!DOCTYPE html><html lang="{{lang}}"><head><meta charset="UTF-8">
+<title>og</title>
+<style>
+/* 1200×630 是 og:image 的标准比例（1.91:1）。各家都会再缩：Telegram 的
+   链接卡片实际宽度约 360px，微信更小。所以这张图只放三样东西——是什么、
+   最关键的承诺、域名——字号按缩到三分之一还读得清来定，不塞细则。 */
+:root{
+  --bg:#070c18; --panel:#0c1322; --line:#1b2740;
+  --ink:#e9eef8; --soft:#c0c9d8;
+  --blue:#2f6bff; --blue-lt:#b4cbff; --green:#3ED598;
+  --han:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  --mono:"SF Mono",Menlo,"JetBrains Mono",monospace;
+}
+/* 越南语与泰语单独给字体栈。PingFang 没有越南语的预组合字符，
+   Chrome 会逐字回退，声调符号飘成一个个独立的记号——实测海报上
+   「lỗ chúng tôi bù」渲染成「lô ̃chúng tôi bù」，整句像乱码。 */
+html[lang="vi"]{--han:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif}
+html[lang="th"]{--han:"Sukhumvit Set",Thonburi,-apple-system,"Helvetica Neue",sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1200px;height:630px;overflow:hidden}
+body{font-family:var(--han);color:var(--ink);-webkit-font-smoothing:antialiased}
+.sheet{position:relative;width:1200px;height:630px;padding:58px 64px 52px;
+  display:flex;flex-direction:column;justify-content:space-between;
+  background:
+    radial-gradient(760px 460px at 88% -12%, rgba(47,107,255,.20), transparent 62%),
+    radial-gradient(560px 400px at -4% 108%, rgba(214,24,138,.10), transparent 60%),
+    linear-gradient(180deg,#070c18 0%,#080e1c 55%,#070b16 100%);
+}
+.sheet::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.028) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.028) 1px,transparent 1px);
+  background-size:60px 60px}
+.sheet>*{position:relative}
+
+.top{display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;gap:16px;align-items:center}
+.brand .mk{width:56px;height:56px;border:1px solid #2b3956;display:grid;place-items:center;
+           background:rgba(47,107,255,.07);flex:none}
+.brand .mk svg{width:28px;height:28px}
+.brand .lt{font-family:var(--mono);font-size:23px;font-weight:700;letter-spacing:.2em}
+.brand .sub{font-size:15px;color:var(--soft);margin-top:5px;letter-spacing:.02em}
+.badge{font-family:var(--mono);font-size:15px;letter-spacing:.1em;color:var(--blue-lt);
+       border:1px solid #31456e;padding:10px 16px;flex:none}
+
+h1{font-size:74px;line-height:1.12;font-weight:800;letter-spacing:-.01em}
+h1 .b{color:var(--blue-lt);display:block}
+.lead{font-size:23px;line-height:1.6;color:#dbe3ef;margin-top:20px;max-width:900px}
+.lead b{color:#fff}
+
+.chips{display:flex;gap:1px;background:var(--line);border:1px solid var(--line)}
+.chips div{background:var(--panel);padding:18px 24px;flex:1}
+.chips .k{font-family:var(--mono);font-size:14px;letter-spacing:.12em;color:var(--soft)}
+.chips .v{font-size:22px;font-weight:700;margin-top:9px}
+.chips .v em{font-style:normal;color:var(--green)}
+
+.foot{display:flex;align-items:baseline;justify-content:space-between;
+      font-family:var(--mono);font-size:19px;letter-spacing:.06em;color:#8fa3c6}
+.foot b{color:var(--ink);font-weight:700;letter-spacing:.08em}
+</style></head><body>
+<div class="sheet">
+
+  <div class="top">
+    <div class="brand">
+      <div class="mk"><svg viewBox="0 0 24 24" fill="none" stroke="#7ea2ff" stroke-width="2">
+        <path d="M2 17 L8 9 L13 13 L22 3"/><path d="M16 3h6v6"/></svg></div>
+      <div>
+        <div class="lt">PRESIGHT</div>
+        <div class="sub">{{brand_sub}}</div>
+      </div>
+    </div>
+    <div class="badge">{{badge}}</div>
+  </div>
+
+  <div>
+    <h1>{{h1a}}<span class="b">{{h1b}}</span></h1>
+    <p class="lead">{{lead}}</p>
+  </div>
+
+  <div class="chips">
+    <div><div class="k">{{c1k}}</div><div class="v">{{c1v}}</div></div>
+    <div><div class="k">{{c2k}}</div><div class="v">{{c2v}}</div></div>
+    <div><div class="k">{{c3k}}</div><div class="v"><em>{{c3v}}</em></div></div>
+  </div>
+
+  <div class="foot"><b>presighttrading.com</b><span>{{foot}}</span></div>
+
+</div>
+</body></html>

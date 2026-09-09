@@ -30,7 +30,7 @@ L["zh"] = dict(
     badge="跟单亏损包赔",
     h1a="按规则跟单", h1b="亏了我们赔",
     lead="以 <b>1:1</b> 跟单 PRESIGHT ALPHA-1，报备 MT5 账户 ID 后连续跟单<b>满 1 个月</b>，"
-         "首月内不手动干预、不出金——<b>满一个月后利润随时可取</b>。"
+         "首月内不手动干预、不出金——<b>满一个月后出金不再受限，本金利润都可取</b>。"
          "整段跟单期间若为净亏损，我们<b>按实际亏损金额现金返还</b>。",
     s1="不放大仓位", s2v="1 个月", s2="自报备起 30 天",
     s3v="投入合计", s3="全额保护", s4v="现金", s4="10 个工作日",
@@ -44,7 +44,7 @@ L["zh"] = dict(
     a3t='私信 <span class="em">@PresightAdminBot</span> 报备 MT5 账户 ID',
     a3d="<b>保护期从这一刻起算</b>，没报备的账户不具备赔付资格，报备之前的亏损也不赔",
     a4t='放着不动，满 <span class="em">1 个月</span>',
-    a4d="首月不手动开仓、不改止损止盈、不调参数、不出金、不暂停或解除跟单；满 1 个月后利润随时可取，不影响资格",
+    a4d="首月不手动开仓、不改止损止盈、不调参数、不出金、不暂停或解除跟单；满 1 个月后出金不再受限，本金利润都可取，不影响资格",
     b1t="净亏损 = 投入合计 − 取回合计",
     b1d="投入合计 = 基准资金＋期间入金；取回合计 = 期末净值＋期间出金。出入金全部计入，按整段跟单期间结算，不分单月",
     b2t='<span class="em">只赔由策略自动平仓的交易</span>',
@@ -75,7 +75,8 @@ L["en"] = dict(
     h1a="Copy within the rules.", h1b="We cover the loss.",
     lead="Copy PRESIGHT ALPHA-1 at <b>1:1</b>, report your MT5 account ID, then keep copying "
          "<b>for a full month</b> with no manual intervention and no withdrawals in that first "
-         "month &mdash; <b>after it, profits can be taken out at any time</b>. If the whole "
+         "month &mdash; <b>after it, withdrawals are unrestricted, principal as well as profit</b>. "
+         "If the whole "
          "copying period ends down, we <b>refund that loss in cash</b>.",
     s1="no scaling up", s2v="1 month", s2="30 days from your report",
     s3v="Total put in", s3="covered in full", s4v="Cash", s4="10 business days",
@@ -91,8 +92,8 @@ L["en"] = dict(
         "eligible, and losses before you report are not covered",
     a4t='Leave it alone for <span class="em">one month</span>',
     a4d="In month 1: no manual entries, no changes to stops or targets or copy settings, "
-        "no withdrawals, no pausing or unsubscribing. After that, profits can be withdrawn "
-        "at any time",
+        "no withdrawals, no pausing or unsubscribing. After that, withdrawals are "
+        "unrestricted &mdash; principal as well as profit",
     b1t="Net loss = total put in − total taken out",
     b1d="In = base capital + deposits; out = equity at settlement + withdrawals. Every deposit "
         "and withdrawal counts; settled over the whole copying period, not month by month",
@@ -132,7 +133,7 @@ L["ja"] = dict(
     h1a="ルールどおりに、", h1b="負けたら補償します",
     lead="PRESIGHT ALPHA-1 を <b>1:1</b> でコピーし、MT5 口座 ID を届け出たうえで"
          "<b>1 か月</b>、最初の 1 か月は手動介入も出金もせずに続けます"
-         "——<b>1 か月を過ぎれば利益はいつでも引き出せます</b>。"
+         "——<b>1 か月を過ぎれば出金に制限はなく、元本も利益も引き出せます</b>。"
          "コピー期間全体が負けで終われば、その損失を<b>現金で返金</b>します。",
     s1="拡大しない", s2v="1 か月", s2="届出から 30 日",
     s3v="投入合計", s3="全額を保護", s4v="現金", s4="10 営業日",
@@ -147,7 +148,7 @@ L["ja"] = dict(
     a3d="<b>保護期間はこの瞬間から始まります。</b>届出のない口座は対象外で、"
         "届出より前の損失も補償されません",
     a4t='<span class="em">1 か月</span>、そのままにしておく',
-    a4d="最初の 1 か月は手動での新規建て、損切り・利確やコピー設定の変更、出金、停止・解除はいずれも不可。それ以降は利益をいつ引き出しても資格に影響しません",
+    a4d="最初の 1 か月は手動での新規建て、損切り・利確やコピー設定の変更、出金、停止・解除はいずれも不可。それ以降は出金に制限がなく、元本も利益も引き出せます",
     b1t="純損失 = 投入合計 − 回収合計",
     b1d="投入合計 = 基準資金＋期間中の入金、回収合計 = 精算時の純資産＋期間中の出金。"
         "入出金はすべて算入し、コピー期間全体で精算します（月ごとに区切りません）",
@@ -185,7 +186,8 @@ L["vi"] = dict(
     h1a="Sao chép đúng luật,", h1b="lỗ chúng tôi bù.",
     lead="Sao chép PRESIGHT ALPHA-1 ở tỷ lệ <b>1:1</b>, khai báo MT5 account ID rồi duy trì "
          "<b>đủ một tháng</b>, trong tháng đầu không can thiệp thủ công và không rút tiền "
-         "&mdash; <b>sau tháng đầu, rút lợi nhuận lúc nào cũng được</b>. Nếu cả kỳ sao chép "
+         "&mdash; <b>sau tháng đầu, rút tiền không còn hạn chế nào, cả vốn lẫn lợi nhuận</b>. "
+         "Nếu cả kỳ sao chép "
          "kết thúc trong trạng thái lỗ, chúng tôi <b>hoàn khoản lỗ đó bằng tiền mặt</b>.",
     s1="không phóng đại", s2v="1 tháng", s2="30 ngày kể từ khi khai báo",
     s3v="Tổng bỏ vào", s3="bảo vệ toàn phần", s4v="Tiền mặt", s4="10 ngày làm việc",
@@ -201,7 +203,8 @@ L["vi"] = dict(
         "điều kiện, và khoản lỗ trước lúc khai báo cũng không được bảo hiểm",
     a4t='Để yên <span class="em">đủ một tháng</span>',
     a4d="Tháng đầu: không tự mở lệnh, không sửa dừng lỗ/chốt lời hay cấu hình sao chép, "
-        "không rút tiền, không tạm dừng hay huỷ đăng ký. Sau đó rút lợi nhuận lúc nào cũng được",
+        "không rút tiền, không tạm dừng hay huỷ đăng ký. Sau đó rút tiền không còn hạn chế nào, "
+        "cả vốn lẫn lợi nhuận",
     b1t="Lỗ ròng = tổng bỏ vào − tổng lấy ra",
     b1d="Bỏ vào = vốn gốc + tiền nạp; lấy ra = vốn chủ sở hữu lúc quyết toán + tiền rút. "
         "Mọi khoản nạp/rút đều tính, quyết toán trên cả kỳ sao chép chứ không theo từng tháng",
@@ -240,7 +243,7 @@ L["th"] = dict(
     h1a="ก๊อปปี้ตามกติกา", h1b="ขาดทุนเราชดเชย",
     lead="ก๊อปปี้ PRESIGHT ALPHA-1 ที่อัตรา <b>1:1</b> แจ้ง MT5 account ID แล้วก๊อปปี้ต่อเนื่อง"
          "<b>ครบหนึ่งเดือน</b> ในเดือนแรกไม่แทรกแซงด้วยมือและไม่ถอนเงิน "
-         "&mdash; <b>หลังพ้นเดือนแรก ถอนกำไรเมื่อไหร่ก็ได้</b> "
+         "&mdash; <b>หลังพ้นเดือนแรก การถอนเงินไม่มีข้อจำกัด ถอนได้ทั้งเงินต้นและกำไร</b> "
          "ถ้าตลอดรอบการก๊อปปี้จบลงด้วยการขาดทุน เรา<b>คืนส่วนที่ขาดทุนเป็นเงินสด</b>",
     s1="ไม่ขยายสถานะ", s2v="1 เดือน", s2="30 วันนับจากที่แจ้ง",
     s3v="รวมที่ใส่เข้าไป", s3="คุ้มครองเต็มจำนวน", s4v="เงินสด", s4="10 วันทำการ",
@@ -256,7 +259,8 @@ L["th"] = dict(
         "และขาดทุนก่อนแจ้งก็ไม่ได้รับความคุ้มครอง",
     a4t='ปล่อยไว้ให้ครบ <span class="em">หนึ่งเดือน</span>',
     a4d="เดือนแรก: ห้ามเปิดออเดอร์เอง ห้ามแก้จุดตัดขาดทุน/เป้าหมายหรือการตั้งค่าก๊อปปี้ "
-        "ห้ามถอนเงิน ห้ามหยุดชั่วคราวหรือยกเลิก หลังจากนั้นถอนกำไรได้ทุกเมื่อ",
+        "ห้ามถอนเงิน ห้ามหยุดชั่วคราวหรือยกเลิก หลังจากนั้นการถอนเงินไม่มีข้อจำกัด "
+        "ถอนได้ทั้งเงินต้นและกำไร",
     b1t="ขาดทุนสุทธิ = รวมที่ใส่เข้าไป − รวมที่ได้กลับมา",
     b1d="ใส่เข้าไป = เงินทุนตั้งต้น + เงินฝาก; ได้กลับมา = อิควิตี้ ณ จุดชำระบัญชี + เงินถอน "
         "ทุกการฝากถอนถูกนับ และคิดจากตลอดรอบการก๊อปปี้ ไม่ได้แยกรายเดือน",

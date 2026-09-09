@@ -150,21 +150,41 @@ def hreflang(page: str) -> str:
     return "\n".join(lines)
 
 
+def set_meta(html: str, attr: str, key: str, value: str) -> str:
+    """改写一个 <meta> 的 content，两种属性顺序都认。
+
+    这里必须容忍顺序：patch_head 拿到的 html 是 BeautifulSoup 输出的，
+    它会把属性按字母序重排成 <meta content="…" property="og:title"/>。
+    只按 <meta property="…" content="…"> 写正则的话全部失配，而失配是
+    静默的——日/越/泰三个语种因此长期挂着英文的 description 和指向
+    /en/ 的 og:url，页面看着一切正常。
+    """
+    esc = re.escape(key)
+    for pat, tpl in (
+        (rf'(<meta {attr}="{esc}" content=")[^"]*(")', None),
+        (rf'(<meta content=")[^"]*(" {attr}="{esc}")', None),
+    ):
+        new_html, n = re.subn(
+            pat, lambda m: m.group(1) + value + m.group(2), html, count=1)
+        if n:
+            return new_html
+    return html
+
+
 def patch_head(html: str, code: str, d: str, page: str, meta: dict) -> str:
     html = re.sub(r'<html lang="[^"]*"', f'<html lang="{code}"', html, count=1)
 
     block = hreflang(page)
     if 'hreflang' in html:
         html = re.sub(
-            r'<link rel="alternate" hreflang="[^"]*" href="[^"]*">\s*'
-            r'(?:<link rel="alternate" hreflang="[^"]*" href="[^"]*">\s*)*',
+            r'<link rel="alternate" hreflang="[^"]*" href="[^"]*"/?>\s*'
+            r'(?:<link rel="alternate" hreflang="[^"]*" href="[^"]*"/?>\s*)*',
             block + "\n", html, count=1)
     else:                                   # protection.html 原来没有
         html = html.replace("<title>", block + "\n<title>", 1)
 
     url = f"{SITE}/{d + '/' if d else ''}{'' if page == 'index.html' else page}"
-    html = re.sub(r'(<meta property="og:url" content=")[^"]*(")',
-                  rf'\1{url}\2', html)
+    html = set_meta(html, "property", "og:url", url)
 
     key = "title_index" if page == "index.html" else "title_prot"
     if meta.get(key):
@@ -172,12 +192,24 @@ def patch_head(html: str, code: str, d: str, page: str, meta: dict) -> str:
                       html, count=1, flags=re.S)
     dkey = "desc_index" if page == "index.html" else "desc_prot"
     if meta.get(dkey):
-        html = re.sub(r'(<meta name="description" content=")[^"]*(")',
-                      lambda m: m.group(1) + meta[dkey] + m.group(2), html, count=1)
-    for prop, k in (("og:title", "og_title"), ("og:description", "og_desc")):
-        if meta.get(k):
-            html = re.sub(rf'(<meta property="{prop}" content=")[^"]*(")',
-                          lambda m: m.group(1) + meta[k] + m.group(2), html, count=1)
+        html = set_meta(html, "name", "description", meta[dkey])
+
+    # og:title / og:description 按页取：首页和条款页分享出去说的不是同一件事，
+    # 用同一句话覆盖两页，等于其中一页的卡片是错的。og_title / og_desc 只作兜底。
+    suffix = "index" if page == "index.html" else "prot"
+    og_title = meta.get(f"og_title_{suffix}") or meta.get(key) or meta.get("og_title")
+    og_desc = meta.get(f"og_desc_{suffix}") or meta.get(dkey) or meta.get("og_desc")
+    if og_title:
+        html = set_meta(html, "property", "og:title", og_title)
+    if og_desc:
+        html = set_meta(html, "property", "og:description", og_desc)
+
+    # og:image 每个语种一张（tools/og/build.sh 生成）。忘了换的话，越南语页面
+    # 分享出去是一张中文图——比没有图更糟，看的人会以为点进去也是中文。
+    html = set_meta(html, "property", "og:image",
+                    f"{SITE}/assets/og-{meta['dir']}.png")
+    if meta.get("og_image_alt"):
+        html = set_meta(html, "property", "og:image:alt", meta["og_image_alt"])
     return html
 
 

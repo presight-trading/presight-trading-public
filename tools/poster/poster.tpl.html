@@ -18,6 +18,11 @@
   --han:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
   --mono:"SF Mono",Menlo,"JetBrains Mono",monospace;
 }
+/* 越南语与泰语单独给字体栈。PingFang 没有越南语的预组合字符，
+   Chrome 会逐字回退，声调符号飘成一个个独立的记号——实测海报上
+   「lỗ chúng tôi bù」渲染成「lô ̃chúng tôi bù」，整句像乱码。 */
+html[lang="vi"]{--han:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif}
+html[lang="th"]{--han:"Sukhumvit Set",Thonburi,-apple-system,"Helvetica Neue",sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}
 body{width:750px;background:var(--bg);color:var(--ink);font-family:var(--han);
      -webkit-font-smoothing:antialiased}
