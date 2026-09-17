@@ -284,13 +284,36 @@ thead th{
   color:#5B6883;text-transform:uppercase;border-bottom:1px solid var(--panel-line);font-weight:500;white-space:nowrap;
 }
 tbody td{padding:13px 14px 13px 0;border-bottom:1px solid rgba(36,48,74,.5);white-space:nowrap;font-variant-numeric:tabular-nums}
+/* 单元格一律垂直居中，行高写死。
+   默认是基线对齐：只要某一列换了字体（见下一条），各列的视觉重心就会
+   一高一低。1.5 正好等于 JetBrains Mono 在这个字号下的 normal 行高，
+   所以数字列的行高一点没变，只是不再随字体浮动。 */
+tbody td,thead th{vertical-align:middle;line-height:1.5}
 tbody tr{transition:background .15s}
 tbody tr:hover{background:var(--panel-2)}
 .sym{color:#fff;font-weight:700;letter-spacing:.02em}
-.side{font-size:.65rem;padding:3px 7px;border-radius:2px;letter-spacing:.08em}
+/* BUY/SELL 徽标带底色，坐在基线上时整块偏低（实测比同行文字低 2px）。
+   改成按行居中，高度写死，行与行之间不会因为字体回退而跳。 */
+.side{display:inline-flex;align-items:center;justify-content:center;
+      font-size:.65rem;padding:3px 7px;border-radius:2px;letter-spacing:.08em;
+      line-height:1;vertical-align:middle;min-height:19px}
 .side.b{background:rgba(62,213,152,.13);color:#3ED598}
 .side.s{background:rgba(255,107,107,.13);color:#FF6B6B}
 .pnl.g{color:#3ED598}.pnl.r{color:#FF6B6B}
+
+/* 成交表用等宽字体，而等宽字体没有中日泰的字形——Chrome 会逐字回退，
+   于是同一个单元格里数字来自 JetBrains Mono、泰文来自系统泰文字体，
+   两者字面大小差一截：泰文版「2 ชั่วโมงที่แล้ว」里的 "2" 比后面的泰文
+   小一圈也低一截，一眼就看得出没对齐。
+   带本地文字的只有两处——表头和第一列的相对时间——这两处改用本语种的
+   正文字体，一种字体同时覆盖数字和文字，单元格内部就不再混排。数字列
+   仍然是等宽，表格的数字感不变。
+   越南文不在此列：JetBrains Mono 自带越南语字形，本来就没有回退。 */
+html[lang="zh-CN"] thead th,html[lang="zh-CN"] tbody td.ago,
+html[lang="ja"] thead th,html[lang="ja"] tbody td.ago,
+html[lang="th"] thead th,html[lang="th"] tbody td.ago{
+  font-family:var(--han);letter-spacing:.04em;
+}
 .state{padding:44px 40px;text-align:center;font-family:var(--han);color:#8592AB;font-size:.9rem}
 .state b{display:block;color:#fff;font-weight:600;margin-bottom:7px;font-size:.98rem}
 .skel{height:13px;background:linear-gradient(90deg,var(--panel-2) 25%,#1D2942 50%,var(--panel-2) 75%);background-size:200% 100%;animation:sh 1.3s infinite;border-radius:2px}

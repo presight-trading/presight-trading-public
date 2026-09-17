@@ -201,7 +201,7 @@ function renderTrades(trades){
     const win = t.pips > 0;
     const pnlCls = t.pnlUsd==null ? '' : (Number(t.pnlUsd)>=0?'g':'r');
     return `<tr>
-      <td style="color:#5B6883">${timeAgo(t.closedAt)}</td>
+      <td class="ago" style="color:#5B6883">${timeAgo(t.closedAt)}</td>
       <td class="sym">${t.symbol}</td>
       <td><span class="side ${t.side==='buy'?'b':'s'}">${t.side==='buy'?'BUY':'SELL'}</span></td>
       <td>${price(t.symbol,t.openPrice)}</td>
