@@ -633,8 +633,8 @@ INDEX.update({
         'Theo từng mã · 30 ngày gần nhất · lợi nhuận',
     'Fill history · last 30 days <span class="realbadge">LIVE ACCOUNT</span>':
         'Lịch sử khớp lệnh · 30 ngày gần nhất <span class="realbadge">TÀI KHOẢN THẬT</span>',
-    'Max drawdown (30d)':
-        'Sụt giảm tối đa (30 ngày)',
+    'Balance drawdown (30d)':
+        'Sụt giảm số dư (30 ngày)',
     'Position (lots / $10k)':
         'Khối lượng (lot / 10.000 $)',
     'Profit factor (30d)':

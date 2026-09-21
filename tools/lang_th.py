@@ -633,8 +633,8 @@ INDEX.update({
         'แยกตามสินทรัพย์ · 30 วันล่าสุด · ผลตอบแทน',
     'Fill history · last 30 days <span class="realbadge">LIVE ACCOUNT</span>':
         'ประวัติออเดอร์ · 30 วันล่าสุด <span class="realbadge">บัญชีจริง</span>',
-    'Max drawdown (30d)':
-        'ดรอว์ดาวน์สูงสุด (30 วัน)',
+    'Balance drawdown (30d)':
+        'การลดลงของยอดคงเหลือ (30 วัน)',
     'Position (lots / $10k)':
         'ขนาดสถานะ (ล็อต / 10,000 ดอลลาร์)',
     'Profit factor (30d)':

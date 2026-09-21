@@ -1017,8 +1017,8 @@ INDEX.update({
         '銘柄別 · 直近 30 日 · 収益率',
     'Fill history · last 30 days <span class="realbadge">LIVE ACCOUNT</span>':
         '約定履歴 · 直近 30 日 <span class="realbadge">実口座</span>',
-    'Max drawdown (30d)':
-        '最大ドローダウン(30 日)',
+    'Balance drawdown (30d)':
+        '残高ドローダウン(30 日)',
     'Position (lots / $10k)':
         'ロット数(1 万ドルあたり)',
     'Profit factor (30d)':
