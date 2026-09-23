@@ -14,7 +14,7 @@ const TEXTS = {
     errT:'成交记录暂时取不到', errB:'数据接口没有响应。稍后会自动重试，也可以刷新页面。',
     emptyT:'还没有已平仓的交易', emptyB:'策略正在运行，第一笔成交平仓后会立刻出现在这里。',
     annNote:'预估年化＝近 30 天收益率按月复利外推 (1+r)^12−1，是一种推算而非业绩承诺：一个月的结果会被放大十二次，短期的运气与回撤同样会被放大。不代表未来收益。',
-    refNote:'收益率按实盘成交价格与每万美元仓位权重计算，并非策略账户的真实盈亏；仅已平仓，不含浮动盈亏与隔夜利息；实际结果随账户规模、点差与滑点不同。',
+    refNote:'收益率按实盘成交价格与每万美元仓位权重计算，并非策略账户的真实盈亏；仅已平仓，不含浮动盈亏与隔夜利息。',
   },
   en:{
     tradesUnit:'trades',
@@ -26,7 +26,7 @@ const TEXTS = {
     errT:'Fill history unavailable', errB:'The data endpoint did not respond. It will retry automatically, or you can reload the page.',
     emptyT:'No closed trades yet', emptyB:'The strategy is running. The first closed trade will appear here immediately.',
     annNote:"The annualised figure extrapolates the last 30 days by monthly compounding, (1+r)^12−1. It is an estimate, not a promise: one month of results gets multiplied twelve times, and so does one month of luck or drawdown. It does not indicate future returns.",
-    refNote:"Returns are computed from live fill prices and a position weight per $10,000; they are not the strategy account's actual P&L. Closed trades only; excludes floating P&L and swap. Actual results vary with account size, spread and slippage.",
+    refNote:"Returns are computed from live fill prices and a position weight per $10,000; they are not the strategy account's actual P&L. Closed trades only; excludes floating P&L and swap.",
   },
   ja:{
     tradesUnit:'件',
@@ -38,7 +38,7 @@ const TEXTS = {
     errT:'約定履歴を取得できません', errB:'データ側から応答がありません。自動で再試行します。ページの再読み込みでもかまいません。',
     emptyT:'決済済みの取引はまだありません', emptyB:'戦略は稼働中です。最初の決済が出たらすぐここに表示されます。',
     annNote:'推定年率は直近 30 日の収益率を月次で複利換算した (1+r)^12−1 の外挿値です。予測でも約束でもありません——1 か月分の結果が 12 回掛け合わされるため、短期の幸運もドローダウンも同じだけ拡大されます。将来の収益を示すものではありません。',
-    refNote:'収益率は実際の約定価格と1万ドルあたりのポジション比率をもとに算出したものであり、戦略口座の実際の損益ではありません。決済済み取引のみを対象とし、含み損益とスワップ(オーバーナイト金利)は含みません。実際の結果は口座規模・スプレッド・スリッページによって異なります。',
+    refNote:'収益率は実際の約定価格と1万ドルあたりのポジション比率をもとに算出したものであり、戦略口座の実際の損益ではありません。決済済み取引のみを対象とし、含み損益とスワップ(オーバーナイト金利)は含みません。',
   },
   vi:{
     tradesUnit:'lệnh',
@@ -50,7 +50,7 @@ const TEXTS = {
     errT:'Chưa lấy được lịch sử khớp lệnh', errB:'Máy chủ dữ liệu không phản hồi. Hệ thống sẽ tự thử lại, hoặc bạn có thể tải lại trang.',
     emptyT:'Chưa có lệnh nào đóng', emptyB:'Chiến lược đang chạy. Lệnh đóng đầu tiên sẽ hiện ở đây ngay lập tức.',
     annNote:'Lợi nhuận năm ước tính là phép ngoại suy lợi nhuận 30 ngày gần nhất theo lãi kép hằng tháng, (1+r)^12−1. Đây là ước tính, không phải cam kết: kết quả của một tháng được nhân lên mười hai lần, và may mắn hay sụt giảm trong tháng đó cũng vậy. Không phản ánh lợi nhuận trong tương lai.',
-    refNote:'Lợi nhuận (%) được tính từ giá khớp lệnh thực tế và tỷ trọng vị thế trên mỗi 10.000 đô la; đây không phải lãi/lỗ thực tế của tài khoản chiến lược. Chỉ tính các lệnh đã đóng; không bao gồm lãi/lỗ chưa thực hiện và phí qua đêm. Kết quả thực tế sẽ khác nhau tùy theo quy mô tài khoản, spread và trượt giá.',
+    refNote:'Lợi nhuận (%) được tính từ giá khớp lệnh thực tế và tỷ trọng vị thế trên mỗi 10.000 đô la; đây không phải lãi/lỗ thực tế của tài khoản chiến lược. Chỉ tính các lệnh đã đóng; không bao gồm lãi/lỗ chưa thực hiện và phí qua đêm.',
   },
   th:{
     tradesUnit:'ออเดอร์',
@@ -62,7 +62,7 @@ const TEXTS = {
     errT:'ยังดึงประวัติออเดอร์ไม่ได้', errB:'เซิร์ฟเวอร์ข้อมูลไม่ตอบสนอง ระบบจะลองใหม่อัตโนมัติ หรือคุณจะรีเฟรชหน้าก็ได้',
     emptyT:'ยังไม่มีออเดอร์ที่ปิดแล้ว', emptyB:'กลยุทธ์กำลังทำงาน ออเดอร์แรกที่ปิดจะขึ้นตรงนี้ทันที',
     annNote:'ผลตอบแทนต่อปีโดยประมาณคือการคาดการณ์จากผลตอบแทน 30 วันล่าสุด ทบต้นรายเดือน (1+r)^12−1 เป็นเพียงการประมาณ ไม่ใช่คำสัญญา: ผลของหนึ่งเดือนถูกคูณสิบสองครั้ง โชคดีหรือการขาดทุนในเดือนนั้นก็ถูกขยายเท่ากัน ไม่ได้บ่งชี้ผลตอบแทนในอนาคต',
-    refNote:'อัตราผลตอบแทนคำนวณจากราคาที่ execute จริงและน้ำหนักตำแหน่งต่อทุก 10,000 ดอลลาร์ ไม่ใช่กำไร/ขาดทุนจริงของบัญชีกลยุทธ์ นับเฉพาะออเดอร์ที่ปิดแล้ว ไม่รวมกำไร/ขาดทุนที่ยังไม่เกิดขึ้นจริงและดอกเบี้ยข้ามคืน ผลลัพธ์จริงจะแตกต่างกันไปตามขนาดบัญชี สเปรด และสลิปเพจ',
+    refNote:'อัตราผลตอบแทนคำนวณจากราคาที่ execute จริงและน้ำหนักตำแหน่งต่อทุก 10,000 ดอลลาร์ ไม่ใช่กำไร/ขาดทุนจริงของบัญชีกลยุทธ์ นับเฉพาะออเดอร์ที่ปิดแล้ว ไม่รวมกำไร/ขาดทุนที่ยังไม่เกิดขึ้นจริงและดอกเบี้ยข้ามคืน',
   },
 };
 const T = TEXTS[LANG] || TEXTS.zh;
