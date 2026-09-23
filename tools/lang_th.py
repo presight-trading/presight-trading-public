@@ -736,3 +736,16 @@ PROTECTION.update({
     'A withdrawal <b>within the first month</b> (withdrawals after that do not affect eligibility).':
         'การถอนเงิน<b>ภายในเดือนแรก</b> (ถอนหลังจากนั้นไม่กระทบสิทธิ์)',
 })
+
+# 成交表小字补「只含已平仓」;细则页补「建议跟单金额 5,000 美元起」
+# (仓位按资金比例缩放,资金太低会有不少单达不到最小手数被跳过)。
+
+INDEX.update({
+    'These are real fills from the <b>PRESIGHT ALPHA-1 live account</b>, taken straight from it, <b>unfiltered — losing trades included</b>. Not a backtest, not a demo. The table lists <b>closed trades only</b>; an open position appears here once it has been closed.':
+        'นี่คือออเดอร์ที่เกิดขึ้นจริงจาก<b>บัญชีจริงของ PRESIGHT ALPHA-1</b> ดึงมาจากบัญชีนั้นโดยตรง <b>ไม่คัดกรอง — ไม้ที่ขาดทุนก็แสดงด้วย</b> ไม่ใช่การทดสอบย้อนหลังและไม่ใช่บัญชีทดลอง ตารางนี้มีเฉพาะ<b>ออเดอร์ที่ปิดแล้ว</b> ส่วนสถานะที่ยังถืออยู่จะปรากฏที่นี่หลังปิดแล้วเท่านั้น',
+})
+
+PROTECTION.update({
+    "<b>We suggest copying with USD 5,000 or more.</b> This is not an eligibility condition — it is about copying the strategy in full. The strategy runs light positions at low leverage, and the copier scales lot size by the ratio between your balance and the strategy account's. On a small balance a fair number of those positions round down below the platform's minimum lot and are skipped outright, so your fills stop matching the strategy's. You can still take part below that figure; the trades you miss for this reason are simply not grounds for a claim.":
+        '<b>แนะนำให้ก๊อปปี้ด้วยเงินทุนตั้งแต่ 5,000 ดอลลาร์ขึ้นไป</b> นี่ไม่ใช่เงื่อนไขการเข้าร่วม แต่เพื่อให้ก๊อปปี้ได้ครบทั้งกลยุทธ์ ตัวกลยุทธ์เองถือสถานะเบาและใช้เลเวอเรจต่ำ ระบบก๊อปปี้จะย่อขนาดล็อตตามสัดส่วนระหว่างเงินทุนของคุณกับบัญชีกลยุทธ์ ถ้าเงินทุนน้อยเกินไป ออเดอร์ขนาดเล็กจำนวนไม่น้อยเมื่อคำนวณแล้วจะไม่ถึงล็อตขั้นต่ำของแพลตฟอร์ม และถูกข้ามไปเลย ทำให้ออเดอร์ของคุณเริ่มไม่ตรงกับกลยุทธ์ ต่ำกว่านี้ก็ยังเข้าร่วมได้ เพียงแต่ส่วนที่ก๊อปปี้ไม่ครบด้วยเหตุนี้ไม่ใช่เหตุผลในการขอชดเชย',
+})

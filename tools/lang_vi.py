@@ -736,3 +736,16 @@ PROTECTION.update({
     'A withdrawal <b>within the first month</b> (withdrawals after that do not affect eligibility).':
         'Rút tiền <b>trong tháng đầu</b> (rút tiền sau đó không ảnh hưởng tư cách).',
 })
+
+# 成交表小字补「只含已平仓」;细则页补「建议跟单金额 5,000 美元起」
+# (仓位按资金比例缩放,资金太低会有不少单达不到最小手数被跳过)。
+
+INDEX.update({
+    'These are real fills from the <b>PRESIGHT ALPHA-1 live account</b>, taken straight from it, <b>unfiltered — losing trades included</b>. Not a backtest, not a demo. The table lists <b>closed trades only</b>; an open position appears here once it has been closed.':
+        'Đây là các lệnh khớp thật từ <b>tài khoản thật của PRESIGHT ALPHA-1</b>, lấy trực tiếp từ tài khoản đó, <b>không lọc — lệnh lỗ cũng liệt kê đầy đủ</b>. Không phải backtest, cũng không phải tài khoản demo. Bảng chỉ gồm <b>các lệnh đã đóng</b>; vị thế đang mở phải đóng xong mới xuất hiện ở đây.',
+})
+
+PROTECTION.update({
+    "<b>We suggest copying with USD 5,000 or more.</b> This is not an eligibility condition — it is about copying the strategy in full. The strategy runs light positions at low leverage, and the copier scales lot size by the ratio between your balance and the strategy account's. On a small balance a fair number of those positions round down below the platform's minimum lot and are skipped outright, so your fills stop matching the strategy's. You can still take part below that figure; the trades you miss for this reason are simply not grounds for a claim.":
+        '<b>Khuyến nghị sao chép với số vốn từ 5.000 đô la trở lên.</b> Đây không phải điều kiện tham gia — mà là để sao chép được đầy đủ chiến lược. Bản thân chiến lược giữ vị thế nhẹ và đòn bẩy thấp, còn hệ thống sao chép thu nhỏ khối lượng theo tỷ lệ giữa vốn của bạn và tài khoản chiến lược. Vốn quá nhỏ thì khá nhiều vị thế nhỏ sau khi quy đổi không đạt khối lượng tối thiểu của nền tảng và bị bỏ qua, khiến các lệnh khớp của bạn lệch dần khỏi chiến lược. Dưới mức này vẫn tham gia được, chỉ là phần sao chép thiếu vì lý do đó không phải căn cứ để yêu cầu bồi thường.',
+})

@@ -1120,3 +1120,16 @@ PROTECTION.update({
     'A withdrawal <b>within the first month</b> (withdrawals after that do not affect eligibility).':
         '<b>最初の 1 か月内</b>の出金（それ以降の出金は資格に影響しません）。',
 })
+
+# 成交表小字补「只含已平仓」;细则页补「建议跟单金额 5,000 美元起」
+# (仓位按资金比例缩放,资金太低会有不少单达不到最小手数被跳过)。
+
+INDEX.update({
+    'These are real fills from the <b>PRESIGHT ALPHA-1 live account</b>, taken straight from it, <b>unfiltered — losing trades included</b>. Not a backtest, not a demo. The table lists <b>closed trades only</b>; an open position appears here once it has been closed.':
+        '<b>PRESIGHT ALPHA-1 の実口座</b>の実際の約定記録です。口座から直接取得しており、<b>選別は一切なし、負けトレードもそのまま掲載</b>します。バックテストでもデモでもありません。表に載るのは<b>決済済みの取引だけ</b>で、保有中のポジションは決済されてからここに現れます。',
+})
+
+PROTECTION.update({
+    "<b>We suggest copying with USD 5,000 or more.</b> This is not an eligibility condition — it is about copying the strategy in full. The strategy runs light positions at low leverage, and the copier scales lot size by the ratio between your balance and the strategy account's. On a small balance a fair number of those positions round down below the platform's minimum lot and are skipped outright, so your fills stop matching the strategy's. You can still take part below that figure; the trades you miss for this reason are simply not grounds for a claim.":
+        '<b>コピー資金は 5,000 米ドル以上を推奨します。</b>参加条件ではありません——戦略をまるごとコピーできるようにするためです。戦略自体のポジションは軽くレバレッジも低く、コピー機能はあなたの資金と戦略口座の比率でロット数を縮小します。資金が少ないと、小さめのポジションのうち少なくない数が換算後に取引所の最小ロットに届かず、そのまま見送られ、約定が戦略とずれていきます。これを下回る金額でも参加はできますが、この理由で取りこぼした分は補償の根拠にはなりません。',
+})
