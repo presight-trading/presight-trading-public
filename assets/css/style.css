@@ -264,6 +264,15 @@ section{padding:104px 0;position:relative}
 .metrics .v{font-family:var(--mono);font-size:1.42rem;font-weight:700;color:#fff;letter-spacing:-.03em}
 .metrics .v.g{color:#3ED598}
 .metrics .v.r{color:#FF6B6B}
+
+/* 指标格:标签在上、数值贴格子底部对齐。
+   标签占几行随语种变:英文 BALANCE DRAWDOWN (30D) 两行、中文「余额回撤(30 天)」
+   一行,「预估年化」那格还多一个角标。不对齐的话同一排数值就一格高一格低
+   ——截图里 +3.03% / 59.4% / 852 在上面,+43.1% / −14.61% / 1.06 掉下去一截。
+   网格本来就把同一行的格子拉成等高,所以 margin-top:auto 就够:标签顶对齐,
+   数值底对齐,中间的空隙让给行数多的那一格。 */
+.strip > div,.metrics > div{display:flex;flex-direction:column}
+.strip .v,.metrics .v{margin-top:auto}
 /* 建议手数口径的小字说明：字体明显小于指标数字，不抢视觉重点。 */
 .metrics-note{padding:12px 40px 16px;border-bottom:1px solid var(--panel-line);
               font-family:var(--mono);font-size:.66rem;color:#5B6883;letter-spacing:.02em}
