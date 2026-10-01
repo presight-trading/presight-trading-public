@@ -18,8 +18,9 @@ const CONFIG = {
   // 经常解析失败或被拦,而 github.io 与本站(GitHub Pages)解析到同一组 CDN 节点——
   // 能打开本站就能取到数据。数据仓库已开启 Pages,每次推送后自动重新发布(约 1 分钟)。
 
-  // 交易平台注册链接（带你的推广参数）
-  brokerSignupUrl: 'https://secure.decodefx.com/auth/register/?ref=l-246813157-FS8661P7',
+  // 交易平台注册链接（带你的推广参数）。客户走这条;IB 走下面的 ibSignupUrl,
+  // 两条的 ref 不一样,别对调——走错那条的人在后台看不到/看得到「申请成为 IB」。
+  brokerSignupUrl: 'https://secure.decodefx.com/auth/register/?ref=l-523847300-FS8661P7',
 
   // ---- 社区入口 ----
   // 信号频道：Presight 的对外总入口，公开可搜索，无需申请。
