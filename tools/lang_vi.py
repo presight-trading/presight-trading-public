@@ -790,3 +790,25 @@ PROTECTION.update({
     "<b>USD 5,000 is the line that picks your account type, not an entry barrier.</b> The strategy runs light positions at low leverage, and the copier scales lot size by the ratio between your balance and the strategy account's. On a small balance a fair number of those positions round down below the platform's minimum lot and are skipped outright, so your fills stop matching the strategy's. <b>That is exactly what the cent account is for</b>: the same money carries a far larger lot size there, so the small positions still get copied. Below USD 5,000, open a cent account and subscribe to the cent provider; if you instead copy a small balance on a USD account, the fills you lose to the minimum lot are not grounds for a claim.":
         '<b>5.000 đô la là ranh giới chọn loại tài khoản, không phải rào cản tham gia.</b> Bản thân chiến lược giữ vị thế nhẹ và đòn bẩy thấp, còn hệ thống sao chép thu nhỏ khối lượng theo tỷ lệ giữa vốn của bạn và tài khoản chiến lược. Vốn nhỏ thì khá nhiều vị thế nhỏ sau khi quy đổi không đạt khối lượng tối thiểu của nền tảng và bị bỏ qua, khiến lệnh của bạn lệch dần khỏi chiến lược. <b>Tài khoản cent sinh ra chính là để xử lý việc này</b>: cùng số tiền đó, khối lượng tương ứng trên tài khoản cent lớn hơn hẳn, nên các lệnh nhỏ vẫn theo được. Dưới 5.000 đô la hãy mở tài khoản cent và đăng ký nguồn tín hiệu dành cho tài khoản cent; nếu vẫn sao chép số vốn nhỏ trên tài khoản USD, phần lệnh bị bỏ lỡ vì khối lượng tối thiểu không phải căn cứ để yêu cầu bồi thường.',
 })
+
+# 战绩窗口 30 → 60 天:指标卡与各处标题跟着改。译文直接由旧的 30 天那版
+# 换数字得到——这些标签除了天数以外一个字没动,重译反而会引入新措辞。
+
+INDEX.update({
+    '60-day return':
+        'Lợi nhuận 60 ngày',
+    'Win rate · 60 days':
+        'Tỷ lệ thắng · 60 ngày',
+    'Win rate (60d)':
+        'Tỷ lệ thắng (60 ngày)',
+    'Balance drawdown (60d)':
+        'Sụt giảm số dư (60 ngày)',
+    'Profit factor (60d)':
+        'Hệ số lợi nhuận (60 ngày)',
+    'Trades (60d)':
+        'Số lệnh (60 ngày)',
+    'By instrument · last 60 days · return':
+        'Theo từng mã · 60 ngày gần nhất · lợi nhuận',
+    'Fill history · last 60 days <span class="realbadge">LIVE ACCOUNT</span>':
+        'Lịch sử khớp lệnh · 60 ngày gần nhất <span class="realbadge">TÀI KHOẢN THẬT</span>',
+})

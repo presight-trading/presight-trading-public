@@ -25,7 +25,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
-<link href="../assets/css/style.css?v=202610011835" rel="stylesheet"/>
+<link href="../assets/css/style.css?v=202610012114" rel="stylesheet"/>
 </head>
 <body>
 <!-- ticker -->
@@ -83,9 +83,9 @@
 </div>
 </div>
 <div class="strip rv">
-<div><div class="k">ผลตอบแทน 30 วัน</div><div class="v" id="sRet" style="color:var(--cobalt)">—</div></div>
+<div><div class="k">ผลตอบแทน 60 วัน</div><div class="v" id="sRet" style="color:var(--cobalt)">—</div></div>
 <div><div class="k">ต่อปีโดยประมาณ <span class="est">ประมาณ</span></div><div class="v" id="sAnn">—</div></div>
-<div><div class="k">อัตราชนะ · 30 วัน</div><div class="v" id="sWin">—</div></div>
+<div><div class="k">อัตราชนะ · 60 วัน</div><div class="v" id="sWin">—</div></div>
 <div><div class="k">ประกันขาดทุน</div><div class="v" style="color:var(--cobalt)">คืนเป็นเงินสด</div></div>
 </div>
 </div>
@@ -144,29 +144,29 @@
 <span class="tag">ความเสี่ยงคงที่</span></div>
 </div>
 </div>
-<!-- Relative terms: position (lots / $10k) + return (%), 30 days as the
+<!-- Relative terms: position (lots / $10k) + return (%), 60 days as the
            primary lens. No USD amounts shown anywhere. Net pips are no longer
            shown here — they still live in the "Pips" column of the fill
            history table below. -->
 <div class="metrics">
-<div><div class="k">ผลตอบแทน 30 วัน</div><div class="v" id="mPnl30">—</div></div>
+<div><div class="k">ผลตอบแทน 60 วัน</div><div class="v" id="mPnl30">—</div></div>
 <div><div class="k">ต่อปีโดยประมาณ <span class="est">ประมาณ</span></div><div class="v" id="mAnn">—</div></div>
-<div><div class="k">อัตราชนะ (30 วัน)</div><div class="v" id="mWin">—</div></div>
-<div><div class="k">การลดลงของยอดคงเหลือ (30 วัน)</div><div class="v r" id="mDD">—</div></div>
-<div><div class="k">Profit factor (30 วัน)</div><div class="v" id="mPF">—</div></div>
-<div><div class="k">จำนวนออเดอร์ (30 วัน)</div><div class="v" id="mN">—</div></div>
+<div><div class="k">อัตราชนะ (60 วัน)</div><div class="v" id="mWin">—</div></div>
+<div><div class="k">การลดลงของยอดคงเหลือ (60 วัน)</div><div class="v r" id="mDD">—</div></div>
+<div><div class="k">Profit factor (60 วัน)</div><div class="v" id="mPF">—</div></div>
+<div><div class="k">จำนวนออเดอร์ (60 วัน)</div><div class="v" id="mN">—</div></div>
 </div>
 <div class="metrics-note" id="mRefNote"></div>
 <div class="curvewrap">
-<svg aria-label="30-day cumulative return (%)" id="equityChart" role="img" viewbox="0 0 1080 260"></svg>
+<svg aria-label="60-day cumulative return (%)" id="equityChart" role="img" viewbox="0 0 1080 260"></svg>
 </div>
 <div class="bd-head">
-<h4>แยกตามสินทรัพย์ · 30 วันล่าสุด · ผลตอบแทน</h4>
+<h4>แยกตามสินทรัพย์ · 60 วันล่าสุด · ผลตอบแทน</h4>
 <div class="bd-note">พิพสุทธิไม่ได้มาจากทุกสินทรัพย์เท่า ๆ กัน นี่คือการแยกให้ดู</div>
 </div>
 <div class="bysym" id="bySym"></div>
 <div class="tbl-head" id="fills">
-<h4>ประวัติออเดอร์ · 30 วันล่าสุด <span class="realbadge">บัญชีจริง</span></h4>
+<h4>ประวัติออเดอร์ · 60 วันล่าสุด <span class="realbadge">บัญชีจริง</span></h4>
 <div class="live"><span class="dot"></span> ราคาเรียลไทม์ · <span id="upd">—</span></div>
 </div>
 <p class="realnote">นี่คือออเดอร์ที่เกิดขึ้นจริงจาก<b>บัญชีจริงของ PRESIGHT ALPHA-1</b> ดึงมาจากบัญชีนั้นโดยตรง <b>ไม่คัดกรอง — ไม้ที่ขาดทุนก็แสดงด้วย</b> ไม่ใช่การทดสอบย้อนหลังและไม่ใช่บัญชีทดลอง ตารางนี้มีเฉพาะ<b>ออเดอร์ที่ปิดแล้ว</b> ส่วนสถานะที่ยังถืออยู่จะปรากฏที่นี่หลังปิดแล้วเท่านั้น</p>
@@ -405,7 +405,7 @@
 </div>
 </div>
 <script src="../assets/js/config.js?v=202609061155"></script>
-<script src="../assets/js/app.js?v=202610011835"></script>
+<script src="../assets/js/app.js?v=202610012114"></script>
 <script defer="" src="../assets/js/botlink.js?v=202609061155"></script>
 </body>
 </html>

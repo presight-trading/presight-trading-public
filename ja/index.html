@@ -25,7 +25,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
-<link href="../assets/css/style.css?v=202610011835" rel="stylesheet"/>
+<link href="../assets/css/style.css?v=202610012114" rel="stylesheet"/>
 </head>
 <body>
 <!-- ticker -->
@@ -83,9 +83,9 @@
 </div>
 </div>
 <div class="strip rv">
-<div><div class="k">直近 30 日の収益率</div><div class="v" id="sRet" style="color:var(--cobalt)">—</div></div>
+<div><div class="k">直近 60 日の収益率</div><div class="v" id="sRet" style="color:var(--cobalt)">—</div></div>
 <div><div class="k">年率換算 <span class="est">推定</span></div><div class="v" id="sAnn">—</div></div>
-<div><div class="k">勝率 · 直近 30 日</div><div class="v" id="sWin">—</div></div>
+<div><div class="k">勝率 · 直近 60 日</div><div class="v" id="sWin">—</div></div>
 <div><div class="k">損失補償</div><div class="v" style="color:var(--cobalt)">現金返金</div></div>
 </div>
 </div>
@@ -144,29 +144,29 @@
 <span class="tag">リスク固定</span></div>
 </div>
 </div>
-<!-- Relative terms: position (lots / $10k) + return (%), 30 days as the
+<!-- Relative terms: position (lots / $10k) + return (%), 60 days as the
            primary lens. No USD amounts shown anywhere. Net pips are no longer
            shown here — they still live in the "Pips" column of the fill
            history table below. -->
 <div class="metrics">
-<div><div class="k">直近 30 日の収益率</div><div class="v" id="mPnl30">—</div></div>
+<div><div class="k">直近 60 日の収益率</div><div class="v" id="mPnl30">—</div></div>
 <div><div class="k">年率換算 <span class="est">推定</span></div><div class="v" id="mAnn">—</div></div>
-<div><div class="k">勝率(30 日)</div><div class="v" id="mWin">—</div></div>
-<div><div class="k">残高ドローダウン(30 日)</div><div class="v r" id="mDD">—</div></div>
-<div><div class="k">プロフィットファクター(30 日)</div><div class="v" id="mPF">—</div></div>
-<div><div class="k">トレード数(30 日)</div><div class="v" id="mN">—</div></div>
+<div><div class="k">勝率(60 日)</div><div class="v" id="mWin">—</div></div>
+<div><div class="k">残高ドローダウン(60 日)</div><div class="v r" id="mDD">—</div></div>
+<div><div class="k">プロフィットファクター(60 日)</div><div class="v" id="mPF">—</div></div>
+<div><div class="k">トレード数(60 日)</div><div class="v" id="mN">—</div></div>
 </div>
 <div class="metrics-note" id="mRefNote"></div>
 <div class="curvewrap">
-<svg aria-label="30-day cumulative return (%)" id="equityChart" role="img" viewbox="0 0 1080 260"></svg>
+<svg aria-label="60-day cumulative return (%)" id="equityChart" role="img" viewbox="0 0 1080 260"></svg>
 </div>
 <div class="bd-head">
-<h4>銘柄別 · 直近 30 日 · 収益率</h4>
+<h4>銘柄別 · 直近 60 日 · 収益率</h4>
 <div class="bd-note">純 pips はどの銘柄からも均等に出るわけではありません。内訳はこちら</div>
 </div>
 <div class="bysym" id="bySym"></div>
 <div class="tbl-head" id="fills">
-<h4>約定履歴 · 直近 30 日 <span class="realbadge">実口座</span></h4>
+<h4>約定履歴 · 直近 60 日 <span class="realbadge">実口座</span></h4>
 <div class="live"><span class="dot"></span> リアルタイム · <span id="upd">—</span></div>
 </div>
 <p class="realnote"><b>PRESIGHT ALPHA-1 の実口座</b>の実際の約定記録です。口座から直接取得しており、<b>選別は一切なし、負けトレードもそのまま掲載</b>します。バックテストでもデモでもありません。表に載るのは<b>決済済みの取引だけ</b>で、保有中のポジションは決済されてからここに現れます。</p>
@@ -405,7 +405,7 @@
 </div>
 </div>
 <script src="../assets/js/config.js?v=202609061155"></script>
-<script src="../assets/js/app.js?v=202610011835"></script>
+<script src="../assets/js/app.js?v=202610012114"></script>
 <script defer="" src="../assets/js/botlink.js?v=202609061155"></script>
 </body>
 </html>

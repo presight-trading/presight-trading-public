@@ -1174,3 +1174,25 @@ PROTECTION.update({
     "<b>USD 5,000 is the line that picks your account type, not an entry barrier.</b> The strategy runs light positions at low leverage, and the copier scales lot size by the ratio between your balance and the strategy account's. On a small balance a fair number of those positions round down below the platform's minimum lot and are skipped outright, so your fills stop matching the strategy's. <b>That is exactly what the cent account is for</b>: the same money carries a far larger lot size there, so the small positions still get copied. Below USD 5,000, open a cent account and subscribe to the cent provider; if you instead copy a small balance on a USD account, the fills you lose to the minimum lot are not grounds for a claim.":
         '<b>5,000 米ドルは口座種別を分ける線であって、参加の下限ではありません。</b>戦略自体のポジションは軽くレバレッジも低く、コピー機能はあなたの資金と戦略口座の比率でロット数を縮小します。資金が少ないと、小さめのポジションのうち少なくない数が換算後に取引所の最小ロットに届かず、そのまま見送られ、約定が戦略とずれていきます。<b>セント口座はまさにこのためにあります</b>：同じ金額でもセント口座なら対応するロット数がひと回り大きく、小さな建玉も取りこぼしません。5,000 米ドル未満ならセント口座を開き、対応するセント用シグナル元を購読してください。少額のまま米ドル口座でコピーした場合、最小ロットの制約で取りこぼした分は補償の根拠になりません。',
 })
+
+# 战绩窗口 30 → 60 天:指标卡与各处标题跟着改。译文直接由旧的 30 天那版
+# 换数字得到——这些标签除了天数以外一个字没动,重译反而会引入新措辞。
+
+INDEX.update({
+    '60-day return':
+        '直近 60 日の収益率',
+    'Win rate · 60 days':
+        '勝率 · 直近 60 日',
+    'Win rate (60d)':
+        '勝率(60 日)',
+    'Balance drawdown (60d)':
+        '残高ドローダウン(60 日)',
+    'Profit factor (60d)':
+        'プロフィットファクター(60 日)',
+    'Trades (60d)':
+        'トレード数(60 日)',
+    'By instrument · last 60 days · return':
+        '銘柄別 · 直近 60 日 · 収益率',
+    'Fill history · last 60 days <span class="realbadge">LIVE ACCOUNT</span>':
+        '約定履歴 · 直近 60 日 <span class="realbadge">実口座</span>',
+})

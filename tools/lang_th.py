@@ -790,3 +790,25 @@ PROTECTION.update({
     "<b>USD 5,000 is the line that picks your account type, not an entry barrier.</b> The strategy runs light positions at low leverage, and the copier scales lot size by the ratio between your balance and the strategy account's. On a small balance a fair number of those positions round down below the platform's minimum lot and are skipped outright, so your fills stop matching the strategy's. <b>That is exactly what the cent account is for</b>: the same money carries a far larger lot size there, so the small positions still get copied. Below USD 5,000, open a cent account and subscribe to the cent provider; if you instead copy a small balance on a USD account, the fills you lose to the minimum lot are not grounds for a claim.":
         '<b>5,000 ดอลลาร์คือเส้นแบ่งประเภทบัญชี ไม่ใช่เกณฑ์ขั้นต่ำในการเข้าร่วม</b> ตัวกลยุทธ์เองถือสถานะเบาและใช้เลเวอเรจต่ำ ระบบก๊อปปี้จะย่อขนาดล็อตตามสัดส่วนระหว่างเงินทุนของคุณกับบัญชีกลยุทธ์ ถ้าเงินทุนน้อย ออเดอร์ขนาดเล็กจำนวนไม่น้อยเมื่อคำนวณแล้วจะไม่ถึงล็อตขั้นต่ำของแพลตฟอร์ม และถูกข้ามไป ทำให้ออเดอร์ของคุณเริ่มไม่ตรงกับกลยุทธ์ <b>บัญชีเซ็นต์มีไว้เพื่อกรณีนี้โดยเฉพาะ</b>: เงินเท่ากันแต่ล็อตที่ได้ในบัญชีเซ็นต์ใหญ่กว่ามาก ออเดอร์เล็ก ๆ จึงยังตามได้ ต่ำกว่า 5,000 ดอลลาร์ให้เปิดบัญชีเซ็นต์และสมัครสัญญาณสำหรับบัญชีเซ็นต์ ถ้ายังก๊อปปี้ด้วยเงินก้อนเล็กบนบัญชี USD ส่วนที่พลาดไปเพราะล็อตขั้นต่ำไม่ใช่เหตุผลในการขอชดเชย',
 })
+
+# 战绩窗口 30 → 60 天:指标卡与各处标题跟着改。译文直接由旧的 30 天那版
+# 换数字得到——这些标签除了天数以外一个字没动,重译反而会引入新措辞。
+
+INDEX.update({
+    '60-day return':
+        'ผลตอบแทน 60 วัน',
+    'Win rate · 60 days':
+        'อัตราชนะ · 60 วัน',
+    'Win rate (60d)':
+        'อัตราชนะ (60 วัน)',
+    'Balance drawdown (60d)':
+        'การลดลงของยอดคงเหลือ (60 วัน)',
+    'Profit factor (60d)':
+        'Profit factor (60 วัน)',
+    'Trades (60d)':
+        'จำนวนออเดอร์ (60 วัน)',
+    'By instrument · last 60 days · return':
+        'แยกตามสินทรัพย์ · 60 วันล่าสุด · ผลตอบแทน',
+    'Fill history · last 60 days <span class="realbadge">LIVE ACCOUNT</span>':
+        'ประวัติออเดอร์ · 60 วันล่าสุด <span class="realbadge">บัญชีจริง</span>',
+})

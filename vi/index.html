@@ -25,7 +25,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
-<link href="../assets/css/style.css?v=202610011835" rel="stylesheet"/>
+<link href="../assets/css/style.css?v=202610012114" rel="stylesheet"/>
 </head>
 <body>
 <!-- ticker -->
@@ -83,9 +83,9 @@
 </div>
 </div>
 <div class="strip rv">
-<div><div class="k">Lợi nhuận 30 ngày</div><div class="v" id="sRet" style="color:var(--cobalt)">—</div></div>
+<div><div class="k">Lợi nhuận 60 ngày</div><div class="v" id="sRet" style="color:var(--cobalt)">—</div></div>
 <div><div class="k">Quy đổi năm <span class="est">ước tính</span></div><div class="v" id="sAnn">—</div></div>
-<div><div class="k">Tỷ lệ thắng · 30 ngày</div><div class="v" id="sWin">—</div></div>
+<div><div class="k">Tỷ lệ thắng · 60 ngày</div><div class="v" id="sWin">—</div></div>
 <div><div class="k">Bảo hiểm lỗ</div><div class="v" style="color:var(--cobalt)">Hoàn tiền mặt</div></div>
 </div>
 </div>
@@ -144,29 +144,29 @@
 <span class="tag">RỦI RO CỐ ĐỊNH</span></div>
 </div>
 </div>
-<!-- Relative terms: position (lots / $10k) + return (%), 30 days as the
+<!-- Relative terms: position (lots / $10k) + return (%), 60 days as the
            primary lens. No USD amounts shown anywhere. Net pips are no longer
            shown here — they still live in the "Pips" column of the fill
            history table below. -->
 <div class="metrics">
-<div><div class="k">Lợi nhuận 30 ngày</div><div class="v" id="mPnl30">—</div></div>
+<div><div class="k">Lợi nhuận 60 ngày</div><div class="v" id="mPnl30">—</div></div>
 <div><div class="k">Quy đổi năm <span class="est">ước tính</span></div><div class="v" id="mAnn">—</div></div>
-<div><div class="k">Tỷ lệ thắng (30 ngày)</div><div class="v" id="mWin">—</div></div>
-<div><div class="k">Sụt giảm số dư (30 ngày)</div><div class="v r" id="mDD">—</div></div>
-<div><div class="k">Hệ số lợi nhuận (30 ngày)</div><div class="v" id="mPF">—</div></div>
-<div><div class="k">Số lệnh (30 ngày)</div><div class="v" id="mN">—</div></div>
+<div><div class="k">Tỷ lệ thắng (60 ngày)</div><div class="v" id="mWin">—</div></div>
+<div><div class="k">Sụt giảm số dư (60 ngày)</div><div class="v r" id="mDD">—</div></div>
+<div><div class="k">Hệ số lợi nhuận (60 ngày)</div><div class="v" id="mPF">—</div></div>
+<div><div class="k">Số lệnh (60 ngày)</div><div class="v" id="mN">—</div></div>
 </div>
 <div class="metrics-note" id="mRefNote"></div>
 <div class="curvewrap">
-<svg aria-label="30-day cumulative return (%)" id="equityChart" role="img" viewbox="0 0 1080 260"></svg>
+<svg aria-label="60-day cumulative return (%)" id="equityChart" role="img" viewbox="0 0 1080 260"></svg>
 </div>
 <div class="bd-head">
-<h4>Theo từng mã · 30 ngày gần nhất · lợi nhuận</h4>
+<h4>Theo từng mã · 60 ngày gần nhất · lợi nhuận</h4>
 <div class="bd-note">Pip ròng không đến đều từ mọi mã — đây là phần chia theo mã</div>
 </div>
 <div class="bysym" id="bySym"></div>
 <div class="tbl-head" id="fills">
-<h4>Lịch sử khớp lệnh · 30 ngày gần nhất <span class="realbadge">TÀI KHOẢN THẬT</span></h4>
+<h4>Lịch sử khớp lệnh · 60 ngày gần nhất <span class="realbadge">TÀI KHOẢN THẬT</span></h4>
 <div class="live"><span class="dot"></span> GIÁ TRỰC TIẾP · <span id="upd">—</span></div>
 </div>
 <p class="realnote">Đây là các lệnh khớp thật từ <b>tài khoản thật của PRESIGHT ALPHA-1</b>, lấy trực tiếp từ tài khoản đó, <b>không lọc — lệnh lỗ cũng liệt kê đầy đủ</b>. Không phải backtest, cũng không phải tài khoản demo. Bảng chỉ gồm <b>các lệnh đã đóng</b>; vị thế đang mở phải đóng xong mới xuất hiện ở đây.</p>
@@ -405,7 +405,7 @@
 </div>
 </div>
 <script src="../assets/js/config.js?v=202609061155"></script>
-<script src="../assets/js/app.js?v=202610011835"></script>
+<script src="../assets/js/app.js?v=202610012114"></script>
 <script defer="" src="../assets/js/botlink.js?v=202609061155"></script>
 </body>
 </html>
