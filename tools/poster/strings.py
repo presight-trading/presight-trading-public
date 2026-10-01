@@ -37,10 +37,14 @@ L["zh"] = dict(
     sec1="四步开始", sec2="怎么赔",
     a1t='通过官网链接注册<span class="em">新账户</span>并入金',
     a1d="完成身份认证（KYC）。只有走官网链接注册的新账户才在订阅名单里",
-    a2t='订阅 <span class="em">PRESIGHT ALPHA-1</span>',
-    a2d="secure.decodefx.com → Copy Trading → 先注册 follower 账户 → New subscription → "
-        "参数 <b>Autoscale / Value by asset / Ratio = 1</b> → 在 Action 栏点 <b>Activate</b>。"
-        "不点 Activate 跟单不生效",
+    a2t='开 MT5 账户，订阅<span class="em">对应的信号源</span>',
+    a2d="账户管理 → <b>+ 真实账户</b>：MT5 / 普通 / 杠杆 500:1 / USD。"
+        "跟单 <b>≥ 5,000 美元</b>选美元账户(组 美元-标准-4X)，<b>&lt; 5,000</b> 选美分账户"
+        "(组 美分-标准-金属/原油-S6)。入金后划转到该账户，美分账户先在 资产→兑换 把 USD 换成 USC。"
+        "再进 跟单社区 → 发现 → 搜信号源：美元账户 <b>PRESIGHT ALPHA-1</b>，"
+        "美分账户 <b>presighttrading_com - ct signal1</b> → 立即跟单 → "
+        "跟单模式 <b>按净值等比例</b>、乘系数 <b>1</b>、分润方案默认。账户类型和信号源必须配对",
+ 
     a3t='私信 <span class="em">@PresightAdminBot</span> 报备 MT5 账户 ID',
     a3d="<b>保护期从这一刻起算</b>，没报备的账户不具备赔付资格，报备之前的亏损也不赔",
     a4t='放着不动，满 <span class="em">1 个月</span>',
@@ -83,10 +87,15 @@ L["en"] = dict(
     sec1="Four steps to start", sec2="How the payout works",
     a1t='Open a <span class="em">new account</span> through our link and fund it',
     a1d="Complete KYC. Only accounts opened through the site link are on the subscription list",
-    a2t='Subscribe to <span class="em">PRESIGHT ALPHA-1</span>',
-    a2d="secure.decodefx.com → Copy Trading → register a follower account first → "
-        "New subscription → settings <b>Autoscale / Value by asset / Ratio = 1</b> → "
-        "press <b>Activate</b> in the Action column. Nothing is copied until you do",
+    a2t='Open an MT5 account, subscribe to <span class="em">the matching provider</span>',
+    a2d="Account Management → <b>+ Live Account</b>: MT5 / Standard / leverage 500:1 / USD. "
+        "Copying <b>USD 5,000+</b> → USD account (group 美元-标准-4X); <b>under 5,000</b> → cent account "
+        "(group 美分-标准-金属/原油-S6). Transfer your deposit to that account; a cent account converts "
+        "USD to USC first under Assets → Exchange. Then Copy Community → Discover → search the provider: "
+        "<b>PRESIGHT ALPHA-1</b> for a USD account, <b>presighttrading_com - ct signal1</b> for a cent "
+        "account → Copy now → mode <b>proportional by equity</b>, multiplier <b>1</b>, default profit-share "
+        "plan. The account type and the provider must match",
+ 
     a3t='Report your MT5 account ID to <span class="em">@PresightAdminBot</span>',
     a3d="<b>The protection period starts at that moment.</b> An unreported account is not "
         "eligible, and losses before you report are not covered",
@@ -140,10 +149,15 @@ L["ja"] = dict(
     sec1="4 ステップで開始", sec2="補償のしくみ",
     a1t='公式リンクから<span class="em">新規口座</span>を開き入金',
     a1d="本人確認（KYC）を完了。公式リンクから開いた新規口座だけが購読リストに載ります",
-    a2t='<span class="em">PRESIGHT ALPHA-1</span> を購読',
-    a2d="secure.decodefx.com → Copy Trading → まずフォロワー口座を登録 → New subscription → "
-        "設定は <b>Autoscale / Value by asset / Ratio = 1</b> → Action 列の <b>Activate</b> を押す。"
-        "押すまでコピーは始まりません",
+    a2t='MT5 口座を開き、<span class="em">対応するシグナル元</span>を購読',
+    a2d="口座管理 → <b>+ リアル口座</b>：MT5 / 標準 / レバレッジ 500:1 / USD。"
+        "コピー資金 <b>5,000 米ドル以上</b>は米ドル口座(グループ 美元-标准-4X)、<b>5,000 未満</b>は"
+        "セント口座(グループ 美分-标准-金属/原油-S6)。入金後はその口座へ振替、セント口座は先に"
+        "資産→両替で USD を USC に。次にコピーコミュニティ → 発見 → シグナル元を検索："
+        "米ドル口座は <b>PRESIGHT ALPHA-1</b>、セント口座は <b>presighttrading_com - ct signal1</b> → "
+        "今すぐコピー → モードは<b>有効証拠金の比例</b>、倍率 <b>1</b>、分配プランは既定のまま。"
+        "口座種別とシグナル元は必ず対応させること",
+ 
     a3t='<span class="em">@PresightAdminBot</span> に MT5 口座 ID を届け出る',
     a3d="<b>保護期間はこの瞬間から始まります。</b>届出のない口座は対象外で、"
         "届出より前の損失も補償されません",
@@ -194,10 +208,15 @@ L["vi"] = dict(
     sec1="Bốn bước để bắt đầu", sec2="Bồi thường thế nào",
     a1t='Mở <span class="em">tài khoản mới</span> qua liên kết của chúng tôi và nạp tiền',
     a1d="Hoàn tất KYC. Chỉ tài khoản mở qua liên kết trên trang mới nằm trong danh sách đăng ký",
-    a2t='Đăng ký <span class="em">PRESIGHT ALPHA-1</span>',
-    a2d="secure.decodefx.com → Copy Trading → đăng ký tài khoản follower trước → New subscription → "
-        "cấu hình <b>Autoscale / Value by asset / Ratio = 1</b> → bấm <b>Activate</b> ở cột Action. "
-        "Chưa bấm thì chưa sao chép gì cả",
+    a2t='Mở tài khoản MT5, đăng ký <span class="em">đúng nguồn tín hiệu</span>',
+    a2d="Quản lý tài khoản → <b>+ Tài khoản thật</b>: MT5 / Thường / đòn bẩy 500:1 / USD. "
+        "Sao chép <b>từ 5.000 USD</b> → tài khoản USD (nhóm 美元-标准-4X); <b>dưới 5.000</b> → tài khoản "
+        "cent (nhóm 美分-标准-金属/原油-S6). Nạp xong thì chuyển tiền vào tài khoản đó; tài khoản cent "
+        "phải đổi USD sang USC trước ở Tài sản → Quy đổi. Rồi vào Cộng đồng sao chép → Khám phá → tìm "
+        "nguồn tín hiệu: <b>PRESIGHT ALPHA-1</b> cho tài khoản USD, <b>presighttrading_com - ct signal1</b> "
+        "cho tài khoản cent → Sao chép ngay → chế độ <b>tỷ lệ theo vốn chủ sở hữu</b>, hệ số <b>1</b>, "
+        "giữ nguyên phương án chia lợi nhuận. Loại tài khoản phải khớp với nguồn tín hiệu",
+ 
     a3t='Khai báo MT5 account ID cho <span class="em">@PresightAdminBot</span>',
     a3d="<b>Thời gian bảo vệ bắt đầu từ khoảnh khắc đó.</b> Tài khoản chưa khai báo thì không đủ "
         "điều kiện, và khoản lỗ trước lúc khai báo cũng không được bảo hiểm",
@@ -250,10 +269,15 @@ L["th"] = dict(
     sec1="สี่ขั้นตอนเริ่มต้น", sec2="ชดเชยอย่างไร",
     a1t='เปิด<span class="em">บัญชีใหม่</span>ผ่านลิงก์ของเราและฝากเงิน',
     a1d="ยืนยันตัวตน (KYC) ให้เสร็จ เฉพาะบัญชีใหม่ที่เปิดผ่านลิงก์บนเว็บเท่านั้นที่อยู่ในรายชื่อผู้สมัคร",
-    a2t='สมัคร <span class="em">PRESIGHT ALPHA-1</span>',
-    a2d="secure.decodefx.com → Copy Trading → สมัครบัญชี follower ก่อน → New subscription → "
-        "ตั้งค่า <b>Autoscale / Value by asset / Ratio = 1</b> → กด <b>Activate</b> ในคอลัมน์ Action "
-        "ไม่กดก็ยังไม่เริ่มก๊อปปี้",
+    a2t='เปิดบัญชี MT5 แล้วสมัคร<span class="em">สัญญาณที่ตรงกัน</span>',
+    a2d="จัดการบัญชี → <b>+ บัญชีจริง</b>: MT5 / ธรรมดา / เลเวอเรจ 500:1 / USD "
+        "ก๊อปปี้ <b>ตั้งแต่ 5,000 ดอลลาร์</b> ใช้บัญชี USD (กลุ่ม 美元-标准-4X); <b>ต่ำกว่า 5,000</b> "
+        "ใช้บัญชีเซ็นต์ (กลุ่ม 美分-标准-金属/原油-S6) ฝากแล้วโอนเข้าบัญชีนั้น บัญชีเซ็นต์ต้องแปลง "
+        "USD เป็น USC ก่อนที่ สินทรัพย์ → แลกเปลี่ยน จากนั้นไปที่ ชุมชนก๊อปปี้ → ค้นพบ → ค้นหาสัญญาณ: "
+        "บัญชี USD ใช้ <b>PRESIGHT ALPHA-1</b>, บัญชีเซ็นต์ใช้ <b>presighttrading_com - ct signal1</b> → "
+        "ก๊อปปี้ทันที → โหมด <b>ตามสัดส่วนอิควิตี้</b>, ตัวคูณ <b>1</b>, แผนแบ่งกำไรใช้ค่าเริ่มต้น "
+        "ประเภทบัญชีต้องตรงกับสัญญาณ",
+ 
     a3t='แจ้ง MT5 account ID กับ <span class="em">@PresightAdminBot</span>',
     a3d="<b>ระยะคุ้มครองเริ่มนับจากวินาทีนั้น</b> บัญชีที่ไม่ได้แจ้งจะไม่เข้าเกณฑ์ "
         "และขาดทุนก่อนแจ้งก็ไม่ได้รับความคุ้มครอง",

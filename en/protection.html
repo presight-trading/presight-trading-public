@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/style.css?v=202609291056">
+<link rel="stylesheet" href="../assets/css/style.css?v=202610011835">
 <style>
   .doc{max-width:74ch;margin:0 auto}
   .doc h3{font-size:1.06rem;font-weight:700;color:var(--ink);
@@ -91,16 +91,24 @@
       <p><b>All</b> of the following must hold. Any one of them failing puts you outside the coverage.</p>
       <ol>
         <li>A <b>new account</b> with the partner platform, opened through an official Presight link and KYC-verified. Existing accounts cannot be enrolled.</li>
-        <li>A subscription to <b>PRESIGHT ALPHA-1</b> inside the platform's copy-trading system, configured as below.
-            The path: log in at <span class="mono">secure.decodefx.com</span> &rarr; <b>Copy Trading</b> &rarr;
-            on your first visit, <b>register a follower account</b> &mdash; the copy platform will not let you in without one &rarr;
-            <b>New subscription</b> &rarr; set Provider to <span class="mono">PRESIGHT ALPHA-1</span>.</li>
-        <li>Once the subscription exists, press <b>Activate</b> in the <b>Action</b> column.
-            <b>An inactive subscription copies nothing</b>, so there are no protected trades &mdash;
-            the protection period still runs from your report, but an account that is not copying
-            cannot produce a refundable loss.</li>
-        <li>Copy settings: <b>Autoscale</b>, <b>Value by asset</b>, <b>Ratio = 1</b> &mdash; a 1:1 mirror.
-            The master account's position sizing must not be scaled up; a ratio above 1 voids eligibility outright.</li>
+        <li>An <b>MT5 trading account</b> opened on the platform (<b>Account Management &rarr; + Live Account</b>),
+            with <b>the account type chosen by how much you will copy with</b> &mdash; the account type and the provider
+            below must be paired correctly, or the trades will not copy:
+            <br>· Copying <b>USD 5,000 or more</b>: a <b>USD account</b> &mdash; platform <b>MT5</b>, type <b>Standard</b>,
+            group <span class="mono">美元-标准-4X</span>, leverage <b>500:1</b>, currency <b>USD</b>
+            <br>· Copying <b>under USD 5,000</b>: a <b>cent account</b> &mdash; platform <b>MT5</b>, type <b>Standard</b>,
+            group <span class="mono">美分-标准-金属/原油-S6</span>, leverage <b>500:1</b>, currency <b>USD</b></li>
+        <li>After depositing, <b>transfer the money to that MT5 account</b>. A cent account converts first:
+            <b>Assets &rarr; Exchange</b> &rarr; USD to <b>USC</b> &rarr; enter the amount &rarr; submit.
+            Until the money sits on that account, a subscription produces no fills at all.</li>
+        <li>In <b>Copy Community &rarr; Discover</b>, search for and select the provider that matches your account type,
+            then press <b>Copy now</b>:
+            <br>· USD account &rarr; <span class="mono">PRESIGHT ALPHA-1</span>
+            <br>· Cent account &rarr; <span class="mono">presighttrading_com - ct signal1</span></li>
+        <li>Copy settings: the copy account is <b>the MT5 account you just created</b>, the mode is
+            <b>proportional by equity</b>, the <b>multiplier is 1</b>, and the profit-share plan stays on its default.
+            The multiplier is the scaling factor &mdash; <b>above 1 it scales the master's positions up and voids
+            eligibility outright</b>.</li>
         <li>Once copying has started, <b>report your MT5 account ID (login number)</b> by direct message to <span class="mono">@PresightAdminBot</span> on Telegram &mdash; it replies with a receipt immediately.
             We cannot verify an account that was never reported, so an unreported account <b>is not eligible</b>; for reported accounts,
             coverage runs from the moment of reporting &mdash; losses incurred before that fall outside it.</li>
@@ -111,7 +119,7 @@
       </ol>
 
       <div class="callout">
-        <p><b>We suggest copying with USD 5,000 or more.</b> This is not an eligibility condition &mdash; it is about copying the strategy in full. The strategy runs light positions at low leverage, and the copier scales lot size by the ratio between your balance and the strategy account's. On a small balance a fair number of those positions round down below the platform's minimum lot and are skipped outright, so your fills stop matching the strategy's. You can still take part below that figure; the trades you miss for this reason are simply not grounds for a claim.</p>
+        <p><b>USD 5,000 is the line that picks your account type, not an entry barrier.</b> The strategy runs light positions at low leverage, and the copier scales lot size by the ratio between your balance and the strategy account's. On a small balance a fair number of those positions round down below the platform's minimum lot and are skipped outright, so your fills stop matching the strategy's. <b>That is exactly what the cent account is for</b>: the same money carries a far larger lot size there, so the small positions still get copied. Below USD 5,000, open a cent account and subscribe to the cent provider; if you instead copy a small balance on a USD account, the fills you lose to the minimum lot are not grounds for a claim.</p>
       </div>
 
       <h3><span class="no">03</span>Risk control happens on our side</h3>

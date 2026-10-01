@@ -27,7 +27,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/style.css?v=202609291056">
+<link rel="stylesheet" href="../assets/css/style.css?v=202610011835">
 </head>
 <body>
 <!-- ticker -->
@@ -282,8 +282,8 @@
     </div>
   </div>
   <div class="steps four rv">
-    <div class="step"><div class="n">01</div><h4>Register through the link</h4><p>Open an account with the partner platform using the link on this site and complete verification. Only accounts opened this way can subscribe to the strategy.</p></div>
-    <div class="step"><div class="n">02</div><h4>Fund and subscribe</h4><p>Log in at <span class="mono">secure.decodefx.com</span> &rarr; <b>Copy Trading</b>. On your first visit you must <b>register a follower account</b> before the copy platform will let you in.<br><br>Open <b>New subscription</b> and set Provider to <span class="mono">PRESIGHT ALPHA-1</span>. Copy settings: <b>Autoscale</b>, <b>Value by asset</b>, <b>Ratio 1</b> (a 1:1 mirror, no scaling up).<br><br>Then press <b>Activate</b> in the <b>Action</b> column &mdash; <b>copying does not start until you do</b>; the subscription just sits in the list. Per-trade risk is set on our side &mdash; you do not configure it.</p></div>
+    <div class="step"><div class="n">01</div><h4>Register and open an MT5 account</h4><p>Register with DecodeFX through the link on this site and pass verification (KYC) &mdash; only accounts opened this way can subscribe to the strategy.<br><br>Then go to <b>Account Management &rarr; + Live Account</b> and <b>pick the account type by how much you plan to copy with</b>: <b>a USD account from USD 5,000 up, a cent account below that</b>. The full settings for both are in the &ldquo;Start copying&rdquo; panel.</p></div>
+    <div class="step"><div class="n">02</div><h4>Fund, transfer and subscribe</h4><p>After depositing, <b>transfer the money to the MT5 account you just created</b>. A cent account takes one extra step first: in <b>Assets &rarr; Exchange</b>, convert USD into <b>USC</b>, then transfer.<br><br>Next open <b>Copy Community &rarr; Discover</b> and search for the provider that matches your account type &mdash; <span class="mono">PRESIGHT ALPHA-1</span> for a USD account, <span class="mono">presighttrading_com - ct signal1</span> for a cent account.<br><br>Select it and press <b>Copy now</b>: choose the MT5 account you just created, set the copy mode to <b>proportional by equity</b>, the multiplier to <b>1</b> and leave the profit-share plan on its default. <b>A multiplier above 1 scales the strategy&rsquo;s positions up and voids coverage outright.</b> Per-trade risk is set on our side &mdash; you do not configure it.</p></div>
     <div class="step"><div class="n">03</div><h4>Report your MT5 account ID</h4><p>Message <span class="mono">@PresightAdminBot</span> on Telegram with your MT5 account ID (login number); it replies with a receipt immediately. The protection period starts from that moment &mdash; an unreported account is not eligible, and losses before you report are not covered.</p></div>
     <div class="step"><div class="n">04</div><h4>Copy for a month</h4><p>Every entry and exit mirrors to your account; a full month of continuous copying completes the protection period. You can pause or unlink at any time from inside the platform, but doing so ends coverage for that enrolment.</p></div>
   </div>
@@ -298,7 +298,7 @@
     </div>
     <div class="faq rv">
       <details open><summary>How is the loss coverage triggered and calculated?</summary><p><b>Base capital</b> is your account equity at the moment the protection period starts &mdash; when you report your MT5 account ID. If equity at the end of the protection period is below base capital, that shortfall is the net loss and is refunded in <b>USD cash</b> within 10 business days of verification. Coverage applies only to trades the strategy closed itself &mdash; <b>losses on positions you closed by hand are not refunded</b>. Nothing is owed if you finish flat or in profit. Coverage is limited to the full amount of base capital. <a href="protection.html">Full terms and exclusions &rarr;</a></p></details>
-      <details><summary>What do I have to do to qualify?</summary><p>Five things: a <b>new account</b> opened through our link and KYC-verified; copy settings of <b>Autoscale / Value by asset / Ratio 1</b> (a 1:1 mirror, no scaling up); <b>report your MT5 account ID</b> to <span class="mono">@PresightAdminBot</span> once copying starts; <b>a full month of continuous copying</b> from that report; and <b>no manual intervention and no withdrawals</b> during that first month &mdash; after it, withdrawals are unrestricted &mdash; principal as well as profit &mdash; with no effect on eligibility.<br><br>The payout is settled on the net result of the <b>whole copying period</b> (from your report until you unsubscribe), with every deposit and withdrawal counted, not month by month: if you withdraw after a good month and lose later, what still matters is how much went in and how much came back out over that period.<br><br>Reporting is the gate: we cannot verify an account we were never told about, and losses incurred before you report are outside the coverage. Closing a position by hand is the one carve-out &mdash; it does not void the enrolment, but the loss on that trade is not refunded.<br><br>Per-trade risk and aggregate exposure are <b>not yours to set</b> &mdash; we manage them at the copy-account level. ALPHA-1 is a quantitative strategy and holding several positions at once is normal. The strategy account has drawdown thresholds that cut size or halt new entries on breach, and it never averages down.</p></details>
+      <details><summary>What do I have to do to qualify?</summary><p>Five things: a <b>new account</b> opened through our link and KYC-verified; a copy mode of <b>proportional by equity</b> with a <b>multiplier of 1</b> (a 1:1 mirror, no scaling up); <b>report your MT5 account ID</b> to <span class="mono">@PresightAdminBot</span> once copying starts; <b>a full month of continuous copying</b> from that report; and <b>no manual intervention and no withdrawals</b> during that first month &mdash; after it, withdrawals are unrestricted &mdash; principal as well as profit &mdash; with no effect on eligibility.<br><br>The payout is settled on the net result of the <b>whole copying period</b> (from your report until you unsubscribe), with every deposit and withdrawal counted, not month by month: if you withdraw after a good month and lose later, what still matters is how much went in and how much came back out over that period.<br><br>Reporting is the gate: we cannot verify an account we were never told about, and losses incurred before you report are outside the coverage. Closing a position by hand is the one carve-out &mdash; it does not void the enrolment, but the loss on that trade is not refunded.<br><br>Per-trade risk and aggregate exposure are <b>not yours to set</b> &mdash; we manage them at the copy-account level. ALPHA-1 is a quantitative strategy and holding several positions at once is normal. The strategy account has drawdown thresholds that cut size or halt new entries on breach, and it never averages down.</p></details>
       <details><summary>Do I have to use the specified platform?</summary><p>Yes. Copy trading is a signal-sync mechanism inside the platform, and only accounts registered through this site’s link appear on the subscription list. Accounts you already hold elsewhere cannot be connected.</p></details>
       <details><summary>How do you make money? Why is the community free?</summary><p>Copy-trading revenue comes from partner rebates and a share of strategy performance, scaling with copied volume. When the strategy earns nothing, neither do we — our incentives point the same way as yours. The community is an acquisition channel and is not billed separately.</p></details>
       <details><summary>Is the track record filtered?</summary><p>The fills on this page come straight from the strategy’s live account with no filtering, and losing trades are listed alongside the rest. Past performance does not indicate future results, and every strategy has drawdown periods.</p></details>
@@ -439,22 +439,30 @@
       <li>
         <div class="mn">01</div>
         <div>
-          <h4>Open an account and fund it</h4>
-          <p>Only a <b>new account</b> opened through this link is on the subscription list. Complete verification (KYC), then deposit.</p>
+          <h4>Register through the link</h4>
+          <p>Only a <b>new account</b> opened through this link is on the subscription list. Complete verification (KYC).</p>
           <a class="btn" data-link="broker" target="_blank" rel="noopener">Register with DecodeFX <span class="arw">&rarr;</span></a>
         </div>
       </li>
       <li>
         <div class="mn">02</div>
         <div>
-          <h4>Subscribe to PRESIGHT ALPHA-1</h4>
+          <h4>Open the MT5 account, fund it and subscribe</h4>
           <div class="path">
-            <b>secure.decodefx.com</b> &rarr; Copy Trading &rarr; <b>register a follower account</b> &rarr; sign in &rarr; New subscription<br>
-            Provider: <b>PRESIGHT ALPHA-1</b><br>
-            Settings: <b>Autoscale</b> · <b>Value by asset</b> · <b>Ratio = 1</b><br>
-            Finally press <b>Activate</b> in the <b>Action</b> column
+            Account Management &rarr; <b>+ Live Account</b><br>
+            Platform <b>MT5</b> · Type <b>Standard</b> · Leverage <b>500:1</b> · Currency <b>USD</b><br>
+            Copying <b>&ge; USD 5,000</b>　Group <b>美元-标准-4X</b> (USD account)<br>
+            Copying <b>&lt; USD 5,000</b>　Group <b>美分-标准-金属/原油-S6</b> (cent account)
           </div>
-          <p class="mwarn"><b>You must press Activate</b> once the subscription is created, or nothing is copied. Ratio 1 is a 1:1 mirror; anything above 1 scales up your position and voids coverage outright.</p>
+          <p>After depositing, <b>transfer the money to that MT5 account</b>. A cent account converts first: <b>Assets &rarr; Exchange</b> &rarr; USD to <b>USC</b> &rarr; enter the amount &rarr; submit.</p>
+          <div class="path">
+            Copy Community &rarr; <b>Discover</b> &rarr; search the provider &rarr; <b>Copy now</b><br>
+            USD account: <b>PRESIGHT ALPHA-1</b><br>
+            Cent account: <b>presighttrading_com - ct signal1</b><br>
+            Copy account: <b>the MT5 account you just created</b>　Mode: <b>proportional by equity</b><br>
+            Multiplier: <b>1</b>　Profit-share plan: <b>default</b>
+          </div>
+          <p class="mwarn">The account type and the provider must match: a USD account follows ALPHA-1, a cent account follows ct signal1 &mdash; pair them wrongly and the trades will not copy. <b>A multiplier of 1 is a 1:1 mirror</b>; anything above 1 scales the position up and voids coverage outright.</p>
         </div>
       </li>
       <li>
@@ -476,7 +484,7 @@
 </div>
 
 <script src="../assets/js/config.js?v=202609061155"></script>
-<script src="../assets/js/app.js?v=202609291056"></script>
+<script src="../assets/js/app.js?v=202610011835"></script>
 <script src="../assets/js/botlink.js?v=202609061155" defer></script>
 </body>
 </html>

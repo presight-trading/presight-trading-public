@@ -27,7 +27,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
-<link href="../assets/css/style.css?v=202609291056" rel="stylesheet"/>
+<link href="../assets/css/style.css?v=202610011835" rel="stylesheet"/>
 <style>
   .doc{max-width:74ch;margin:0 auto}
   .doc h3{font-size:1.06rem;font-weight:700;color:var(--ink);
@@ -92,16 +92,10 @@
 <p>Phải thoả <b>tất cả</b> các điều dưới đây. Thiếu một điều là nằm ngoài phạm vi bảo hiểm.</p>
 <ol>
 <li><b>Tài khoản mới</b> tại nền tảng đối tác, mở qua liên kết chính thức của Presight và đã xác minh danh tính (KYC). Tài khoản có sẵn không đăng ký được.</li>
-<li>Đăng ký <b>PRESIGHT ALPHA-1</b> trong hệ thống sao chép của nền tảng, cấu hình như dưới đây.
-            Đường đi: đăng nhập <span class="mono">secure.decodefx.com</span> → <b>Copy Trading</b> →
-            lần đầu vào phải <b>đăng ký một tài khoản follower</b> — không có thì nền tảng sao chép không cho vào →
-            <b>New subscription</b> → điền Provider là <span class="mono">PRESIGHT ALPHA-1</span>.</li>
-<li>Tạo xong đăng ký, bấm <b>Activate</b> ở cột <b>Action</b> để kích hoạt.
-            <b>Đăng ký chưa kích hoạt thì không sao chép gì cả</b>, nên cũng không có giao dịch nào được bảo hiểm —
-            thời gian bảo vệ vẫn chạy từ lúc bạn khai báo, nhưng một tài khoản không sao chép
-            thì không thể phát sinh khoản lỗ được hoàn.</li>
-<li>Cấu hình sao chép: <b>Autoscale</b>, <b>Value by asset</b>, <b>Ratio = 1</b> — tức bản sao 1:1.
-            Không được phóng đại khối lượng của tài khoản gốc; Ratio lớn hơn 1 là mất tư cách ngay lập tức.</li>
+<li>Một <b>tài khoản giao dịch MT5</b> mở trên nền tảng (<b>Quản lý tài khoản → + Tài khoản thật</b>), với <b>loại tài khoản chọn theo số vốn bạn sẽ sao chép</b> — loại tài khoản và nguồn tín hiệu bên dưới phải đi thành cặp, ghép sai thì lệnh không sao chép được:<br/>· Sao chép <b>từ 5.000 USD</b>: <b>tài khoản USD</b> — nền tảng <b>MT5</b>, loại <b>Thường</b>, nhóm <span class="mono">美元-标准-4X</span>, đòn bẩy <b>500:1</b>, tiền tệ <b>USD</b><br/>· Sao chép <b>dưới 5.000 USD</b>: <b>tài khoản cent</b> — nền tảng <b>MT5</b>, loại <b>Thường</b>, nhóm <span class="mono">美分-标准-金属/原油-S6</span>, đòn bẩy <b>500:1</b>, tiền tệ <b>USD</b></li>
+<li>Nạp xong thì <b>chuyển tiền vào tài khoản MT5 đó</b>. Tài khoản cent quy đổi trước: <b>Tài sản → Quy đổi</b> → USD sang <b>USC</b> → nhập số tiền → gửi. Chừng nào tiền chưa nằm trên tài khoản đó thì dù đã đăng ký cũng không có lệnh nào khớp.</li>
+<li>Trong <b>Cộng đồng sao chép → Khám phá</b>, tìm và chọn nguồn tín hiệu khớp với loại tài khoản của bạn, rồi bấm <b>Sao chép ngay</b>:<br/>· Tài khoản USD → <span class="mono">PRESIGHT ALPHA-1</span><br/>· Tài khoản cent → <span class="mono">presighttrading_com - ct signal1</span></li>
+<li>Cấu hình sao chép: tài khoản sao chép là <b>tài khoản MT5 bạn vừa tạo</b>, chế độ là <b>tỷ lệ theo vốn chủ sở hữu</b>, <b>hệ số bằng 1</b>, phương án chia lợi nhuận giữ mặc định. Hệ số chính là bội số — <b>lớn hơn 1 là phóng đại vị thế của tài khoản chiến lược và làm mất tư cách bảo hiểm ngay</b>.</li>
 <li>Khi đã bắt đầu sao chép, <b>khai báo MT5 account ID (số đăng nhập)</b> bằng tin nhắn riêng cho <span class="mono">@PresightAdminBot</span> trên Telegram — bot trả biên nhận ngay.
             Tài khoản chưa từng được khai báo thì chúng tôi không có cách nào xác minh, nên <b>không đủ điều kiện</b>; với tài khoản đã khai báo,
             bảo hiểm chạy từ khoảnh khắc khai báo — khoản lỗ phát sinh trước đó nằm ngoài phạm vi.</li>
@@ -111,7 +105,7 @@
 <li><b>Không rút tiền trong tháng đầu</b> (30 ngày dương lịch kể từ lúc khai báo). Sau đó việc rút tiền không còn hạn chế nào — rút cả vốn lẫn lợi nhuận đều được — không ảnh hưởng tư cách — mọi khoản nạp và rút chỉ đơn giản được tính vào kết quả ròng, xem mục 06.</li>
 </ol>
 <div class="callout">
-<p><b>Khuyến nghị sao chép với số vốn từ 5.000 đô la trở lên.</b> Đây không phải điều kiện tham gia — mà là để sao chép được đầy đủ chiến lược. Bản thân chiến lược giữ vị thế nhẹ và đòn bẩy thấp, còn hệ thống sao chép thu nhỏ khối lượng theo tỷ lệ giữa vốn của bạn và tài khoản chiến lược. Vốn quá nhỏ thì khá nhiều vị thế nhỏ sau khi quy đổi không đạt khối lượng tối thiểu của nền tảng và bị bỏ qua, khiến các lệnh khớp của bạn lệch dần khỏi chiến lược. Dưới mức này vẫn tham gia được, chỉ là phần sao chép thiếu vì lý do đó không phải căn cứ để yêu cầu bồi thường.</p>
+<p><b>5.000 đô la là ranh giới chọn loại tài khoản, không phải rào cản tham gia.</b> Bản thân chiến lược giữ vị thế nhẹ và đòn bẩy thấp, còn hệ thống sao chép thu nhỏ khối lượng theo tỷ lệ giữa vốn của bạn và tài khoản chiến lược. Vốn nhỏ thì khá nhiều vị thế nhỏ sau khi quy đổi không đạt khối lượng tối thiểu của nền tảng và bị bỏ qua, khiến lệnh của bạn lệch dần khỏi chiến lược. <b>Tài khoản cent sinh ra chính là để xử lý việc này</b>: cùng số tiền đó, khối lượng tương ứng trên tài khoản cent lớn hơn hẳn, nên các lệnh nhỏ vẫn theo được. Dưới 5.000 đô la hãy mở tài khoản cent và đăng ký nguồn tín hiệu dành cho tài khoản cent; nếu vẫn sao chép số vốn nhỏ trên tài khoản USD, phần lệnh bị bỏ lỡ vì khối lượng tối thiểu không phải căn cứ để yêu cầu bồi thường.</p>
 </div>
 <h3><span class="no">03</span>Việc kiểm soát rủi ro nằm ở phía chúng tôi</h3>
 <p>ALPHA-1 là chiến lược định lượng và có thể giữ nhiều vị thế cùng lúc — đó là cách chiến lược được xây, không phải dấu hiệu rủi ro bị buông lỏng. Vì vậy chúng tôi <b>không yêu cầu bạn tự đặt giới hạn rủi ro mỗi lệnh hay số vị thế</b>. Những tham số đó thực ra không nằm trong tầm kiểm soát của bạn, và đưa vào điều khoản chỉ tạo cớ để tranh cãi về sau.</p>

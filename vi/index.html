@@ -25,7 +25,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
-<link href="../assets/css/style.css?v=202609291056" rel="stylesheet"/>
+<link href="../assets/css/style.css?v=202610011835" rel="stylesheet"/>
 </head>
 <body>
 <!-- ticker -->
@@ -241,8 +241,8 @@
 </div>
 </div>
 <div class="steps four rv">
-<div class="step"><div class="n">01</div><h4>Đăng ký qua liên kết</h4><p>Mở tài khoản tại nền tảng đối tác bằng liên kết trên trang này và hoàn tất xác minh danh tính. Chỉ tài khoản mở theo cách này mới đăng ký được chiến lược.</p></div>
-<div class="step"><div class="n">02</div><h4>Nạp tiền và đăng ký chiến lược</h4><p>Đăng nhập <span class="mono">secure.decodefx.com</span> → <b>Copy Trading</b>. Lần đầu vào bạn phải <b>đăng ký một tài khoản follower</b> thì nền tảng sao chép mới cho vào.<br/><br/>Mở <b>New subscription</b> và điền Provider là <span class="mono">PRESIGHT ALPHA-1</span>. Cấu hình: <b>Autoscale</b>, <b>Value by asset</b>, <b>Ratio 1</b> (tức 1:1, không phóng đại).<br/><br/>Sau đó bấm <b>Activate</b> ở cột <b>Action</b> — <b>chưa bấm thì chưa sao chép gì cả</b>, đăng ký chỉ nằm im trong danh sách. Rủi ro mỗi lệnh do chúng tôi đặt — bạn không phải cấu hình.</p></div>
+<div class="step"><div class="n">01</div><h4>Đăng ký và mở tài khoản MT5</h4><p>Đăng ký DecodeFX qua liên kết trên trang này và hoàn tất xác minh (KYC) — chỉ tài khoản mở theo đường này mới đăng ký được chiến lược.<br/><br/>Sau đó vào <b>Quản lý tài khoản → + Tài khoản thật</b> để tạo một tài khoản giao dịch MT5, <b>chọn loại tài khoản theo số vốn bạn định sao chép</b>: <b>từ 5.000 đô la trở lên dùng tài khoản USD, dưới 5.000 dùng tài khoản cent</b>. Thông số đầy đủ của cả hai nằm trong bảng “Bắt đầu sao chép” ở góc trên bên phải.</p></div>
+<div class="step"><div class="n">02</div><h4>Nạp tiền, chuyển khoản và đăng ký nguồn tín hiệu</h4><p>Nạp xong thì <b>chuyển tiền vào tài khoản MT5 bạn vừa tạo</b>. Tài khoản cent có thêm một bước: vào <b>Tài sản → Quy đổi</b> đổi USD sang <b>USC</b> trước, rồi mới chuyển.<br/><br/>Tiếp theo mở <b>Cộng đồng sao chép → Khám phá</b> và tìm nguồn tín hiệu khớp với loại tài khoản — <span class="mono">PRESIGHT ALPHA-1</span> cho tài khoản USD, <span class="mono">presighttrading_com - ct signal1</span> cho tài khoản cent.<br/><br/>Chọn xong bấm <b>Sao chép ngay</b>: tài khoản sao chép là tài khoản vừa tạo, chế độ <b>tỷ lệ theo vốn chủ sở hữu</b>, hệ số <b>1</b>, giữ nguyên phương án chia lợi nhuận mặc định. <b>Hệ số lớn hơn 1 là phóng đại vị thế của tài khoản chiến lược và làm mất tư cách bảo hiểm ngay.</b> Rủi ro mỗi lệnh do chúng tôi đặt ở phía chiến lược, bạn không cần cấu hình.</p></div>
 <div class="step"><div class="n">03</div><h4>Khai báo MT5 account ID</h4><p>Nhắn <span class="mono">@PresightAdminBot</span> trên Telegram kèm MT5 account ID (số đăng nhập); bot trả biên nhận ngay lập tức. Thời gian bảo vệ bắt đầu từ khoảnh khắc đó — tài khoản chưa khai báo thì không đủ điều kiện, và khoản lỗ trước lúc khai báo không được bảo hiểm.</p></div>
 <div class="step"><div class="n">04</div><h4>Sao chép đủ một tháng</h4><p>Mọi lệnh vào và lệnh ra đều phản chiếu sang tài khoản của bạn; sao chép liên tục đủ một tháng là hoàn tất thời gian bảo vệ. Bạn có thể tạm dừng hoặc huỷ liên kết bất cứ lúc nào ngay trong nền tảng, nhưng làm vậy là kết thúc bảo hiểm cho lần tham gia đó.</p></div>
 </div>
@@ -256,7 +256,7 @@
 </div>
 <div class="faq rv">
 <details open=""><summary>Bảo hiểm kích hoạt và tính toán thế nào?</summary><p><b>Vốn gốc</b> là vốn chủ sở hữu của tài khoản tại thời điểm thời gian bảo vệ bắt đầu — tức lúc bạn khai báo MT5 account ID. Nếu vốn chủ sở hữu cuối kỳ thấp hơn vốn gốc, phần chênh lệch chính là lỗ ròng và được hoàn bằng <b>tiền mặt USD</b> trong vòng 10 ngày làm việc sau khi xác minh. Bảo hiểm chỉ áp dụng cho các lệnh do chính chiến lược đóng — <b>lỗ ở các vị thế bạn tự tay đóng thì không được hoàn</b>. Nếu bạn hoà vốn hoặc có lãi thì không phát sinh chi trả. Mức bảo hiểm tối đa bằng toàn bộ vốn gốc. <a href="protection.html">Điều khoản đầy đủ và trường hợp loại trừ →</a></p></details>
-<details><summary>Cần đáp ứng những gì?</summary><p>Năm điều: <b>tài khoản mới</b> mở qua liên kết của chúng tôi và đã xác minh danh tính; cấu hình sao chép <b>Autoscale / Value by asset / Ratio 1</b> (tức 1:1, không phóng đại); <b>khai báo MT5 account ID</b> cho <span class="mono">@PresightAdminBot</span> ngay khi bắt đầu sao chép; <b>sao chép liên tục đủ một tháng</b> kể từ lần khai báo đó; và <b>không can thiệp thủ công, không rút tiền</b> trong tháng đầu — sau tháng đó, việc rút tiền không còn hạn chế nào, cả vốn lẫn lợi nhuận, và không ảnh hưởng tư cách.<br/><br/>Bồi thường được quyết toán trên kết quả ròng của <b>cả kỳ sao chép</b> (từ lúc khai báo đến khi bạn hủy đăng ký), mọi khoản nạp và rút đều được tính vào, không chia theo từng tháng: nếu bạn rút tiền sau một tháng lãi rồi sau đó lỗ, điều quan trọng vẫn là trong kỳ đó bạn đã bỏ vào bao nhiêu và lấy ra bao nhiêu.<br/><br/>Khai báo là cửa vào: chúng tôi không thể xác minh một tài khoản chưa từng được cho biết, và khoản lỗ phát sinh trước khi khai báo nằm ngoài phạm vi bảo hiểm. Tự tay đóng lệnh là ngoại lệ duy nhất — nó không hủy lần tham gia, nhưng khoản lỗ của lệnh đó không được hoàn.<br/><br/>Rủi ro mỗi lệnh và tổng trạng thái <b>không do bạn đặt</b> — chúng tôi quản lý ở cấp tài khoản sao chép. ALPHA-1 là chiến lược định lượng, giữ nhiều vị thế cùng lúc là bình thường. Tài khoản chiến lược có ngưỡng sụt giảm vốn, chạm ngưỡng thì tự giảm khối lượng hoặc ngừng mở lệnh mới, và không bao giờ trung bình giá.</p></details>
+<details><summary>Cần đáp ứng những gì?</summary><p>Năm điều: <b>tài khoản mới</b> mở qua liên kết của chúng tôi và đã xác minh danh tính; chế độ sao chép <b>tỷ lệ theo vốn chủ sở hữu</b> với <b>hệ số 1</b> (tức 1:1, không phóng đại); <b>khai báo MT5 account ID</b> cho <span class="mono">@PresightAdminBot</span> ngay khi bắt đầu sao chép; <b>sao chép liên tục đủ một tháng</b> kể từ lần khai báo đó; và <b>không can thiệp thủ công, không rút tiền</b> trong suốt khoảng thời gian ấy.<br/><br/>Khai báo là cửa vào: tài khoản chưa từng được báo thì chúng tôi không có cách nào xác minh, còn khoản lỗ phát sinh trước lúc khai báo nằm ngoài phạm vi bảo hiểm. Tự tay đóng lệnh là ngoại lệ duy nhất — nó không huỷ cả lần tham gia, nhưng khoản lỗ của lệnh đó thì không được hoàn.<br/><br/>Rủi ro mỗi lệnh và tổng mức phơi nhiễm <b>không do bạn đặt</b> — chúng tôi quản lý ở cấp tài khoản sao chép. ALPHA-1 là chiến lược định lượng và việc giữ nhiều vị thế cùng lúc là bình thường. Tài khoản chiến lược có ngưỡng sụt giảm, chạm ngưỡng là giảm khối lượng hoặc ngừng vào lệnh mới, và không bao giờ trung bình giá xuống.</p></details>
 <details><summary>Bắt buộc dùng nền tảng chỉ định à?</summary><p>Đúng vậy. Sao chép là cơ chế đồng bộ tín hiệu bên trong nền tảng, và chỉ tài khoản đăng ký qua liên kết trên trang này mới xuất hiện trong danh sách đăng ký. Tài khoản bạn đã có ở nơi khác không kết nối được.</p></details>
 <details><summary>Các bạn kiếm tiền bằng gì? Sao cộng đồng lại miễn phí?</summary><p>Doanh thu từ sao chép đến từ hoàn phí của đối tác và phần chia theo hiệu quả chiến lược, tỷ lệ thuận với quy mô sao chép. Khi chiến lược không kiếm được gì thì chúng tôi cũng vậy — lợi ích của hai bên cùng hướng. Cộng đồng là kênh thu hút người dùng, không tính phí riêng.</p></details>
 <details><summary>Thành tích có bị chọn lọc không?</summary><p>Các lệnh khớp trên trang này lấy thẳng từ tài khoản thật của chiến lược, không lọc, và lệnh thua được liệt kê cùng với phần còn lại. Hiệu quả quá khứ không phản ánh kết quả tương lai, và chiến lược nào cũng có giai đoạn sụt giảm.</p></details>
@@ -375,20 +375,19 @@
 <li>
 <div class="mn">01</div>
 <div>
-<h4>Mở tài khoản và nạp tiền</h4>
-<p>Chỉ <b>tài khoản mới</b> mở qua liên kết này mới nằm trong danh sách đăng ký. Hoàn tất xác minh danh tính (KYC) rồi nạp tiền.</p>
+<h4>Đăng ký qua liên kết</h4>
+<p>Chỉ <b>tài khoản mới</b> mở qua liên kết này mới nằm trong danh sách đăng ký. Hoàn tất xác minh danh tính (KYC).</p>
 <a class="btn" data-link="broker" rel="noopener" target="_blank">Đăng ký tại DecodeFX <span class="arw">→</span></a>
 </div>
 </li>
 <li>
 <div class="mn">02</div>
 <div>
-<h4>Đăng ký PRESIGHT ALPHA-1</h4>
-<div class="path"><b>secure.decodefx.com</b> → Copy Trading → <b>đăng ký tài khoản follower</b> → đăng nhập → New subscription<br/>
-            Provider: <b>PRESIGHT ALPHA-1</b><br/>
-            Cấu hình: <b>Autoscale</b> · <b>Value by asset</b> · <b>Ratio = 1</b><br/>
-            Cuối cùng bấm <b>Activate</b> ở cột <b>Action</b></div>
-<p class="mwarn"><b>Tạo xong đăng ký phải bấm Activate</b>, nếu không sẽ không có lệnh nào được sao chép. Ratio 1 là bản sao 1:1; lớn hơn 1 là phóng đại vị thế và mất bảo hiểm ngay lập tức.</p>
+<h4>Mở tài khoản MT5, nạp tiền và đăng ký nguồn tín hiệu</h4>
+<div class="path">Quản lý tài khoản → <b>+ Tài khoản thật</b><br/>Nền tảng <b>MT5</b> · Loại <b>Thường</b> · Đòn bẩy <b>500:1</b> · Tiền tệ <b>USD</b><br/>Sao chép <b>≥ 5.000 USD</b>　Nhóm <b>美元-标准-4X</b> (tài khoản USD)<br/>Sao chép <b>&lt; 5.000 USD</b>　Nhóm <b>美分-标准-金属/原油-S6</b> (tài khoản cent)</div>
+<p>Nạp xong thì <b>chuyển tiền vào tài khoản MT5 đó</b>. Tài khoản cent phải quy đổi trước: <b>Tài sản → Quy đổi</b> → USD sang <b>USC</b> → nhập số tiền → gửi.</p>
+<div class="path">Cộng đồng sao chép → <b>Khám phá</b> → tìm nguồn tín hiệu → <b>Sao chép ngay</b><br/>Tài khoản USD: <b>PRESIGHT ALPHA-1</b><br/>Tài khoản cent: <b>presighttrading_com - ct signal1</b><br/>Tài khoản sao chép: <b>tài khoản MT5 bạn vừa tạo</b>　Chế độ: <b>tỷ lệ theo vốn chủ sở hữu</b><br/>Hệ số: <b>1</b>　Phương án chia lợi nhuận: <b>mặc định</b></div>
+<p class="mwarn">Loại tài khoản phải khớp với nguồn tín hiệu: tài khoản USD theo ALPHA-1, tài khoản cent theo ct signal1 — ghép sai thì lệnh không sao chép được. <b>Hệ số 1 là bản sao 1:1</b>; lớn hơn 1 là phóng đại vị thế và làm mất tư cách bảo hiểm ngay.</p>
 </div>
 </li>
 <li>
@@ -406,7 +405,7 @@
 </div>
 </div>
 <script src="../assets/js/config.js?v=202609061155"></script>
-<script src="../assets/js/app.js?v=202609291056"></script>
+<script src="../assets/js/app.js?v=202610011835"></script>
 <script defer="" src="../assets/js/botlink.js?v=202609061155"></script>
 </body>
 </html>

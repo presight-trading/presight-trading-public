@@ -25,7 +25,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
-<link href="../assets/css/style.css?v=202609291056" rel="stylesheet"/>
+<link href="../assets/css/style.css?v=202610011835" rel="stylesheet"/>
 </head>
 <body>
 <!-- ticker -->
@@ -241,8 +241,8 @@
 </div>
 </div>
 <div class="steps four rv">
-<div class="step"><div class="n">01</div><h4>リンクから口座開設</h4><p>当サイトのリンクから提携プラットフォームで口座を開設し、本人確認を完了してください。この経路で開いた口座だけが戦略を購読できます。</p></div>
-<div class="step"><div class="n">02</div><h4>入金して購読</h4><p><span class="mono">secure.decodefx.com</span> にログイン → <b>Copy Trading</b>。初回は先に<b>フォロワー口座を登録</b>しないとコピー用プラットフォームに入れません。<br/><br/><b>New subscription</b> を開き、Provider に <span class="mono">PRESIGHT ALPHA-1</span> を指定。設定は <b>Autoscale</b>、<b>Value by asset</b>、<b>Ratio 1</b>（1:1、拡大しない）。<br/><br/>そのあと <b>Action</b> 列の <b>Activate</b> を押してください——<b>押すまでコピーは始まりません</b>。購読は一覧に並んでいるだけの状態です。1 トレードあたりのリスクはこちらで設定するので、あなたが触る必要はありません。</p></div>
+<div class="step"><div class="n">01</div><h4>MT5 口座を開設する</h4><p>当サイトのリンクから DecodeFX に登録し、本人確認（KYC）を済ませます——この経路で開いた口座だけが本戦略を購読できます。<br/><br/>そのうえで <b>口座管理 → + リアル口座</b> から MT5 取引口座を作り、<b>コピーに回す資金額で種別を選びます</b>：<b>5,000 米ドル以上なら米ドル口座、5,000 未満ならセント口座</b>。両方の詳細な設定は右上の「コピーを始める」に載せています。</p></div>
+<div class="step"><div class="n">02</div><h4>入金・振替してシグナル元を購読</h4><p>入金したら、<b>いま作った MT5 口座に資金を振り替えます</b>。セント口座はもう一手間：先に <b>資産 → 両替</b> で USD を <b>USC</b> に替えてから振り替えてください。<br/><br/>次に <b>コピーコミュニティ → 発見</b> で、口座種別に対応するシグナル元を検索します——米ドル口座は <span class="mono">PRESIGHT ALPHA-1</span>、セント口座は <span class="mono">presighttrading_com - ct signal1</span>。<br/><br/>選んだら<b>今すぐコピー</b>：コピー口座はいま作った口座、モードは<b>有効証拠金の比例</b>、倍率は <b>1</b>、分配プランは既定のまま。<b>倍率が 1 を超えると主口座のポジションを拡大したことになり、補償資格を失います。</b>一回あたりのリスクは当方が戦略側で設定するので、お客様の設定は不要です。</p></div>
 <div class="step"><div class="n">03</div><h4>MT5 口座 ID を届け出る</h4><p>Telegram で <span class="mono">@PresightAdminBot</span> に MT5 口座 ID（ログイン番号）を送ってください。その場で受付の返信が届きます。保護期間はこの瞬間から始まります。届出のない口座は対象外で、届出より前の損失は補償されません。</p></div>
 <div class="step"><div class="n">04</div><h4>1 か月コピーする</h4><p>新規建てと決済はすべてあなたの口座に反映されます。1 か月続けてコピーすると保護期間が満了します。プラットフォーム内でいつでも停止・解除できますが、その時点でその回の補償は終了します。</p></div>
 </div>
@@ -256,7 +256,7 @@
 </div>
 <div class="faq rv">
 <details open=""><summary>補償はどう発生し、どう計算しますか？</summary><p><b>基準資金</b>とは、保護期間が始まった時点——つまり MT5 口座 ID を届け出た時点——の有効証拠金です。保護期間終了時の有効証拠金がこれを下回っていれば、その差額が純損失で、確認完了後 10 営業日以内に<b>米ドル現金</b>で返金します。補償の対象は戦略自身が決済したトレードだけで、<b>ご自身で手仕舞いした建玉の損失は返金されません</b>。同値または利益で終えた場合は支払いは発生しません。補償の上限は基準資金の全額です。<a href="protection.html">規約全文と除外事由 →</a></p></details>
-<details><summary>対象になる条件は？</summary><p>5 つです。当方のリンクから開設し KYC を済ませた<b>新規口座</b>であること。コピー設定が <b>Autoscale / Value by asset / Ratio 1</b>（1:1、拡大しない）であること。コピー開始後に <span class="mono">@PresightAdminBot</span> へ<b>MT5 口座 ID を届け出る</b>こと。その届出から<b>まる 1 か月</b>コピーを続けること。そして<b>最初の 1 か月は手動介入も出金もしない</b>こと——1 か月を過ぎたあとは出金に制限はなく、元本も利益も引き出せて、資格には影響しません。<br/><br/>補償は<b>コピー期間全体</b>（届出から解除まで）の純損益で精算します。入金・出金はすべて算入し、月ごとには区切りません。勝った月に出金してあとで負けた場合でも、見るのはその期間に合計いくら入れて合計いくら戻ったかです。<br/><br/>届出が入口です。知らされていない口座は確認のしようがなく、届出より前に生じた損失は補償の外です。手仕舞いだけは例外扱いで、参加そのものは無効になりませんが、その取引の損失は返金されません。<br/><br/>一回あたりのリスクと合計エクスポージャーは<b>お客様が設定するものではありません</b>——コピー口座の側で当方が管理します。ALPHA-1 はクオンツ戦略で、複数のポジションを同時に持つのは通常の姿です。戦略口座にはドローダウンの閾値があり、抵触するとサイズを落とすか新規建てを止めます。ナンピンもしません。</p></details>
+<details><summary>対象になる条件は？</summary><p>5 つです。当方のリンクから開設し KYC を済ませた<b>新規口座</b>であること。コピーモードが<b>有効証拠金の比例</b>・<b>倍率 1</b>（1:1、拡大しない）であること。コピー開始後に <span class="mono">@PresightAdminBot</span> へ<b>MT5 口座 ID を届け出る</b>こと。その届出から<b>まる 1 か月</b>コピーを続けること。そして期間中は<b>手動介入も出金もしない</b>こと。<br/><br/>届出が入口です。知らされていない口座は確認のしようがなく、届出より前に生じた損失は補償の外です。手仕舞いだけは例外扱いで、参加そのものは無効になりませんが、そのトレードの損失は返金されません。<br/><br/>1 トレードあたりのリスクと合計エクスポージャーは<b>あなたが設定するものではなく</b>、こちらがコピー口座の側で管理します。ALPHA-1 はクオンツ戦略で、同時に複数のポジションを持つのは正常です。戦略口座にはドローダウンの閾値があり、触れるとロットを落とすか新規建てを止めます。ナンピンは行いません。</p></details>
 <details><summary>指定のプラットフォームでないと駄目ですか？</summary><p>はい。コピートレードはプラットフォーム内部のシグナル同期のしくみで、当サイトのリンクから登録した口座だけが購読リストに載ります。他所で既にお持ちの口座は接続できません。</p></details>
 <details><summary>収益源は？なぜコミュニティは無料なのですか？</summary><p>収益は提携先からのリベートと戦略成績の分配で、コピー規模に連動します。戦略が稼がなければ、こちらの収益もゼロです。利害の向きが同じということです。コミュニティは集客の入口であって、別途課金はしません。</p></details>
 <details><summary>実績は選別されていませんか？</summary><p>このページの約定は戦略の実口座から無選別でそのまま出しており、負けトレードも並べています。過去の成績は将来の結果を示すものではなく、どんな戦略にもドローダウン期間があります。</p></details>
@@ -375,20 +375,19 @@
 <li>
 <div class="mn">01</div>
 <div>
-<h4>口座開設して入金</h4>
-<p>購読リストに載るのは、このリンクから開いた<b>新規口座</b>だけです。本人確認（KYC）を済ませてから入金してください。</p>
+<h4>リンクから口座開設</h4>
+<p>購読リストに載るのは、このリンクから開いた<b>新規口座</b>だけです。本人確認（KYC）を済ませてください。</p>
 <a class="btn" data-link="broker" rel="noopener" target="_blank">DecodeFX で登録する <span class="arw">→</span></a>
 </div>
 </li>
 <li>
 <div class="mn">02</div>
 <div>
-<h4>PRESIGHT ALPHA-1 を購読</h4>
-<div class="path"><b>secure.decodefx.com</b> → Copy Trading → <b>フォロワー口座を登録</b> → サインイン → New subscription<br/>
-            Provider：<b>PRESIGHT ALPHA-1</b><br/>
-            設定：<b>Autoscale</b> · <b>Value by asset</b> · <b>Ratio = 1</b><br/>
-            最後に <b>Action</b> 列の <b>Activate</b> を押す</div>
-<p class="mwarn">購読を作ったら<b>必ず Activate を押してください</b>。押さないと一切コピーされません。Ratio 1 が 1:1 です。1 より大きくすると建玉を拡大したことになり、その時点で補償の対象外になります。</p>
+<h4>MT5 口座を開き、入金してシグナル元を購読</h4>
+<div class="path">口座管理 → <b>+ リアル口座</b><br/>取引プラットフォーム <b>MT5</b> · 口座種別 <b>標準</b> · レバレッジ <b>500:1</b> · 通貨 <b>USD</b><br/>コピー <b>5,000 米ドル以上</b>　グループは <b>美元-标准-4X</b>（米ドル口座）<br/>コピー <b>5,000 米ドル未満</b>　グループは <b>美分-标准-金属/原油-S6</b>（セント口座）</div>
+<p>入金したら<b>この MT5 口座へ振り替えます</b>。セント口座は先に両替：<b>資産 → 両替</b> → USD から <b>USC</b> へ → 金額を入力 → 送信。</p>
+<div class="path">コピーコミュニティ → <b>発見</b> → シグナル元を検索 → <b>今すぐコピー</b><br/>米ドル口座：<b>PRESIGHT ALPHA-1</b><br/>セント口座：<b>presighttrading_com - ct signal1</b><br/>コピー口座：<b>いま作った MT5 口座</b>　モード：<b>有効証拠金の比例</b><br/>倍率：<b>1</b>　分配プラン：<b>既定</b></div>
+<p class="mwarn">口座種別とシグナル元は必ず対応させてください：米ドル口座は ALPHA-1、セント口座は ct signal1。取り違えるとコピーされません。<b>倍率 1 が 1:1</b>で、1 を超えるとポジションを拡大したことになり、補償資格を失います。</p>
 </div>
 </li>
 <li>
@@ -406,7 +405,7 @@
 </div>
 </div>
 <script src="../assets/js/config.js?v=202609061155"></script>
-<script src="../assets/js/app.js?v=202609291056"></script>
+<script src="../assets/js/app.js?v=202610011835"></script>
 <script defer="" src="../assets/js/botlink.js?v=202609061155"></script>
 </body>
 </html>

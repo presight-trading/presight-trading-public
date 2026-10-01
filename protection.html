@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=202609291056">
+<link rel="stylesheet" href="assets/css/style.css?v=202610011835">
 <style>
   .doc{max-width:74ch;margin:0 auto}
   .doc h3{font-family:var(--han);font-size:1.06rem;font-weight:700;color:var(--ink);
@@ -91,15 +91,21 @@
       <p>以下条件需<b>全部</b>满足。任一不满足即不在保护范围内。</p>
       <ol>
         <li>通过 Presight 官方链接注册的合作平台<b>新账户</b>，并完成平台身份认证（KYC）。既有账户无法接入。</li>
-        <li>在平台跟单系统内订阅 <b>PRESIGHT ALPHA-1</b>，并按下面的参数配置。
-            具体路径：登录 <span class="mono">secure.decodefx.com</span> → <b>Copy Trading</b> →
-            第一次进需要先<b>注册一个 follower 账户</b>，注册完才能登录跟单平台 →
-            <b>New subscription</b> → Provider 填 <span class="mono">PRESIGHT ALPHA-1</span>。</li>
-        <li>订阅建好之后，在 <b>Action</b> 一栏点 <b>Activate</b> 激活。
-            <b>没有激活的订阅不产生任何跟单</b>，也就不存在受保护的交易——
-            保护期虽然从报备起算，但账户不跟单就不会有可赔付的亏损。</li>
-        <li>跟单参数设为 <b>Autoscale</b>、<b>Value by asset</b>、<b>Ratio = 1</b>，
-            即 1:1 同步，不得放大主账户仓位。Ratio 大于 1 就是放大，会直接失去赔付资格。</li>
+        <li>在平台开一个 <b>MT5 交易账户</b>（<b>账户管理 → + 真实账户</b>），
+            并<b>按跟单金额选对账户类型</b>——账户类型和下面要订阅的信号源必须成对，搭错了跟不上单：
+            <br>· 跟单 <b>≥ 5,000 美元</b>：<b>美元账户</b>——交易平台 <b>MT5</b>、账户类型 <b>普通</b>、
+            组 <span class="mono">美元-标准-4X</span>、杠杆 <b>500:1</b>、币种 <b>USD</b>
+            <br>· 跟单 <b>&lt; 5,000 美元</b>：<b>美分账户</b>——交易平台 <b>MT5</b>、账户类型 <b>普通</b>、
+            组 <span class="mono">美分-标准-金属/原油-S6</span>、杠杆 <b>500:1</b>、币种 <b>USD</b></li>
+        <li>入金后把资金<b>划转到这个 MT5 账户</b>。美分账户要先兑换：
+            <b>资产 → 兑换</b> → 从 USD 兑换为 <b>USC</b> → 输入金额 → 提交。
+            钱没划到这个账户上，订阅了也不会有任何成交。</li>
+        <li>在 <b>跟单社区 → 发现</b> 里搜索并选中与你账户类型对应的信号源，点<b>立即跟单</b>：
+            <br>· 美元账户 → <span class="mono">PRESIGHT ALPHA-1</span>
+            <br>· 美分账户 → <span class="mono">presighttrading_com - ct signal1</span></li>
+        <li>跟单参数：跟单账户选<b>你刚建的那个 MT5 账户</b>，跟单模式选<b>按净值等比例</b>，
+            <b>乘系数填 1</b>，分润方案用默认。乘系数就是倍数，
+            <b>大于 1 即放大主账户仓位，会直接失去赔付资格</b>。</li>
         <li>开始跟单后，在 Telegram 私信 <span class="mono">@PresightAdminBot</span>，<b>报备你的 MT5 账户 ID（登录号）</b>——它会当场回执。
             没有报备的账户我们无从核验，<b>不具备赔付资格</b>；已报备的，赔付也只从报备之时起算——
             报备之前产生的亏损不在范围内。</li>
@@ -110,7 +116,7 @@
       </ol>
 
       <div class="callout">
-        <p><b>建议跟单金额 5,000 美元起。</b>这不是参与条件，是为了让跟单跟得全：策略本身仓位很轻、杠杆很低，跟单系统按你的资金与策略账户的比例缩放手数——资金太少时，不少小仓位的订单折算下来达不到平台的最小手数，会被直接跳过，你的成交就和策略对不上了。金额低于这个数仍然可以参加，只是跟不全的那部分不构成赔付理由。</p>
+        <p><b>5,000 美元是选账户类型的那条线，不是参与门槛。</b>策略本身仓位很轻、杠杆很低，跟单系统按你的资金与策略账户的比例缩放手数——资金少的时候，不少小仓位的订单折算下来达不到平台的最小手数，会被直接跳过，你的成交就和策略对不上。<b>美分账户就是为这种情况准备的</b>：同样的钱在美分账户里对应的手数大上一截，小单子也跟得住。所以不足 5,000 美元请走美分账户，并订阅对应的美分信号源；若在美元账户上以较小的金额跟单，因最小手数而漏掉的那部分不构成赔付理由。</p>
       </div>
 
       <h3><span class="no">03</span>风控由我们在跟单账户层面完成</h3>

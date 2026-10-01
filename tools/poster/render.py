@@ -31,8 +31,14 @@ def render(lang: str) -> str:
     if leftover:
         sys.exit(f"❌ {lang}：这些占位符没有对应文案 → {leftover}")
 
-    # 反向自检：除中文版外，正文里不该再出现中日韩汉字（CSS 注释除外）
+    # 反向自检：除中文版外，正文里不该再出现中日韩汉字（CSS 注释除外）。
+    # 例外是平台里要照着选的那几个字面值——账户组名在 DecodeFX 后台就是中文，
+    # 翻译过去用户反而在下拉框里找不到，所以原样保留并在这里放行；放行的是
+    # 精确字符串而不是整类字符，别的地方漏翻照样会被抓出来。
+    VERBATIM = ("美元-标准-4X", "美分-标准-金属/原油-S6")
     body = out.split("</style>", 1)[-1]
+    for v in VERBATIM:
+        body = body.replace(v, "")
     if lang not in ("zh", "ja"):
         han = re.findall(r"[一-鿿]", body)
         if han:
