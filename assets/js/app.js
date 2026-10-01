@@ -13,7 +13,7 @@ const TEXTS = {
     updated:'更新于 ', demo:'演示数据', copied:'已复制',
     errT:'成交记录暂时取不到', errB:'数据接口没有响应。稍后会自动重试，也可以刷新页面。',
     emptyT:'还没有已平仓的交易', emptyB:'策略正在运行，第一笔成交平仓后会立刻出现在这里。',
-    annNote:'预估年化＝近 60 天收益率按 60 天一期复利外推 (1+r)^6−1，是一种推算而非业绩承诺：两个月的结果会被放大六次，短期的运气与回撤同样会被放大。不代表未来收益。',
+    annNote:'平均月收益＝区间收益 ÷ 区间天数 × 30；预估年化＝按这个月均复利外推 (1+m)^12−1，是一种推算而非业绩承诺：这段时间的月均表现会被重复十二次，期间的运气与回撤同样会被放大。不代表未来收益。',
     refNote:'收益率按实盘成交价格与每万美元仓位权重计算，并非策略账户的真实盈亏；仅已平仓，不含浮动盈亏与隔夜利息。',
   },
   en:{
@@ -25,7 +25,7 @@ const TEXTS = {
     updated:'updated ', demo:'demo data', copied:'Copied',
     errT:'Fill history unavailable', errB:'The data endpoint did not respond. It will retry automatically, or you can reload the page.',
     emptyT:'No closed trades yet', emptyB:'The strategy is running. The first closed trade will appear here immediately.',
-    annNote:"The annualised figure extrapolates the last 60 days by compounding six 60-day periods, (1+r)^6−1. It is an estimate, not a promise: two months of results get multiplied six times, and so do two months of luck or drawdown. It does not indicate future returns.",
+    annNote:"The average monthly return is the return over the window ÷ the days in it × 30; the annualised figure compounds that monthly average, (1+m)^12−1. It is an estimate, not a promise: this period's monthly average gets repeated twelve times, and so does its luck or drawdown. It does not indicate future returns.",
     refNote:"Returns are computed from live fill prices and a position weight per $10,000; they are not the strategy account's actual P&L. Closed trades only; excludes floating P&L and swap.",
   },
   ja:{
@@ -37,7 +37,7 @@ const TEXTS = {
     updated:'更新 ', demo:'デモデータ', copied:'コピーしました',
     errT:'約定履歴を取得できません', errB:'データ側から応答がありません。自動で再試行します。ページの再読み込みでもかまいません。',
     emptyT:'決済済みの取引はまだありません', emptyB:'戦略は稼働中です。最初の決済が出たらすぐここに表示されます。',
-    annNote:'推定年率は直近 60 日の収益率を 60 日 1 期として複利換算した (1+r)^6−1 の外挿値です。予測でも約束でもありません——2 か月分の結果が 6 回掛け合わされるため、短期の幸運もドローダウンも同じだけ拡大されます。将来の収益を示すものではありません。',
+    annNote:'平均月次収益率は、期間の収益 ÷ 期間日数 × 30 です。推定年率はその月次平均を複利換算した (1+m)^12−1 の外挿値——予測でも約束でもありません。この期間の月次平均が 12 回繰り返されるため、期間中の幸運もドローダウンも同じだけ拡大されます。将来の収益を示すものではありません。',
     refNote:'収益率は実際の約定価格と1万ドルあたりのポジション比率をもとに算出したものであり、戦略口座の実際の損益ではありません。決済済み取引のみを対象とし、含み損益とスワップ(オーバーナイト金利)は含みません。',
   },
   vi:{
@@ -49,7 +49,7 @@ const TEXTS = {
     updated:'cập nhật ', demo:'dữ liệu mẫu', copied:'Đã sao chép',
     errT:'Chưa lấy được lịch sử khớp lệnh', errB:'Máy chủ dữ liệu không phản hồi. Hệ thống sẽ tự thử lại, hoặc bạn có thể tải lại trang.',
     emptyT:'Chưa có lệnh nào đóng', emptyB:'Chiến lược đang chạy. Lệnh đóng đầu tiên sẽ hiện ở đây ngay lập tức.',
-    annNote:'Lợi nhuận năm ước tính là phép ngoại suy lợi nhuận 60 ngày gần nhất theo lãi kép mỗi kỳ 60 ngày, (1+r)^6−1. Đây là ước tính, không phải cam kết: kết quả của hai tháng được nhân lên sáu lần, và may mắn hay sụt giảm trong hai tháng đó cũng vậy. Không phản ánh lợi nhuận trong tương lai.',
+    annNote:'Lợi nhuận bình quân tháng = lợi nhuận của kỳ ÷ số ngày của kỳ × 30; lợi nhuận năm ước tính là phép ngoại suy mức bình quân tháng đó theo lãi kép, (1+m)^12−1. Đây là ước tính, không phải cam kết: mức bình quân tháng của giai đoạn này được lặp lại mười hai lần, và may mắn hay sụt giảm trong đó cũng vậy. Không phản ánh lợi nhuận trong tương lai.',
     refNote:'Lợi nhuận (%) được tính từ giá khớp lệnh thực tế và tỷ trọng vị thế trên mỗi 10.000 đô la; đây không phải lãi/lỗ thực tế của tài khoản chiến lược. Chỉ tính các lệnh đã đóng; không bao gồm lãi/lỗ chưa thực hiện và phí qua đêm.',
   },
   th:{
@@ -61,7 +61,7 @@ const TEXTS = {
     updated:'อัปเดตเมื่อ ', demo:'ข้อมูลตัวอย่าง', copied:'คัดลอกแล้ว',
     errT:'ยังดึงประวัติออเดอร์ไม่ได้', errB:'เซิร์ฟเวอร์ข้อมูลไม่ตอบสนอง ระบบจะลองใหม่อัตโนมัติ หรือคุณจะรีเฟรชหน้าก็ได้',
     emptyT:'ยังไม่มีออเดอร์ที่ปิดแล้ว', emptyB:'กลยุทธ์กำลังทำงาน ออเดอร์แรกที่ปิดจะขึ้นตรงนี้ทันที',
-    annNote:'ผลตอบแทนต่อปีโดยประมาณคือการคาดการณ์จากผลตอบแทน 60 วันล่าสุด ทบต้นรอบละ 60 วัน (1+r)^6−1 เป็นเพียงการประมาณ ไม่ใช่คำสัญญา: ผลของสองเดือนถูกคูณหกครั้ง โชคดีหรือการขาดทุนในสองเดือนนั้นก็ถูกขยายเท่ากัน ไม่ได้บ่งชี้ผลตอบแทนในอนาคต',
+    annNote:'ผลตอบแทนเฉลี่ยต่อเดือน = ผลตอบแทนของช่วง ÷ จำนวนวันของช่วง × 30; ผลตอบแทนต่อปีโดยประมาณคือการทบต้นค่าเฉลี่ยต่อเดือนนั้น (1+m)^12−1 เป็นเพียงการประมาณ ไม่ใช่คำสัญญา: ค่าเฉลี่ยต่อเดือนของช่วงนี้ถูกทำซ้ำสิบสองครั้ง โชคดีหรือการขาดทุนในช่วงนั้นก็ถูกขยายเท่ากัน ไม่ได้บ่งชี้ผลตอบแทนในอนาคต',
     refNote:'อัตราผลตอบแทนคำนวณจากราคาที่ execute จริงและน้ำหนักตำแหน่งต่อทุก 10,000 ดอลลาร์ ไม่ใช่กำไร/ขาดทุนจริงของบัญชีกลยุทธ์ นับเฉพาะออเดอร์ที่ปิดแล้ว ไม่รวมกำไร/ขาดทุนที่ยังไม่เกิดขึ้นจริงและดอกเบี้ยข้ามคืน',
   },
 };
@@ -151,12 +151,36 @@ function timeAgo(iso){
   return Math.floor(h/24)+T.day;
 }
 
-/* 战绩窗口。后端 vip_history_window_days 同为 60，两边要一起改——前端只按
-   closedAt 过滤，后端给多少天就只能看到多少天。
-   注意这跟包赔的保护期(1 个月)是两回事，别一起动。
-   WINDOW_PERIODS = 年化外推的期数：6 × 60 天 ≈ 360 天，取整数好讲。 */
-const WINDOW_DAYS = 60;
-const WINDOW_PERIODS = 6;
+/* 战绩窗口由数据自己说了算：后端 payload 里的 windowDays 是多少就是多少。
+   以前这里写死 30、后来写死 60，每次后端调窗口前端都得跟着改一轮，还要
+   把六七个标签里的天数一个个换掉。现在窗口天数只有一个来源，页面上的
+   「近 N 天」也由它填（见 paintWindowDays）。
+   拿不到 windowDays 时退回按成交记录的实际跨度推，再退回 30。
+   注意这跟包赔的保护期(1 个月)是两回事，别一起动。 */
+let WINDOW_DAYS = 30;
+
+/* 窗口天数：优先信后端，其次按成交的首末间隔推，最后兜底 30。
+   向上取整 + 至少 1，避免窗口不足一天时除出一个荒唐的月均。 */
+function resolveWindowDays(json, trades){
+  const fromApi = Number(json && json.windowDays);
+  if(isFinite(fromApi) && fromApi > 0) return fromApi;
+  const ts = trades.map(t => t.closedAt && new Date(t.closedAt).getTime())
+                   .filter(v => isFinite(v));
+  if(ts.length >= 2){
+    const span = (Math.max(...ts) - Math.min(...ts)) / 86400000;
+    if(span >= 1) return Math.ceil(span);
+  }
+  return 30;
+}
+
+/* 把页面上标着「近 N 天」的地方统一填成当前窗口天数。
+   标签里留的是 <span data-days></span>，翻译文件里也带着它——这样后端把
+   窗口从 60 调成 90，页面自己就跟着说 90，不用再改五个语种的文案。 */
+function paintWindowDays(){
+  document.querySelectorAll('[data-days]').forEach(el => {
+    el.textContent = String(WINDOW_DAYS);
+  });
+}
 
 /* ---------- 渲染成交表 ---------- */
 function renderLoading(){
@@ -268,12 +292,16 @@ function renderMetrics(trades, summary, summary30d){
   // 一笔可用数据都没有就是 null，显示 "—"，不是 0。求和用原始 USD，换算成
   // % 放到 pct() 里统一做。
   const pnl30 = (summary30d && summary30d.pnlUsd != null) ? Number(summary30d.pnlUsd) : sumPnlUsd(trades, since);
+  // 展示的是**平均月收益**，不是区间总收益：区间可能是 30/60/90 天，总收益
+  // 之间没法横向比，折成每月之后才是同一个尺度，标签也不用跟着窗口改。
+  const rWin = (pnl30 == null) ? null : Number(pnl30) / REF_BALANCE_USD * 100;
+  const mAvg = monthlyAvg(rWin);
+  const mAvgTxt = mAvg==null ? '—' : (mAvg>=0?'+':'−') + Math.abs(mAvg).toFixed(2) + '%';
   const mPnl30El = $('#mPnl30');
-  if(mPnl30El){ mPnl30El.textContent = pct(pnl30); mPnl30El.className = 'v' + (pnl30==null ? '' : (pnl30>=0?' g':' r')); }
+  if(mPnl30El){ mPnl30El.textContent = mAvgTxt; mPnl30El.className = 'v' + (mAvg==null ? '' : (mAvg>=0?' g':' r')); }
 
-  // 预估年化：由窗口收益率按整期复利推算，指标卡与首屏用同一个值
-  const r30 = (pnl30 == null) ? null : Number(pnl30) / REF_BALANCE_USD * 100;
-  const ann = annualise(r30);
+  // 预估年化：由平均月收益按月复利推算，指标卡与首屏用同一个值
+  const ann = annualise(mAvg);
   const annTxt = ann==null ? '—' : (ann>=0?'+':'−') + Math.abs(ann).toFixed(1) + '%';
   const annCls = ann==null ? '' : (ann>=0?' g':' r');
   ['#mAnn','#sAnn'].forEach(sel=>{
@@ -283,7 +311,7 @@ function renderMetrics(trades, summary, summary30d){
 
   // 英雄区 #sRet / #sWin：窗口收益率 + 窗口胜率，跟指标卡的
   // #mPnl30 / #mWin 同一套数值，只是摆在首屏。
-  $('#sRet').textContent = pct(pnl30);
+  $('#sRet').textContent = mAvgTxt;
   $('#sWin').textContent = winRate30!=null ? winRate30.toFixed(1)+'%' : '—';
 
   // 小字口径说明：固定文案(见 T.refNote)，不再插入具体金额——页面任何
@@ -299,15 +327,22 @@ function renderMetrics(trades, summary, summary30d){
   drawEquity(curve, curveAt);
 }
 
-/* 由窗口收益率按整期复利推算年化：(1+r)^WINDOW_PERIODS − 1。
-   这是**推算**不是业绩承诺——用两个月的结果外推一年，那两个月的运气会被
-   放大六次。所以页面上始终带「推算」角标，并在小字里写清算法和它
-   不代表未来。r ≤ −100% 时无意义，直接返回 null。 */
-function annualise(rPct){
-  if(rPct == null || !isFinite(rPct)) return null;
-  const r = rPct / 100;
-  if(r <= -1) return null;
-  return (Math.pow(1 + r, WINDOW_PERIODS) - 1) * 100;
+/* 平均月收益：区间收益 ÷ 区间天数 × 30。
+   先折成「每月多少」再推年化，窗口是 30/60/90 天都一样算，换窗口不用改公式。 */
+function monthlyAvg(rPct){
+  if(rPct == null || !isFinite(rPct) || !(WINDOW_DAYS > 0)) return null;
+  return rPct / WINDOW_DAYS * 30;
+}
+
+/* 由平均月收益按月复利推算年化：(1+m)^12 − 1。
+   这是**推算**不是业绩承诺——把这段时间的月均表现重复十二次，期间的运气
+   与回撤同样会被放大十二次。所以页面上始终带「推算」角标，并在小字里写清
+   算法和它不代表未来。m ≤ −100% 时无意义，直接返回 null。 */
+function annualise(mPct){
+  if(mPct == null || !isFinite(mPct)) return null;
+  const m = mPct / 100;
+  if(m <= -1) return null;
+  return (Math.pow(1 + m, 12) - 1) * 100;
 }
 
 /* ---------- 净值曲线 ---------- */
@@ -587,6 +622,9 @@ function renderPayload(json){
   // 先定好参考账户余额，再渲染依赖 pct() 的各个板块，避免按品种拆分/成交表
   // 用旧的 REF_BALANCE_USD 换算，跟同一批数据的指标卡口径对不上。
   REF_BALANCE_USD = refBalanceOf(summary, summary30d);
+  // 窗口天数要在任何渲染之前定好：成交表、按品种、指标卡都按它过滤。
+  WINDOW_DAYS = resolveWindowDays(Array.isArray(json) ? null : json, list);
+  paintWindowDays();
   showHistory();
   drawTicker(list);
   renderBySymbol(list);

@@ -27,7 +27,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=202610012114">
+<link rel="stylesheet" href="assets/css/style.css?v=202610012121">
 </head>
 <body>
 <!-- ticker -->
@@ -99,9 +99,9 @@
     </div>
 
     <div class="strip rv">
-      <div><div class="k">近 60 天收益率</div><div class="v" id="sRet" style="color:var(--cobalt)">&mdash;</div></div>
+      <div><div class="k">平均月收益</div><div class="v" id="sRet" style="color:var(--cobalt)">&mdash;</div></div>
       <div><div class="k">预估年化 <span class="est">推算</span></div><div class="v" id="sAnn">&mdash;</div></div>
-      <div><div class="k">胜率 &middot; 近 60 天</div><div class="v" id="sWin">&mdash;</div></div>
+      <div><div class="k">胜率 &middot; 近 <span data-days>60</span> 天</div><div class="v" id="sWin">&mdash;</div></div>
       <div><div class="k">Loss Cover</div><div class="v" style="color:var(--cobalt)">现金返还</div></div>
     </div>
   </div>
@@ -176,28 +176,28 @@
       <!-- 相对口径：仓位(手/万美元) + 收益率(%)，60 天为主视角；不出现美元
            金额，净点数也不再展示，只留在下方成交表的「点数」列。 -->
       <div class="metrics">
-        <div><div class="k">近 60 天收益率</div><div class="v" id="mPnl30">&mdash;</div></div>
+        <div><div class="k">平均月收益</div><div class="v" id="mPnl30">&mdash;</div></div>
         <div><div class="k">预估年化 <span class="est">推算</span></div><div class="v" id="mAnn">&mdash;</div></div>
-        <div><div class="k">胜率(60 天)</div><div class="v" id="mWin">&mdash;</div></div>
-        <div><div class="k">余额回撤(60 天)</div><div class="v r" id="mDD">&mdash;</div></div>
-        <div><div class="k">盈亏比(60 天)</div><div class="v" id="mPF">&mdash;</div></div>
-        <div><div class="k">成交笔数(60 天)</div><div class="v" id="mN">&mdash;</div></div>
+        <div><div class="k">胜率(<span data-days>60</span> 天)</div><div class="v" id="mWin">&mdash;</div></div>
+        <div><div class="k">余额回撤(<span data-days>60</span> 天)</div><div class="v r" id="mDD">&mdash;</div></div>
+        <div><div class="k">盈亏比(<span data-days>60</span> 天)</div><div class="v" id="mPF">&mdash;</div></div>
+        <div><div class="k">成交笔数(<span data-days>60</span> 天)</div><div class="v" id="mN">&mdash;</div></div>
       </div>
       <div class="metrics-note" id="mRefNote"></div>
 
       <div class="curvewrap">
-        <svg viewBox="0 0 1080 260" id="equityChart" role="img" aria-label="60 天累计收益率（%）"></svg>
+        <svg viewBox="0 0 1080 260" id="equityChart" role="img" aria-label="累计收益率（%）"></svg>
       </div>
 
 
       <div class="bd-head">
-        <h4>按品种拆分 &middot; 近 60 天 &middot; 收益率</h4>
+        <h4>按品种拆分 &middot; 近 <span data-days>60</span> 天 &middot; 收益率</h4>
         <div class="bd-note">净点数不是均匀来自每个品种，摊开看更清楚</div>
       </div>
       <div class="bysym" id="bySym"></div>
 
       <div class="tbl-head" id="fills">
-        <h4>成交记录 · 近 60 天 <span class="realbadge">实盘</span></h4>
+        <h4>成交记录 · 近 <span data-days>60</span> 天 <span class="realbadge">实盘</span></h4>
         <div class="live"><span class="dot"></span> 实盘成交价 &middot; <span id="upd">&mdash;</span></div>
       </div>
       <p class="realnote">以下为 <b>PRESIGHT ALPHA-1 实盘账户</b>的真实成交记录，直接取自该账户，<b>不做筛选，亏损单同样列出</b>。不是回测，也不是模拟盘。表中<b>只包含已平仓的交易</b>，持仓中的订单要等平仓之后才会出现在这里。</p>
@@ -484,7 +484,7 @@
 </div>
 
 <script src="assets/js/config.js?v=202609061155"></script>
-<script src="assets/js/app.js?v=202610012114"></script>
+<script src="assets/js/app.js?v=202610012121"></script>
 <script src="assets/js/botlink.js?v=202609061155" defer></script>
 </body>
 </html>

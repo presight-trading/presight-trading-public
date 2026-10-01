@@ -1196,3 +1196,26 @@ INDEX.update({
     'Fill history · last 60 days <span class="realbadge">LIVE ACCOUNT</span>':
         '約定履歴 · 直近 60 日 <span class="realbadge">実口座</span>',
 })
+
+# 窗口天数改由数据填(标签里留 <span data-days>),后端返回 30/60/90 页面都
+# 自己跟着说;首格换成与窗口无关的「平均月收益」。译文除了把天数换成占位
+# span、以及新增那条,其余一个字没动。
+
+INDEX.update({
+    'Average monthly return':
+        '平均月次収益率',
+    'Win rate · last <span data-days="">60</span> days':
+        '勝率 · 直近 <span data-days="">60</span> 日',
+    'Win rate (<span data-days="">60</span>d)':
+        '勝率(<span data-days="">60</span> 日)',
+    'Balance drawdown (<span data-days="">60</span>d)':
+        '残高ドローダウン(<span data-days="">60</span> 日)',
+    'Profit factor (<span data-days="">60</span>d)':
+        'プロフィットファクター(<span data-days="">60</span> 日)',
+    'Trades (<span data-days="">60</span>d)':
+        'トレード数(<span data-days="">60</span> 日)',
+    'By instrument · last <span data-days="">60</span> days · return':
+        '銘柄別 · 直近 <span data-days="">60</span> 日 · 収益率',
+    'Fill history · last <span data-days="">60</span> days <span class="realbadge">LIVE ACCOUNT</span>':
+        '約定履歴 · 直近 <span data-days="">60</span> 日 <span class="realbadge">実口座</span>',
+})

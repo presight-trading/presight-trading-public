@@ -812,3 +812,26 @@ INDEX.update({
     'Fill history · last 60 days <span class="realbadge">LIVE ACCOUNT</span>':
         'Lịch sử khớp lệnh · 60 ngày gần nhất <span class="realbadge">TÀI KHOẢN THẬT</span>',
 })
+
+# 窗口天数改由数据填(标签里留 <span data-days>),后端返回 30/60/90 页面都
+# 自己跟着说;首格换成与窗口无关的「平均月收益」。译文除了把天数换成占位
+# span、以及新增那条,其余一个字没动。
+
+INDEX.update({
+    'Average monthly return':
+        'Lợi nhuận bình quân tháng',
+    'Win rate · last <span data-days="">60</span> days':
+        'Tỷ lệ thắng · <span data-days="">60</span> ngày',
+    'Win rate (<span data-days="">60</span>d)':
+        'Tỷ lệ thắng (<span data-days="">60</span> ngày)',
+    'Balance drawdown (<span data-days="">60</span>d)':
+        'Sụt giảm số dư (<span data-days="">60</span> ngày)',
+    'Profit factor (<span data-days="">60</span>d)':
+        'Hệ số lợi nhuận (<span data-days="">60</span> ngày)',
+    'Trades (<span data-days="">60</span>d)':
+        'Số lệnh (<span data-days="">60</span> ngày)',
+    'By instrument · last <span data-days="">60</span> days · return':
+        'Theo từng mã · <span data-days="">60</span> ngày gần nhất · lợi nhuận',
+    'Fill history · last <span data-days="">60</span> days <span class="realbadge">LIVE ACCOUNT</span>':
+        'Lịch sử khớp lệnh · <span data-days="">60</span> ngày gần nhất <span class="realbadge">TÀI KHOẢN THẬT</span>',
+})

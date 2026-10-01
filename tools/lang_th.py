@@ -812,3 +812,26 @@ INDEX.update({
     'Fill history · last 60 days <span class="realbadge">LIVE ACCOUNT</span>':
         'ประวัติออเดอร์ · 60 วันล่าสุด <span class="realbadge">บัญชีจริง</span>',
 })
+
+# 窗口天数改由数据填(标签里留 <span data-days>),后端返回 30/60/90 页面都
+# 自己跟着说;首格换成与窗口无关的「平均月收益」。译文除了把天数换成占位
+# span、以及新增那条,其余一个字没动。
+
+INDEX.update({
+    'Average monthly return':
+        'ผลตอบแทนเฉลี่ยต่อเดือน',
+    'Win rate · last <span data-days="">60</span> days':
+        'อัตราชนะ · <span data-days="">60</span> วัน',
+    'Win rate (<span data-days="">60</span>d)':
+        'อัตราชนะ (<span data-days="">60</span> วัน)',
+    'Balance drawdown (<span data-days="">60</span>d)':
+        'การลดลงของยอดคงเหลือ (<span data-days="">60</span> วัน)',
+    'Profit factor (<span data-days="">60</span>d)':
+        'Profit factor (<span data-days="">60</span> วัน)',
+    'Trades (<span data-days="">60</span>d)':
+        'จำนวนออเดอร์ (<span data-days="">60</span> วัน)',
+    'By instrument · last <span data-days="">60</span> days · return':
+        'แยกตามสินทรัพย์ · <span data-days="">60</span> วันล่าสุด · ผลตอบแทน',
+    'Fill history · last <span data-days="">60</span> days <span class="realbadge">LIVE ACCOUNT</span>':
+        'ประวัติออเดอร์ · <span data-days="">60</span> วันล่าสุด <span class="realbadge">บัญชีจริง</span>',
+})
